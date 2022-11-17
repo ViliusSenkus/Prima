@@ -1,0 +1,22 @@
+:root{
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif ; /*išsiaiškinti kaip importuoti fontus į css failą. Ar tai įmanoma? */
+}
+
+header,
+footer{
+    background-color: rgb(36, 49, 53);
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+header{
+    margin-bottom: 5px;
+}
+footer{
+    margin-top: 5px;;
+}
