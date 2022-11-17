@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order data colection</title>
+    <link rel="stylesheet" href="style_copy.css">
+</head>
+<body>
+    <header>
+        <h1>Task for 14<sup>th</sup> of November 2022</h1>
+        <h3>create order form according given example</h3>
+    </header>
+
+    <main>
+        <div class="form_body">
+            <form action="reciever.html">
+                <div>
+                    <p class="bold">Pristatymas į paštomatus</p> <!-- reikia apačioje pridėti brūkšnį -->
+                </div>
+                <div>
+                    <label> <!--Lietuvos pastas-->
+                    <div class="postbox">                        
+                        <input type="radio" name="send_to"><br />
+                        <img src="https://www.siusk24.lt/uploads/terms_couriers_page/image_top/21/lpxpress.png" /><br />
+                        <p class="take">Atsiėmimas LP EXPRESS paštomate</p>
+                        <p class="other">2-4 darbo dienos</p>
+                        <p>1,99€</p>
+                    </div>
+                    </label>
+                    <label> <!--omniva-->
+                    <div class="postbox">                        
+                        <input type="radio" name="send_to"><br />
+                        <img src="https://www.siusk24.lt/uploads/terms_couriers_page/image_top/22/omniva.png" /><br />
+                        <p class="take">Atsiėmimas Omniva paštomate</p>
+                        <p class="other">2-4 darbo dienos</p>
+                        <p>1,99€</p>
+                    </div>
+                    </label>
+                    <label> <!--dpd-->
+                    <div class="postbox last">                        
+                        <input type="radio" name="send_to"><br />
+                        <img src="https://www.boostmyshop.com/wp-content/uploads/2021/04/dpd-logo-300px.png" /><br />
+                        <p class="take">Atsiėmimas paštomate</p>
+                        <p class="other">2-4 darbo dienos</p>
+                        <p>1,99€</p>
+                    </div>
+                    </label>
+                </div>
+                <div>
+                        <p class="bold">Pasirinkite pristatymo vietą</p>
+                                                        
+                                            <!-- select dalis -->
+                    <div class="half">
+                        <label class="required other">Miestas</label>
+                        <br />
+                        <select required>
+                            <option value="Garliava">Garliava</optio>
+                            <option value="Vilnius">Vilnius</option>
+                            <option value="Kaunas">Kaunas</option>
+                            <option value="Klaipėda">Klaipėda</option>
+                        </select>
+                    </div>
+                    <div class="half">
+                        <label class="required other">Paštomato adresas (paštomatas)</label>
+                        <br />
+                        <select required>
+                            <option value="Garliava_pastas">IKI Garliava (Vytauto g 67)</option>
+                            <option value="Kaunas_pastas">IKI Kaunas (Savanorių pr 69)</option>
+                            <option value="Vilnius_pastas">IKI Vilnius (Didlaukio g 71)</option>
+                        </select>
+                    </div>
+                    <br />
+                    <p class="bold">Pateikite gavėjo duomenis</p>
+
+                                      <!-- asmeniniai duomenys -->
+ 
+                    <div class="half">
+                        <label class="required other">Vardas</label>
+                        <br />
+                        <input type="text" name="name" placeholder="Vardenis" required />
+                    </div>
+                    <div class="half">
+                        <label class="required other">Pavardė</label>
+                        <br />
+                        <input type="select" name="surname" placeholder="Pavardenis" required />
+                    </div>
+                    <div class="half">
+                        <label class="required other">Mobilaus telefono numeris</label>
+                        <br />
+                        <input type="tel" name="phone" placeholder="+37060012345" required />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

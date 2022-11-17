@@ -1,0 +1,97 @@
+body 
+	{background-color: #cccccc;
+	text-color: black;
+	padding: 20px 20px;
+	text-align: center;
+	}
+h1
+	{color: navy;
+        font-family: Courier;
+	size: 20px;
+        text-decoration: double underline;
+	text-shadow: 3px 1px grey;
+        text-align: left;
+	margin: left, 20px;
+	padding: 30px;
+	text-style: bold;
+        text-style: capitalise uppercase;}
+
+h2
+	{color: navy;
+        font-family: Courier;
+        size: 16 px;
+        text-decoration: underline;
+	text-shadow: 2px 1px grey;
+	text-align: left;
+	margin: left, 20px;
+	padding: 20px;
+	text-style: bold;
+        }
+
+h3
+	{color: blue;
+        font-family: Courier;
+        size: 16 px;
+        font-style: none;
+        margin: left, 20px;
+	padding: 15px;
+        }
+h4
+	{color: blue;
+        font-family: Courier;
+        size: 16 px;
+        font-style: italic;
+        margin: left, 20px;
+	padding: 15px;
+        }
+h5
+	{color: blue;
+        font-family: Courier;
+        size: 14 px;
+        font-style: bold;
+        margin: left, 5px;
+	padding: 5px;
+        }
+h6
+	{color: blue;
+        font-family: Courier;
+	size: 14 px;
+	text-align: left;
+        font-style: italic;
+        margin: left, 5px;
+	padding: 5px;
+        }
+h7
+	{color: brown;
+        font-family: Courier;
+        size: 14 px;
+        font-style: none;
+        margin: left, 5px;
+	padding: 5px;
+        }
+h8
+	{color: brown;
+        font-family: Courier;
+        size: 14 px;
+        font-style: italic;
+        margin: left, 5px;
+	padding: 5px;
+        }
+p
+	{background-color: white;
+	size: 12px;
+	font-family: Ariel;
+	font-weight: bold;
+	text-color: black;
+	text-align: left;
+	}
+
+img.size
+	{height:100px;}
+img.border
+	{color: black;
+	width: 2px;
+	padding 2px;
+	}
+button
+	{color: red}

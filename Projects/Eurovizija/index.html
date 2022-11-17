@@ -1,0 +1,71 @@
+<!Docktype HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eurovizijos balsavimas</title>
+</head>
+<body>
+
+    <div class="header"> <!-- nejudantis viršutinis blokas-->
+        <div class="header-logo"> <!-- logo bloke-->
+        </div>
+        <div class="header-name"> <!-- puslapio pavadinimas po logo-->
+               Balsavimo puslapis
+        </div>
+    </div>
+       
+    <div class="body">
+        čia turėtų būti:
+     <ul>
+        <li>vartotojo pasirinkimas (kas balsuoja)</li>
+        <li>Konteineryje dainas galima sukilnoti nuo 1 vietos viršuje iki paskutinės apačioje. Arba lygiai taip pat galima kilnoti vietas ir/arba taškus</li>
+        <li>Apačioje turi būti mygtukas patvirtinti.</li>
+         <li>Back-ende paspaudus mygtuką informacija turi nukeliauti į temp foltederį.</li>
+    </ul>
+        <div class="main">
+            <div class="left_block">Vieta
+                <div class="place">1</div>
+                <div class="place">2</div>
+                <div class="place">3</div>
+                <div class="place">4</div>
+                <div class="place">5</div>
+            </div>
+            <div class="centre_block">daina
+                <div class="song">
+                    <div class="song-country">LIT</div>
+                    <div class="song-song">SuperSong</div>
+                    <div class="song-group">Dainorėliai</div>
+                </div>
+                <div class="song">
+                    <div class="song-country">LAT</div>
+                    <div class="song-song">UnoSong</div>
+                    <div class="song-group">DainiuBrolia</div>
+                </div>
+                <div class="song">
+                    <div class="song-country">ITA</div>
+                    <div class="song-song">DueSong</div>
+                    <div class="song-group">Cantariano</div> 
+                </div>
+            </div>
+            <div class="right_block">taškai
+                 <div class="points">12</div>
+                 <div class="points">10</div>
+                 <div class="points">8</div>
+                 <div class="points">7</div>
+            </div>
+        </div>
+    
+    <div class="footer">
+    
+        <form id="form" action="tmp/form.html" target="_blank" method="get">
+        <input type="color" id="form_color" name="f-color">
+        <input type=text id="form_text" name="f-text">
+        <input type="submit" value="Submit">
+        </form>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+/*nenori priri6ti failo prie index.html*/
+:root{
+    scroll-behavior: smooth;
+    --shade_color: grey;
+    --back_color: #f6f8fa;
+    --block_color: white;
+    --text_color: black;
+    --active_color:#d6e3f0;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--back_color);
+}
+.col_1{width:12.5%;}
+.col_2{width:25%;}
+.col_3{width:37.5%;}
+.col_4{width:50%;}
+.col_5{width:62.5%;}
+.col_6{width:75%;}
+.col_7{width:87.5%;}
+.col_8{width:100%;}
+
+.row::after{
+    content: "";
+    clear: both;
+    display:table;            
+}
+[class*="col"] {
+    float: left;
+    }
+    
+header{
+    background-color: var(--text_color);
+    color: var(--back_color);
+    text-align: center; 
+}
+.content{
+    box-shadow: 2px 2px 5px var(--shade_color);
+    margin:7px;
+}
+ul{
+    display:inline-box;
+    padding-inline-start: 0px;
+}
+li{
+    text-align: center;
+    padding-top: 5px;
+    border-bottom: dotted 1px rgb(0, 0, 0);
+    list-style-type:none;
+    margin: 15px;
+}
+li a{
+    text-decoration: none;
+    text-shadow: var(--shade_color);
+    color: var(--text_color);
+}
+li:hover{
+    background-color: var(--active_color);
+}

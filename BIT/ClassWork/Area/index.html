@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../HeaderFooter.css">
+    <title>Area function</title>
+    <style>
+
+        .bg_map{
+            background: url("/ClassWork/Area/mapsas.jpg") no-repeat top left;
+            width: 1084px;
+            height: 1191px;
+            margin: auto;
+            position: relative;
+        }
+        .map_link{
+            position: absolute;
+            opacity: 0;
+            text-decoration: none;
+        }
+        .map_link:hover{
+            opacity: 1;
+        }
+        .map_link span{
+            color:rgb(74, 37, 0);
+            background-color: white;
+            border: 1px solid grey;
+            padding: 5px 10px;
+            position:absolute;
+            text-transform:capitalize;
+        }
+        .link1{
+            width:120px;
+            height:100px;
+            top:40px;
+            left:143px;
+        }
+        .link1 span{
+            width: 120px;
+            text-align: center;
+        }
+        .link2{
+            width:210px;
+            height:100px;
+            top:227px;
+            left: 364px;
+        }
+        .link2 span{
+            width: 120px;
+            text-align: center;
+        }
+        area{
+            background-color: black;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Area function</h1>
+        <h3>creating map with area functions and interactivity for areas</h3>
+        <p> class work from 2022-11-17</p>
+    </header>
+
+    <main>
+        <div style="text-align:center;">
+            <p>Area function aplied to top left house and swamp</p>
+        </div>
+        <!-- <div class="bg_map">
+            <a href="#" class="map_link link1">
+                <span>Vila "Ramovė"</span>
+            </a>
+            <a href="#" class="map_link link2">
+                <span>Sinergijos kotedžas</span>
+            </a> 
+        </div> -->
+        <div style="text-align: center;">
+            <img src="mapsas.jpg" usemap="#map">
+                <map name="map">
+                    <area target="_blank" alt="Vila 'Ramovė'" title="Vila 'Ramovė'" href="#" coords="267,112,278,136,263,146,204,167,181,148,158,152,143,131,147,88,162,69,204,70,231,76" shape="poly">
+                    <area target="_blank" alt="Gardino pelkė" title="Gardino pelkė" href="#" coords="886,445,966,434,957,375,979,367,984,297,946,283,914,203,869,177,743,182,710,222,710,288,756,289,778,320,815,383,820,425" shape="poly">
+                </map>
+        </div>
+    </main>
+
+    <footer>
+        <p>created by Vil_UX</p>
+        <P>image copied from <a href="http://www.harmonypark.lt">harmonypark.lt</a></P>
+    </footer>
+</body>
+</html>

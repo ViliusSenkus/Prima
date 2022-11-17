@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks 9 & 10</title>
+
+    <style>
+        body{
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Calibri;
+        }
+
+        header{
+            background-color: black;
+            color: white;
+            text-align:center;
+            --task: " - ";
+           
+        }
+        .header{
+            display:inline-block;
+            width:33%;
+            padding-bottom: 5px;
+        }
+        ul{
+            list-style-type: none;
+        }
+        li::before{
+            content: var(--task);
+        }
+
+        nav{
+            display:inline-block;
+            background-color: black;
+            color: white;
+            width: 100%;
+        }
+        .btn{
+            height: 30px;
+            border-right: solid 1px white;
+            float: left;
+            width: 100px;
+            text-align: center;
+            background-color: rgb(86, 86, 86);
+        }
+        @media screen and (max-width: 800px){
+            .btn{
+                border-bottom: solid 1px white;
+               
+            }
+        }
+        .btn:visited{
+            background-color: rgb(255, 80, 80);
+        }.btn:active{
+            background-color: red;
+        }
+        .btn:hover{
+            background-color: rgb(0, 0, 0);
+        }
+        .nav{
+            color:white;
+            text-decoration: none;
+        }
+
+        main{
+            display:block;
+        }
+        .section{
+            min-height:210px;  /*no less than ientified to cover heading and photo*/
+            padding-bottom: 15px;
+        }
+        .section a{
+            clear: both;
+            float: right;
+        }
+
+        @media screen and (min-height: 300px) {
+           .section:last-child{
+            height: 100vh;
+            }  
+        }
+        .txt_img{
+            max-height: 150px;
+            max-width: 300px;
+        }
+        #sec1{
+            background-color: beige;
+            color: brown;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        #sec2{
+            background-color: rgb(220, 245, 223);
+            color: rgb(42, 46, 165);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+        #sec3{
+            background-color: rgb(220, 240, 245);
+            color: rgb(165, 42, 126);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #sec4{
+            background-color: rgb(245, 235, 220);
+            color: rgb(56, 95, 30);
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+        #sec5{
+            background-color: beige;
+            color: rgb(1, 0, 0);
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+        #sec6{
+            background-image: linear-gradient(rgb(0, 255, 255), white);
+            color: rgb(0, 0, 0);
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+        }
+        #sec7{
+            background-image: linear-gradient(to left, beige, rgb(245, 220, 244));
+            color: rgb(111, 29, 29);
+            font-family:Georgia, 'Times New Roman', Times, serif
+        }
+        #sec8{
+            background-image: radial-gradient(beige, rgb(245, 220, 244), rgb(220, 245, 240));
+            color: rgb(0, 0, 0);
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        
+
+        #sec1 img, #sec3 img, #sec5 img, #sec7 img{
+            float: left;
+            margin-right:20px; /*place for list numbers-symbols */
+        }
+        #sec2 img, #sec4 img, #sec6 img, #sec8 img{
+            float: right;
+            margin-left:10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header id="home">
+        <h1>Tasks 9 and 10</h1>
+        <h3>
+            <ul class=""header">
+                <li>Create navigation througt sections</li>
+                <li>Stylize each section (by colors)</li>
+                <li>add h2 element, text and photo</li>
+                <li>Restyle sections for good looking</li>
+                <li>Make three different style lists</li>
+            </ul>
+        </h3>
+    </header>
+    
+    <nav>
+            <a class="nav" href="#sec1"><div class="btn">1 skyrius</div></a>
+            <a class="nav" href="#sec2"><div class="btn">2 skyrius</div></a>
+            <a class="nav" href="#sec3"><div class="btn">3 skyrius</div></a>
+            <a class="nav" href="#sec4"><div class="btn">4 skyrius</div></a>
+            <a class="nav" href="#sec5"><div class="btn">5 skyrius</div></a>
+            <a class="nav" href="#sec6"><div class="btn">6 skyrius</div></a>
+            <a class="nav" href="#sec7"><div class="btn">7 skyrius</div></a>
+            <a class="nav" href="#sec8"><div class="btn">8 skyrius</div></a>
+    </nav>
+    <main>
+        <div class="section" id="sec1">
+            <h2>Sekcija - 1</h2>
+            <img class="txt_img" src="foto/pic1.JPG" alt="Hanza dienos Kaune" />
+            <ol>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ol>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec2">
+            <h2>Sekcija - 2</h2>
+            <img class="txt_img" src="foto/pic2.JPG" alt="Hanza dienos Kaune" />
+            <ul style="text-align:center; list-style-type:square;">
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ul>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec3">
+            <h2>Sekcija - 3</h2>
+            <img class="txt_img" src="foto/pic3.JPG" alt="Hanza dienos Kaune" />
+            <ul style="text-align: right;">
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ul>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec4">
+            <h2>Sekcija - 4</h2>
+            <img class="txt_img" src="foto/pic4.JPG" alt="Hanza dienos Kaune" />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus commodi quaerat iure eum quis velit voluptates. Facere repudiandae ipsum ipsa, libero iste nemo accusantium dolorum dicta facilis aliquid? Facere et repudiandae odio recusandae maiores illo harum expedita, tempore ipsum suscipit magni in, consectetur vero perferendis doloremque quos iure? Adipisci necessitatibus quas aspernatur molestiae tenetur dolores ratione voluptatum eos quidem laudantium excepturi itaque non neque, ut quisquam nesciunt nostrum beatae laborum quis expedita sapiente dolorum modi? Nihil, saepe. Adipisci error laudantium, eum ducimus esse ipsa quo id? Animi, asperiores hic! Deleniti perferendis, amet magni, nesciunt optio eius tenetur laborum aliquam, eaque consequatur accusamus. Amet suscipit molestias ex eos, ab soluta, vel sunt veniam quos non perspiciatis quaerat! Consequuntur saepe mollitia quibusdam unde, eveniet consectetur totam dolorem sit ex error reprehenderit voluptatum, illum enim quia, fuga delectus alias tempore molestias inventore modi numquam minus nam repellendus provident? Doloribus beatae suscipit molestiae consequatur deleniti nam nulla voluptatem quos blanditiis officia, unde sequi rerum dolore atque at commodi consectetur exercitationem voluptate porro necessitatibus sapiente? In ipsum quis quos distinctio. Accusantium amet ducimus error. Expedita cupiditate ipsa quo beatae in, nam doloribus aliquam perferendis, modi sequi tenetur reiciendis amet, tempora repellat? Sequi voluptatem minima delectus.</p>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec5">
+            <h2>Sekcija - 5</h2>
+            <img class="txt_img" src="foto/pic5.JPG" alt="Hanza dienos Kaune" />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, ab repellendus labore dolores corporis ullam error quos ipsam est mollitia culpa unde, pariatur velit voluptatum veniam exercitationem? Deleniti adipisci inventore quos alias voluptatem, similique cumque placeat ullam officia molestias voluptate porro non enim, quo dolore ad temporibus tempore iste dignissimos dolorum repellat harum! Dignissimos, porro aperiam! Dolor perferendis aperiam quod nostrum possimus nemo impedit corporis rerum expedita eaque dolorem, nulla odio quia ducimus at mollitia fugit. Nobis, sequi? Quia sint sapiente labore accusantium sed fugiat placeat inventore qui voluptate aspernatur reiciendis a excepturi tenetur quas, voluptas, sunt dolorem optio, explicabo mollitia laboriosam ipsam! Adipisci minus veritatis amet vero suscipit consequuntur, in esse! Nostrum fuga dolor voluptatum libero possimus at sequi iste mollitia quidem, vel debitis quibusdam dolore quae omnis quos blanditiis ducimus corrupti exercitationem cumque voluptate dicta quisquam ea minima reprehenderit. Deserunt, reiciendis quos, magnam in excepturi laborum placeat eligendi iste voluptates quam tempore mollitia quis doloribus. Illo dolorum ad non amet, fuga harum fugiat sequi quia tempore deleniti quo quibusdam doloremque molestiae esse, reprehenderit labore sapiente quidem voluptatem expedita voluptatum corporis laborum nesciunt? Quos quis in, vero temporibus necessitatibus nemo esse inventore ea, facere laboriosam minima accusantium, voluptatum voluptates!</p>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec6">
+            <h2>Sekcija - 6</h2>
+            <img class="txt_img" src="foto/pic6.JPG" alt="Hanza dienos Kaune" />
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum consequatur provident cum explicabo doloribus sapiente sint voluptate voluptas voluptatibus quaerat officiis corrupti cumque exercitationem ducimus, ipsam doloremque quidem deleniti? Odit voluptatem dicta dolore ducimus id pariatur doloremque dolorem facere deserunt assumenda aliquid, possimus autem? Dolorem possimus recusandae, ex nulla doloremque distinctio adipisci voluptate sed libero delectus pariatur in, labore perspiciatis neque quas est repellat! Culpa explicabo dolor fuga sunt illo cupiditate aspernatur nulla. Reprehenderit repellendus blanditiis beatae totam esse nulla eaque expedita officiis ea dicta, est, dolorem eius atque? Sapiente nobis ut commodi soluta, aperiam cum blanditiis voluptatibus quibusdam quos. Id, sequi tempora est nostrum molestiae accusantium sed ut? Placeat, recusandae autem consequatur tenetur molestiae optio repellat illum adipisci iste in quam exercitationem eos tempore pariatur esse, modi, deserunt quo vel laudantium libero nulla. Animi, optio autem enim ratione ipsum corrupti officia quod illum atque, voluptatum fuga consectetur eveniet odit, maiores obcaecati blanditiis totam. Consequatur commodi a sapiente deserunt voluptate non reprehenderit magnam fugit provident, rerum quasi esse eum quia ullam omnis nostrum voluptas recusandae explicabo laborum illo vero facilis mollitia praesentium distinctio. Qui maxime incidunt doloribus aut eligendi sunt magnam quia possimus, impedit assumenda aliquam beatae laborum explicabo velit.</p>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec7">
+            <h2>Sekcija - 7</h2>
+            <img class="txt_img" src="foto/pic7.JPG" alt="Hanza dienos Kaune" />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab doloribus tenetur eum amet voluptatem maxime saepe quod accusamus nam minima et tempore explicabo, culpa est ducimus eligendi! Perspiciatis quia facere deserunt, explicabo aspernatur sit, nam ipsam, iste dolorem maxime itaque labore veniam voluptatem. Iste a iure ab eligendi quibusdam nisi esse nam quaerat asperiores, assumenda ex commodi veniam laudantium voluptatibus aspernatur doloribus quo rerum illum! Optio asperiores omnis eligendi sapiente magnam tempora sed praesentium maxime velit. Soluta magni doloremque consequuntur fugiat dolorum odit, facere illo reiciendis assumenda. Reiciendis id soluta iste ex voluptas sequi impedit dolorem iure ut, voluptatum cum nam temporibus consequatur itaque excepturi totam eaque incidunt obcaecati eos dolor porro dignissimos. Rem ea autem natus quis vitae? Consectetur voluptas eaque quibusdam molestias voluptates ratione, eveniet expedita repellat, provident obcaecati, dolorum dolor. Accusamus dolores reprehenderit corrupti hic aliquam explicabo facilis magni voluptatibus, in exercitationem? Porro beatae voluptatum alias perspiciatis commodi reiciendis quasi iusto. Natus cupiditate explicabo unde magnam ipsa exercitationem dignissimos maxime officia nesciunt mollitia, fugiat dolores asperiores molestiae itaque sed accusamus. Repudiandae dolorem commodi itaque sed enim ipsum a ratione temporibus. Libero enim minus, porro vitae asperiores aut numquam assumenda fugiat est quo ab in alias quae.</p>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+        <div class="section" id="sec8">
+            <h2>Sekcija - 8</h2>
+            <img class="txt_img" src="foto/pic8.JPG" alt="Hanza dienos Kaune" />
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi est, aut quaerat obcaecati natus, sed incidunt officiis reprehenderit unde temporibus optio similique quia ipsa possimus quo? At consectetur cupiditate vero iste veritatis aliquid excepturi ullam consequatur consequuntur amet eius velit alias quae quos, similique libero dignissimos a exercitationem, culpa quibusdam cum reiciendis molestiae iure autem. Quaerat, quisquam at repellendus recusandae dolores nesciunt, ullam porro sit reprehenderit expedita laudantium non praesentium perferendis ea delectus temporibus quae veniam hic omnis deleniti cumque cum. Labore quam mollitia nobis perspiciatis accusamus similique corrupti repudiandae expedita qui corporis, repellat ullam ipsa architecto porro neque tempore, praesentium in modi recusandae voluptatem inventore officia libero at vel? Eos impedit inventore ab eligendi dicta molestiae accusantium tempora sunt voluptates itaque, deleniti consequatur sed reiciendis. Nostrum velit labore ipsa earum iusto libero aut harum consectetur soluta, esse ut amet, laboriosam culpa dolore itaque placeat nihil reprehenderit laudantium dolores a quidem eos! Asperiores, velit quis debitis magni animi ad blanditiis exercitationem provident facilis veritatis rem rerum dolorem at reiciendis sint sequi. Voluptatem et fugit accusamus in sapiente tenetur, placeat magnam explicabo, quibusdam consequatur corrupti excepturi, id delectus minus. Soluta ducimus officiis atque. Quis deleniti illo voluptatum tempora, hic quam quidem.</p>
+            <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" height="20px"></a>
+        </div>
+    </main>
+
+</body>
+</html>

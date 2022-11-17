@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kalsės darbai</title>
+    <style>
+        :root {
+            scroll-behavior: smooth;
+            --shade: grey;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .col1 {
+            width: 20%;
+        }
+
+        .col2 {
+            width: 40%;
+        }
+
+        .col3 {
+            width: 60%;
+        }
+
+        .col4 {
+            width: 80%;
+        }
+
+        .col5 {
+            width: 100%;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col"] {
+            float: left;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        div.shade {
+            box-shadow: 2px 2px 5px var(--shade);
+            margin: 10px;
+        }
+
+        a{
+
+            text-decoration: none;
+            color: black;
+        }
+        a::before,
+        a::after{
+            content:" -- ";
+        }
+        li{
+            list-style:none;
+            text-align: center;
+            border-bottom: 1px dotted grey;
+            padding-top: 10px;
+        }
+        li:hover{
+            background-color: antiquewhite;
+        }
+        h4{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="col5">
+                <h1>Class Work</h1>
+                <h2>non conceptual projects, just working documents</h2>
+                <h4>FullStack (PHP) </h>
+                <p>at BIT 2022 Nov - 2023 Apr</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col1">
+                <p></p>
+            </div>
+            <div class="col3 shade">
+                <ul>
+                    <h4>Class working files</h4>
+                    <li><a href="HTML_CSS_Simple/">Simple HTML and CSS examples</a></li>
+                    <li><a href="HTML_CSS_Flex/">Flex CSS examples and icons</a></li>
+                    <li><a href="LandingPage/">Mimic of existing Landing page - long project</a></li>
+                    <li><a href="Position/">Positioning</a></li>
+                    <li><a href="Area/">Area</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <footer>
+        <div class="row">
+            <p class="col5">Created by Vil_UX (Vilius Senkus)</p>
+        </div>
+    </footer>
+
+</html>

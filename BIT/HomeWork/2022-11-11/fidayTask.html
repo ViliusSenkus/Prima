@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 year calendar</title>
+    <style>
+        :root{
+    scroll-behavior: smooth;
+    background-color: rgb(255, 255, 255);
+    --color_main: hsl(219, 50%, 39%);
+    --color_day_names:hsl(218, 53%, 71%);
+    --color_emty_cells:hsl(223, 51%, 90%);
+    --color_holiday: hsl(24, 84%, 82%);
+    --color_border:#b6c5e1;
+        }
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        h1{
+            font-family: calibri;
+            font-size: 32px;
+            color: var(--color_main);
+            text-align: center;
+        }
+        /* table aprasyti kaip flex'a---turbut?*/
+
+        .calendar_container{
+            width: calc(24*32px);
+            margin: auto;
+            text-align: center;
+        }
+        table{
+            box-sizing: border-box;
+            display:inline-block;
+            width: 240px;
+            border-collapse: collapse;
+            border-spacing: 0px;
+            border-top: solid 2px var(--color_border);
+            border-left: solid 2px var(--color_border);
+        }   
+        td{
+            display:inline-block;
+            width: 32px;
+            height:24px;
+            text-align: center;
+            line-height:24px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            border-bottom: solid 2px var(--color_border);
+            border-right: solid 2px var(--color_border);
+            border-collapse: collapse;
+            font-weight: bold;
+        }
+        .month{
+            width: 236px;
+            font-family: calibri light;
+            font-size: 14px;
+            color: white;
+            background-color: var(--color_main);
+            text-align: center;
+        }
+        
+        .days{
+            color: white;
+            background-color: var(--color_day_names);
+            border-right: solid 2px var(--color_day_names);
+            /*perdaryti su flexu, kad butu per visa ploti*/
+        }
+        .blank{
+            background-color: var(--color_emty_cells);
+        }
+        .holiday{
+            background-color: var(--color_holiday);
+            color: red;
+        }
+        /*th,
+        tbody{
+            width:30%
+
+        }*/
+        
+        tbody tr td{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: rgb(0, 0, 0);
+            background-color: white;
+        }
+        .footer{
+            width:calc(24*30px);
+            margin:0 auto;
+            text-align:left;
+            position: relative;
+            bottom: 24px;
+        }
+        p{
+            float:left;
+            margin: 0;
+            vertical-align: baseline;
+        }
+        .link{
+            float: right;      
+        }
+        img{
+            display:inline-block;
+            overflow: visible;
+        }
+        .spanas{
+            display:block;
+            font-size:2px;
+        }
+    @media screen and (max-width:800px) {
+        .calendar_container, .footer{
+            width: calc(16*32px);
+        }
+    }
+
+    @media screen and (max-width:530px) {
+        .calendar_container, .footer{
+            width: calc(8*32px);
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2023 metų kalendorius</h1>
+    </header>
+    <div class="calendar_container">   
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Sausis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="holiday">1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Vasaris</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td class="holiday">16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>                        
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Kovas</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td >1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td class="holiday">11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Balandis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td class="holiday">9</td>
+                    <td class="holiday">10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Gegužė</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="holiday">1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Birželis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td class="holiday">24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Liepa</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td class="holiday">6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Rugpjūtis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td class="holiday">15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Rugsėjis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Spalis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Lapkritis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="holiday">1</td>
+                    <td class="holiday">2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="margin-top:none">
+            <tbody>    
+                <tr>
+                    <td class="month">Gruodis</td>
+                    <td class="days">P</td>
+                    <td class="days">A</td>
+                    <td class="days">T</td>
+                    <td class="days">K</td>
+                    <td class="days">Pe</td>
+                    <td class="days">Š</td>
+                    <td class="days">S</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td class="holiday">24</td>
+                    <td class="holiday">25</td>
+                    <td class="holiday">26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <p><br/><span class="spanas">.</span><strong>Triušio metai</strong></p>
+        <p class="link">design copied from <a href=http://www.rekvizitai.lt><img src="https://rekvizitai.vz.lt/images/imones.png" /></a></p>
+    </div>
+</body>
+</html>

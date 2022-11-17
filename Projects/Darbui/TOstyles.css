@@ -1,0 +1,97 @@
+/* įdedami fontai kurie naudojami tiesiai iš folderio fonts (šitame pačiame kompiuterye/serveryje)*
+/* --woff ir woff2 tipo fontai paimti iš https://webfonts.pro// --*/
+
+@font-face{
+	font-family: "Eastman";
+	src: url("fonts/Eastman-Regular.woff2") format("woff2"),
+	src: url("fonts/Eastman-Bold.woff2") format("woff2"),
+	src: url("fonts/Eastman-Italic.woff2") format("woff2");
+
+/* jeigu į vieną font-face'ą galima surašyti tik vieno tipo failus tada bold ir italic fontus reikės išskirti taip kaip bald+italic žemiau */
+
+@font-face{
+	font-family: "Eastman";
+	src: url("fonts/Eastman-BoldIOtalic.woff2") format("woff2");
+	font-weight: 700;
+	font-style: italic;
+}
+
+/* šriftai pritaikyti "body" tego aprašyme žemiau. */
+
+
+
+
+/*kitas būdas gauti fontus - naudotis google biblioteka: https://fonts.google.com/ */
+/*tokiu atveju pasirenkamas fontas, pasirenkamas "select this style prie konkretaus šrifto ir jo tipo, */
+/*atsidariusiame lange kopijuojamas embed kodas į html failą, ir tam pačiam lange reikia žiūrėti kokį family pridėti prie css */
+
+
+
+body {
+  	font-family: Eastman
+	background-color: #CCCCCC;
+
+}
+
+div {
+  background-color: white;
+  background-image: url('TO.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: black;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+  font-family: courier;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+  margin:  10px;
+  padding: 20px;
+}
+.footer{
+  color: grey;
+  font-size: 6px;
+  text-align: center;
+}
+
+header {
+}
+
+nav {
+  text-align: center;
+}
+
+button {
+  color: #005055;
+  font-weight: bold;
+  text-shadow: 0.5px 0.5px #5050ff;
+}
+
+section {
+}
+
+article {
+}
+
+h1 {
+  color: white;
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000000;
+}
+
+h2 {
+  color: grey;
+  font-size: 1vw;
+  text-align: center;
+
+p {
+  color: red;
+  margin: 10px;
+}
+
+aside{
+  text-shadow: 2px 2px 8px #FF0000;
+}

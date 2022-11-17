@@ -1,0 +1,36 @@
+nav{
+    background-color: white;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display:flex;
+    justify-content:space-evenly;
+}
+
+a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+}
+i{
+    margin-right: 10px;
+}
+
+li:nth-child(2) i{
+    margin-right:2px;
+}
+
+nav ul a:hover{
+    background-color: antiquewhite;
+    color:rgb(140, 140, 140);
+    border: solid 5px antiquewhite;
+}
+
+h1{
+    text-align: center;
+}
+/*animacija*/

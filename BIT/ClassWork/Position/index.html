@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../HomeWork/style.css">
+    <title>Positioning</title>
+    <style>
+        li{
+            font-weight: 300;
+        }
+        
+        .block{
+            background-color: beige;
+            height: 150px;
+            border: 1px solid;
+            font-size: 0.7em;
+            padding: 2px;
+        }
+        .relative{ 
+            position: relative;
+        }
+        .absolute{
+            position: absolute;
+            height: 50px;
+            width: 200px;
+            background-color: aquamarine;
+            border: 1px solid;            
+        }
+
+        .fixed{
+            position: fixed;
+            height: 50px;
+            width: 200px;
+            background-color: rgb(232, 169, 245);
+            border: 1px solid;
+            font-size: 0.7em;
+            padding: 2px;         
+        }
+        .sticky{
+            position: sticky;
+            height: 35px;
+            width: 600px;
+            background-color: rgb(255, 118, 118);
+            border: 1px solid;            
+            font-size: 0.7em;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Positioning</h1>
+        <h2>2022-11-16 Class work</h2>
+        <br />
+    </header>
+    <main>
+        <h1 style="text-align: center;">Positioning types</h1>
+        <ul style="text-align: center; font-weight: bold;">- positioning methods: -
+            <li>Static</li>
+            <li>Relative</li>
+            <li>Absolute</li>
+            <li>Sticky - Nemokinta</li>
+            <li>Fixed</li>
+
+        </ul>
+
+        <section>
+            <h2>Static</h2>
+        
+            <div>
+                Neapibrėžiama pozicija, o blokai dėliojami nuo viršutinio kairio kampo žemyn ir į dešinę (jeigu yra nustatymai bloką dėti ne per visą plotį). <br />
+                Negailma nustatyti pozicijos.<br />
+                Visi elementai, išskyrus html, pagal nutylėjimą yra static.
+            </div>
+            <div class="block">Tai yra statinis blokas</div>
+            <div class="block">Tai yra antras statinis blokas</div>
+            
+            <h2>Relative</h2>
+            
+            <div>
+                Eina vienoje eilėje kaip ir static, tačiau galima pozicionuoti nuo prieš tai buvusio elemento.<br />
+                Pozicionuojant ir nenurodžius pločio, bus pirmiausiai sukuriamas 100% pločio blokas, o po to bus perstumiamas per nurodytą atstumą (t.y. stumiant į dešinę nuo left krašto, blokas išeis už ekrano ribų tiek, kiek bus atstumatas)
+            </div>
+                <div class="relative block">
+                Pirmas reliatyvus blokas, automatiškai pozicionuojamas iš karto po aprašo kairėje pusėje
+            </div>
+            <div class="relative block" style="top:10px; left:200px;">
+                Antras reliatyvus blokas pastumtas į dešinę 200px nenurodant bloko pločio. Jis išlenda už ekrano 200px, dėl ko atsiranda apatinė praslinkimo (scrolling) juosta.
+            </div>
+            <div class="relative block" style="width:300px; top:-50px; left:250px;">
+                Trečias reliatyvus blokas pastumtas į dešinę 250px, ir į viršų 50px, taip pat sumažintas plotis iki 300px.
+                <br /><strong>absolute blokai gali užlipti vienas ant kito</strong>
+            </div>
+            
+            </div>
+            
+            <h2>Absolute</h2>
+            <div>
+                Talpinama į tėvinį relative elementą. Relative elementas gali būti keliais lygiais aukščiau. Pats aukščiausiasi relative elementas - html.<br />
+                Pozicionuojama nuo relative elemento viršutinio kairio kampo.<br />
+                "left:" reikšmė yra aukštesnė už "right".<br />
+                Pagal nutylėjimą Absoliučiai patalpinto elemento pozicija relative elemento atžvilgiu yra (0,0), arba iš karto po relative elemeto turinio.
+            </div>
+            <div class="relative block">
+                Reliatyviai pozicionuotas elementas, esantis tėviniu pirmam absoliučiai pozicionuojamam elementui
+                <div class="absolute">
+                    Pirmas absoliučiai pozicionuotas elementas.
+                </div>
+            </div>
+            <div class="relative block" style="left:50px;">
+                Reliatyviai pozicionuotas elementas paslinktas į dešinę, esantis tėviniu antram absoliučiai pozicionuojamam elementui
+                <div class="absolute">
+                    Antrass absoliučiai pozicionuotas elementas. Pozicijos atskaitos taškas slenkasi kartu su reliatyviu elemntu
+                </div>
+            </div>
+            <div class="relative block" style="left:50px; left:200px;">
+                Reliatyviai pozicionuotas elementas paslinktas į dešinę 200px, esantis tėviniu trečiam absoliučiai pozicionuojamam elementui
+                <div class="absolute" style="left:50px; top:0px;">
+                    trečias  absoliučiai pozicionuotas elementas. paslinktas nuo relative elemento kairės per 50px ir nuo viršaus per 0px. (ignoruoja tėvinio elemento turinį ir kitus elementus).
+                </div>
+            </div>
+            NOTE: nurodžius poziciją didesnę už relative elemento dydį, absolute pozicijoje esantis elementas talpinamas už tėvinio elemento ribų. Perkėlus elementą žemiau ir/ar dešiniau nei matoma naršyklės lange, pridedama praslinkimo juosta.
+
+            <h2>Sticky</h2>  
+            <div>
+                nebuvo mokinta.
+                Elemetas kuris skrolinasi nurodytu atstumu nuo naryklės ekrano krašto ir pasiekęs savo vietą sustoja joje.
+            </div>
+            <div class="sticky" style="bottom:100px;">
+                Sticky elementas esantis prieš Fixed dalį, tačiau iki daskrolinant jo vietą būnantis 100px virš apatinio naršyklės ekrano krašto.<br />
+                Geriausiai efektas matomas siaurame naršyklės lange.
+            </div>
+            
+            <h2>Fixed</h2>  
+            <div>
+                Pozicija skaičiuojama nuo viewporto viršutinio kairio kampo, ir nekinta slenkant turinį aukštyn-žemyn ir/ar kairėn-dešinėn
+            </div>
+            <div class="block" style="border:none; background:none"></div> <!--nematomas blokas kad būtų kur praskrolinti-->
+            <div class="fixed" style="bottom:0px; left:0px;"> Fixed elemetas pozicionuotas iš apačios 0px ir iš kairės 0px.<br />
+                daugiau informacijos puslapio apačioje.
+            </div>
+            <div class="fixed" style="bottom:40px; right:300px;"> Fixed elemetas pozicionuotas iš dešinės 300px ir iš apačios 40px.<br />
+                daugiau informacijos puslapio apačioje.
+            </div>
+
+
+        </section>
+    </main>
+</body>
+</html>

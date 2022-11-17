@@ -1,0 +1,107 @@
+:root{
+    scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /*colors variables*/
+    --clr-back:#f5f5f5;
+    --clr-font:black;
+    --clr-brdr:#e1e1e1;
+    --clr-other:#828282;
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+main{
+    width:100%;
+    height:100%;
+}
+.form_body{
+    width:90%;
+    margin:20px auto;
+    background-color: var(--clr-back);
+    padding: 2%;
+    /* display:table;  --- galimas ir toks variantas jeigu išimti clearfix'ą (.form_body::after)*/
+}
+
+.form_body::after{
+    content: "";
+    clear: both;
+    display:table;            
+}
+
+.bold{
+    font-weight:bold;
+    text-align: left;
+    color: var(--clr-font);
+    padding-left: 1%;
+    padding-top: 10px;
+    margin: 10px 0;
+    width:100%;
+    display:inline-block;
+}
+.postbox{
+    box-sizing: border-box;
+    border: 1px solid var(--clr-brdr);
+    background-color: white;
+    text-align: center;
+    width:31%;
+    margin: 1%;
+    display: inline-block;
+    height: 250px;
+    padding-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+img{
+    height: 80px;
+    width: auto;
+}
+.take{
+    padding:0px 5px;
+}
+.other{
+    font-size: 0.8em;
+    font-weight: 300;
+    color: var(--clr-other);
+    padding: 10px 0px;
+}
+.half{
+    padding-left:1%;
+    width:50%;
+    float:left;
+}
+select,
+input{
+    width:100%;
+    font-size: 0.8em;
+    color: var(--clr-other);
+    border: 1px solid var(--clr-brdr);
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.required::after{
+    content:"*";
+    color:red;
+    font-variant-position: super;
+}
+
+@media screen and (max-width:1100px){
+    .postbox{width:47%;
+            margin: 1%;}
+    
+    .last{
+        width:47%;
+        margin: 1% 26%;
+    }
+}
+@media screen and (max-width:730px){
+    .postbox{width:80%;
+            margin: 1% 10%;}
+}

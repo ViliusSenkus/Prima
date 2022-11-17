@@ -1,0 +1,129 @@
+/*                                                 CONTENT    
+        1.      GLOBAL STYLING
+        1.1.        Variable
+        2.      HEADER
+        2.1         Logo
+        2.2         Navigation
+
+                                    
+*/
+
+/*  NOTE
+    NOTE
+    NOTE
+    Copy this to main html file: 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    END OF NOTE
+*/
+
+/*                                      1. GLOBAL STYLING               */
+
+:root{
+    scroll-behavior: smooth;
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+body{
+    background-color: var(--bs_clr_0);
+    color: var(--fnt_clr_contr_dark);
+}
+
+/*                                      1.1 Variables               */
+
+
+*{
+ /* base colors*  ---  var name according grey percentage (more or less) */
+    --bs_clr_main:#FFE56B;
+    --bs_clr_0:#FFF9E8;
+    --bs_clr_25:#C9B339;
+    --bs_clr_50:#948300;
+    --bs_clr_75:#625600;
+    --bs_clr_100:#3A2D00;
+
+ /* font colors */
+    --fnt_clr_light: white;
+    --fnt_clr_grey: grey;
+    --fnt_clr_dark: black;
+    --fnt_clr_contr_light: #C4FCF0;
+    --fnt_clr_contr_dark: #1B3D2F;
+
+ /* alternatives  ---  from less to mo contrast*/
+    --alt_clr_0:#F2FEDC;
+    --alt_clr_1:#A4D071;
+    --alt_clr_2:#56B382;
+    --alt_clr_3:#1B9087;
+    --alt_clr_4:#1E6B79;
+    --alt_clr_5:#2F4858;
+}
+
+/*                                      2. HEADER                   */
+
+header{
+    width:100%;
+
+    /*  Dydžio parametrai nustatyti atsižvelgiant į mažiausią įrenginį.
+        Standartiniai dydžiai:  mažas -     iki 640px;
+                                vidutinis - iki 1007px;
+                                didelis -   virš 1008 px;
+    */     
+    margin:auto;
+    padding:10px;
+    background-image: radial-gradient(farthest-corner at 10px 10px, var(--bs_clr_main ), var(--bs_clr_25), var(--alt_clr_3));
+}
+
+/*                                     2.1 Logo                 */
+
+.header{
+    display:flex;
+    flex-flow: row wrap;    
+    justify-content: flex-start;
+}
+
+header #logo{
+    max-width:80px;
+    height:fit-content;
+    margin:0 10px;
+    box-shadow: 2 2 5 var(--bs_clr_100);
+}
+
+header h1,
+header h3{
+    padding: 15px 10px;
+    color: var(--bs_clr_main);
+    text-shadow: 2px 2px 5px var(--fnt_clr_contr_dark);
+    margin: 0;
+    padding: 0;
+}
+/*                                     2.2 Navigation                 */
+nav ul{
+    display:flex;
+    justify-content: left;
+}
+nav li{
+    display:block;
+    padding: 5px;
+    box-shadow: 2px 2px 5px var(--fnt_clr_contr_dark);
+    width: 20%;
+}
+.box{
+    background-color: var(--alt_clr_0);
+    color: var(--fnt_clr_contr_dark);
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    box-shadow: 2px 2px 5px var(--alt_clr_5);
+}
+p{
+    padding:5px;
+}
+button{
+    margin:5px;
+}

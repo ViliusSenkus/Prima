@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=" device-width", initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- <script src="../assets/js.js"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+
+    
+    <div class="box">
+        <h1>1 Blokas</h1>
+        <h2>bendri bandymai</h2>
+        <p> čia vietoje žemiau esančios pastraipos, kurios kode parašyta "1-2-3",
+            automatiškai užkraunant puslapį įrašomas tekstas iš skripto pateikto 5 bloke</p>
+        <p id="demo">1-2-3</p>
+        <p>čia bloko pabaiga</p>
+    </div>
+
+    <div class="box">
+        <h1>2 Blokas</h1>
+        <h2>Temperaturos skaičiavimas</h2>
+        <p id="cels">čia atsiranda perskaičiuota reikšmė</p>
+        <script>
+            document.getElementById("cels").innerHTML =
+                toCelsius + "kažkiek liapsnių F bus lygūs " + toCelsius(100) + " laipsniams celsijaus";
+
+            function toCelsius(f) {
+                let a = (5 / 9) * (f - 32);
+                return a;
+            }
+        </script>
+    </div>
+
+
+    <div class="box">
+        <h1>3 Blokas</h1>
+        <h2>Spalvos pakeitimas - brutalus</h2>
+        <div id="kvadratas" style="width:30px; height: 30px;"></div>
+        <style id="spalva">
+            #kvadratas {
+                background-color: aqua;
+            }
+        </style>
+
+        <button type="button" onClick="spalvink()">Pakeisk kvadratėlio spalvą į raudoną</button>
+        <script>
+            function spalvink() {
+                document.getElementById("spalva").innerHTML =
+                    "#kvadratas{background-color: red;}"
+            }
+        </script>
+    </div>
+
+    <div class="box">
+        <h1>4 Blokas</h1>
+        <h2>Mygtuko pavadinimo pakeitimas</h2>
+        <button onclick="rasyk()" id="mygtPavadinimas">
+            Paspausk
+            <script>
+                function rasyk() {
+                    let z = 6;
+                    document.getElementById('mygtPavadinimas').innerHTML = "nebespausk " + z + " valandas"
+                }
+            </script>
+        </button>
+    </div>
+        
+    <div class="box">
+        <h1>5 Blokas</h1>
+        <p>Šis blokas savyje turi tik javaScript kodą perduodamą į 1 Bloką</p>
+        <p>
+            <strong>Note</strong>
+            Jeigu skriptas būtų virš elemento su skripte nurodytu id,<em>skriptas neivyktu</em>,
+            kadangi atmintyje dar nebūtų sukurtas elementas su tokiu getElementById
+        </p>
+        <script>
+            document.getElementById("demo").innerHTML = "perduota " + perduok(3);
+        /*   pasako įdėti į tag'ą su id "demo" tekstą "perduota ir 
+                funkciją pavadinimu 'perduok' su kintamojo x reikšme = 3 */
+
+        function perduok(x) { //apibrėžia, kad funkcija yra su vienu kintamuoju
+        return x;           // gražina kintamąjį funkciją iniciavusiam elementui
+            }
+
+        </script>
+    </div>
+
+</body>
+
+</html>

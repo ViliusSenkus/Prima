@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../2022-11-14/style.css"> -->
+    <title>Kostmosas :)</title>
+    <style>
+        :root {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        footer {
+            padding: 5px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            display: block;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .body_bgr {
+            background-image: url("img/background.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 1200px;
+            height: 720px;
+            margin: 20px auto;
+        }
+        .row1,
+        .row2,
+        .row3{
+            position:relative;
+            height:220px;
+        }
+     
+        img{
+            display:block;
+            padding:10px;
+            height: 160px;
+            position:absolute;
+            top: 30px;
+        }
+        #sun{
+            left:120px;
+            height:190px;
+        }
+
+        #jupiter,
+        #smth{
+            left: 120px;
+        }
+        #earth,
+        #mars{
+            left:375px;
+        }
+        #mercury,
+        #smth2{
+            left:660px;
+        }
+        #venus,
+        #pluto,
+        #comet{
+            left:940px;
+        }
+        #neptune{
+            left:305px;
+        }
+        #saturn{
+            left:590px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Task for 16<sup>th</sup> of November 2022</h1>
+        <h3>create page of pictures according given example</h3>
+    </header>
+
+    <main>
+
+        <h3>Unresponsive solution</h3>
+        <div class="body_bgr"> 
+            <div class="row1">
+                <img src="img/1.png" alt="sun" id="sun" class="col_1" />
+                <img src="img/2.png" alt="earth" id="earth" class="col_2" />
+                <img src="img/3.png" alt="mercury" id="mercury" class="col_3" />
+                <img src="img/5.png" alt="venus" id="venus" class="col_4" />
+            </div>
+            <div class="row2">
+                <img src="img/6.png" alt="jupiter" id="jupiter" class="col_1" />
+                <img src="img/7.png" alt="mars" id="mars" class="col_2" />
+                <img src="img/8.png" alt="saturn" id="saturn" class="col_3" />
+                <img src="img/9.png" alt="pluto" id="pluto" class="col_4" />
+            </div>
+            <div class="row3">
+                <img src="img/10.png" alt="smth" id="smth" class="col_1" />
+                <img src="img/11.png" alt="neptune" id="neptune" class="col_2" />
+                <img src="img/12.png" alt="smth2" id="smth2" class="col_3" />
+                <img src="img/13.png" alt="comet" id="comet" class="col_4" />
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        &#169 Vil_UX
+    </footer>
+
+
+</body>
+
+</html>

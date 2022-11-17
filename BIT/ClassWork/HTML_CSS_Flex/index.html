@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://css.gg/google.css' rel='stylesheet'>
+    <link href='https://css.gg/facebook.css' rel='stylesheet'>
+    <link href='https://css.gg/instagram.css' rel='stylesheet'>
+    <link href="ikonos.css" rel="stylesheet">
+    <title>Flex</title>
+
+    <style>
+        .boxes{
+            background-color: blue;
+            padding: 50px;
+        }
+
+        .clearfix::after,
+        .clearfix::before{
+            content:"";
+            display: table;
+            clear:both;
+        }
+        .column{
+            width:50%;
+            height: 300px;
+            float:left;
+        }
+
+        .red{
+            background-color: rgb(255, 0, 0);
+        }
+        .green{
+            background-color: #15ff00;
+        }
+        .flexcolumn{
+            width:50%;
+            height:300px;
+        }
+        .flexbox{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1> Floating boxes - senas būdas</h1>
+        <div class="boxes clearfix">
+            <div class="column red"></div>
+            <div class="column green"></div>
+        </div>
+    </div>
+    <div>
+        <h1> Flex boxes </h1>
+        <div class="boxes flexbox">
+            <div class="flexcolumn red"></div>
+            <div class="flexcolumn green"></div>
+        </div>
+    </div>
+
+    <div>
+        <h1> Add icon </h1>
+        <nav class="">
+            <ul>
+                <li>
+                    <a href="google.com" target="blank"><i class="gg-google"></i>Google</a>
+                </li>
+                <li>
+                    <a href="facebook.com" target="blank"><i class="gg-facebook"></i>Facebook</a>
+                </li>
+                <li>
+                    <a href="instagram.com" target="blank"><i class="gg-instagram"></i>Instagram</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
