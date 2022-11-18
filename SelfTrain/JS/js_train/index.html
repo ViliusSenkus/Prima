@@ -91,6 +91,21 @@
         </script>
     </div>
 
+    <div>
+        <p>piešiame liniją priklausomai nuo teksto ilgio</p>
+        <label>Rašykite tekstą</label>
+        <input type="text" id="ilgis" oninput="lengh()">
+        
+    
+        <script>
+            function lengh(){
+                //čia reikia gauti kintamojo len (string tipo) reikšmę iš input formos
+                num=len.length;
+                num=500;
+                document.write("<div style='height:20px; length:" + num +"px; background-color: blue;")
+            }
+        </script>
+    </div>
 </body>
 
 </html>

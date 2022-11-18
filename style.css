@@ -9,11 +9,19 @@ main{
 .shadow{
     box-shadow: 2px 2px 5px grey;
 }
+section .shadow{
+    margin:5px;
+    min-width:250px;
+}
+
 aside,
 section{
-margin:0 5px;
-    
+margin:0 10px;
 }
+aside{
+   max-width: 250px;
+}
+
 p{
     text-align: left;
     padding: 10px;
