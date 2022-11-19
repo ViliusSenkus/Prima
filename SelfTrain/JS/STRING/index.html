@@ -25,57 +25,313 @@
         li:hover{
             background-image:linear-gradient(to right, rgb(255, 226, 183),  white 30%);
         }
+        xmp{
+            text-align: left;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: antiquewhite;
+        }
+        p{
+            padding: 2px;
+            margin: 2px;
+        }
+        em{
+            font-weight: bold;
+        }
+        section h2{
+            padding-top: 10px;
+            margin:0;
+        }
+        button{
+            margin: 10px;
+        }
+        .namo{
+            background-color: rgb(216, 216, 216);
+            color: rgb(52, 30, 12);
+            float: right;
+            padding: 2px;
+            margin:10px;
+            border: solid 1px black;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header id="namo">
         <h1>JS String methods</h1>
         <h3>Practice on string methods</h3>
     </header>
 
     <main>
         <section class="flex">
-                <div class="shadow menu">
+                <div class="shadow">
                     <h4>
                         Descriptive content
                     </h4>
                     <ul>
                         <a href="#ilgis"><li>lenght - eilutės ilgio apsakičiavimas</li></a>
-                        <a href="#kirpti"><li>slice() - teskto dalies iškirpimas</li></a>
-                        String substring()
-                        String substr()
-                        String replace()
-                        String replaceAll()
-                        String toUpperCase()
-                        String toLowerCase()
-                        String concat()
-                        String trim()
-                        String trimStart()
-                        String trimEnd()
-                        String padStart()
-                        String padEnd()
-                        String charAt()
-                        String charCodeAt()
-                        String split()
+                        <a href="#kirpti"><li>slice() String substring() String substr()
+                                             - teskto dalies iškirpimas</li></a>
+                        <a href="#replacas"><li>replace() replaceAll() - teksto pakeitimas kitu</li></a>
+                        <a href="#updown"><li>toUpperCase() toLowerCase() - teksto formatavimo keitimas</li></a>
+                        <a href="#trim"><li>trim(), trimStart(), trimEnd() - tuščios erdvės ištrynimas</li></a>
+                        <a href="#join"><li>concat() - eilučių sujungimas</li></a>
+                        <!--čia--><a href="padin"><li>padStart(), padEnd() - tarpų pridėjimas</li></a>
+                        <a href="#letter"><li>charAt() - ...</li></a>
+                        <a href="#code"><li>charCodeAt() - ...</li></a>
+                        <a href="split"><li>split() - ...</li></a>
                     </ul>
                 </div>
         </section>
+
         <section>
+            
             <div class="shadow">
                 <h2 id="ilgis">lenght</h2>
                 <div>
-                    <em>naudojimas</em> - var.Lenght
-                </div>
-                <div>
-                    <p><strong>originali eilutė: </strong> Šitas tekstas įrašytas į kodą kaip kintamasis</p>
-                    <p><strong>paskaičiuotas eilutės ilgis:</strong><span id="str-len"></span></p>
+                    <p>Skirtas nustatyti string tipo kintamojo reikšmės ilgį</p>
+                    <p><em>Naudojimas</em> - var.length</p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>įvestos į kodą eilutės ilgis - : <span id="str"></span></p>
+                            <button onClick="countLength()">Paskaičiuoti ilgį</button>
+                            <script>
+                                function countLength(){
+                                    textas = "123456789";
+                                    document.getElementById("str").innerHTML = textas.length;
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>įvesto į kodą string tipo kintamojo pavadinimu "textas" ilgis - :<span id="str"></span></p>
                     <button onClick="countLength()">Paskaičiuoti ilgį</button>
                     <script>
-                        countLength(){
-                            text = "Šitas tekstas įrašytas į kodą kaip kintamasis";
-                            document.getElementById(str-len).innerHTML = "text.length";
+                        function countLength(){
+                            textas = "123456789";
+                            document.getElementById("str").innerHTML = textas.length;
                         }
                     </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="kirpti">slice(), substring(), substr()</h2>
+                <div>
+                    <p>Skirtas išimti iš string kintamojo reikšmės simbolius nurodant norimų išimti simbolių eilės numerius</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.slice(x,y), jeigu reikšmės neigiamos, eilės numeris skaičiuoti pradedamas iš galo<br />
+                        var.substring(x,y), <br />
+                        var.substr(first symbol, number od symbols) <br />
+                        x - pirmo imamamo simbolio eilės numeris, y - simbolio, iki kurio išimamams tekstas, eilės numeris, z - imamų simbolių skaičius.
+                        </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>iš kintamojo "blabla" skirtingais būdais išimti žodžiai "išimk" "man" "ždožius" :<span id="isimk"></span></p>
+                            <button onClick="take()">išimk žodžius</button>
+                            <script>
+                                function take(){
+                                    blabla = "išimk iš manęs žodžius";
+                                    pirmasZodis = blabla.slice(0, 5);
+                                    antrasZodis = blabla.substring(9,12);
+                                    treciasZodis = blabla.substr(15,7);
+                                    document.getElementById("isimk").innerHTML = " " + pirmasZodis + " " + antrasZodis + " " + treciasZodis;
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>iš kintamojo "blabla" skirtingais būdais išimti žodžiai "išimk" "man" "ždožius" :<span id="isimk"></span></p>
+                    <button onClick="take()">išimk žodžius</button>
+                    <script>
+                        function take(){
+                            blabla = "išimk iš manęs žodžius";
+                            pirmasZodis = blabla.slice(0, 5);
+                            antrasZodis = blabla.substring(9,12);
+                            treciasZodis = blabla.substr(15,7);
+                            document.getElementById("isimk").innerHTML = " " + pirmasZodis + " " + antrasZodis + " " + treciasZodis;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="replacas">replace(), replaceAll()</h2>
+                <div>
+                    <p>Skirtas pakeisti kintamojo reikšmėje esantį žodį į naują</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.replace("senas žodis", "naujas žodis") - pakeičia pirmą sutiktą seną žodį į naują žodį, - <br />
+                        var.replace(/SENAS ŽODIS/i, "naujas žodis") - keičia žodžius nepriklausomai nuo seno žodžio raidžių dydžio, <br />
+                        var.replace(/senas žodis/g, "naujas žodis") - pakeičia visus sutiktus senus žodžius.
+                        var.replace()
+                        </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>iš kintamajame "text" įdėtos reikšmės "Būdavo būdavo iš mūsų šilelio" 
+                                skirtingais būdais pakeičiami žodžiai "būdavo" į "tebėra":<span id="keisk"></span></p>
+                            <button onClick="keis()">Parodyk pakeistą tekstą</button>
+                            <script>
+                                function keis(){
+                            let text = "Būdavo būdavo iš mūsų šilelio, būdavo ir ne taip būdavo";
+                            let text1 = text.replace("būdavo","tebėra");
+                            let text2 = text.replace(/būdavo/i,"tebėra");
+                            let text3 = text.replace(/būdavo/gi,"tebėra");
+                            let text4 = text.replaceAll("būdavo","tebėra");
+                            document.getElementById("keisk").innerHTML="<br />"+text1+"<br />"+text2+"<br />"+text3+"<br />"+text4;
+                        }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>iš kintamajame "text" įdėtos reikšmės "Būdavo būdavo iš mūsų šilelio" 
+                        skirtingais būdais pakeičiami žodžiai "būdavo" į "tebėra":<span id="keisk"></span></p>
+                    <button onClick="keis()">Parodyk pakeistą tekstą</button>
+                    <script>
+                        function keis(){
+                            let text = "Būdavo būdavo iš mūsų šilelio, būdavo ir ne taip būdavo";
+                            let text1 = text.replace("būdavo","tebėra");
+                            let text2 = text.replace(/būdavo/i,"tebėra");
+                            let text3 = text.replace(/būdavo/gi,"tebėra");
+                            let text4 = text.replaceAll("būdavo","tebėra");
+                            document.getElementById("keisk").innerHTML="<br />"+text1+"<br />"+text2+"<br />"+text3+"<br />"+text4;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="updown">toUpperCase(), toLowerCase()</h2>
+                <div>
+                    <p>Skirtas pakeisti kintamojo reikšmės raides į didžiąsias arba mažąsias</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.toUpperCase() - pakeičia reikšmę į didžiąsias raides, - <br />
+                        var.toLowerCase() - pakeičia reikšmę į mažąsias raides.
+                        </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>kintamajame "text" reikšmė "Vilnius Kaunas ir Klaipėda" rodoma vien didžiosiomis ir vien mažosiomis raidėmis:<span id="ud"></span></p>
+                            <button onClick="chang()">Parodyk pakeistą tekstą</button>
+                            <script>
+                                function chand(){
+                                    let text = "Vilnius Kaunas ir Klaipėda";
+                                    let text1 = text.toUpperCase();
+                                    let text2 = text.toLocaleLowerCase();
+                                    document.getElementById("ud").innerHTML = "<br />dižiosios raidės: "+text1+"<br /> mažosios raidės: "+text2;
+                                }
+                            </script> 
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>kintamajame "text" reikšmė "Vilnius Kaunas ir Klaipėda" rodoma vien didžiosiomis ir vien mažosiomis raidėmis:<span id="ud"></span></p>
+                    <button onClick="chang()">Parodyk pakeistą tekstą</button>
+                    <script>
+                        function chang(){
+                            let text = "Vilnius Kaunas ir Klaipėda";
+                            let text1 = text.toUpperCase();
+                            let text2 = text.toLocaleLowerCase();
+                            document.getElementById("ud").innerHTML = "<br />dižiosios raidės: "+text1+"<br /> mažosios raidės: "+text2;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="join">contact()</h2>
+                <div>
+                    <p>Skirtas sukurti naują kintamąjį sujungus kitų dviejų kintamųjų vertes</p>
+                    <p><em>Naudojimas</em> <br />
+                        1stVar.contact("a", 2ndVar, "a", 3rdVar) <br />
+                        a - bet koks simbolis turintis būti tarp kintamūjų (paprastai tarpas)
+                        </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>Iš 2 kintam...unas ir Klaipėda"<span id="joi"></span></p>
+                            <button onClick="joigas()">Sujungtas tekstas</button>
+                            <script>
+                                function joigas(){
+                                    var text1 = "Vilnius";
+                                    var text2 = "Kaunas";
+                                    var text3 = text1.contact("", text2);
+                                    document.getElementById("joi").innerHTML = text3 ;
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>Iš 2 kintamųjų "text1=Vilnius" ir text2="Kaunas" ir žodžio "Klaipėda" padarysim vientą tekstą
+                        ir išvesim jį į ekraną kaip naujo kintamojo reikšmę su verte: "Vilnius Kaunas ir Klaipėda"<span id="joi"></span></p>
+                    <p style="color:red">Ant chromo nesuveikė, kodėl?</p>
+                    <button onClick="joigas()">Sujungtas tekstas</button>
+                    <script>
+                        function joigas(){
+                            var text1 = "Vilnius";
+                            var text2 = "Kaunas";
+                            var text3 = text1.contact("", text2);
+                            document.getElementById("joi").innerHTML = text3 ;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+            
+            <div class="shadow">
+                <h2 id="trim">trim(), trimEnd(), trimStart()</h2>
+                <div>
+                    <p>Skirtas nuimti tuščius laukelius (whitespaces) iš eilutės galų (abiejų, galo arba pradžios)</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.trim() <br />
+                        var.trimEnd() <br />
+                        var.trimStart() 
+                    </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>Iš kintamo... iš galų. <br />
+                                <span id="trimas"></span> tekstas</p>
+                                <button onClick="triminam()">Sujungtas tekstas</button>
+                                <script>
+                                    function triminam(){
+                                        var text = "                Labas, kaip sekasi           ";
+                                        var textBoth = text.trim();
+                                        var textEn = text.trimEnd();
+                                        var textSt = text.trimStart();
+                                        document.getElementById("trimas").innerHTML = textBoth + "<br />" + textEn + "<br />" + textSt ;
+                                    }
+                                </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>Iš kintamo vertės: "         Labas, kaip sekasi      " padaroma eilutė be tarpų iš galų tarp ženklų "?". <br />
+                        ? <span id="trimas1"></span> ? <br />
+                        ? <span id="trimas2"></span> ? <br />
+                        ? <span id="trimas3"></span> ? <br /></p>
+                    <p style="color:red">Ant chromo keistai veikia tirmStart ir trimEnd trina iš abiejų pusių</p>
+                    <button onClick="triminam()">Sujungtas tekstas</button>
+                    <script>
+                        function triminam(){
+                            var text = "&#9 &#9 &#9 &#9 &#9 &#9 Labas, kaip sekasi &#9 &#9 &#9 &#9 &#9 &#9";
+                            var textBoth = text.trim();
+                            var textEn = text.trimEnd();
+                            var textSt = text.trimStart();
+                            document.getElementById("trimas1").innerHTML = textBoth;
+                            document.getElementById("trimas2").innerHTML = textEn;
+                            document.getElementById("trimas3").innerHTML = textSt;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
                 </div>
             </div>
         </section>
