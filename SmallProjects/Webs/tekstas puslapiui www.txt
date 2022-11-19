@@ -1,7 +1,7 @@
 interneto sprendimai:
 interneto puslapiai
 reklaminiai intarpai (statiski, animuoti, igarsinti)
-internetiniu puslapiu patalpinimas ir ju admnistravimas
+internetiniu puslapiu talpinimas ir ju admnistravimas
 
 multimedia sprendimai:
 interaktyvus imones pristatymai CD ar DVD diskuose
@@ -13,6 +13,4 @@ individualus kiekvieno uzsakymo sprendimas
 atsizvelgimas i kliento pageidavimus
 pagalba pasirenkant siuloma varianta
 perduodama visa iseitine informacija, ne vien pagamintas produktas, taigi norint ateityje galesite labai lengvai viska pakeisti ar modifikuoti.
-kuribinis pricesas yra atliekamas laisvu nuo darbo metu, t.y. jusu uzsakymas - musu hobis, del to i kiekvienas darbas atliekamas is sirdies.
-
-
+kurybinis procesas yra atliekamas laisvu nuo darbo metu, t.y. jusu uzsakymas - musu hobis, del to ir kiekvienas darbas atliekamas iš širdies.

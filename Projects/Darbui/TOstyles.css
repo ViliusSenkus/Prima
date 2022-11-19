@@ -16,16 +16,7 @@
 	font-style: italic;
 }
 
-/* šriftai pritaikyti "body" tego aprašyme žemiau. */
-
-
-
-
-/*kitas būdas gauti fontus - naudotis google biblioteka: https://fonts.google.com/ */
-/*tokiu atveju pasirenkamas fontas, pasirenkamas "select this style prie konkretaus šrifto ir jo tipo, */
-/*atsidariusiame lange kopijuojamas embed kodas į html failą, ir tam pačiam lange reikia žiūrėti kokį family pridėti prie css */
-
-
+/* aukščiau išvardinti šriftai pritaikyti "body" tego aprašyme žemiau. */
 
 body {
   	font-family: Eastman

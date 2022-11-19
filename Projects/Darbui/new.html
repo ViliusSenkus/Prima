@@ -1,0 +1,99 @@
+<html>
+<head>
+	<link rel="stylesheet" href="TOstyles.css">
+	<meta name="viewport" content="width=device-width", initial-scale="1.0">
+	<title>
+		TO Duomenø bazë
+	</title>
+</head>
+
+<body>
+	<div>
+		</header>
+			<center>TO duomenø bazës tvarkymo ir perþiûros árankis</center>
+		<header>
+
+		<nav>
+					<!-- Pasirenkamas menu -->
+			<button title="ieðkoti áraðø"
+				onClick=Document.location="http://www.google.com">
+				IEÐKOTI
+			</button>
+			
+			<button title="Sukurti naujà áraðà duomenø bazëje">
+				NAUJAS ÁRAÐAS
+			</button>
+			
+			<button title="Redaguoti esamà duomenø bazëje áraðà">
+				REDAGUOTI
+			</button>
+			<button title="Á pagrindiná puslapá"
+				onClick=Document.location="D:\Users\vilius.senkus\Desktop\TO DB HTML\TO.index.html">
+				HOME
+			</button>
+		</nav>
+	</div>
+	<div>
+		
+		<section>
+			<h1>NAUJAS ÁRAÐAS</h1>
+		</section>
+		<article>
+			Èia sukuriami/suvedami nauji áraðai
+		</article>
+	</div>
+	<div>
+		<section>
+			<center>
+			<form action="new_form.php" target="-self">
+				<label for="rnk">Karinis laipsnis:</label>
+				<select id="rnk" name="laipsnis">
+					<option value="1">j.eil.</option>
+					<option value="2">eil.</option>
+					<option value="3">vyr.eil.</option>
+					<option value="4">gr.</option>
+					<option value="5">srþ.</option>
+					<option value="6">vyr.srþ.</option>
+					<option value="7">ðt.srþ.</option>
+					<option value="8">vrð.</option>
+					<option value="9">srþ.mjr.</option>
+					<option value="kar1">ltn.</option>
+					<option value="kar2">vyr.ltn.</option>
+					<option value="kar3">kpt.</option>
+					<option value="kar4">mjr.</option>
+					<option value="kar5">plk.ltn.</option>
+					<option value="kar6">plk.</option>
+					<option value="kar7">brg.gen.</option>
+					<option value="kar8">gen.mjr.</option>
+					<option value="kar9">gen.ltn.</option>
+					<option value="jur">jûreivis</option>
+				</select>
+					<br>
+				<label for="fnam">Vardas</label>
+				<input type = "text" id="fnam" vardas = "fnam" required="yes" maxlenght="20">
+					<br>
+				<label for="lnam">Pavardë</label>
+				<input type = "text" id="lnam" vardas = "lnam" required="yes" maxlenght="20">
+					<br>
+				<label for="mssn">Misija</label>
+				<input type = "search" id="mssn" misija = "mssn">
+					<br>
+				<label for="pos">Pozicija</label>
+				<input type="select" id="pos" pozicija="pos">
+					<br>
+
+				<input type="submit" value="Ávesti">	
+			</form>
+			</center>
+		</section>
+	</div>
+
+	</div>
+	<div class=footer>
+			Bazæ ir jos valdymà sukûrë mjr. Vilius Senkus.<br>
+			DB administravimo teisæ turi mjr. G. Petrauskas.
+	</div>
+	
+	
+</body>
+</html>

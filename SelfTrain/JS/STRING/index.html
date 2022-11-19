@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../formal-style.css">
+    <link rel="stylesheet" href="../../../style.css">
+    <title>JS String methods</title>
+    <style>
+        header,
+        footer{
+            background-color: rgb(52, 30, 12);
+        }
+        main{
+            display: unset;
+        }
+        .flex{
+            display:flex;
+            justify-content: center;
+        }
+        li{
+            background-image:linear-gradient(to right, rgb(255, 226, 183),  white 20%);
+        }
+        li:hover{
+            background-image:linear-gradient(to right, rgb(255, 226, 183),  white 30%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JS String methods</h1>
+        <h3>Practice on string methods</h3>
+    </header>
+
+    <main>
+        <section class="flex">
+                <div class="shadow menu">
+                    <h4>
+                        Descriptive content
+                    </h4>
+                    <ul>
+                        <a href="#ilgis"><li>lenght - eilutės ilgio apsakičiavimas</li></a>
+                        <a href="#kirpti"><li>slice() - teskto dalies iškirpimas</li></a>
+                        String substring()
+                        String substr()
+                        String replace()
+                        String replaceAll()
+                        String toUpperCase()
+                        String toLowerCase()
+                        String concat()
+                        String trim()
+                        String trimStart()
+                        String trimEnd()
+                        String padStart()
+                        String padEnd()
+                        String charAt()
+                        String charCodeAt()
+                        String split()
+                    </ul>
+                </div>
+        </section>
+        <section>
+            <div class="shadow">
+                <h2 id="ilgis">lenght</h2>
+                <div>
+                    <em>naudojimas</em> - var.Lenght
+                </div>
+                <div>
+                    <p><strong>originali eilutė: </strong> Šitas tekstas įrašytas į kodą kaip kintamasis</p>
+                    <p><strong>paskaičiuotas eilutės ilgis:</strong><span id="str-len"></span></p>
+                    <button onClick="countLength()">Paskaičiuoti ilgį</button>
+                    <script>
+                        countLength(){
+                            text = "Šitas tekstas įrašytas į kodą kaip kintamasis";
+                            document.getElementById(str-len).innerHTML = "text.length";
+                        }
+                    </script>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+        <p>NOTE: Page intended for personal use in order to have live examples of JS code during study and practice period.</p>      
+
+    </footer>
+</body>
+</html>

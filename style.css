@@ -11,7 +11,7 @@ main{
 }
 section .shadow{
     margin:5px;
-    min-width:250px;
+    min-width:200px;
 }
 
 aside,
@@ -19,7 +19,7 @@ section{
 margin:0 10px;
 }
 aside{
-   max-width: 250px;
+   max-width: 200px;
 }
 
 p{

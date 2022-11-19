@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>nebegaliojantis puslapis</title>
+
+</head>
+<body>
+         <p>Čia aplikta tik keletą man reikalingų nuorodų ir js kodas peržiūrai.<br />
+                js kodas gali būti pasenęs</p>
+        <p>"http://vilux.b4net.lt/troja/taisykles.doc"></p>
+        <p>"http://vilux.b4net.lt/troja/istorija.html"></p>
+        
+        <script type="text/javascript">
+                var x;
+                var sk = 0;
+                var n = new Array();
+                n[0] = "390";
+                n[1] = "488";
+                n[2] = "853";
+                n[3] = "1921";
+                n[4] = "54";
+                n[5] = "489";
+                n[6] = "3099";
+                n[7] = "2748";
+                n[8] = "340";
+                n[9] = "1600";
+                n[10] = "635";
+                n[11] = "1675";
+                n[12] = "1405";
+                n[13] = "1729";
+                n[14] = "314";
+                n[15] = "4275";
+                n[16] = "214";
+                n[17] = "1741";
+                for (x in n) {
+                        document.write("<img src=\"http://riteriai4.draugas.lt/avatars/" + n[x] + ".jpg\" width=80 height=80>");
+                        sk = sk + 1;
+                        if (sk == 4) //padaro tarpą po 4 paveiksliukų
+                        {
+                                document.write("<br>");
+                                sk = 0;
+                        }
+                }
+        </script>
+</body>
+</html>
