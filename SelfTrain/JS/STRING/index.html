@@ -72,12 +72,12 @@
                                              - teskto dalies iškirpimas</li></a>
                         <a href="#replacas"><li>replace() replaceAll() - teksto pakeitimas kitu</li></a>
                         <a href="#updown"><li>toUpperCase() toLowerCase() - teksto formatavimo keitimas</li></a>
-                        <a href="#trim"><li>trim(), trimStart(), trimEnd() - tuščios erdvės ištrynimas</li></a>
                         <a href="#join"><li>concat() - eilučių sujungimas</li></a>
-                        <!--čia--><a href="padin"><li>padStart(), padEnd() - tarpų pridėjimas</li></a>
-                        <a href="#letter"><li>charAt() - ...</li></a>
-                        <a href="#code"><li>charCodeAt() - ...</li></a>
-                        <a href="split"><li>split() - ...</li></a>
+                        <a href="#trim"><li>trim(), trimStart(), trimEnd() - tuščios erdvės ištrynimas</li></a>
+                        <a href="#padin"><li>padStart(), padEnd() - vienodų simbolių eilutėje pridėjimas</li></a>
+                        <a href="#letter"><li>charAt(), charCodeAt() - simbolio ir jo kodo išėmimas</li></a>
+                        <a href="#split"><li>split() - eilutės pavertimas masyvu</li></a>
+                        <a href="#tostr"><li>toString() - kintamojo tipo keitimas į String</li></a>
                     </ul>
                 </div>
         </section>
@@ -298,37 +298,204 @@
                     <hr />
                     <p><em>Kodas:</em></p>
                         <xmp>
-                            <p>Iš kintamo... iš galų. <br />
-                                <span id="trimas"></span> tekstas</p>
-                                <button onClick="triminam()">Sujungtas tekstas</button>
-                                <script>
-                                    function triminam(){
-                                        var text = "                Labas, kaip sekasi           ";
-                                        var textBoth = text.trim();
-                                        var textEn = text.trimEnd();
-                                        var textSt = text.trimStart();
-                                        document.getElementById("trimas").innerHTML = textBoth + "<br />" + textEn + "<br />" + textSt ;
-                                    }
-                                </script>
+                            <p> nuėmus tarpus iš abiejų pusių, eilutės ilgis <span id="trimas1">x</span> simbolių<br />
+                                nuėmus tarpus iš teksto galo eilutės ilgis <span id="trimas2">x</span> simbolių<br />
+                                nuėmus tarpus iš teksto priekio eilutės ilgis <span id="trimas3">x</span> simbolių</p>
+                            <button onClick="triminam()">Rodyti simbolių skaičių</button>
+                            <script>
+                                function triminam(){
+                                    var text = "      Labas, kaip sekasi          ";
+                                    var textBoth = text.trim();
+                                    var textEn = text.trimEnd();
+                                    var textSt = text.trimStart();
+                                    document.getElementById("trimas1").innerHTML = textBoth.length;
+                                    document.getElementById("trimas2").innerHTML = textEn.length;
+                                    document.getElementById("trimas3").innerHTML = textSt.length;
+                                }
+                            </script>
                         </xmp>
                     </p>
                     <hr />
                     <p><em>Veikimo demonstravimas</em></p>
-                    <p>Iš kintamo vertės: "         Labas, kaip sekasi      " padaroma eilutė be tarpų iš galų tarp ženklų "?". <br />
-                        ? <span id="trimas1"></span> ? <br />
-                        ? <span id="trimas2"></span> ? <br />
-                        ? <span id="trimas3"></span> ? <br /></p>
-                    <p style="color:red">Ant chromo keistai veikia tirmStart ir trimEnd trina iš abiejų pusių</p>
-                    <button onClick="triminam()">Sujungtas tekstas</button>
+                    <p>Iš kintamo vertės: "      Labas, kaip sekasi          " ilgis prieš tekstą - 6 simboliai, teksto - 18,po teksto - 10
+                        , padaroma nauja eilutė panaikinant tarpus. <br />
+                        nuėmus tarpus iš abiejų pusių, eilutės ilgis <span id="trimas1">x</span> simbolių<br />
+                        nuėmus tarpus iš teksto galo eilutės ilgis <span id="trimas2">x</span> simbolių<br />
+                        nuėmus tarpus iš teksto priekio eilutės ilgis <span id="trimas3">x</span> simbolių</p>
+                    <button onClick="triminam()">Rodyti simbolių skaičių</button>
                     <script>
                         function triminam(){
-                            var text = "&#9 &#9 &#9 &#9 &#9 &#9 Labas, kaip sekasi &#9 &#9 &#9 &#9 &#9 &#9";
+                            var text = "      Labas, kaip sekasi          ";
                             var textBoth = text.trim();
                             var textEn = text.trimEnd();
                             var textSt = text.trimStart();
-                            document.getElementById("trimas1").innerHTML = textBoth;
-                            document.getElementById("trimas2").innerHTML = textEn;
-                            document.getElementById("trimas3").innerHTML = textSt;
+                            document.getElementById("trimas1").innerHTML = textBoth.length;
+                            document.getElementById("trimas2").innerHTML = textEn.length;
+                            document.getElementById("trimas3").innerHTML = textSt.length;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="padin">padStart(), padEnd()</h2>
+                <div>
+                    <p>Skirtas pridėti nurodytą kiekį simbolių prieš arba po string tipo kintamojo vertės</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.padStart(x, "s") <br />
+                        var.padEnd(x, "s") <br />
+                        x - pridedamų simbolių skaičius (tiek kiek skaičius didesnis už eilutės ilgį, tiek simbolių ir bus matoma); <br />
+                        s - pridedamas simbolis.
+                    </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p>Prie kintamo vertės: "Žvaigždutės" bus pridėta po 4 "*" simbolius iš abiejų pusių</p>
+                            <p><span id="padi">x</span> simbolių</p>
+                            <button onClick="padink()">Pridėti žvaigždučių</button>
+                            <script>
+                                function padink(){
+                                    var text = "Žvaigždutės";
+                                    var prad = text.padStart(15,"*");
+                                    var visas = prad.padEnd(19,"*");
+                                    document.getElementById("padi").innerHTML = visas;
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p>Prie kintamo vertės: "Žvaigždutės" bus pridėta po 4 "*" simbolius iš abiejų pusių</p>
+                    <p><span id="padi">x</span> simbolių</p>
+                    <button onClick="padink()">Pridėti žvaigždučių</button>
+                    <script>
+                        function padink(){
+                            var text = "Žvaigždutės";
+                            var prad = text.padStart(15,"*");
+                            var visas = prad.padEnd(19,"*");
+                            document.getElementById("padi").innerHTML = visas;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="letter">charAt(), charCodeAt()</h2>
+                <div>
+                    <p>Skirtas išimti nurodytą simbolį iš eilutės</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.charAt(x) <br />
+                        var.charCodeAt(x) <br />
+                        x - reikiamo išimti simbolio eilės numeris;
+                    </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                        <xmp>
+                            <p> Pirmas simbolis - <span id="simb"></span> <br />
+                                Paskutinio simbolio kodas - <span id="kod"></span></p>
+                            <button onClick="charting()">išimti simbolius</button>
+                            <script>
+                                function charting(){
+                                    var text = "Žvaigždutės@";
+                                    var ismbolis = text.charAt(0);
+                                    var kodas = text.charCodeAt(11);
+                                    document.getElementById("simb").innerHTML = ismbolis;
+                                    document.getElementById("kod").innerHTML = kodas;
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p> iš kintamojo vertės "Žvaigždutės@" išimsim pirmą simbolį ir paskutinio kodą</p>
+                    <p> Pirmas simbolis - <span id="simb"></span> <br />
+                        Paskutinio simbolio kodas - <span id="kod"></span></p>
+                    <button onClick="charting()">išimti simbolius</button>
+                    <script>
+                        function charting(){
+                            var text = "Žvaigždutės@";
+                            var ismbolis = text.charAt(0);
+                            var kodas = text.charCodeAt(11);
+                            document.getElementById("simb").innerHTML = ismbolis;
+                            document.getElementById("kod").innerHTML = kodas;
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="split">split()</h2>
+                <div>
+                    <p>Skirtas sudaryti masyvą iš eilutės atskiriant elementus į masyvą pagal nurodytą eilutėje egzistuojantį simbolį</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.split("s") <br />
+                        s - masyvo elementų atskyrimo simbolis (jeigu paliekama "", tada sukuriamas masyvas iš pavienių simbolių).;
+                    </p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                    <p>
+                        <xmp>
+                            <p> trečias naujai sukurto masyvo elementas yra - <span id="masyv"></span></p>
+                            <button onClick="spliting()">išimti simbolius</button>
+                            <script>
+                                function spliting(){
+                                    var text = "vienas-du-trys-keturi";
+                                    var masyvas = text.split("-");
+                                    document.getElementById("masyv").innerHTML = masyvas[2];
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p> Kintamojo vertė "vienas-du-trys-keturi" bus perkelta per simbolį "-" į masyvą ir iš jo išimtas trečias elementas.</p>
+                    <p> trečias naujai sukurto masyvo elementas yra - <span id="masyv"></span></p>
+                    <button onClick="spliting()">išimti simbolius</button>
+                    <script>
+                        function spliting(){
+                            var text = "vienas-du-trys-keturi";
+                            var masyvas = text.split("-");
+                            document.getElementById("masyv").innerHTML = masyvas[2];
+                        }
+                    </script>
+                    <a class="namo" href="#namo">Home</a>
+                </div>
+            </div>
+
+            <div class="shadow">
+                <h2 id="tostr">toString()</h2>
+                <div>
+                    <p>Skirtas pakeisti kintamojo reikšmę (pvz.: skaičių) į String tipo reikšmę</p>
+                    <p><em>Naudojimas</em> <br />
+                        var.toString()</p>
+                    <hr />
+                    <p><em>Kodas:</em></p>
+                    <p>
+                        <xmp>
+                            <p> pakeičiams skaičių 2 simbolį - <span id="skaic"></span></p>
+                            <button onClick="spliting()">išimti simbolius</button>
+                            <script>
+                                function spliting(){
+                                    var skaitmuo = 2
+                                    var tekstas = skaitmuo.toString();
+                                    document.getElementById("skaic").innerHTML = tekstas;
+                                }
+                            </script>
+                        </xmp>
+                    </p>
+                    <hr />
+                    <p><em>Veikimo demonstravimas</em></p>
+                    <p> Kintamojo vertė 2 bus pakeista į tekstinę reikšmę, su kuria toliau galima dirbti kaip su eilute.</p>
+                    <p> pakeičiams skaičių 2 simbolį - <span id="skaic"></span></p>
+                    <button onClick="spliting()">išimti simbolius</button>
+                    <script>
+                        function spliting(){
+                            var skaitmuo = 2
+                            var tekstas = skaitmuo.toString();
+                            document.getElementById("skaic").innerHTML = tekstas;
                         }
                     </script>
                     <a class="namo" href="#namo">Home</a>
