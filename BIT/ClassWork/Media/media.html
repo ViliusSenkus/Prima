@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="../../HomeWork/style.css">
+    <title>Media</title>
+    <style>
+        li{
+            font-weight: 300;
+        }
+        .block{
+            background-color: beige;
+            height: 150px;
+            border: 1px solid;
+            font-size: 0.7em;
+            padding: 2px;
+        }
+        .relative{ 
+            position: relative;
+        }
+        .absolute{
+            position: absolute;
+            height: 50px;
+            width: 200px;
+            background-color: aquamarine;
+            border: 1px solid;            
+        }
+        .fixed{
+            position: fixed;
+            height: 50px;
+            width: 200px;
+            background-color: rgb(232, 169, 245);
+            border: 1px solid;
+            font-size: 0.7em;
+            padding: 2px;         
+        }
+        .sticky{
+            position: sticky;
+            height: 35px;
+            width: 600px;
+            background-color: rgb(255, 118, 118);
+            border: 1px solid;            
+            font-size: 0.7em;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1>Media</h1>
+            <h2>2022-11-21 Class work</h2>
+            <br />
+        </header>
+
+        <main>
+            <h1 style="text-align: center;">Content</h1>
+            <ul style="text-align: center; font-weight: bold;">- Media insertion: -
+                <li>audio</li>
+                <li>video</li>
+            </ul>
+    
+            <section>
+                <div>
+                    Senas mp4 (128x96px)<br />
+                    <video controls>
+                        <source src="video.mp4" type="video/mpeg"; codecs="avc1.4d002a">
+                        Jūsų naršyklė nepalaiko mp4 failų
+                    </video>
+                </div>
+                <div>
+                    Senas 3gp (iki 100px)<br />
+                    <video controls>
+                        <source src="video.3gp" type="video/3gp" codecs="h.263, samr">
+                        Jūsų naršyklė nepalaiko 3gp failų
+                    </video>
+                </div>
+                <div>
+                    Audio mp3<br />
+                    <audio controls>
+                        <source src="Adriano.mp3" type="audio/mp3">
+                        Jūsų naršyklė nepalaiko mp3 failų
+                    </audio>
+                </div>
+                <div>
+                    Video mp4 naujasnis<br />
+                    <video controls width="500px">
+                        <source src="Aminata.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </section>
+        </main>
+</body>
+</html>
