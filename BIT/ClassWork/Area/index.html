@@ -55,6 +55,33 @@
             background-color: black;
             z-index: 2;
         }
+        svg{
+            position:absolute;
+        }
+        polygon{
+            fill:rgb(229, 255, 0, 0.1);
+            stroke:rgb(128, 102, 0, 0.1);
+            stroke-width:1;
+            fill-rule:evenodd;
+        }
+        svg:hover{
+            opacity: 0.8;
+            fill:rgb(229, 255, 0);
+            stroke:rgb(128, 102, 0); 
+        }
+        #vaismed{
+            padding:3px;
+            background-color: white;
+            border: 1px solid grey;
+            position: absolute;
+            top:460px;
+            left:130px;
+            border-radius: 5px;
+            visibility: hidden;
+        }
+        svg:hover + span{
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -66,7 +93,7 @@
 
     <main>
         <div style="text-align:center;">
-            <p>Area function aplied to top left house and swamp</p>
+            <p>Area function applied to top left house and swamp. SVG formating with hover applied to garden at left top</p>
         </div>
         <!-- <div class="bg_map">
             <a href="#" class="map_link link1">
@@ -76,12 +103,17 @@
                 <span>Sinergijos kotedžas</span>
             </a> 
         </div> -->
-        <div style="text-align: center;">
-            <img src="mapsas.jpg" usemap="#map">
+        <div> 
+                
+                <img src="mapsas.jpg" usemap="#map" />
                 <map name="map">
                     <area target="_blank" alt="Vila 'Ramovė'" title="Vila 'Ramovė'" href="#" coords="267,112,278,136,263,146,204,167,181,148,158,152,143,131,147,88,162,69,204,70,231,76" shape="poly">
                     <area target="_blank" alt="Gardino pelkė" title="Gardino pelkė" href="#" coords="886,445,966,434,957,375,979,367,984,297,946,283,914,203,869,177,743,182,710,222,710,288,756,289,778,320,815,383,820,425" shape="poly">
                 </map>
+                <svg width="300" height="200" style="top:490px; left: 85px;">
+                    <polygon points="85 0, 170 20, 145 85, 115 95, 40 115, 25 115, 0 70, 0 40" />
+                </svg>
+                <span id="vaismed">Vaismedžių sodas</span>
         </div>
     </main>
 

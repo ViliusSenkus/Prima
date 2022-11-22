@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../HomeWork/style.css">
+    <title>CSS Grid</title>
+    <style>
+        h2,
+        h4{
+            text-align: center;
+        }
+        /* identifying grid width */
+
+        .container{
+            width:1040px;
+            margin: 0 auto;
+        }
+        .row{
+            display:flex;
+        }
+
+        .row div{
+            height:100px;
+        }
+
+        .col-1{
+            width: 8.33%;
+        }
+        .col-2{
+            width:16.66%;
+        }
+        .col-6{
+            width:50%;
+        }
+        /*selecting colors*/
+        .red{background-color: red;}
+        .blue{background-color: blue;}
+        .black{background-color: black;}
+        .purple{background-color: purple;}
+        .grey{background-color: grey;}
+        .tomato{background-color: tomato;}
+        .yellow{background-color: yellow;}
+        .green{background-color: green;}
+        .white{background-color: cyan;}
+        .orange{background-color: orange;}
+        .olive{background-color: olive;}
+        .navy{background-color: navy;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grid</h1>
+        <h2>2022-11-22 Class work</h2>
+        <br />
+    </header>
+    <main>
+        <h1 style="text-align: center;">Content</h1>
+        <ul style="text-align: center; font-weight: bold;">
+            <li>No content</li>
+        </ul>
+
+        <section>
+            <h2>Grid</h2>
+        
+            <div class="container">
+                <h4> equal columns (8,33% each)</h4>
+                <div class="row">
+                    <div class="col-1 red"></div>
+                    <div class="col-1 blue">a</div>
+                    <div class="col-1 black">d</div>
+                    <div class="col-1 purple"></div>
+                    <div class="col-1 grey"></div>
+                    <div class="col-1 tomato"></div>
+                    <div class="col-1 yellow"></div>
+                    <div class="col-1 green"></div>
+                    <div class="col-1 white"></div>
+                    <div class="col-1 orange"></div>
+                    <div class="col-1 olive"></div>
+                    <div class="col-1 navy"></div>
+                </div>
+            </div>
+            <div class="container">
+                <h4> three columns take 2/12 width and rest columns 1/12 width</h4>
+                <div class="row">
+                    <div class="col-2 red"></div>
+                    <!-- <div class="col-1 blue">a</div>  width of column taken by red column-->
+                    <div class="col-1 black">d</div>
+                    <div class="col-2 purple"></div>
+                    <!-- <div class="col-1 grey"></div>  width of column taken by purple column-->
+                    <div class="col-1 tomato"></div>
+                    <div class="col-1 yellow"></div>
+                    <div class="col-2 green"></div>
+                    <!-- <div class="col-1 white"></div> width of column taken by green column-->
+                    <div class="col-1 orange"></div>
+                    <div class="col-1 olive"></div>
+                    <div class="col-1 navy"></div>
+                </div>
+            </div>
+            <div class="container">
+                <h4> columns devided div area width as follow 1/12, 1/6, 1/2, 1/2, 1/2 </h4>
+                <div class="row">
+                    <div class="col-1 red"></div>
+                    <div class="col-6 blue"></div>
+                    <!-- <div class="col-1 black"></div>
+                    <div class="col-1 purple"></div>
+                    <div class="col-1 grey"></div>
+                    <div class="col-1 tomato"></div>
+                    <div class="col-2 yellow"></div>  these columns taken by col-6 -- blue -->
+                    <!-- <div class="col-1 green"></div> this part left for class white (cyan in web)-->
+                    <div class="col-2 white"></div>
+                    <div class="col-2 orange"></div>
+                    <!-- <div class="col-1 olive"></div> this column taken by orange-->
+                    <div class="col-1 navy"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
