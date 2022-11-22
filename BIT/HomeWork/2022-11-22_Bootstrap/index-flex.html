@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../formal-style.css">
+    <!-- <link rel="stylesheet" href="../../../style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Implementing Bootstrap</title>
+    <style>
+        main{
+            text-align: left;
+            width: 1140px;
+            margin:auto;
+        }
+        h2{
+            text-align: center;
+        }
+        caption{
+            font-weight:bold;
+            color:#5e6874;
+            background-color:#f8f9fa;padding-left:15px;
+        }
+        aside{
+            width:18%;
+        }
+        table{
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Task for 22<sup>nd</sup> of November 2022</h1>
+        <h3>Use <em>bootstrap</em> to create page according given example</h3>
+    </header>
+
+    <main>
+        <h2>FLEX method</h2>
+        <div style="background-color:var(--bs-gray-800); color:white; padding: 15px; margin: 15px 0px;">
+            Angular Bootstrap Example
+        </div>
+       
+        <div class="d-flex justify-content-between">
+            
+            <aside class="flex-shrink-0 flex-grow-2">
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">Menu</li>
+                    <li class="list-group-item">Menu Category 1</li>
+                    <li class="list-group-item">Menu Category 2</li>
+                </ul>
+            </aside>
+
+            
+            <table class="table flex-shrink-1" >
+                <caption class="caption-top">
+                    Dashboard
+                </caption>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>product</th>
+                        <th>Payment taken</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>TB-Monthly</td>
+                        <td>01/04/2012</td>
+                        <td>Default</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td>1</td>
+                        <td>TB-Monthly</td>
+                        <td>01/04/2012</td>
+                        <td>Approved</td>
+                    </tr>
+                    <tr class="table-success">
+                        <td>1</td>
+                        <td>TB-Monthly</td>
+                        <td>01/04/2012</td>
+                        <td>Declined</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td>1</td>
+                        <td>TB-Monthly</td>
+                        <td>01/04/2012</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>1</td>
+                        <td>TB-Monthly</td>
+                        <td>01/04/2012</td>
+                        <td>Call in to confirm</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </div>
+       
+
+        <h2>GRID method</h2>
+        <div style="background-color:var(--bs-gray-800); color:white; padding: 15px; margin: 15px 0px;">
+            Angular Bootstrap Example
+        </div>
+       
+        
+        
+        <div class="row">
+            <div class="col-2">
+                <aside>
+                    <ul class="list-group" style="width:16vw">
+                        <li class="list-group-item active">Menu</li>
+                        <li class="list-group-item">Menu Category 1</li>
+                        <li class="list-group-item">Menu Category 2</li>
+                    </ul>
+                </aside>
+            </div>
+
+            <div class="col-9" style="margin-left:15px; width:73vw">
+                <table class="table">
+                    <caption class="caption-top">
+                        Dashboard
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th style="width:50px">#</th>
+                            <th style="width:200px">product</th>
+                            <th style="width:200px">Payment taken</th>
+                            <th style="width:500px">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>TB-Monthly</td>
+                            <td>01/04/2012</td>
+                            <td>Default</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <td>1</td>
+                            <td>TB-Monthly</td>
+                            <td>01/04/2012</td>
+                            <td>Approved</td>
+                        </tr>
+                        <tr class="table-success">
+                            <td>1</td>
+                            <td>TB-Monthly</td>
+                            <td>01/04/2012</td>
+                            <td>Declined</td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>1</td>
+                            <td>TB-Monthly</td>
+                            <td>01/04/2012</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>1</td>
+                            <td>TB-Monthly</td>
+                            <td>01/04/2012</td>
+                            <td>Call in to confirm</td>
+                        </tr>
+                    </tbody>
+                </table>   
+            </div>
+
+
+        </div>
+    </main>
+    
+    <footer>
+        &#169 Vil_UX
+    </footer>
+
+
+</body>
+
+</html>
