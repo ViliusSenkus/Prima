@@ -5,34 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="loho">
-            <a href="">
-                <img src="" alt="logo" />
-            </a>
+        <div class="container">
+            <div class="logo">
+                <a href="#">
+                    <img src="assets/images/logo-white.png" alt="Landing page" />
+                </a>
+            </div>
             <nav>
                 <ul>
-                    <il><a href="">Home</a></il>
-                    <il><a href="">Pages</a></il>
-                    <il><a href="">Home</a></il>
-                    <il><a href="">Home</a></il>
-                    <il><a href="">Home</a></il>
-                    <il><a href="">Home</a></il>
-                    <il><a href="">Home</a></il>
-
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">Screenshots</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    
     <main>
-
+        <section class="home">
+            <div class="container">
+                <div class="left">
+                    <h1>The Best Mobile Application AppBeats</h1>
+                    <p>Launch a world-class mobile app for your brand. No coding required. Dramatically grow customized potentialities vis-a-vis synergistic alignments.</p>
+                    <div class="buttons">
+                        <a href="#" class="button white-button">Download Now</a>
+                        <a href="#" class="button transparent-button">Contact With Us</a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="iphone">
+                        <img src="assets/images/iphone-mask.png" alt="Iphone" />
+                        <div class="video-wrapper">
+                            <video autoplay loop muted playsinline>
+                                <source src="assets/media/app-overview.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clients">
+            <div class="container">
+                <div class="label">Trusted by 5,000 company:</div>
+                <ul>
+                    <li>
+                        <img src="assets/images/logos/clients-logo-01.png" alt="First client" />
+                    </li>
+                    <li>
+                        <img src="assets/images/logos/clients-logo-02.png" alt="Second client" />
+                    </li>
+                    <li>
+                        <img src="assets/images/logos/clients-logo-03.png" alt="Third client" />
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
-    
-    <footer>
-        
-    </footer>
 </body>
 </html>
