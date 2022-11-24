@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
-    height: 7000px;
+    color:#707070;
 }
 
 a {
@@ -15,6 +15,9 @@ ul {
     list-style: none;
 }
 
+h1, h2, h3, h4{
+    color: black;
+}
 .container {
     width: 1110px;
     margin: 0 auto;
@@ -86,7 +89,7 @@ section.home::after {
     content: "";
     background: url(../images/wave-line-bw-long.svg) repeat-x top left;
     width: 100%;
-    height: 29px;
+    height: 24px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -111,6 +114,7 @@ section.home .left h1 {
     font-size: 46px;
     font-weight: 600;
     margin: 0 0 18px;
+    color:white;
 }
 
 section.home .left p {
@@ -203,4 +207,51 @@ section.clients ul li img {
 .transparent-button:hover {
     background-color: white;
     color: #7202bb;
+}
+
+section.features{
+    text-align: center;
+}
+
+section.features .heading{
+    max-width: 730px;
+    margin:0 auto;
+    text-align: center;
+}
+section.features .heading h1{
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+}
+
+section.features .heading p{
+    font-size: 18px;
+    line-height: 1.5;
+}
+section.features .feature-box{
+    display:flex;
+    gap:30px;
+}
+section.features .inner-box{
+    box-shadow: 0 0 5px rgba(159, 159, 159, 0.788);
+    border-top: solid 4px #7202bb;
+    border-radius: 4px;
+    transition: all .3s ease-out;
+}
+section.features .inner-box:hover{
+    transform: translateY(-10px);
+}
+
+section.features img{
+    max-width:80px;
+    padding: 20px;
+}
+
+section.features .feature-box h3{
+    font-weight: 600;
+}
+
+section.features .feature-box p{
+    font-size: 15px;
+    line-height: 26px;
 }
