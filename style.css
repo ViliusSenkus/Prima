@@ -1,24 +1,21 @@
 
 main{
     text-align: center;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
 }
-.shadow{
+.shadow-box{
     box-shadow: 2px 2px 5px grey;
-}
-section .shadow{
     margin:5px;
-    width:18.75rem;
+    width:15rem;
+}
+
+aside h4{
+    text-shadow: 1px 1px 3px black;
+    color: white;
 }
 
 aside,
 section{
 margin:0 2px;
-}
-aside{
-   max-width: 15rem;
 }
 
 p{
@@ -50,4 +47,18 @@ a{
 }
 li:hover{
     background-image:linear-gradient(to right, rgb(183, 250, 255),  white 30%);
+}
+
+@media screen and (max-width: 750px){
+    aside.shadow-box{
+        margin: auto;
+    }
+
+}
+
+@media screen and (min-width: 751px) {
+    aside{
+        float: right;
+    }
+    
 }
