@@ -12,11 +12,11 @@ footer{
     background-color: rgb(36, 49, 53);
     color: white;
     text-align: center;
-    padding: 5px;
+    padding: .3rem;
 }
 header{
-    margin-bottom: 5px;
+    margin-bottom: .3rem;
 }
 footer{
-    margin-top: 5px;;
+    margin-top: .3rem;
 }

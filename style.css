@@ -4,38 +4,34 @@ main{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-
 }
 .shadow{
     box-shadow: 2px 2px 5px grey;
 }
 section .shadow{
     margin:5px;
-    min-width:200px;
+    width:18.75rem;
 }
 
 aside,
 section{
-margin:0 10px;
+margin:0 2px;
 }
 aside{
-   max-width: 200px;
+   max-width: 15rem;
 }
 
 p{
     text-align: left;
-    padding: 10px;
+    padding: .5rem;
 }
 .flex{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.menu{
-width:300px;
-}
 ul{
-    margin:10px;
+    margin:.5rem;
     padding:0;
 }
 li{
@@ -43,8 +39,7 @@ li{
     text-align: left;
     padding: 5px;
     border-bottom: dotted 1px black;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: .62rem;
     margin:0;
     background-image: linear-gradient(to right, rgb(183, 250, 255),  white 20%);
     transition: background 0.3s ease;
