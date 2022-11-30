@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>JS variables and conditions</title>
+    <style>
+        #results1,
+        #results2,
+        #results3{
+            background:lightgrey;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+/* #results1,
+#results2,
+#results3{
+          visibility: visible;
+            } */
+
+            p{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 30<sup>th</sup> of November 2022</h1>
+        <h3>Create variables and check conditions</h3>
+    </header>
+
+    <main>
+        <section>
+            <h2>Užduotis</h2>
+            <ol>
+                <li onClick="show1()">
+                    Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus (Jonas Jonaitis). Atspausdinti trumpesnį stringą.
+                </li>
+                <li onClick="show2()">
+                    Sukurkite 4 kintamuosius, kurie saugotų jūsų vardą, pavardę, gimimo metus ir šiuos metus (nebūtinai tikrus). Parašykite kodą, kuris pagal gimimo metus paskaičiuotų jūsų amžių ir naudodamas vardo ir pavardės kintamuosius atspausdintų tokį sakinį :
+                    <blockquote> "Aš esu Vardenis Pavardenis. Man yra XX metai(ų)". </blockquote>
+                </li>
+                <li onClick="show3()">
+                    Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš trijų paskutinių vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <div>
+                <h2>Rezultatai</h2>
+                <p>rezultatai rodomi konsolėje arba, paspaudus pele ant užduoties, - žemiau surašytų kintamūjų, pilkame fone </p>
+                <hr />
+            </div>
+            <div>
+                <p>Duoti kintamieji "Donatas" ir "Banionis"</p>
+                    <div id="results1">
+                    </div>
+
+                
+                <p>Kintamieji duoti pagal sąlygą</p>
+                <div id="results2">
+                </div>
+
+                <p>Duoti kintamieji "Jenifer" ir "Lopes"</p>
+                <div id="results3">
+                </div>
+            </div>
+        </section>
+        
+        <script src="js.js"></script>
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

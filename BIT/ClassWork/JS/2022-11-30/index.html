@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    
+    <!-- įdėjimas <head> dalyje -->
+
+    <script src=defer.js defer></script>
+    <script>
+        console.log('kraunasi prieš visą html kodą')
+    </script>
+
+    <title>JS placement in HTMLs</title>
+</head>
+<body>
+    <header>
+        <h1>Class work</h1>
+        <h3>JS placement in HTML file</h3>
+        <h4>30<sup>th</sup> of November 2022</h4>
+    </header>
+
+    <main>
+        <div>
+            Scripto veiksmai matomi konsolėje.
+        </div>
+
+    <!-- įdėjimas <body> dalyje -->
+        <script>
+            console.log('kraunasi iš body elemento')
+        </script>
+        <script src="js.js"></script>
+
+        
+        
+        
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

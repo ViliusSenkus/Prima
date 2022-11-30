@@ -1,0 +1,1 @@
+console.log('veikia iš išorinio failo');
