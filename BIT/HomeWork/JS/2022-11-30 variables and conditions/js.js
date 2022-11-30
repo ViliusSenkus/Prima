@@ -84,3 +84,70 @@ console.log(abrv);
 function show3(){
     document.getElementById("results3").innerHTML=abrv;
 }
+
+
+//-----------------Ketvirta užduotis-----------------
+
+let text = "Once upon a time in hollywood";
+let txtsm = text.toLowerCase();
+let txtChanged = txtsm.replaceAll(`o`, `*`);
+console.log(txtChanged);
+
+show = txtChanged
+function show4(){
+    document.getElementById("results4").innerHTML=show;
+}
+
+
+//-----------------Penkta užduotis-----------------
+let count0=0;
+let count1=0;
+let count2=0;
+
+let rnd1 = Math.floor(Math.random()*3);
+if (rnd1==0){
+    count0++;
+}else if(rnd1==1){
+    count1++;
+}else{
+    count2++;
+}
+
+let rnd2 = Math.floor(Math.random()*3);
+if (rnd2==0){
+    count0++;
+}else if(rnd2==1){
+    count1++;
+}else{
+    count2++;
+}
+
+let rnd3 = Math.floor(Math.random()*3);
+if (rnd3==0){
+    count0++;
+}else if(rnd3==1){
+    count1++;
+}else{
+    count2++;
+}
+
+let rnd4 = Math.floor(Math.random()*3);
+if (rnd4==0){
+    count0++;
+}else if(rnd4==1){
+    count1++;
+}else{
+    count2++;
+}
+
+console.log(`atsitiktiniai skaičiai:`, rnd1, rnd2, rnd3, rnd4);
+console.log(`nuliuku-`,count0, `,vienetukų-`,count1,`,dvejetukų-`,count2);
+
+
+line1=`atsitiktiniai skaičiai: `+ rnd1 +` ` + rnd2 + ` ` + rnd3 + ` ` + rnd4;
+line2=`nuliuku - ` + count0 + `, vienetukų - ` + count1 +`, dvejetukų - ` + count2;
+
+lineAll=line1+`<br />`+line2
+function show5(){
+    document.getElementById("results5").innerHTML=lineAll;
+}
