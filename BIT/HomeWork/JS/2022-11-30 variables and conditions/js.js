@@ -77,7 +77,7 @@ ilgPavard = aktPavard.length;
 
 abrvVard = aktVard[ilgVard-3]+aktVard[ilgVard-2]+aktVard[ilgVard-1];
 abrvPavard = aktPavard[ilgPavard-3]+aktPavard[ilgPavard-2]+aktPavard[ilgPavard-1];
-abrv = abrvVard + " " + abrvPavard;
+abrv = "Trys paskutinės vardo ir pavardės raidės: " + abrvVard + " " + abrvPavard;
 
 console.log(abrv);
 

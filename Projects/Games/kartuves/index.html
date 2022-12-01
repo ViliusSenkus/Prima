@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="internet browsher based game with aim to guess hidden word by naming possible letters">
+    <meta name="author" content="Vilius Senkus">
+    <meta name="keywords" content="game, guess, word, letter, gallow, logic, fun"> <!--pratęsti vėliau-->
+    <!-- <meta http-equiv="refresh" content="30">    nukomentinti pasirinkus reikiamą refreshinimo laiko tarpą-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/logo.png" />
+    <title>Kartuvės</title>
+</head>
+<body>
+    <header>
+        <h1>Kartuvės <br />
+        atspėk žodį, išgelbėk žmogeliuką nuo kartuvių</h1>
+    </header>
+
+    <main>
+        <!-- ---------------------------------------Game parameters form--------------------------------------- -->
+        <div id="parametersSetUp">
+            <h3>Žaidimo parinktys</h3>
+            <form>
+                <label for="guessNo">Spėjimų skaičius</label>
+                <input id="guessNo" type="number" value="7"/> <!--taisyti pirminį spėjimų skaičių pabaigus programą-->
+            
+                <label for="letterNo">Atidengtų raidžių skaičius</label>
+                <input id="letterNo" type="number" />
+                
+                <label for="gallowType">Kartuvių tipas</label>
+                <select id="gallowType">
+                    <option value="gallowTypeComing">Artėjimas prie kartuvių</option>
+                    <option value="gallowTypeDrawing">Kartuvių darymas</option>
+                </select>
+                
+                <label for="guessType">Kaip nori spėti žodį</label>
+                <select id="guessType">
+                    <option value="guessTypeRunning">Paraidžiui (iš eilės raidė po raidės)</option>
+                    <option value="guessTypeRandom">Raidės bet kurioje vietoje</option>
+                </select>
+    
+                <label for="animationType">Pasirink animacijos tipą</label>
+                <select id="animationType">
+                    <option value="..">vienokia</option>
+                    <option value="..">kitokia</option>
+                </select>
+    
+                <input type="submit" value="Patvirtinti pasirinkimą">
+                <!-- arba -->
+                <button type="button" onclick="rules()">Patvirtink pasirinkimą</button>
+            </form>
+        </div>
+        
+        <!-- ---------------------------------------Word to be guessed input--------------------------------------- -->
+        <div id="hideWord">
+            <h3>Slepiamas žodis</h3>
+            <form>
+                <label for="word">
+                    įvesk žodį (vardininko linksniu vienaskaitinį daiktavardį):
+                </label>
+                <input type="text" id="word" />
+                <button type="button" onclick="hidWord()">Paslėpk</button>
+            </form>
+        </div>
+        
+        <!-- ---------------------------------------Guessing panel--------------------------------------- -->
+        <secion>
+            <div id="codedWord" class="col-4">
+                čia bus paslėptas žodis
+            </div>
+            
+            <div id="gallows" class="col-6">
+                čia bus kartuvės
+            </div>
+        </secion>
+        
+        <!-- ---------------------------------------Letters selection block--------------------------------------- -->
+        <section id="alphabet">
+            Čia pasirenkamos raidės
+        </section>
+
+    </main>
+
+    <footer>
+        <p id="test">Created by Vilius Senkus</p>
+        <button type="button" onclick="letterTest()">Testas</button>
+    </footer>
+    <script src="assets/js/js.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>JS variables and conditions</title>
+    <style>
+        #results1,
+        #results2,
+        #results3,
+        #results4,
+        #results5{
+            background:lightgrey;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        p{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 1<sup>st</sup> of December 2022</h1>
+        <h3>Conditional statements, Logical operators, Math and String functions</h3>
+    </header>
+
+    <main>
+        <section>
+            <h2>Užduotis</h2>
+            <ol>
+                <li onClick="show1()">
+                    1. Pasinaudokite atsitiktinio skaičiaus generavimo funkcija. Sukurkite du kintamuosius ir naudodamiesi funkcija jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kablelio.
+                </li>
+                <li onClick="show2()">
+                    2. Naudokite funkciją ir sukurkite tris kintamuosius kuriems priskirkite atsitiktines reikšmes nuo 0 iki 25. Raskite ir atspausdinkite kintamąjį turintį vidurinę reikšmę.
+                </li>
+                <li>
+                    3. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš pirmų vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+                </li>
+                <li onClick="show4()">
+                    4. Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <div>
+                <h2>Rezultatai</h2>
+                <p>
+                    rezultatai rodomi konsolėje arba paspaudus pele ant užduoties prie žemiau surašytų užduočių rezultatų pilkame fone. <br/>
+                    <strong>Note:</strong> 3-ia užduotis rodoma įvedus duomenis į pateiktą formą
+                </p>
+                <hr />
+            </div>
+            <div>
+                <p>1 užduoties rezultatas</p>
+                    <div id="results1">
+                    </div>
+
+                <p>2 užduoties rezultatas</p>
+                    <div id="results2">
+                    </div>
+
+                <p>3 užduotis</p>
+                <p>Įrašyk vardą ir pavardę ir paspaudus mygtuką gausi inicialus</p>
+                    <form style="text-align:left; line-height: 1.5rem;">
+                        <label for="vards">Vardas</label>
+                        <input type="text" id="vards">
+                        <label for="pavards">Pavardė</label>
+                        <input type="text" id="pavards"><br />
+                        <button type="button" onclick="inicials()">Suformuoti inicialus</button>
+                    </form>
+                    <div id="results3">
+                    </div>
+
+                <p>4 užduoties rezultatas</p>
+                    <div id="results4">
+                    </div>
+
+            </div>
+        </section>
+        
+        <script src="js.js"></script>
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>
