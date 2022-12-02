@@ -1,4 +1,5 @@
-let abc="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx"
+let abc="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
+let n=0;
 
 
 
@@ -13,15 +14,18 @@ function hidWord(){                         //word rememebering, sending to cons
     
     //check if hWord is constructed of letters
    hWord=hWord.toLowerCase();
+   
     for (let i=0; i<=len; i++){
-        console.log(`simbolis ties`, i, `vieta, yra:`, hWord.charAt(i))
         for (l=0; l<=abc.length-1; l++){
-            if(hWord[i]==abc[l])
-            console.log(`it's not a word`, abc.charAt(l) )
+            if(hWord[i]==abc[l]){
+            n++;
+            }
         }
-        
+        if (n!=1){
+        console.log(`it's not a word, no such letter "`, hWord[i],`"`);
+        }
+        n=0;
     }
-    
 }
 
 function letterTest(hWord){                     //test if word made of letters

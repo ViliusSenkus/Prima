@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>Friday Challenge</title>
+    <style>
+        #results1,
+        #results2,
+        #results3{
+            background:lightgrey;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        p{
+            margin:0.5rem;
+            padding:0;
+        }
+        img{
+            height: 2rem;
+        }
+        input{
+            width: 6rem;
+        }
+        form{
+            text-align:left;
+            line-height: 1.5rem;
+            margin:1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 2<sup>nd</sup> of December 2022</h1>
+        <h3>Friday Challenge</h3>
+    </header>
+
+    <main>
+        <section>
+            <h2>Užduotis</h2>
+            <ol>
+                <li>
+                    1. Įmonė parduoda žvakes po 1 EUR. Perkant daugiau kaip už 1000 EUR taikoma 3 % nuolaida, daugiau kaip už 2000 EUR - 4 % nuolaida. Parašykite programą, kuri skaičiuos žvakių kainą ir atspausdintų atsakymą kiek žvakių ir kokia kaina perkama. Žvakių kiekį generuokite rand() funkcija nuo 5 iki 3000.
+                </li>
+                <li>
+                    2. Naudokite funkcija rand(). Sukurkite tris kintamuosius su atsitiktinėmis reikšmėmis nuo 0 iki 100. Suskaičiuokite jų aritmetinį vidurkį. Ir aritmetinį vidurkį atmetus tas reikšmes, kurios yra mažesnės nei 10 arba didesnės nei 90. Abu vidurkius atspausdinkite. Rezultatus apvalinkite iki sveiko skaičiaus.
+                </li>
+                <li>
+                    3. Padarykite skaitmeninį laikrodį, rodantį valandas, minutes ir sekundes. Valandom, minutėm ir sekundėm sugeneruoti panaudokite funkciją rand(). Sugeneruokite skaičių nuo 0 iki 300. Tai papildomos sekundės. Skaičių pridėkite prie jau sugeneruoto laiko. Atspausdinkite laikrodį prieš ir po sekundžių pridėjimo ir pridedamų sekundžių skaičių.
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <div>
+                <h2>Rezultatai</h2>
+            </div>
+            <div>
+                <p>1. Žvakių kainos paskaičiavimas</p>
+                    <form>
+                        <img src="candle.png" alt="candle" />
+                        <label for="candelNo">Kiekis</label>
+                        <input type="number" id="candleNo" min="0" step="100" placeholder="0-4000">
+                        <button type="button" onclick="candle()">Skaičiuoti kainą</button>
+                    </form>    
+
+                    <div id="results1">
+                    </div>
+
+                <p>2. Vidurkio skaičiavimas</p>
+                    <form>
+                        <label for="no1">Įveskite skaičius</label>
+                        <input type="number" id="no1" min="0" max="100" placeholder="0-100" value="50">
+                        <input type="number" id="no2" min="0" max="100" placeholder="0-100" value="50">
+                        <input type="number" id="no3" min="0" max="100" placeholder="0-100" value="50">
+                        <button type="button" onclick="avrCount()">Skaičiuoti vidurkius</button>
+                    </form> 
+                    <div id="results2">
+                    </div>
+
+                <p>3. Laiko skaičiavimas</p>
+                    <form>
+                        <label for="h">Įveskite valandas</label>
+                        <input type="number" id="h" min="0" max="23" placeholder="0-23" value="12">
+                        <label for="min">minutes</label>
+                        <input type="number" id="min" min="0" max="59" placeholder="0-59" value="30">
+                        <label for="s">sekundes</label>
+                        <input type="number" id="s"  min="0" max="59" placeholder="0-59" value="30"><br />
+                        <label for="addS">Kiek sekundžių pridėti?</label>
+                        <input type="number" id="addS"  min="0" max="359" placeholder="0-359" value="159"><br />
+                        <button type="button" onclick="timing()">Perskaičiuoti laiką</button>
+                    </form>
+                    <div id="results3">
+                    </div>
+
+            </div>
+        </section>
+        
+        <script src="js.js"></script>
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>
