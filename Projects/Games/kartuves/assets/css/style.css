@@ -2,6 +2,8 @@
 
                                 /* 1. general styling */
                                 /* 2. Body styling and general formating */
+                                /* 3. Heading styling */
+                                /* 4. Main part styling */
 
 
 
@@ -60,8 +62,76 @@ footer{
     margin: 1rem auto;
 }
 
+
+                                /* 3. Heading styling*/
+
+header{
+    text-align: center;
+    padding:1rem;
+    background-color: antiquewhite;
+}
+
+h1{
+    font-size: 3rem;
+    color:brown;
+}
+
+
+                                /* 4. Main part styling*/
+
+main h3{
+    text-align: center;
+    padding:.5rem;
+    background-color: antiquewhite;
+    font-size: 2rem;
+    color:brown;
+}
+
+main form{
+    display:flex;
+    flex-direction: column;
+    padding: 0.2rem;
+   
+}
+
+input,
+select{
+    width:7rem;
+    font-size: 1rem;
+}
+#word{
+    width:15rem;
+}
+
+button{
+    background-color: antiquewhite;
+    color:brown;
+    border: 1px solid brown;
+    border-radius: .2rem;
+    width: 15rem;
+    padding: .2rem;
+    margin: .2rem;
+}
 section{
     display:flex;
+    justify-content:space-around;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+}
+
+/* formating choosable letters block */
+
+.letter{
+    width:5rem;
+    margin: 1rem;
+    height:5rem;
+    line-height: 5rem;
+    text-align: center;
+    border: 2px dotted red;
+    background-color: blanchedalmond;
+    color:brown;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    text-transform: capitalize;
+    
 }

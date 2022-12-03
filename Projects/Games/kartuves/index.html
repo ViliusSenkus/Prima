@@ -12,9 +12,9 @@
     <link rel="icon" href="assets/img/logo.png" />
     <title>Kartuvės</title>
 </head>
-<body>
+<body onload="abcs()">
     <header>
-        <h1>Kartuvės <br />
+        <h1>Žaidimas "Kartuvės" <br />
         atspėk žodį, išgelbėk žmogeliuką nuo kartuvių</h1>
     </header>
 
@@ -46,9 +46,6 @@
                     <option value="..">vienokia</option>
                     <option value="..">kitokia</option>
                 </select>
-    
-                <input type="submit" value="Patvirtinti pasirinkimą">
-                <!-- arba -->
                 <button type="button" onclick="rules()">Patvirtink pasirinkimą</button>
             </form>
         </div>
@@ -69,6 +66,7 @@
         <secion>
             <div id="codedWord" class="col-4">
                 čia bus paslėptas žodis
+                <button type="button" onclick="guessPanel()">ar gavosi?</button>
             </div>
             
             <div id="gallows" class="col-6">
@@ -77,8 +75,8 @@
         </secion>
         
         <!-- ---------------------------------------Letters selection block--------------------------------------- -->
-        <section id="alphabet">
-            Čia pasirenkamos raidės
+        <section id="alphabet"> 
+            <!-- section loaded from body during page parsing, each letter in it's own <div> container, css linked with .letter and from #letter0 to N -->
         </section>
 
     </main>

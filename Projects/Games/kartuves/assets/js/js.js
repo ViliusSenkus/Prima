@@ -3,32 +3,49 @@ let n=0;
 
 
 
-// let hWord;  //assigning given word to hWord variable
+// let hWord;  
 
-function hidWord(){                         //word rememebering, sending to console and form hiding
-   let hWord=document.getElementById("word").value;
-    console.log(hWord);
-    document.getElementById("hideWord").style.display="none";
-    let len=hWord.length-1;
-    console.log(len);
-    
-    //check if hWord is constructed of letters
-   hWord=hWord.toLowerCase();
+function hidWord(){                                     //word rememebering, sand form hiding
+   let hiddenWord=document.getElementById("word").value;     //assigning given word to hiddenWord variable
+    console.log(hiddenWord);
+    document.getElementById("hideWord").style.display="none";   //hiding input form
    
-    for (let i=0; i<=len; i++){
+    
+    //check if hiddenWord is constructed of letters (check according variable 'abc')
+    let wordLength=hiddenWord.length-1;
+    hiddenWord=hiddenWord.toLowerCase();
+   
+    for (let i=0; i<=wordLength; i++){
         for (l=0; l<=abc.length-1; l++){
-            if(hWord[i]==abc[l]){
+            if(hiddenWord[i]==abc[l]){
             n++;
             }
         }
         if (n!=1){
-        console.log(`it's not a word, no such letter "`, hWord[i],`"`);
+        console.log(`it's not a word, no such letter exist"`, hiddenWord[i],`"`);
         }
         n=0;
     }
+    return hiddenWord;
 }
 
-function letterTest(hWord){                     //test if word made of letters
-    let =this.hWord.length;
-    console.log(len);
+
+//hidden word panel forming function
+
+function guessPanel(){
+    let guessWord=this.hiddenWord;
+    console.log(`dabar `, guessWord);
+}
+
+
+
+// letters panel forming function executed from <body> element on page load
+
+let codeBlock="";
+function abcs(){
+    
+    for (let i=0; i<=abc.length-1; i++){
+        codeBlock=codeBlock+`<div class="letter" id="letter`+i+`">` + abc[i] + '</div>';
+        document.getElementById("alphabet").innerHTML=codeBlock;
+    }
 }
