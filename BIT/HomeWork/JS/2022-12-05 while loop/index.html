@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>While loops</title>
+    <style>
+        *{
+            overflow-wrap:break-word;
+        }
+        .show{
+            display: inline-block;
+            width: 25rem;
+        }
+        .colorNum{
+            font-size: 2rem;
+        }
+        main li{
+            background-image:none;
+            list-style-type:number;
+            
+        }
+        main li:hover{
+            background-image:none;
+        }
+        li p{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 5<sup>th</sup> of December 2022</h1>
+        <h3>While loops</h3>
+    </header>
+
+    <main>
+        <div class="show">
+            <h2>su CSS</h2>
+            <script>
+                let i=0;
+                let result="";
+                while(i<400){
+                    result=result + "*";
+                    i++
+                }
+                document.write(result);
+            </script>
+        </div>
+
+        <div>
+            <h2>su JS</h2>
+            <script>
+                let x=0;
+                let line="";
+                while(x<400){
+                    if(x>0 && x % 50==0){
+                        line=line+"<br />";
+                    }
+                    line=line+"*";
+                    x++;
+                }
+                document.write(line);
+            </script>
+        </div>
+        <div>
+            <ol>
+                <li>
+                    <p>red
+                        Naudokite funkcija rand(). Sugeneruokite atsitiktinį skaičių nuo 1 iki 6 ir jį atspausdinkite atitinkame h tage. Pvz skaičius 3 - h3tage
+                    </p>
+                    <div>
+                        <script>
+                            let h;
+                            h = Math.floor(Math.random()*6)+1;
+                            document.write(`<h`,h,`>`,h,` dydžio antraštė</h`,h,`>`);
+                        </script>
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        Naudokite funkcija rand(). Atspausdinkite 3 skaičius nuo -10 iki 10. Skaičiai mažesni už 0 turi būti žali, 0 - raudonas, didesni už 0 mėlyni.
+                    </p>
+                    <div class="colorNum">
+                        <script>
+                            let n1 = Math.floor(Math.random()*20)-10;
+                            let n2 = Math.floor(Math.random()*20)-10;
+                            let n3 = Math.floor(Math.random()*20)-10;
+
+                            let green=`<span style="color:green;">`;
+                            let red=`<span style="color:red;">`;
+                            let blue=`<span style="color:blue;">`;
+                            let clspan=` </span>`;
+
+                            let res=""
+                                if (n1<0){
+                            res=green+n1+clspan;
+                                }
+                                else if (n1>0){
+                                    res=blue+n1+clspan;
+                                }
+                                else res=red+n1+clspan;
+                            if (n2<0)
+                            res=res+green+n2+clspan;
+                                else if (n2>0)
+                                res=res+blue+n2+clspan;
+                                elseres=res+red+n2+clspan;
+                            if (n3<0)
+                            res=res+green+n3+clspan;
+                                else if (n3>0)
+                                res=res+blue+n3+clspan;
+                                elseres=res+red+n3+clspan;
+                            document.write(res)
+                        </script>
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        Sukurkite kintamąjį su stringu: “An American in Paris”. Jame ištrinti visas balses. Rezultatą atspausdinti. Kodą pakartoti su stringais: “Breakfast at Tiffany's”, “2001: A Space Odyssey” ir “It's a Wonderful Life”.
+                    </p>
+                    <script>
+                        let vowel="aeiuo";
+                        let vowelUp=vowel.toUpperCase();
+                    
+                        let text1="An American in Paris";
+                        i=0;
+                        while (i<vowel.length-1){
+                            text1=text1.replaceAll(vowel[i],"");
+                            text1=text1.replaceAll(vowelUp[i],"");
+                            i++
+                        }
+                        document.write(text1+"<br />");
+
+                        let text2="Breakfast at Tiffany's";
+                        i=0;
+                        while (i<vowel.length-1){
+                            text2=text2.replaceAll(vowel[i],"");
+                            text2=text2.replaceAll(vowelUp[i],"");
+                            i++
+                        }
+                        document.write(text2+"<br />");
+
+                        
+                        let text3="2001: A Space Odyssey";
+                        i=0;
+                        while (i<vowel.length-1){
+                            text3=text3.replaceAll(vowel[i],"");
+                            text3=text3.replaceAll(vowelUp[i],"");
+                            i++
+                        }
+                        document.write(text3+"<br />");
+
+                        let text4="It's a Wonderful Life";
+                        i=0;
+                        while (i<vowel.length-1){
+                            text4=text4.replaceAll(vowel[i],"");
+                            text4=text4.replaceAll(vowelUp[i],"");
+                            i++
+                        }
+                        document.write(text4+"<br />");
+                    </script>
+                </li>
+                <li>
+                    <p>
+                        Sugeneruokite 300 atsitiktinių skaičių nuo 0 iki 300, atspausdinkite juos atskirtus tarpais ir suskaičiuokite kiek tarp jų yra didesnių už 150.  Skaičiai didesni nei 275 turi būti raudonos spalvos.
+                    </p>
+                    <script>
+                        function rand(min, max) {
+                            min = Math.ceil(min);
+                            max = Math.floor(max);
+                            return Math.floor(Math.random() * (max - min + 1) + min);
+                        }
+
+                        i=0;
+                        let num;
+                        let numrow="<span";
+                        let counter=0;
+                        while (i<300){
+                            num=rand(0,300);
+                            if (num>150)
+                            counter++;
+                            if (num>275)
+                            numrow = numrow + `style="color:red;">` + num + ` </span><span `;
+                            else
+                            numrow=numrow+`>`+num+` </span`;
+                            i++
+                            // document.write(num,` `);
+                        }
+                        document.write(numrow + `<br />`);
+                        document.write(`<br />skaičių, kurių reikšmė virš 150 yra:`+counter+`vnt. <br/>` );
+                    </script>
+                </li>
+
+                <li>
+                    <p>
+                        Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos. Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi ekrane.
+                    </p>
+                    <div>
+                        <script>
+                            i=1;
+                            row="";
+                            while(i<3000){
+                                if (i%77==0)
+                                row=row+i+", ";
+                                i++;
+                            }
+                            row=row.slice(0, row.length-2);
+                            document.write(row);
+                        </script>
+                    </div>
+                </li>
+            </ol>
+
+
+
+
+        </div>
+
+        
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

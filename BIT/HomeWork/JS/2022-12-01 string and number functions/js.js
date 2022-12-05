@@ -50,8 +50,8 @@ let rand2_1=rand(0,25);
 let rand2_2=rand(0,25);
 let rand2_3=rand(0,25);
 
-min2=Math.min(rand2_1, rand2_2, rand2_3);
-max2=Math.max(rand2_1, rand2_2, rand2_3);
+let min2=Math.min(rand2_1, rand2_2, rand2_3);
+let max2=Math.max(rand2_1, rand2_2, rand2_3);
 
 console.log(`atsitiktiniai skaiciai:`,rand2_1,rand2_2,rand2_3)
 if(rand2_1!==min2 && rand2_1!==max2)

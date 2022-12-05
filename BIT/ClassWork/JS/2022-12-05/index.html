@@ -7,35 +7,63 @@
     <link rel="stylesheet" href="../../../../formal-style.css" />
     <link rel="stylesheet" href="../../../../style.css" />
     <link rel="icon" href="../../../img/js-icon.png" />
-    
-    <!-- įdėjimas <head> dalyje -->
-
-    <!-- <script src=defer.js defer></script>
-    <script>
-        console.log('kraunasi prieš visą html kodą')
-    </script> -->
-
-    <title>Loops</title>  <!--keisti pavadinimą-->
+    <title>Loops</title>
+    <style>
+        #whileLoop{
+            display: inline-block;
+            text-align: left;
+            height: 20px;
+            width: 20px;
+            background-color: aqua;
+        }
+    </style>
 </head>
+
 <body>
+    
     <header>
         <h1>Class work</h1>
-        <h3>JS Loops</h3>  <!--keisti pavadinimą-->
+        <h3>JS Loops</h3> 
         <h4>5<sup>th</sup> of December 2022</h4>
     </header>
 
     <main>
-       
-    <!-- įdėjimas <body> dalyje -->
-        <!-- <script>
-            console.log('kraunasi iš body elemento')
-        </script>
-        <script src="js.js"></script> -->
+       <section>
+        <h2>While</h2>
+            <div id="whileLoop"></div>
+            <div>
+                <button type="button" onclick="whileLoop()">
+                    Paleisti While ciklą
+                </button>
+                <button type="button" onclick="back()">
+                    gražinti atgal
+                </button>
+            </div>
+       </section>
+
+       <section>
+        <h2>Do While</h2>
+        <div>
+            <label for="letter">Iki kokios raidės reikia abėcėlės?</label>
+            <input id="letter" type="text" value="m" />
+            <div>
+                <button type="button" onclick="neiskaitant()">
+                    iki nurodytos raidės (While)
+                </button>
+                <button type="button" onclick="iskaitant()">
+                    įskaitant nurodytą raidę (Do While)
+                </button>
+            </div>
+            <div id="abc"></div>
+        </div>
+       </section>
         
+
     </main>
 
     <footer>
         <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+        <script src=loops.js defer></script>
     </footer>
 </body>
 </html>
