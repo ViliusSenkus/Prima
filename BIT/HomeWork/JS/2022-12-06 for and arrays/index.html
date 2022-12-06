@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>For and Arrays</title>
+    <style>
+        *{
+            overflow-wrap:break-word;
+        }
+
+        main li{
+            background-image:none;
+            list-style-type:number;
+            
+        }
+        main li:hover{
+            background-image:none;
+        }
+        li p{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 6<sup>th</sup> of December 2022</h1>
+        <h3>"For" loops & Arrays</h3>
+    </header>
+
+    <main>
+
+        <div>
+            <ol>
+                <li> <!-- -----------------1 užduotis----------------- -->
+                    <p>
+                        Nupieškite kvadratą iš “*”, kurio kraštines sudaro 100 “*”. Panaudokite css stilių, kad kvadratas ekrane atrodytų kvadratinis.
+                    </p>
+                    <div style="line-height: 0.35rem;">
+                        <script>
+                            for (let x=1; x<100;x++){
+                                for (let i=1; i<100; i++){
+                                    document.write("*");
+                                }
+                                document.write("<br />");
+                            }
+                        </script>
+                    </div>
+                </li>
+
+                <li> <!-- -----------------2 užduotis----------------- -->
+                    <p>
+                        Prieš tai nupieštam kvadratui nupieškite raudonas istrižaines.
+                    </p>
+                    <div style="line-height: 0.35rem;">
+                        <script>
+                            let size = 100;
+                            for (let x=1; x<size; x++){
+                                    for (let i=1; i<size; i++){
+                                        if (x==i || x==100-i)
+                                            document.write(`<span style="color:red">*</span>`);
+                                        else 
+                                            document.write("*");
+                                    }
+                                    document.write("<br />");
+                                }
+                        </script>
+                    </div>
+                </li>
+
+                <li>  <!-- -----------------3 užduotis----------------- -->
+                    <p>
+                        Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija, kur 0 yra herbas, o 1 - skaičius. Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas. Suprogramuokite keturis skirtingus scenarijus kai monetos metimą stabdome:
+                            <ol>
+                                <li>Iškritus herbui;</li>
+                                <li>Tris kartus iškritus herbui;</li>
+                                <li>Tris kartus iš eilės iškritus herbui;</li>
+                            </ol>
+                    </p>
+                    <div>
+                        <script>
+                            function rand(min, max) {
+                                min = Math.ceil(min);
+                                max = Math.floor(max);
+                                return Math.floor(Math.random() * (max - min + 1) + min);
+                            }
+
+                            let coinSide="";
+
+                            document.write(`metama kol iškris H - `);
+                            while (coinSide!=="H"){
+                                let x=rand(0,1);
+                                if(x==0)
+                                    coinSide="H";
+                                else
+                                    coinSide="S";
+                                    
+                                    document.write(coinSide);
+                            }
+                            document.write(`<br />`)
+                            
+                            document.write(`metama kol 3 kartus iškris H - `);
+                            let counter=0;
+                            while (counter<3){
+                                let x=rand(0,1);
+                                if(x==0){
+                                    coinSide="H";
+                                    counter++
+                                }
+                                else
+                                    coinSide="S";
+
+                                    document.write(coinSide);
+                            }
+                            document.write(`<br />`)
+
+                            document.write(`metama kol 3 kartus iš eilės iškris H - `);
+                            counter=0;
+                            while (counter<3){
+                                let x=rand(0,1);
+                                if(x==0){
+                                    coinSide="H";
+                                    counter++
+                                }
+                                else{
+                                    coinSide="S";
+                                    counter=0;
+                                }
+                                    document.write(coinSide);
+                            }
+                            document.write(`<br />`)
+                        </script>
+                    </div>
+                </li>
+
+                <li> <!-- -----------------4 užduotis----------------- -->
+                    <p>
+                        Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25..
+                    </p>
+                    <div style=" line-height: 1rem;">
+                        <script>
+                            let masyvas=[];
+                            size = 30;
+                            for (let x=0; x<size; x++){
+                                masyvas[x]=rand(5,25);
+                                document.write(x,` indekso rekšmė yra - `,masyvas[x],`<br />`);
+                            }    
+                        </script>
+                    </div>
+                </li>
+                
+                <li> <!-- -----------------5 užduotis----------------- -->
+                    <p>
+                        Naudodamiesi 4 uždavinio masyvu:
+                        <ol>
+                            <li>
+                                Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
+                            </li>
+                            <li>
+                                Raskite didžiausią masyvo reikšmę ir jos indeksą arba indeksus jeigu yra keli;
+                            </li>
+                            <li>
+                                Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
+                            </li>
+                            <li>
+                                Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
+                            </li>
+                            <li>
+                                Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39.
+                            </li>
+                        </ol>
+                    </p>
+
+                    <div style=" line-height: 1rem;">
+                        <script>
+                            
+                            // ------------5.1 užduotis ------------------------
+                            counter=0;
+                            for (let x=0; x<masyvas.length; x++){
+                                if(masyvas[x]>10)
+                                counter++;
+                            }    
+                            document.write(`masyve yra `,counter,` reikšmių didesnių už 10<br />`);
+
+                            // ------------5.2 užduotis ------------------------
+                            counter=0;
+                            for (let i=0; i<masyvas.length; i++){
+                                if(masyvas[i]>counter){
+                                    counter=masyvas[i];
+                                }
+                            }
+                            document.write('didžiausias masyvo reikšmė - ', counter, '<br />')
+                           
+                            // ------------5.3 užduotis ------------------------
+                            counter=0;
+                            for( let i=0; i<masyvas.length; i+=2) //0 index'as skaičiuojamas prie porinių.
+                                counter=counter+masyvas[i];
+                                
+                                document.write(`skaitmenų su poriniais indeksais suma lygi - `, counter,`<br />` );
+                           
+                            // ------------5.4 užduotis ------------------------
+                            let newArray=[];
+                                for (let i=0; i<masyvas.length; i++)
+                                    newArray[i]=masyvas[i]-i;
+                            
+                            document.write(`senas masyvas:<br />`);
+                            document.write(masyvas, `<br />`);
+                            document.write(`perskaičiuotas masyvas:<br />`);
+                            document.write(newArray, `<br />`);
+                            // ------------5.5 užduotis ------------------------
+                            let papildymas=10;
+                            let newLength=masyvas.length+papildymas;
+                            let x;
+                            for (let i=masyvas.length; i<newLength; i++){
+                                x=rand(5,25);
+                                masyvas[i]=x;
+                            }
+                            document.write(`papildytas masyvas:<br />`,masyvas);
+                            console.log(masyvas);
+                        </script>
+                    </div>
+                </li>
+            </ol>
+
+
+
+
+        </div>
+
+        
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

@@ -1,45 +1,40 @@
+//-----------------globalūs kintamieji------------------------------------//
 const abecele="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
-let ivestasZodis=""
-let pasleptasZodis=[];
-let pasirinktaRaide="";
-let atspetaSimboliu=0;
-let visoSimboliu=0;
 
-
-function arZodisIrasytas(tikrinamasZodis){
-    let testas="žodis įvestas";
-    if (tikrinamasZodis == ""){
-        testas="žodis neivestas";
+function hidWord(){
+    let zodis=document.getElementById("word").value;
+    let result="viskas gerai";
+    if (zodis == ""){
+        result="žodis neįvestas";
     }
-    return testas;
-}  
 
-function zodisMasyvan(zodis){
     let zodisMasyve=[];
-    for (let i=0; i<=zodis.length-1; i++){
+    for (i=0; i<zodis.length; i++)
         zodisMasyve.push(zodis[i]);
+
+    let counter=0;
+    for(i=0; i<zodisMasyve.length; i++){
+        let x=0;
+        while (zodisMasyve[i]!==abecele[x]){
+            x++;
+            counter++;
+            if(counter>=35){
+                result=`nėra tokios raidės - "`+zodisMasyve[i]+`"`;
+                break;
+            }
+        }
+        counter=0;
     }
-    return (zodisMasyve);
+    console.log(result);
+    return zodisMasyve;
 }
+//----------------- į konsolę išvedami rezultatai-----------------------------------//
 
 
-function arZodisIsRaidziu(){
-    let testas ="žodis iš raidžių dar netikrintas";
-    let zodis = zodisMasyvan();
 
-    return zodis, testas;
-    
-    // for (let i=0; i<=zodis.length-1; i++){
-    //         if(abecele[i] !== zodis[i]){
-    //             console.log(zodis[i]);
-    //             testas="ne tie simboliai";
-    //         }else testas=true;
-    //     }
 
-    // return testas;
-}
-
-let zodis="+/jko9"
-console.log(arZodisIrasytas(zodis));
-console.log(zodisMasyvan(zodis));
-//console.log(arZodisIsRaidziu(zodis));
+// let ivestasZodis=""
+// let pasleptasZodis=[];
+// let pasirinktaRaide="";
+// let atspetaSimboliu=0;
+// let visoSimboliu=0;

@@ -70,13 +70,18 @@
         <div>
             <ol>
                 <li>
-                    <p>red
+                    <p>
                         Naudokite funkcija rand(). Sugeneruokite atsitiktinį skaičių nuo 1 iki 6 ir jį atspausdinkite atitinkame h tage. Pvz skaičius 3 - h3tage
                     </p>
                     <div>
                         <script>
+                        //     function rand(min, max) {
+                        //     min = Math.ceil(min);
+                        //     max = Math.floor(max);
+                        //     return Math.floor(Math.random() * (max - min + 1) + min);
+                        // }
                             let h;
-                            h = Math.floor(Math.random()*6)+1;
+                            h = Math.floor(Math.random()*6)+1;  //arba h = rand(1, 6)
                             document.write(`<h`,h,`>`,h,` dydžio antraštė</h`,h,`>`);
                         </script>
                     </div>
