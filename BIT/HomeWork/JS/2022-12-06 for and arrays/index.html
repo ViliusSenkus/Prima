@@ -12,17 +12,18 @@
         *{
             overflow-wrap:break-word;
         }
-
         main li{
             background-image:none;
-            list-style-type:number;
-            
+            list-style-type:number;   
         }
         main li:hover{
             background-image:none;
         }
         li p{
             background-color: lightgray;
+        }
+        ol li ol li{
+            list-style-type:lower-latin;
         }
     </style>
 </head>
@@ -172,58 +173,102 @@
                             <li>
                                 Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39.
                             </li>
+                    
+
+                            <div style=" line-height: 1rem;">
+                                <script>
+                                    
+                                    // ------------5.1 užduotis ------------------------
+                                    counter=0;
+                                    for (let x=0; x<masyvas.length; x++){
+                                        if(masyvas[x]>10)
+                                        counter++;
+                                    }    
+                                    document.write(`masyve yra `,counter,` reikšmių didesnių už 10<br />`);
+
+                                    // ------------5.2 užduotis ------------------------
+                                    counter=0;
+                                    for (let i=0; i<masyvas.length; i++){
+                                        if(masyvas[i]>counter){
+                                            counter=masyvas[i];
+                                        }
+                                    }
+                                    document.write('didžiausias masyvo reikšmė - ', counter, '<br />')
+                                
+                                    // ------------5.3 užduotis ------------------------
+                                    counter=0;
+                                    for( let i=0; i<masyvas.length; i+=2) //0 index'as skaičiuojamas prie porinių.
+                                        counter=counter+masyvas[i];
+                                        
+                                        document.write(`skaitmenų su poriniais indeksais suma lygi - `, counter,`<br />` );
+                                
+                                    // ------------5.4 užduotis ------------------------
+                                    let newArray=[];
+                                        for (let i=0; i<masyvas.length; i++)
+                                            newArray[i]=masyvas[i]-i;
+                                    
+                                    document.write(`senas masyvas:<br />`);
+                                    document.write(masyvas, `<br />`);
+                                    document.write(`perskaičiuotas masyvas:<br />`);
+                                    document.write(newArray, `<br />`);
+                                    // ------------5.5 užduotis ------------------------
+                                    let papildymas=10;
+                                    let newLength=masyvas.length+papildymas;
+                                    let x;
+                                    for (let i=masyvas.length; i<newLength; i++){
+                                        x=rand(5,25);
+                                        masyvas[i]=x;
+                                    }
+                                    document.write(`papildytas masyvas:<br />`,masyvas);
+                                    console.log(masyvas);
+                                </script>
+                            </div>
+                
+                            <li value="f">
+                                Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indeksų reikšmių, o kitas iš porinių;
+                            </li>
+                            <li>
+                                Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+                            </li>
+                            <li>
+                                Iš masyvo ištrinkite visus elementus, kurių reikšmė didesnė už 10;
+                            </li>
                         </ol>
                     </p>
-
-                    <div style=" line-height: 1rem;">
-                        <script>
-                            
-                            // ------------5.1 užduotis ------------------------
-                            counter=0;
-                            for (let x=0; x<masyvas.length; x++){
-                                if(masyvas[x]>10)
-                                counter++;
-                            }    
-                            document.write(`masyve yra `,counter,` reikšmių didesnių už 10<br />`);
-
-                            // ------------5.2 užduotis ------------------------
-                            counter=0;
-                            for (let i=0; i<masyvas.length; i++){
-                                if(masyvas[i]>counter){
-                                    counter=masyvas[i];
-                                }
-                            }
-                            document.write('didžiausias masyvo reikšmė - ', counter, '<br />')
-                           
-                            // ------------5.3 užduotis ------------------------
-                            counter=0;
-                            for( let i=0; i<masyvas.length; i+=2) //0 index'as skaičiuojamas prie porinių.
-                                counter=counter+masyvas[i];
-                                
-                                document.write(`skaitmenų su poriniais indeksais suma lygi - `, counter,`<br />` );
-                           
-                            // ------------5.4 užduotis ------------------------
-                            let newArray=[];
-                                for (let i=0; i<masyvas.length; i++)
-                                    newArray[i]=masyvas[i]-i;
-                            
-                            document.write(`senas masyvas:<br />`);
-                            document.write(masyvas, `<br />`);
-                            document.write(`perskaičiuotas masyvas:<br />`);
-                            document.write(newArray, `<br />`);
-                            // ------------5.5 užduotis ------------------------
-                            let papildymas=10;
-                            let newLength=masyvas.length+papildymas;
-                            let x;
-                            for (let i=masyvas.length; i<newLength; i++){
-                                x=rand(5,25);
-                                masyvas[i]=x;
-                            }
-                            document.write(`papildytas masyvas:<br />`,masyvas);
-                            console.log(masyvas);
-                        </script>
-                    </div>
                 </li>
+                <script>
+                    // ------------5.f užduotis ------------------------
+                    let oddIndex=[];
+                    let evenIndex=[];
+
+                    evenIndex.push(masyvas[0]);
+                    for (z=1; z<masyvas.length; z++){
+                       (z % 2 == 0) ? evenIndex.push(masyvas[z]) : oddIndex.push(masyvas[z]);
+
+
+                    }
+                    document.write(`masyvo reikšmės `,masyvas,`<br/>`);
+                    document.write(`  lyginių indeksų reikšmės: `,evenIndex,`<br/>`);
+                    document.write(`nelyginių indeksų reikšmės: `,oddIndex, `<br/>`);
+                    
+                    // ------------5.g užduotis ------------------------
+                    
+                    for (i=0; i<masyvas.length; i++)
+                        // (i % 2 == 0 && masyvas[i] > 15) ? masyvas[i]=0 : i=i;
+                        masyvas[i]=(i % 2 == 0 && masyvas[i] > 15)? 0 : masyvas[i];
+
+                    document.write(`nurodyti skaičiai masyve pakeisti nuliais. Perdarytas masyvas: `,masyvas,`<br/>`);
+
+                    // ------------5.h užduotis ------------------------
+                    for (i=0; i<masyvas.length; i++)
+                        if (masyvas[i]>10 ){
+                        masyvas.splice(i, 1);
+                        i--;
+                    }
+
+                    document.write(`masyvas be didelių skaičių: `, masyvas);
+                </script>
+                
             </ol>
 
 

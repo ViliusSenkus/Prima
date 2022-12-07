@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>Array methods</title>
+    <!-- <style>
+        #whileLoop{
+            display: inline-block;
+            text-align: left;
+            height: 20px;
+            width: 20px;
+            background-color: aqua;
+        }
+    </style> -->
+</head>
+<body>
+    <header>
+        <h1>Class work</h1>
+        <h3>JS Loops</h3> 
+        <h4>5<sup>th</sup> of December 2022</h4>
+    </header>
+
+    <main>
+        
+        <section>
+            <h2>Include</h2>
+                <div>
+                    <script>
+                        let masyvas=[7,8,3,1354,54564,"Antanas", true];
+                        document.write(`ar masyvas `,masyvas,` turi reikšmę 8?<br />`);
+                        
+                        if(masyvas.includes(8)){
+                            document.write("turi");
+                        } else {
+                            document.write(`neturi`);
+                        }
+                    </script>
+                </div>
+        </section>
+        <h2>Split</h2>
+                <div>
+                    <script>
+                        let tekstas='7,8,3,1354,54564,Antanas,true';
+
+                        masyvs=tekstas.split(",");
+                        console.log(tekstas, "splitted to:");
+                        console.log(masyvs);
+                                            
+                    </script>
+                </div>
+
+        <section>
+            <h2>Join</h2>
+                <div>
+                    <script>
+                        arajus=[7,8,3,1354,54564,"Antanas", true];
+                        console.log(arajus,`joined to string by dividing elements with '-' symbol`);
+                        console.log(arajus.join("-"));
+                                            
+                    </script>
+                </div>
+        </section>
+        <section>
+            <h2>kiti žiūrėti metodai:<br/>
+            push(), operatorius ..., unShift(), Shift(), splice(), slice(), concat(), delete masyvas[], pop(), sort(), reverse(), Arrey.isArray(), indexOf(), toString().</h2>
+        </section>
+
+        <div>
+            masyvas.sort((a,b) => a - b); //tvarkingam skaičių rušiavimui
+        </div>
+    </main>
+    
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>
