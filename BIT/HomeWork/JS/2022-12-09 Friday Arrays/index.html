@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>Friday Challenge - Arrays</title>
+    <style>
+       p{
+        padding: 2px;
+       }
+       li div {
+        overflow-wrap: break-word;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 9<sup>th</sup> of December 2022</h1>
+        <h3>Friday challenge - Arrays</h3>
+    </header>
+
+    <main>
+        <ol>
+            <li>
+                <h3>1 užduotis</h3>
+                <h4>
+                    Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
+                </h4>
+                <div>
+                    <script>
+                        function rand(min, max) {
+                                min = Math.ceil(min);
+                                max = Math.floor(max);
+                                return Math.floor(Math.random() * (max - min + 1) + min);
+                            }
+                        
+                        let letters="ABCD";
+                        let lettersArray=[];
+                        let rnd=0;
+                        let a=0;
+                        let b=0;
+                        let c=0;
+                        let d=0;
+
+                        for (i=0; i<200; i++){
+                            rnd=rand(0,3);
+                            lettersArray.push(letters[rnd]);
+                            switch (rnd){
+                                case 0: a++;
+                                    break;
+                                case 1: b++;
+                                    break;
+                                case 2: c++;
+                                    break;
+                                default: d++;
+                            }
+                        }
+                        document.write(lettersArray.join(` `));
+                    </script>
+                </div>
+            </li>
+            <li>
+                <h3>2 užduotis</h3>
+                <h4>
+                    Išrūšiuokite 1 uždavinio masyvą pagal abecėlę.
+                </h4>
+                <div>
+                    <script>
+                        document.write(`pagal abecėle išrūšiuotas masyvas: `, lettersArray.sort());
+                    </script>
+                </div>
+            </li>
+            <li>
+                <h3>3 užduotis</h3>
+                <h4>
+                    Sugeneruokite 3 masyvus pagal 1 uždavinio sąlygą. Sudėkite masyvus, sudėdami reikšmes pagal atitinkamus indeksus. Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote. Pavyzdžiui: <br />
+                    Unikalios reikšmės (3): ['ABC', 'BAC', 'DAB', 'AAA']; <br />
+                    Unikali kombinacija masyve (AAA): ['ABC', 'ABC', 'ABC', 'AAA'];
+                </h4>
+                <div>
+                    <script>
+                        let lettersArray1=[];
+                        let lettersArray2=[];
+                        let lettersArray3=[];
+                        let jointArray=[];
+                        let rnd1=0;
+                        let rnd2=0;
+                        let rnd3=0;
+
+                        for (i=0; i<200; i++){                           
+                                lettersArray1.push(letters[rand(0,3)]);
+                                lettersArray2.push(letters[rand(0,3)]);
+                                lettersArray3.push(letters[rand(0,3)]);
+                                jointArray.push(lettersArray1[i]+lettersArray2[i]+lettersArray3[i]);
+                        }
+                        document.write(`Apjungtas masyvas: `, jointArray.join(` `));
+
+                            let unicCombination=[];
+                            let unicValue=[];
+                            let counter = 0;
+                            let value="";
+                            
+                            //masyvas iš unikalių kombinacijų (kombinacija masyve atsiranda tik 1 kartą)
+                        for (i=0; i<jointArray.length; i++){
+                            for (z=0; z<jointArray.length; z++){
+                                if (i!==z && jointArray[i]==jointArray[z]){
+                                counter++;
+                                }
+                            }
+
+                            if (counter == 0){
+                                unicCombination.push(jointArray[i]);
+                            }
+                            
+                            counter=0;
+                            
+                            //masyvas iš unikalių reikšmių (visos atrinktų reikšmių raidės skirtgos),
+                            // NOTE. reikšmės masyve gali kartotis
+                            value=jointArray[i];
+                            if (value[0]!==value[1] && value[0]!==value[2] && value[1]!==value[2])
+                            unicValue.push(value);
+                        }
+
+
+                        document.write(`<p>Rastos `,unicCombination.length,` unikalios kombinacijos: `, unicCombination,`</p>`);
+                        document.write(`<p>Rastos `,unicValue.length,` pasikartojančios unikalios reikšmės`)
+                        //trumpinam unikalių reikšmių masyvą, kad nesikartotu reikšmės:
+                        let compare="";
+                        for (i=0; i<unicValue.length; i++){
+                            compare=unicValue[i];
+                            unicValue.splice[i,1];
+                            if (unicValue.includes(compare)){  
+                                for (z=0; z<unicValue.length; z++){
+                                    if (unicValue[z]==compare){
+                                        unicValue.splice(z,1);
+                                        z--;
+                                    }
+                                }
+                            }else{
+                                unicValue.push(compare);
+                            }
+                      
+                        } 
+
+                        document.write(` tarp jų `, unicValue.length, ` skirtingų `, unicValue,`</p>`);
+                        
+
+                    </script>
+                </div>
+            </li>
+            <li>
+                <h3>4 užduotis</h3>
+                <h4>
+                    Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+                </h4>
+                <div>
+                    <script>
+                        let x=rand(100, 299);
+                        let y=rand(100, 299);
+                        let xArray=[];
+                        let yArray=[];
+
+                        for (i=0; i<100; i++){
+                            while (xArray.includes(x))
+                                x=rand(100, 219);
+                                xArray.push(x);
+                            while (yArray.includes(y))
+                                y=rand(100, 219);
+                                yArray.push(y);
+                        }
+                        document.write(`<p>`,xArray,`</p><p>`,yArray,`</p>`);
+                    </script>
+                </div>
+            </li>
+            <li>
+                <h3>5 užduotis</h3>
+                <h4>
+                    Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 4 uždavinio masyve, bet nėra antrame 4 uždavinio masyve.
+                </h4>
+                <div>
+                    <script>
+                        let includeArray=[];
+
+                        for (i=0; i<xArray.length; i++){
+                            includeArray.push(xArray[i]);
+                            
+                            if (yArray.includes(xArray[i]))
+                            includeArray.pop();
+                        }
+                        
+                        document.write(`<p>pirmo masyvo skaičiai, kurie nesikartoja antrame yra: `,
+                            includeArray.join(` `),`</p>`);
+                    </script>
+                </div>
+            <li>6 užduotis</h3>
+                <h4>
+                    Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 4 uždavinio masyvuose.
+                </h4>
+                <div>
+                    <script>
+
+                        let repeatArray=[];
+                        
+                        for (i=0; i<xArray.length; i++){
+                            if (yArray.includes(xArray[i]))
+                            
+                            repeatArray.push(xArray[i]);
+                        }
+                        
+                        document.write(`<p>pirmam ir antram masyve kartojasi skaičiai: `,repeatArray.join(` `),`</p>`);
+                    </script>
+                </div>
+            </li>
+        </ol>
+
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

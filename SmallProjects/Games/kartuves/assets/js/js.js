@@ -57,7 +57,7 @@ function guessPanel(){
             correctLeterIndex = i;
         }
     }
-    return = correctLeterIndex
+    return correctLeterIndex
 }
 
 
