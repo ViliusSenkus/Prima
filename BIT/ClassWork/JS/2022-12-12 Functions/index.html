@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>Functions</title>
+    <style>
+       code {
+            text-align: left;
+            padding-left: 30px;
+            font-family:cursive;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Class work</h1>
+        <h3>Functions</h3> 
+        <h4>12<sup>th</sup> of December 2022</h4>
+    </header>
+
+    <main>
+        
+        <section>
+            <h2>General</h2>
+                <div>
+                    <P>
+                        funkcijos užrašymas:<br />
+                        <code>function pavadinimas (parametras_1, parametras_2, .... parametras_N){</code><br />
+                        <code>funkcijos turinys</code><br />
+                        <code>return reikšmė;</code><br />
+                        <code>}</code>
+                    </P>
+                    <p> returnt reišmė nėra būtina</p>
+                    <p>
+                        Kai reikalaujama parametrų juos galima priskirti "pagal nutylėjimą", t.y. - jeigu reikšmės nėra paduodamos į funkciją, tai bus naduojamos nurodytos<br />
+                        <code> function funkcija(a=1, b=7){}</code>
+                    </p>
+                    <script>
+                        let argumentas=5;
+                        function funkcija(parametras){
+                            let kintamasis=2;
+                            kintamasis=parametras+kintamasis;
+                            return kintamasis;
+                        }
+
+                          //argumentas=parametras tik skirtingose vietose
+                        res = funkcija(argumentas);
+                        console.log(res);
+                    </script>
+                </div>
+        </section>
+        
+    </main>
+    
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

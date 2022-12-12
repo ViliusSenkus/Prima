@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
+    <style>
+        td{
+            width:20px;
+            height:20px;
+            border:solid, 1px, black;
+            background-color: azure;
+            
+        }
+    </style>
 </head>
 <body>
 
@@ -14,7 +24,7 @@
                 įvesk žodį :
             </label>
             <input type="text" id="word" onsubmit="tablo()" />
-            <button type="button" onclick="tablo()">Paslėpk</button>
+            <button type="button" onclick="formTablo()">Paslėpk</button>
             <!-- <button type="button" onclick="hidWord()">Paslėpk</button> -->
         </form>
     </div>
@@ -24,7 +34,7 @@
     <button type="button" onclick="checkLetter('a')">raide a</button>
 
 
-    <script src="newLt.js"></script>
+    <script src="js.js"></script>
 </body>
 </html>
 <!-- žodžius imti čia:

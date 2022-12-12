@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>For and Arrays</title>
+    <style>
+       p{
+        margin: 0;
+        padding: 5px;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 12<sup>th</sup> of December 2022</h1>
+        <h3>Functions</h3>
+    </header>
+
+    <main>
+        <div>
+            <h2>Tasks</h2>
+            <ol>
+                <li>
+                    Kazys ir Petras žaidžiai šaškėm. Petras surenka taškų kiekį nuo 10 iki 20, Kazys surenka taškų kiekį nuo 5 iki 25. Vienoje eilutėje išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: ​laimėtojo vardas​”. Taškų kiekį generuokite funkcija ​rand()​. Žaidimą laimi tas, kas greičiau surenka 222 taškus. Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
+                </li>
+                <li>
+                    Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite pasinaudodami rand() funkcija. Vinies ilgis 8.5cm (pilnai sulenda į lentą).
+                    <ol>
+                        <li style="list-style-type:lower-latin">
+                            “Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20 mm. Suskaičiuokite kiek reikia smūgių.
+                        </li>
+                        <li style="list-style-type:lower-latin">
+                            “Įkalkite” 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30 mm, bet yra 50% tikimybė (pasinaudokite rand() funkcija tikimybei sumodeliuoti), kad smūgis nepataikys į vinį. Suskaičiuokite kiek reikia smūgių.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Sugeneruokite stringą, kurį sudarytų 50 atsitiktinių skaičių nuo 1 iki 200, atskirtų tarpais. Skaičiai turi būti unikalūs (t.y. nesikartoti). Sugeneruokite antrą stringą, pasinaudodami pirmu, palikdami jame tik pirminius skaičius (t.y tokius, kurie dalinasi be liekanos tik iš 1 ir patys savęs). Skaičius stringe sudėliokite didėjimo tvarka, nuo mažiausio iki didžiausio.
+                    
+                </li>
+            </ol>
+        </div>
+
+        <h2>1 užduotis</h2>
+        <div style="display:flex">
+            <div style="width:450px;">
+                <script>
+                        function rand(min, max) {
+                                    min = Math.ceil(min);
+                                    max = Math.floor(max);
+                                    return Math.floor(Math.random() * (max - min + 1) + min);
+                                }
+
+                        
+                        
+                        
+                        let name1=" Petras - ";
+                        let name2=" Kazys - ";
+                        let tskPetro=0;
+                        let tskKazio=0;
+                        let winPoints=0;
+                        let name="";
+
+
+                        while(winPoints<222){
+                            res1=rand(10,20);
+                            res2=rand(5, 25);
+
+                            tskPetro=tskPetro+res1;
+                            tskKazio=tskKazio+res2;
+
+                            winPoints=(tskPetro>=tskKazio) ? tskPetro : tskKazio;
+                            name=(tskPetro>=tskKazio) ? name1 : name2;
+
+                            console.log(name1, tskPetro, name2, tskKazio);
+                        }
+                        document.write(`<p>`,name1, tskPetro, name2, tskKazio, ` Partiją laimėjo: `, name, winPoints,"</p>");
+                </script>
+            </div>
+        </div>
+    
+        
+        <h2>2 užduotis</h2>
+        <div style="text-align:left;">
+            <script>
+                let nailLength=8.5; 
+                let strikes=0;
+                let smallStrike=0;
+                let bigStrike=0;
+                let miss=0;
+
+                //-------------maža vinis-------------//
+                for (i=0; i<5; i++){
+                    while (nailLength>0){
+                        smallStrike = rand(0.5, 2);
+                        nailLength = nailLength - smallStrike;
+                        strikes++;
+                    }
+                    nailLength=8.5;
+                }
+                document.write(`2.a. - 5 vinims įkalti reikės `,strikes,` mažų smūgių <br />`);
+
+
+
+                //-------------didele vinis-------------//
+                strikes=0;
+                nailLenghth=8.5;
+                
+                for (i=0; i<5; i++){
+                    while (nailLength>0){
+                        missProbability = rand(0,1);
+                        if (missProbability == 1){
+                        bigStrike = rand(2, 3);
+                        nailLength = nailLength - bigStrike;
+                        strikes++;
+                        } else {
+                            miss++;
+                            strikes++;
+                        }
+                    }
+                    nailLength=8.5;
+                }
+                document.write(`2.b. - 5 vinims įkalti reikės `,strikes,` DIDELIŲ smūgių, įskaitant ir nepataikytus `, miss, ` kartus <br />`);
+            </script>
+        </div>
+
+        <h2>3 užduotis</h2>
+        <div style="text-align:left;">
+            <script>
+                let numArray=[];
+                for(i=0; i<50; i++){
+                    numArray[i]=rand(1,200);
+                    for (x=0; x<numArray.length-1; x++){
+                        if (numArray[i]==numArray[x]){
+                            numArray.splice(i, 1);
+                            i--;
+                        }
+                    }
+                }
+                numString=numArray.join(` `);
+                document.write(`<p>Atsitiktinių nesikartojančių skaičių eilutė: `, numString, `</p>`);
+                
+                // kodas vizualiniam patikrinimui ar nesikartoja skaičiai:
+                //
+                let sortedString=(numArray.sort());
+                document.write(`<p>Surūšiuotų nesikartojančių skaičių eilutė: `, sortedString.join(` `), `</p>`);
+
+                //------------pirminių skaičių stringas-------------//
+                
+                let primeNumbers=[];
+                let z; // skaičiaus šaknies sveikoji dalis;
+                let counter; // skaičiuoja ar bent kartą gaunasi dalinti be liekanos.
+
+                for (i=0; i<numArray.length; i++){
+                    z=Math.sqrt(numArray[i]);
+                    if (z - Math.floor(z) !== 0){
+                        for (x=2; x<=z; x++){
+                            if (numArray[i]%x == 0){
+                                counter++;
+                            }
+                        }
+                        if (counter == 0)
+                        primeNumbers.push(numArray[i]);
+                        counter = 0;
+                    }
+                }
+                
+                let result=(primeNumbers.length>0)? primeNumbers.join(` `) : `nėra pirminių skaičių`;
+                document.write(`<p>pirminių skaičių masyvas sudarytas iš nesikartojančių skaičių masyvo: `, result,`</p>`);
+
+            </script>
+
+            
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

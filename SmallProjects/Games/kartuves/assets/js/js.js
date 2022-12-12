@@ -1,64 +1,158 @@
-let abc="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
-let n=0;
+//-----------------globalūs kintamieji------------------------------------//
+const abecele="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
+// let zodisM=hidWord();
+let h=0;
 
+// kodas funkcijos paleidimui su Enter (ne mygtuku)
+//let input = document.getElementById("word");
+// input.addEventListener("keydown", function(e)  {
+//     if (e.code === "Enter")
+//     tablo();
+// })
 
-
-
-
-// let hWord;  
-
-function hidWord(){                                     //word rememebering, and hiding input form
-   let hiddenWord=document.getElementById("word").value;     //assigning given word to hiddenWord variable
-    console.log(hiddenWord);
-    document.getElementById("hideWord").style.display="none";   //hiding input form
-   
+function hidWord(){
     
-    //check if hiddenWord is constructed of letters (check according variable 'abc')
-    let wordLength=hiddenWord.length-1;
-    hiddenWord=hiddenWord.toLowerCase();
-   
-    
-    if (hiddenWord==""){
-          document.getElementById("codedWord").innerHTML="žodis neubuvo įvestas. Bandyk dar kartą";
-          document.getElementById("codedWord").style.color="red";
-          document.getElementById("codedWord").style.fontSize="2rem";
-          document.getElementById("hideWord").style.display="block"; 
+    //tikriname ar kas nors įvesta.
 
-          
+    let zodis=document.getElementById("word").value;
+    let result=true;
+    if (zodis == ""){
+        result="žodis neįvestas";
     }
 
-    for (let i=0; i<=wordLength; i++){
-        for (l=0; l<=abc.length-1; l++){
-            if(hiddenWord[i]==abc[l]){          //n is used as counter for illegal symbols
-            n++;
+    //tikriname ar nėra neleistinų simbolių.
+
+    zodis=zodis.toLowerCase();
+    let counter=0;
+    for(i=0; i<zodis.length; i++){
+        let x=0;
+        while (zodis[i]!==abecele[x]){
+            x++;
+            counter++;
+            if(counter>=35){
+                result=`nėra tokios raidės - "`+zodis[i]+`"`;
+                break;
             }
         }
-        if (n!=1){
-            document.getElementById("codedWord").innerHTML='Tai ne žodis. Nėra tokios raidės: "'+ hiddenWord[i]+'". Bandyk dar kartą';
-            document.getElementById("codedWord").style.color="red";
-            document.getElementById("codedWord").style.fontSize="2rem";
-            document.getElementById("hideWord").style.display="block"; 
-        }
-        n=0;
+        counter=0;
     }
-    return hiddenWord;
+
+    //parengiame patikrinimo rezultatą:
+
+    result = (result === true) ? zodis : result;
+    return [result, zodis]; 
+}
+
+//----------------- į div'ą "tablo" išvedami rezultatai-----------------------------------//
+function tablo(){
+    let data=hidWord();
+    let result=data[0];
+    const  zodis=data[1];
+    
+    if (result === zodis) {
+        result=[];
+        let draw="<span> * </span>"
+        let length=zodis.length;
+        for (i=0; i<length; i++)
+            result[i] = draw;
+    }
+    // document.getElementById("tablo").innerHTML=result;
+    return result;
 }
 
 
-//hidden word panel forming function
+//----------------- tablo formavimas-----------------------------------//
 
-function guessPanel(){
-    let guessWord=hidWord();
-    console.log(`dabar `, guessWord);
-    let guessLetter=choosenLetter();
+function formTablo(){                  //h-luako eilučių skaičius, l-stulpelių skaičius.
+    let data=hidWord();
+    const string=data[1];
+    let len=string.length;
+    let h=3;
+    let l=25;
+    let half=Math.ceil(len/2);
+    let s=0;
 
-    for (let i=0; i<guessWord.length-1; i++){
-        if (guessWord[i]=guessLetter){
-            correctLeterIndex = i;
+    if (len > 25)
+        h=half+2;
+
+    if (len % 2 == 0)
+        l=26;
+
+    let difference=13-half;
+    let word=[];
+
+    let code=`<table>`;
+    for (i=0; i<h; i++){
+        code=code+`<tr>`;
+        for (z=0; z<l; z++){
+            if (i==1 && z==difference && s<string.length){
+                code=code+`<td class="hidden"></td>`;
+                s++;
+                difference++;
+                word.push(i,z,string[s]);
+            }else{
+                code=code+`<td></td>`;
+            }   
+        }
+        code=code+`</tr>`;
+    }
+    code=code+`</table>`
+    document.getElementById("tablo").innerHTML=code;
+    console.log(word);
+    return [code, word];
+}
+
+
+//----------------------raidės tikrinimas (Naujas)------------------//
+let letter=`a`;
+function findLetter(letter){
+    
+    let data=formTablo();
+    let positioned=data[1];
+    let zodis=data[2];
+    let openPosition=[];
+
+    for (i=0; i<zodis.length; i++){
+        if (letter==zodis[i]){
+            openPosition.push(letter, positioned[0], positioned [2 + (i * 3) ])
+            console.log(`raidėsPozicijos `, openPosition);
+            return openPosition;
         }
     }
-    return correctLeterIndex
 }
+
+function openLetter(positionLine, positionColumn, letter){
+    let data=findLetter();
+
+}
+
+
+
+
+
+//----------------- raidės tikrinimas-----------------------------------//
+
+let raide="a"
+
+function checkLetter(){
+    let data=hidWord();
+    let hidden=tablo();
+    const  zodis=data[1];
+    let length=zodis.length;
+    for (i=0; i<length; i++){
+    hidden[i] = (zodis[i] == raide) ? hidden[i]=`<span> `+raide+` </span>` : hidden[i]=`<span> * </span>`;
+    }
+    document.getElementById("tablo").innerHTML=hidden;
+}
+
+
+
+
+
+
+
+
+
 
 
 
