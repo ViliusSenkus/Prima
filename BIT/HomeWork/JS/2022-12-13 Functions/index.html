@@ -46,42 +46,64 @@
         <h2>1 užduotis</h2>
         <div>
             <div>
+                <label for="text">įrašykite vardą</label><br />
+                <input type="text" id="text" name="text"/><br />
+                <button type="button" onclick="hiName(document.getElementById('text').value)">Pasisveikink</button>
+                <div id="result1"></div>
                 <script>
-                    
                     function hiName(name){
-                        document.write("Labas ",name);
-                    }
-
-                    hiName(Vilius);
+                        document.getElementById("result1").innerHTML="Labas " + name;
+                    }  
                 </script>
                 
             </div>
         </div>
-    
-        
+
         <h2>2 užduotis</h2>
         <div>
+            <div>
+                <label for="text2">įrašykite tekstą</label><br /> 
+                <textarea id="text2" name="text2" rows="4" cols="100">Tekstą rašyti čia...</textarea><br />
+                <button type="button" onclick="stringLength(document.getElementById('text2').value)">Skaičiuoti ilgį</button>
+                <div id="result2"></div>
+            </div>
             <script>
                 
                 function stringLength(text){
                     let len=text.length;
-                    document.write('Duoto teksto ilgis - ', len, ` simboliai`);
+                    document.getElementById("result2").innerHTML='Duoto teksto ilgis - ' + len + ` simboliai`;
                 }
-                stringLength(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ratione nemo atque odit, vitae voluptatum aspernatur voluptates. Officia ea tempore iste illum facere quis labore nam, tenetur soluta blanditiis optio.`);
 
             </script>
         </div>
 
         <h2>3 užduotis</h2>
         <div>
+            <div>
+                <label for="vards">Vardas</label><br />
+                <input type="text" id="vards" name="vards"/><br />
+                <label for="pavards">Pavardė</label><br />
+                <input type="text" id="pavards" name="pavards" /><br />
+                <button type="button" onclick="fullName(document.getElementById('vards').value, document.getElementById('pavards').value)">Suliek</button>
+                <div id="result3"></div>
+            </div>
             <script>
                 
-                function fullName(name, last_name){
-                    let fullname=name+` `+last_name;
-                    document.write(fullname);
+                function replace(string){
+                    before=string[0];
+                    string=string.slice(1);
+                    after=before.toUpperCase();
+                    string=after.concat(string);
+                    return string;
                 }
 
-                fullName(`Vilius`, `Senkus`);
+                function fullName(name, last_name){
+                    name=replace(name);
+                    last_name=replace(last_name);
+                    let fullname=name+" "+last_name;
+                    document.getElementById("result3").innerHTML=fullname;
+                }
+
             </script>
         </div>
         
@@ -99,7 +121,7 @@
                     let x=rand(0,5);
                     let y=rand(0,5);
                     let z=rand(0,5);
-                    document.write(x,y,z);
+                    document.write(x,",",y,",",z);
                     console.log( " ",x,",", y,",",z);
                 }
 
@@ -109,21 +131,46 @@
         
         <h2>5 užduotis</h2>
         <div>
+            <div>
+                <label for="nuo">Mažiausias masyvo skaitmuo</label><br />
+                <input type="text" id="nuo" name="nuo" /><br />
+                <label for="iki">Didžiausias masyvo skaitmuo</label><br />
+                <input type="number" id="iki" name="iki" /><br />
+                <label for="kiekis">Masyvo ilgis</label><br />
+                <input type="number" id="kiekis" name="kiekis" /><br />
+                <button class="button" onclick="formArray(document.getElementById('nuo').value, document.getElementById('iki').value, document.getElementById('kiekis').value)">
+                        Sudaryti masyvą
+                </button><br />
+                <div id="result5"></div>
+
+
+            </div>
             <script>
+                function toNumber(value){
+                    if (isNaN(value))
+                        return console.log(`reikšmė nėra skaičius`)
+                        
+                        value=parseInt(value);
+                        return value
+                }
+
                 function formArray(from, to, limit){
+                    from=toNumber(from);
+                    to=toNumber(to);
+                    limit=toNumber(limit);
                     if (typeof from !== "number" || typeof to !== "number" || typeof limit !== "number")
-                        return "paduotos reikšmės nėra skaičiai"
+                      return document.getElementById("result5").innerHTML="paduotos reikšmės nėra skaičiai";
+
                     
                     let fixedArray=[];
         
                     for (i=0; i<limit; i++)
                         fixedArray.push(rand(from, to));                  
 
-                    return fixedArray;
+                   document.getElementById("result5").innerHTML=`masyvas: `+ fixedArray;
+                   console.log(fixedArray);
                 }
 
-                document.write(formArray(2,12, 8));
-                console.log(formArray(2,17,9));
             </script>
         </div>
     </main>

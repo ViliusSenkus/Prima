@@ -6,19 +6,19 @@
 
 
 
-const data=[[`a`,1,false],[`b`,2,false]];
+// const data=[[`a`,1,false],[`b`,2,false]];
 
-console.log(data,`iki funkcijos`);
+// console.log(data,`iki funkcijos`);
 
-function check(){
-    let letter=`a`;
-    for (i=0; i<data.length; i++)
-        if (data[i][0] == letter)
-            data[i][2]=true;
-    return data;
-}
+// function check(){
+//     let letter=`a`;
+//     for (i=0; i<data.length; i++)
+//         if (data[i][0] == letter)
+//             data[i][2]=true;
+//     return data;
+// }
 
-console.log(check(), `po funkcjos`);
+// console.log(check(), `po funkcjos`);
 
 
 // function show(){
@@ -27,3 +27,17 @@ console.log(check(), `po funkcjos`);
 //         if (data[i][2] == true)
 //     }
 // }
+
+
+const data=[[`a`,1,false],[`b`,2,false]];
+
+document.write(data,`iki funkcijos`);
+
+function check(letter){
+    for (i=0; i<data.length; i++)
+        if (data[i][0] == letter)
+            data[i][2]=true;
+    return data;
+}
+
+document.write(check(`b`), `po funkcjos`);
