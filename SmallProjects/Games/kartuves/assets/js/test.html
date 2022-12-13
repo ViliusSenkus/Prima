@@ -20,18 +20,16 @@
 
     <div id="hideWord">
         <form>
-            <label for="word">
-                įvesk žodį :
-            </label>
-            <input type="text" id="word" onsubmit="tablo()" />
-            <button type="button" onclick="formTablo()">Paslėpk</button>
-            <!-- <button type="button" onclick="hidWord()">Paslėpk</button> -->
+            <label for="word">įvesk žodį :</label><br />
+            <input type="text" id="word" name="word"/>                        <!--onsubmit="tablo()"-->
+            <button type="button" onclick="hide(document.getElementById('word').value)">Paslėpk</button>
         </form>
     </div>
     
     <div id="tablo">vieta paslėptam žožiui</div>
 
-    <button type="button" onclick="checkLetter('a')">raide a</button>
+    <button type="button" onclick="check('a')">raide a</button>
+    <button type="button" onclick="check('b')">raide b</button>
 
 
     <script src="new.js"></script>
