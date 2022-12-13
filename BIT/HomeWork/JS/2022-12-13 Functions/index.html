@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>For and Arrays</title>
+    <style>
+       p{
+        margin: 0;
+        padding: 5px;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 13<sup>th</sup> of December 2022</h1>
+        <h3>Functions</h3>
+    </header>
+
+    <main>
+        <div>
+            <h2>Tasks</h2>
+            <ol>
+                <li>
+                    Sukurkite funkciją kuri priimtų parametrą "name". Jos tikslas atspausdinti naršyklėje tekstą "Labas," ir šalia jo perduotą vardą. Pvz "Labas, Elena".
+                </li>
+                <li>
+                    Sukurkite funkciją  kuri priimtų vieną parametrą (tekstą) ir grąžintų atsakymą kiek simbolių yra tame tekste. Iš funkcijos gautą rezultatą atvaizduokite naršyklėje.
+                </li>
+                <li>
+                    Sukurkite funkciją kuri priimtų du parametrus "name" ir "last_name". Funkcija turi grąžinti vieną stringą, kuriame būtų vardas ir pavardė prasidedantys didžiosiomis raidėmis.
+                </li>
+                <li>
+                    Parašykite funkciją kuri sugeneruotų 3 random skaičius nuo 0 iki 5 ir atspausdintų koncolėje vienoje eilutėje atskirtus kableliais. Po paskutinio skaičiaus kablelio neturi būti.
+                </li>
+                <li>
+                    Parašykite funkciją kuri priimtų tris parametrus "from" ir "to" ir "limit". Patikrinkite ar šie perduodami parametrai yra skaičiai ir pagal juos sugeneruokite masyvą, kurio ilgį nusako "limit" parametras, o reikšmės from ir to nurodo atsitiktinį skaičių šiuose rėžiuose.
+                </li>
+            </ol>
+        </div>
+
+        <h2>1 užduotis</h2>
+        <div>
+            <div>
+                <script>
+                    
+                    function hiName(name){
+                        document.write("Labas ",name);
+                    }
+
+                    hiName(Vilius);
+                </script>
+                
+            </div>
+        </div>
+    
+        
+        <h2>2 užduotis</h2>
+        <div>
+            <script>
+                
+                function stringLength(text){
+                    let len=text.length;
+                    document.write('Duoto teksto ilgis - ', len, ` simboliai`);
+                }
+                stringLength(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ratione nemo atque odit, vitae voluptatum aspernatur voluptates. Officia ea tempore iste illum facere quis labore nam, tenetur soluta blanditiis optio.`);
+
+            </script>
+        </div>
+
+        <h2>3 užduotis</h2>
+        <div>
+            <script>
+                
+                function fullName(name, last_name){
+                    let fullname=name+` `+last_name;
+                    document.write(fullname);
+                }
+
+                fullName(`Vilius`, `Senkus`);
+            </script>
+        </div>
+        
+        <h2>4 užduotis</h2>
+        <div>
+            <script>
+                
+                function rand(min, max) {
+                                min = Math.ceil(min);
+                                max = Math.floor(max);
+                                return Math.floor(Math.random() * (max - min + 1) + min);
+                            }
+
+                function numbers(){
+                    let x=rand(0,5);
+                    let y=rand(0,5);
+                    let z=rand(0,5);
+                    document.write(x,y,z);
+                    console.log( " ",x,",", y,",",z);
+                }
+
+                numbers();
+            </script>
+        </div>
+        
+        <h2>5 užduotis</h2>
+        <div>
+            <script>
+                function formArray(from, to, limit){
+                    if (typeof from !== "number" || typeof to !== "number" || typeof limit !== "number")
+                        return "paduotos reikšmės nėra skaičiai"
+                    
+                    let fixedArray=[];
+        
+                    for (i=0; i<limit; i++)
+                        fixedArray.push(rand(from, to));                  
+
+                    return fixedArray;
+                }
+
+                document.write(formArray(2,12, 8));
+                console.log(formArray(2,17,9));
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>
