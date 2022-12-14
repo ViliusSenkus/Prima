@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>Functions and Arrays</title>
+    <style>
+       p{
+        margin: 0;
+        padding: 5px;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 14<sup>th</sup> of December 2022</h1>
+        <h3>Functions and Arrays</h3>
+    </header>
+
+    <main>
+        <div>
+            <h2>Tasks</h2>
+            <ol>
+                <h3>Arrays</h3>
+                <li>
+                    Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
+
+                </li>
+                <li>
+                    Sukurkite masyvą iš 10 elementų. Kiekvienas masyvo elementas turi būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų. Elementų reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. Išrūšiuokite antro lygio masyvus pagal abėcėlę (t.y. tuos kur su raidėm).
+                </li>
+            </ol>
+            <ol>
+                <h3>Functions</h3>
+                <li>
+                    Sukurkite funkciją kuri pakeltų paduotą skaičių n laipsniu, ir grąžintų reikšmę (perduodami du parametrai: skaičius ir laipsnis)
+                </li>
+                <li>
+                    Parašykite funkciją, kurios argumentas būtų tekstas, kuris yra įterpiamas į h1 tagą. Rezultatą atvaizduokite naršyklėje.
+                </li>
+                <li>
+                    Parašykite funkciją su dviem argumentais, pirmas argumentas tekstas, įterpiamas į h tagą, o antrasis tago numeris (1-6). Rašydami šią funkciją remkitės pirmąjame uždavinyje parašyta funkcija.
+                </li>
+                <li>
+                    Aprašykite funkciją kuri priimtų vieną parametrą "number" bei patikrintų ar duotas skaičius yra pirminis. <br />
+                    Atgal grąžinkite teigiamą arba neigiamą (boolean) atsakymą.
+                </li>
+                <li>
+                    Sugeneruokite 100 elementų masyvą kurio reikšmės atsitiktiniai skaičiai nuo 997 iki 15991. <br />
+                    Pasinaudodami penktoje užduotyje aprašyta funkcija masyve palikite tik pirminius skaičius, kurie yra didesni nei 5000;
+                </li>
+
+            </ol>
+        </div>
+
+        <h2>Arrays</h2>
+        <h3>1 užduotis</h3>
+        <div>
+            <div>
+                <script>
+                    function rand(min, max) {
+                        min = Math.ceil(min);
+                        max = Math.floor(max);
+                        return Math.floor(Math.random() * (max - min + 1) + min);
+                    }
+                    let x=rand(5,25);
+                    let y=rand(5,25);
+                    let array=[x, y];
+                    for(let i=2; i<10; i++)
+                        array[i]=(array[i-1]+array[i-2]);
+                    
+                    document.write(array);
+                </script>    
+            </div>
+        </div>
+
+        <h3>2 užduotis</h3>
+        <div>
+            <script>
+                let string="abcdefghijklmnopqrstuvwxyz"
+                let outterArray=[];
+                
+                for (i=0; i<10; i++){
+                    length=rand(2,20);
+                    let innerArray=[];
+                    for (let z=0; z<length; z++){
+                        innerArray[z]=string[rand(0,string.length-1)];
+                    }
+                    outterArray.push(innerArray);
+                }
+                console.log(outterArray);
+                document.write(outterArray);
+            </script>
+        </div>
+        <h2>Functions</h2>
+        <h3>1 užduotis</h3>
+        <!-- Sukurkite funkciją kuri pakeltų paduotą skaičių n laipsniu, ir grąžintų reikšmę (perduodami du parametrai: skaičius ir laipsnis) -->
+        <div>
+            <div>
+                <label for="number">Skaičius</label><br />
+                <input type="number" id="number" name="number"/><br />
+
+                <label for="exp">kokiu laipnsiu pakelti</label><br />
+                <input type="number" id="exp" name="exp" /><br />
+
+                <button type="button" onclick="exp(document.getElementById('number').value, document.getElementById('exp').value)">Pakelk laipsniu</button>
+
+                <div id="result"></div>
+            </div>
+
+            <script>
+                
+                function exp(number, exp){
+                   result=Math.pow(number, exp);
+                    document.getElementById("result").innerHTML=number + ` pakėlus ` + exp +
+                    ` laipsniu, gausis ` + result;
+                    return result;
+                }
+                
+                // const exp = (number, exp) => Math.pow(number, exp);
+                // console.log(exp(2,3));
+            </script>
+        </div>
+        
+        <h3>2 užduotis</h3>
+        <!-- Parašykite funkciją, kurios argumentas būtų tekstas, kuris yra įterpiamas į h1 tagą. Rezultatą atvaizduokite naršyklėje. -->
+        <div>
+            <div>
+                <label for="heading">įveskite antraštės tekstą</label><br />
+                <input type="text" id="heading" name="heading"/><br />
+                
+                <button type="button" onclick='hh1(document.getElementById("heading").value)''>
+                    Suformuok antraštę    
+                </button>
+                <div id="header"></div>
+            </div>
+            <script>
+                
+                function textForH1(){
+                   return "H1 tago tekstas"
+                }
+                function toH1(){
+                    let string="<h1>"+textForH1()+"</h1>";
+                    return string;
+                }
+                document.write(toH1());
+
+                const hh1 = (heading) => {string= "<h1>"+heading+"</h1>";
+                document.getElementById("header").innerHTML=string;}
+            </script>
+        </div>
+        <h3>3 užduotis</h3> 
+        <!-- Parašykite funkciją su dviem argumentais, pirmas argumentas tekstas, įterpiamas į h tagą, o antrasis tago numeris (1-6). Rašydami šią funkciją remkitės pirmąjame uždavinyje parašyta funkcija. -->
+        <div>
+            
+            <script>
+                
+                function otherHeading(heading,headSize){
+                    heading=heading.replaceAll(1, headSize);
+                    console.log(heading);
+                    result = `<h`+headSize+`>`+heading+`</h`+headSize+`>`;
+                    return result;
+                }
+                
+                document.write(otherHeading(toH1(), rand(1,6)));
+                
+                // Kaip perduoti funkciją kaip argumentą?
+
+            </script>
+        </div>
+
+        <h3>4-5 užduotis</h3> 
+        <!-- Aprašykite funkciją kuri priimtų vieną parametrą "number" bei patikrintų ar duotas skaičius yra pirminis.
+        Atgal grąžinkite teigiamą arba neigiamą (boolean) atsakymą. -->
+        <div>
+            <div id="header"></div>
+            
+            <script> 
+                
+                function isPrimary(number){
+                    let result=false;
+                    let x=0;
+                    if (number == 1 || number == 2){
+                        result=true;
+                        return result;
+                    }
+
+                    let i=2;
+                    while (i<number){
+                        x=number%i;
+                        if (x==0){
+                            result=false;
+                            return result;
+                        }else{
+                            result=true;
+                        }
+                        i++;
+                    }
+                    
+                    return result;
+                }
+
+                function isNotPrimary(number){
+                    let result=true;
+                    let x=0;
+                    
+                    if (number == 1 || number == 2){
+                        let result=false;
+                        return result;
+                    }
+                    let i=2;
+                    while (i<number){
+                        x=number%i;
+                        if (x>0){
+                            result=false
+                        }else{
+                            result=true;
+                            return result;
+                        }
+                        i++
+                    }
+                    return result;
+                }
+
+                console.log(isPrimary(10));
+                console.log(isNotPrimary(10));
+
+
+            </script>
+        </div>
+        <h3>5-6 užduotis</h3>
+        <!-- Sugeneruokite 100 elementų masyvą kurio reikšmės atsitiktiniai skaičiai nuo 997 iki 15991. 
+        Pasinaudodami penktoje užduotyje aprašyta funkcija masyve palikite tik pirminius skaičius, kurie yra didesni nei 5000; -->
+        <div>
+            <script>
+                let lastArray=[]
+                for(let i=0; i<100; i++)
+                    lastArray.push(rand(997, 15991));
+                
+                for(i=0; i<lastArray.length; i++){
+                    if  (!isPrimary(lastArray[i]) || lastArray[i]<5000){
+                    lastArray.splice(i,1);
+                    i--;
+                    }
+                }
+
+                console.log(lastArray);
+            </script>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../../../formal-style.css" />
     <link rel="stylesheet" href="../../../../style.css" />
     <link rel="icon" href="../../../img/js-icon.png" />
-    <title>For and Arrays</title>
+    <title>Functions</title>
     <style>
        p{
         margin: 0;
@@ -51,9 +51,11 @@
                 <button type="button" onclick="hiName(document.getElementById('text').value)">Pasisveikink</button>
                 <div id="result1"></div>
                 <script>
-                    function hiName(name){
-                        document.getElementById("result1").innerHTML="Labas " + name;
-                    }  
+                    // function hiName(name){
+                    //     document.getElementById("result1").innerHTML="Labas " + name;
+                    // }  
+
+                    const hiName = name => document.getElementById("result1").innerHTML="Labas " + name;
                 </script>
                 
             </div>
