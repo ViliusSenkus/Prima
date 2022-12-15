@@ -18,11 +18,11 @@
 </head>
 <body>
 
-    <div id="hideWord">
+    <div id="word_input">
         <form>
             <label for="word">įvesk žodį :</label><br />
-            <input type="text" id="word" name="word"/>                        <!--onsubmit="tablo()"-->
-            <button type="button" onclick="hide(document.getElementById('word').value)">Paslėpk</button>
+            <input type="text" id="word" name="word"/>                        <!--onsubmit="tablo()"-- jeigu su Enter>-->
+            <button type="button" onclick="getWord(document.getElementById('word').value)">Paslėpk</button>
         </form>
     </div>
     
@@ -32,7 +32,7 @@
     <button type="button" onclick="check('b')">raide b</button>
 
 
-    <script src="new.js"></script>
+    <script src="js.js"></script>
 </body>
 </html>
 <!-- žodžius imti čia:

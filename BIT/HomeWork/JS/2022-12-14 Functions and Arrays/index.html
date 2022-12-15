@@ -90,7 +90,7 @@
                     for (let z=0; z<length; z++){
                         innerArray[z]=string[rand(0,string.length-1)];
                     }
-                    outterArray.push(innerArray);
+                    outterArray.push(innerArray.sort());
                 }
                 console.log(outterArray);
                 document.write(outterArray);
@@ -139,7 +139,11 @@
                 <div id="header"></div>
             </div>
             <script>
+                const headingas=(tekstas)=>"<h1>"+tekstas+"</h1>";
+                document.write(headingas("tekstas pagal pataisytą sąlygą"))
+
                 
+
                 function textForH1(){
                    return "H1 tago tekstas"
                 }

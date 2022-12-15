@@ -1,181 +1,105 @@
-//-----------------globalūs kintamieji------------------------------------//
 const abecele="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
-// let zodisM=hidWord();
-let h=0;
+const data=[];
+const tabloWord=[];
 
-// kodas funkcijos paleidimui su Enter (ne mygtuku)
+// kodas funkcijos paleidimui su Enter (ne atskiru mygtuku)
 //let input = document.getElementById("word");
 // input.addEventListener("keydown", function(e)  {
 //     if (e.code === "Enter")
 //     tablo();
 // })
 
-function hidWord(){
-    
-    //tikriname ar kas nors įvesta.
+const hideInput = () => document.getElementById("word_input").style.display = `none`;
 
-    let zodis=document.getElementById("word").value;
-    let result=true;
-    if (zodis == ""){
-        result="žodis neįvestas";
+function getWord (word, createHTML){
+    if (word == ""){
+        result=alert("žodis neįvestas");
+        return result;
     }
-
-    //tikriname ar nėra neleistinų simbolių.
-
-    zodis=zodis.toLowerCase();
+    console.log(`žodis yra - `, word);
+    
     let counter=0;
-    for(i=0; i<zodis.length; i++){
+    for(i=0; i<word.length; i++){
         let x=0;
-        while (zodis[i]!==abecele[x]){
+        while (word[i]!==abecele[x]){
             x++;
             counter++;
-            if(counter>=35){
-                result=`nėra tokios raidės - "`+zodis[i]+`"`;
-                break;
+            if(counter>=abecele.length){
+                result=alert(`nėra tokios raidės - "${word[i]}"`);
+                return result;
             }
         }
         counter=0;
     }
+    word=word.toUpperCase();
 
-    //parengiame patikrinimo rezultatą:
+    hideInput();                        
 
-    result = (result === true) ? zodis : result;
-    return [result, zodis]; 
+    for (i=0; i<word.length; i++)
+        tabloWord.push([word[i],[i],false]);
+
+       createHTML(tabloWord);
 }
 
-//----------------- į div'ą "tablo" išvedami rezultatai-----------------------------------//
-function tablo(){
-    let data=hidWord();
-    let result=data[0];
-    const  zodis=data[1];
-    
-    if (result === zodis) {
-        result=[];
-        let draw="<span> * </span>"
-        let length=zodis.length;
-        for (i=0; i<length; i++)
-            result[i] = draw;
-    }
-    // document.getElementById("tablo").innerHTML=result;
-    return result;
-}
-
-
-//----------------- tablo formavimas-----------------------------------//
-
-function formTablo(){                  //h-luako eilučių skaičius, l-stulpelių skaičius.
-    let data=hidWord();
-    const string=data[1];
-    let len=string.length;
-    let h=3;
-    let l=25;
-    let half=Math.ceil(len/2);
-    let s=0;
-
-    if (len > 25)
-        h=half+2;
-
-    if (len % 2 == 0)
-        l=26;
-
-    let difference=13-half;
-    let word=[];
-
-    let code=`<table>`;
-    for (i=0; i<h; i++){
-        code=code+`<tr>`;
-        for (z=0; z<l; z++){
-            if (i==1 && z==difference && s<string.length){
-                code=code+`<td class="hidden"></td>`;
-                s++;
-                difference++;
-                word.push(i,z,string[s]);
-            }else{
-                code=code+`<td></td>`;
-            }   
+function createHTML(tabloWord){
+    let stringHTML="";
+    for (i=0; i<tabloWord.length; i++)
+        if (tabloWord[i][2] == true){
+            stringHTML += `<span>${tabloWord[i]}{</span>`;
+        }else{
+            stringHTML += `<span> </span>`;
         }
-        code=code+`</tr>`;
-    }
-    code=code+`</table>`
-    document.getElementById("tablo").innerHTML=code;
-    console.log(word);
-    return [code, word];
-}
-
-
-//----------------------raidės tikrinimas (Naujas)------------------//
-let letter=`a`;
-function findLetter(letter){
     
-    let data=formTablo();
-    let positioned=data[1];
-    let zodis=data[2];
-    let openPosition=[];
-
-    for (i=0; i<zodis.length; i++){
-        if (letter==zodis[i]){
-            openPosition.push(letter, positioned[0], positioned [2 + (i * 3) ])
-            console.log(`raidėsPozicijos `, openPosition);
-            return openPosition;
-        }
-    }
-}
-
-function openLetter(positionLine, positionColumn, letter){
-    let data=findLetter();
-
+    document.getElementById("tablo").innerHTML=createHTML(); 
 }
 
 
+ 
 
+// --------------------------------raidžių spėjimas---------------------------------
 
+function check(letter){         //tikrinimas ar pasirinkta raidė yra žodyje
+    for (i=0; i<data.length; i++)
+        if (data[i][0] == letter)
+            data[i][2]=true;
 
-//----------------- raidės tikrinimas-----------------------------------//
-
-let raide="a"
-
-function checkLetter(){
-    let data=hidWord();
-    let hidden=tablo();
-    const  zodis=data[1];
-    let length=zodis.length;
-    for (i=0; i<length; i++){
-    hidden[i] = (zodis[i] == raide) ? hidden[i]=`<span> `+raide+` </span>` : hidden[i]=`<span> * </span>`;
-    }
-    document.getElementById("tablo").innerHTML=hidden;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-// letters panel forming function executed from <body> element on page load
-
-let codeBlock="";
-function abcs(){
+    for (i=0; i<data.length; i++)
+        if (data[i][2] == true)      //darant kelis žodžius turbūt čia reikėtų įdėti tarpo atpažinimą
+        tabloWord[i]=data[i][0];
     
-    for (let i=0; i<=abc.length-1; i++){
-        codeBlock=codeBlock+`<div class="letter" id="letter`+i+` onclick="choosenLetter(`+i+`)"">` + abc[i] + '</div>';
-        document.getElementById("alphabet").innerHTML=codeBlock;
-    }
+
+    document.getElementById("tablo").innerHTML=drawTablo(tabloWord);
+    console.log(tabloWord);
+            
+    return data;
 }
 
-function choosenLetter(letterIndex){
-    letter=abc[letterIndex];
-    return letter;
-}
+// function show(){
+//     let data=check();
+//     for (i=0; i<data.length; i++){
+//         if (data[i][2] == true)      //darant kelis žodžius turbūt čia reikėtų įdėti tarpo atpažinimą
+//         tabloWord[i]=data[i][0];
+//     }
+
+//         document.getElementById("tablo").innerHTML=drawTablo(tabloWord);
+//         console.log(tabloWord);
+
+//     return tabloWord;
+    
+// }
 
 
 
 
+// const data=[[`a`,1,false],[`b`,2,false]];
 
-function rules(){
-    let x=2
-}
+// document.write(data,`iki funkcijos`);
+
+// function check(letter){
+//     for (i=0; i<data.length; i++)
+//         if (data[i][0] == letter)
+//             data[i][2]=true;
+//     return data;
+// }
+
+// document.write(check(`b`), `po funkcjos`);
