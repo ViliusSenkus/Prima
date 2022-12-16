@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <title>Multidimensional Arrays</title>
+    <style>
+       p{
+        margin: 0;
+        padding: 5px;
+       }
+       
+       main div ol li{
+        list-style-type:decimal;
+       }
+       main div ol li ol li{
+        list-style-type: lower-alpha;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 16<sup>th</sup> of December 2022</h1>
+        <h3>Multidimensional Arrays</h3>
+    </header>
+
+    <main>
+        <div>
+            <h2>Tasks</h2>
+            <ol>
+                
+                <li>
+                    Sugeneruokite masyvą iš 10 elementų, kurio elementai būtų masyvai iš 5 elementų su reikšmėmis nuo 5 iki 25.
+                </li>
+                <li>
+                    Naudodamiesi 1 uždavinio masyvu:
+                    <ol>
+                        <li>
+                            Suskaičiuokite kiek masyve yra elementų didesnių už 10;
+                        </li>
+                        <li>
+                            Raskite didžiausio elemento reikšmę;
+                        </li>
+                        <li>
+                            Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)
+                        </li>
+                        <li>
+                            Visus antro lygio masyvus “pailginkite” iki 7 elementų
+                        </li>
+                        <li>
+                            Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą atskirai ir sumas panaudokite kaip reikšmes sukuriant naują masyvą. T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, turinčio indeksą 0 dideliame masyve, visų elementų sumai 
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite pagal taisyklę: generuokite skaičių nuo 0 iki 5. Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite. Antro lygio masyvo reikšmes papildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nėra įkelkite skaičių nuo 0 iki 10.
+                </li>
+                <li>
+                    Paskaičiuokite 3 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
+                </li>
+
+            </ol>
+        </div>
+
+        <h3>1 užduotis</h3>
+<!-- Sugeneruokite masyvą iš 10 elementų, kurio elementai būtų masyvai iš 5 elementų su reikšmėmis nuo 5 iki 25. -->
+        <div>
+            <div>
+                <script>
+                    function rand(min, max) {
+                        min = Math.ceil(min);
+                        max = Math.floor(max);
+                        return Math.floor(Math.random() * (max - min + 1) + min);
+                    }
+
+                    function array(){
+                        let arr=[]
+                        for (i=0; i<10; i++){
+                            let innerArray=[];
+
+                            for (z=0; z<5; z++){
+                                let number=rand(5,25);
+                                innerArray.push(number);
+                            }
+                            arr.push(innerArray);
+                        }
+                        return arr;
+                    }
+                    
+                    array = array();
+
+                    console.log(array);
+                    document.write(array);
+                </script>    
+            </div>
+        </div>
+
+        <h3>2 užduotis</h3>
+<!-- Naudodamiesi 1 uždavinio masyvu: -->
+        <h4>a.</h4>
+<!-- Suskaičiuokite kiek masyve yra elementų didesnių už 10;-->
+        <div>
+            <script>
+                
+                function counter(){
+                    let count=0;
+                    for (x in array){
+                        for (z of array[x]){
+                            if (z>10){
+                                count++;
+                            }
+                         // count = (z > 10) ? count++ : count;    // kažkodėl neveikia
+                       
+                        }
+                    }
+                    return count;
+                }
+                console.log(`masyve yra ${counter()} elementai didesni už 10`);
+                document.write(`masyve yra ${counter()} elementai didesni už 10`);
+            </script>
+        </div>
+        
+        <h4>b.</h4>
+<!-- Raskite didžiausio elemento reikšmę; -->
+        <div>
+            <script>
+                function maxIn(){
+                    let maxIn=0;
+                    for (x in array){
+                        let z=Math.max(...array[x])
+                        if (maxIn <= z)
+                            maxIn = z;
+                        }
+                    return maxIn;
+                }
+                console.log(`didžiausia masyvo reikšmė`,maxIn());
+                document.write(`didžiausia masyvo reikšmė`,maxIn());
+            </script>
+        </div>
+
+        <h4>c.</h4>
+<!-- Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.) -->
+        <div>
+            <script>
+                function suma(){
+
+                    //ieškome ilgiausio antro lygio masyvo
+                    let maxLenght=null;
+                    let noOfIndexes=0
+                    for (x in array){
+                        for (y in array[x]){
+                           if (noOfIndexes< y) {
+                            noOfIndexes=y;
+                           }
+                        }
+                    }
+                    
+                    //sumuojame pagal indeksus
+                    let result="";
+                    let elements="";
+                    for (y=0; y<=noOfIndexes; y++){
+                        sum = 0;
+                        elements="";
+                        for (i=0; i<array.length; i++){
+                            if (array[i][y] == undefined)
+                            array[i][y]=0;
+
+                            sum = sum + array[i][y];
+                            elements = elements + ' ' + array[i][y];
+                        }
+                        result=result + y + ' indekse esnačių skaitmenų '+ elements + ` suma lygi ` + sum +'<br />';
+                    }
+                    return result;
+                }
+                console.log(suma());
+                document.write(suma());
+            </script>
+        </div>
+
+        <h4>d.</h4>
+<!-- Visus antro lygio masyvus “pailginkite” iki 7 elementų -->
+        <div>
+            <script>
+                function longer(){
+                    let arr=array
+                    for (i=0; i<10; i++){
+                            for (z=5; z<7; z++){
+                                let number=rand(5,25);
+                                arr[i][z]=number;
+                            }
+                            
+                        }
+                        return arr;
+                }
+                console.log(longer());
+                document.write(longer());
+            </script>
+        </div>
+
+        <h4>e.</h4>
+        <div>
+            <script>
+                function newSum(){
+                    let oldArray=longer();
+                    let newArray=[];
+                        for (y=0; y<7; y++){
+                            let sum=0;
+                            for (i=0; i<oldArray.length; i++)
+                                sum = sum + oldArray[i][y];
+                            
+                        newArray.push(sum);
+                        }
+                    return newArray;
+                }
+                
+                console.log(newSum());
+                document.write(newSum());
+
+            </script>
+        </div>
+
+        <h3>3 užduotis</h3>
+<!-- Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite pagal taisyklę: generuokite skaičių nuo 0 iki 5. Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite. Antro lygio masyvo reikšmes papildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nėra įkelkite skaičių nuo 0 iki 10. -->
+        <div>
+            <script>
+                function newArray(){
+                    let array=[];
+                    let innerArray=[];
+
+                    for (i=0; i<10; i++){
+                        let length=rand(0,5);
+                        
+                        if (length==0){
+                            number=rand(0,10);
+                            array.push(number);
+                        }else{
+                            for (z=0; z<length; z++){
+                                number=rand(0,10);
+                                innerArray[z]=number;
+                            }
+                        }
+
+                        if (innerArray.length>0)
+                        array.push(innerArray);
+                        innerArray=[];
+                    }
+                    return array;
+                }
+            
+                newArray=newArray()
+                console.log('3 užduotis',newArray);
+                document.write(newArray);
+                
+            </script>
+        </div>
+        
+        <h3>4 užduotis</h3>
+<!-- Paskaičiuokite 3 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos. -->
+        <div>
+            <script>
+                console.log('4 užduotis');
+
+                function suma4(){
+                    let sum=0;
+                    for (i=0; i<newArray.length; i++){
+                        if (!Array.isArray(newArray[i])){
+                            sum = sum + newArray[i];
+                        }else{
+                            for (z=0; z<newArray[i].length; z++)
+                            sum += newArray[i][z];
+                        }
+                    }
+                        return sum;
+                }
+
+                let s=suma4();
+                console.log(s);
+                document.write(s);
+
+                // function summing(){
+                //     let sorterArray=newArray;
+                //     let sum=0;
+                //     for (i=0; i<sorterArray.length; i++){
+                //         if (!Array.isArray(sorterArray[i])){
+                //             continue;
+                //         }else{
+                //             for (z=0; z<sorterArray[i].length; z++)
+                //             sum += sorterArray[i][z];
+                //         }
+                //         sorterArray[i]=sum;
+                //         sum=0;
+                //     }
+                    
+                //     sorterArray.sort()
+                    
+                //     return sorterArray;
+                // }
+                // console.log(summing())
+
+
+                // function sort(){
+                //     let sorter=[];
+                //     for (i=0; i<newArray.length; i++){
+                //         sum=0;
+                //         sorter[i]=[];
+                //         if (Array.isArray(newArray[i])){
+                //             for (z=0; z<newArray[i].length; z++)
+                //             sum += newArray[i][z];
+                //         }else{
+                //             sum=newArray[i]
+                //         }
+                //         sorter[i].push(i,sum);
+                //     }
+
+
+                //     let tarpine=[]
+                //     let index=0;
+                //     for (i=0; i<sorter.length; i++){
+                //         for (z=0; z<sorter.length; z++){
+                //             if(sorter[i][1] > sorter [z][1]){
+                //                 index++
+                //             }
+                //         }
+                        
+                //     }
+                
+                //     return sorter;
+                // }
+                // sorter=sort();
+                // console.log(sorter);
+
+
+                // newArray.sort((a,b) => {
+                //     console.log(a)
+                //     let ela=a.length;
+                //     let ea=0;
+                //     for (i=0; i<ela; i++) {
+                //         ea=ea+a[i];
+                //     }
+                //     a[0]=ea;
+                //     console.log(a[0]);
+
+
+                //     // let elb=b.length;
+                //     // let eb=0;
+                //     // for (i=0; i<elb; i++) {
+                //     //     eb=eb+b[i];
+                //     // }
+                //     // b[0]=eb;
+
+
+                //         if (a[0] === b[0]) {
+                //             return 0;
+                //         }
+                //         else {
+                //             return (a[0] < b[0]) ? -1 : 1;
+                //         return a-b
+                //         }
+                    
+                // })
+                // console.log(newArray);
+
+            </script>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+</body>
+</html>
+`-*

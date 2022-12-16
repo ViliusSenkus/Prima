@@ -1,5 +1,4 @@
 const abecele="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
-const data=[];
 const tabloWord=[];
 
 // kodas funkcijos paleidimui su Enter (ne atskiru mygtuku)
@@ -11,12 +10,11 @@ const tabloWord=[];
 
 const hideInput = () => document.getElementById("word_input").style.display = `none`;
 
-function getWord (word, createHTML){
+function getWord (word){
     if (word == ""){
         result=alert("žodis neįvestas");
         return result;
     }
-    console.log(`žodis yra - `, word);
     
     let counter=0;
     for(i=0; i<word.length; i++){
@@ -38,19 +36,20 @@ function getWord (word, createHTML){
     for (i=0; i<word.length; i++)
         tabloWord.push([word[i],[i],false]);
 
-       createHTML(tabloWord);
+    createHTML(tabloWord);
 }
 
 function createHTML(tabloWord){
     let stringHTML="";
-    for (i=0; i<tabloWord.length; i++)
-        if (tabloWord[i][2] == true){
+    for (let i=0; i<tabloWord.length; i++){
+        if (tabloWord[i][2] === true){
             stringHTML += `<span>${tabloWord[i]}{</span>`;
         }else{
             stringHTML += `<span> </span>`;
         }
+    }
     
-    document.getElementById("tablo").innerHTML=createHTML(); 
+    document.getElementById("tablo").innerHTML=stringHTML; 
 }
 
 
@@ -59,26 +58,18 @@ function createHTML(tabloWord){
 // --------------------------------raidžių spėjimas---------------------------------
 
 function check(letter){         //tikrinimas ar pasirinkta raidė yra žodyje
-    for (i=0; i<data.length; i++)
-        if (data[i][0] == letter)
-            data[i][2]=true;
-
-    for (i=0; i<data.length; i++)
-        if (data[i][2] == true)      //darant kelis žodžius turbūt čia reikėtų įdėti tarpo atpažinimą
-        tabloWord[i]=data[i][0];
+    for (i=0; i<tabloWord.length; i++)
+        if (tabloWord[i][0] == letter)
+            tabloWord[i][2]=true;
     
-
-    document.getElementById("tablo").innerHTML=drawTablo(tabloWord);
-    console.log(tabloWord);
-            
-    return data;
+createHTML();
 }
 
 // function show(){
-//     let data=check();
-//     for (i=0; i<data.length; i++){
-//         if (data[i][2] == true)      //darant kelis žodžius turbūt čia reikėtų įdėti tarpo atpažinimą
-//         tabloWord[i]=data[i][0];
+//     let tabloWord=check();
+//     for (i=0; i<tabloWord.length; i++){
+//         if (tabloWord[i][2] == true)      //darant kelis žodžius turbūt čia reikėtų įdėti tarpo atpažinimą
+//         tabloWord[i]=tabloWord[i][0];
 //     }
 
 //         document.getElementById("tablo").innerHTML=drawTablo(tabloWord);
@@ -91,15 +82,15 @@ function check(letter){         //tikrinimas ar pasirinkta raidė yra žodyje
 
 
 
-// const data=[[`a`,1,false],[`b`,2,false]];
+// const tabloWord=[[`a`,1,false],[`b`,2,false]];
 
-// document.write(data,`iki funkcijos`);
+// document.write(tabloWord,`iki funkcijos`);
 
 // function check(letter){
-//     for (i=0; i<data.length; i++)
-//         if (data[i][0] == letter)
-//             data[i][2]=true;
-//     return data;
+//     for (i=0; i<tabloWord.length; i++)
+//         if (tabloWord[i][0] == letter)
+//             tabloWord[i][2]=true;
+//     return tabloWord;
 // }
 
 // document.write(check(`b`), `po funkcjos`);

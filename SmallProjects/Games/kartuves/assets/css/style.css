@@ -140,3 +140,11 @@ section{
     /* paslėptos raidės langelio aprašymas */
     background-color: red;
 }
+
+#tablo span{
+    background-color: bisque;
+    border: 1px solid brown;
+    padding:15px;
+    margin:4px;
+    font-size: 22px;
+}
