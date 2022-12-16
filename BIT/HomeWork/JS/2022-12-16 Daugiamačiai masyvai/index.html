@@ -281,88 +281,34 @@
                 console.log(s);
                 document.write(s);
 
-                // function summing(){
-                //     let sorterArray=newArray;
-                //     let sum=0;
-                //     for (i=0; i<sorterArray.length; i++){
-                //         if (!Array.isArray(sorterArray[i])){
-                //             continue;
-                //         }else{
-                //             for (z=0; z<sorterArray[i].length; z++)
-                //             sum += sorterArray[i][z];
-                //         }
-                //         sorterArray[i]=sum;
-                //         sum=0;
-                //     }
+
+
+                newArray.sort((a, b)=>{  
+                    if (isNaN(a)){
+                    sumA=0;
+                    for (i=0; i<a.length;i++)
+                    sumA=sumA+a[i];
+
+                    a=sumA;
+                    }
                     
-                //     sorterArray.sort()
+                    if (isNaN(b)){
+                    sumB=0;
+                    for (i=0; i<b.length;i++)
+                    sumB=sumB+b[i];
+
+                    b=sumB;
+                    }
+
+                    if (a<b)
+                    return -1;
+
+                    if (a>b)
+                    return 1;
                     
-                //     return sorterArray;
-                // }
-                // console.log(summing())
-
-
-                // function sort(){
-                //     let sorter=[];
-                //     for (i=0; i<newArray.length; i++){
-                //         sum=0;
-                //         sorter[i]=[];
-                //         if (Array.isArray(newArray[i])){
-                //             for (z=0; z<newArray[i].length; z++)
-                //             sum += newArray[i][z];
-                //         }else{
-                //             sum=newArray[i]
-                //         }
-                //         sorter[i].push(i,sum);
-                //     }
-
-
-                //     let tarpine=[]
-                //     let index=0;
-                //     for (i=0; i<sorter.length; i++){
-                //         for (z=0; z<sorter.length; z++){
-                //             if(sorter[i][1] > sorter [z][1]){
-                //                 index++
-                //             }
-                //         }
-                        
-                //     }
-                
-                //     return sorter;
-                // }
-                // sorter=sort();
-                // console.log(sorter);
-
-
-                // newArray.sort((a,b) => {
-                //     console.log(a)
-                //     let ela=a.length;
-                //     let ea=0;
-                //     for (i=0; i<ela; i++) {
-                //         ea=ea+a[i];
-                //     }
-                //     a[0]=ea;
-                //     console.log(a[0]);
-
-
-                //     // let elb=b.length;
-                //     // let eb=0;
-                //     // for (i=0; i<elb; i++) {
-                //     //     eb=eb+b[i];
-                //     // }
-                //     // b[0]=eb;
-
-
-                //         if (a[0] === b[0]) {
-                //             return 0;
-                //         }
-                //         else {
-                //             return (a[0] < b[0]) ? -1 : 1;
-                //         return a-b
-                //         }
-                    
-                // })
-                // console.log(newArray);
+                    return 0;
+                });
+                console.log(newArray);
 
             </script>
         </div>
