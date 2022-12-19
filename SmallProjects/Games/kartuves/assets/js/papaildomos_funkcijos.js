@@ -42,13 +42,3 @@ function formTablo(){                  //h-luako eilučių skaičius, l-stulpeli
 
 
 
-// raidžių panelės formavimas
-
-let codeBlock="";
-function abcs(){
-    
-    for (let i=0; i<=abc.length-1; i++){
-        codeBlock=codeBlock+`<div class="letter" id="letter`+i+` onclick="choosenLetter(`+i+`)"">` + abc[i] + '</div>';
-        document.getElementById("alphabet").innerHTML=codeBlock;
-    }
-}

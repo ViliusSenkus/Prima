@@ -1,11 +1,11 @@
 const abecele="aąbcčdeęėfghiįyjklmnoprsštuųūvzžqwx";
-const tabloWord=[];
+let tabloWord=[];
 
 // kodas funkcijos paleidimui su Enter (ne atskiru mygtuku)
-//let input = document.getElementById("word");
+// let input = document.getElementById("word");
 // input.addEventListener("keydown", function(e)  {
-//     if (e.code === "Enter")
-//     tablo();
+//     if (e.code === 13)
+//     getWord(document.getElementById("word").value);
 // })
 
 const hideInput = () => document.getElementById("word_input").style.display = `none`;
@@ -16,6 +16,7 @@ function getWord (word){
         return result;
     }
     
+    word=word.toLowerCase();
     let counter=0;
     for(i=0; i<word.length; i++){
         let x=0;
@@ -43,7 +44,7 @@ function createHTML(tabloWord){
     let stringHTML="";
     for (let i=0; i<tabloWord.length; i++){
         if (tabloWord[i][2] === true){
-            stringHTML += `<span>${tabloWord[i]}{</span>`;
+            stringHTML += `<span>${tabloWord[i][0]}</span>`;
         }else{
             stringHTML += `<span> </span>`;
         }
@@ -61,8 +62,20 @@ function check(letter){         //tikrinimas ar pasirinkta raidė yra žodyje
     for (i=0; i<tabloWord.length; i++)
         if (tabloWord[i][0] == letter)
             tabloWord[i][2]=true;
+createHTML(tabloWord);
+}
+
+
+
+
+let codeBlock="";
+function abcs(){
     
-createHTML();
+    for (let i=0; i<=abecele.length-1; i++){
+        let letter=abecele[i].toUpperCase();
+        codeBlock=codeBlock+`<div class="letter" onclick="check('${letter}')">${letter}</div>`;
+        document.getElementById("alphabet").innerHTML=codeBlock;
+    }
 }
 
 // function show(){

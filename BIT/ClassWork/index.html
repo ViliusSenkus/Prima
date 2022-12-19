@@ -22,11 +22,11 @@
     <main>
         <aside class="shadow-box">
             <h4>Latests adds</h4>
-            <ul>
+            <ul id="lastAdds">
                 <li>add1</li>
                 <li>add2</li>
             </ul>
-            <p>this section will be formated after more js knowledge and practice will be gained</p>
+            <p>This section is not fully dynamic yet</p>
         </aside>
         
         <section>
@@ -86,5 +86,12 @@
         <p>NOTE: Page intended for personal use in order to navigate throug different projects during study and practice period, so it is not colorfull, playfull and super-interactive, it is just to navigate and keap order.</p>
         <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
     </footer>
+    <script>
+        
+        //number=document.getElementsByTagName('ul').length-1;
+        first=document.getElementsByTagName('ul')[2].lastElementChild.innerHTML;
+        second=document.getElementsByTagName('ul')[2].lastElementChild.previousElementSibling.innerHTML;
+        document.getElementById('lastAdds').innerHTML=first+second;
+    </script>
 </body>
 </html>
