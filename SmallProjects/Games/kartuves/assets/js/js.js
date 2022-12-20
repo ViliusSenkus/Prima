@@ -63,9 +63,25 @@ function check(letter){         //tikrinimas ar pasirinkta raidė yra žodyje
         if (tabloWord[i][0] == letter)
             tabloWord[i][2]=true;
 createHTML(tabloWord);
+res(tabloWord);
 }
 
-
+//--------------išvedimas rezultato----------------------------veikia blogai-------------
+function res(tabloWord){
+    res="spėta 0 kartų"
+    document.getElementById('result').innerHTML=res
+    counter=0;
+    counter++;
+    res=`spėta ${counter} kartų`;
+    for (result of tabloWord){
+        console.log(result[2]);
+        if (result[2]==false){
+        return document.getElementById('result').innerHTML=res;
+    }
+    }
+    res=`VALIO, atspėjai iš ${counter} kartų`;
+    return document.getElementById('result').innerHTML=res;
+}
 
 
 let codeBlock="";

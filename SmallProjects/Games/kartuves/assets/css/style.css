@@ -127,11 +127,13 @@ section{
     height:4rem;
     line-height: 4rem;
     text-align: center;
-    background-color: blanchedalmond;
-    color:brown;
+    background-color: #e1cb9a;
+    color:#544628;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 3rem;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 0px 0px 3px #c0964a,
+                0px 0px 2px #a57125,
+                2px 2px 5px #573b12;
 }
 
 .hidden{
