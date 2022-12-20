@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../formal-style.css" />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2efd577f26.js" crossorigin="anonymous"></script>
+    <title>DOM manipulation - ID-card</title>
+    <style>
+        button{
+            margin: 15px;
+        }
+        #idCard,
+        form{
+            margin: 20px auto;
+            display:flex;
+            flex-direction:column;
+            width: 400px;
+            box-shadow: 8px 8px 18px rgb(132, 132, 132);
+        }
+        #head{
+            background-color: rgb(236, 3, 3);
+            flex-wrap: nowrap;
+        }
+        #photo{
+            background-color: white;
+            width: 120px;
+            height:120px;
+            margin: 25px auto 5px;
+            border-radius: 20px;
+            border: 5px solid #cf2321;
+            box-shadow: 0 0 5px #cf2321;
+        }
+        h2,
+        h4{
+            color: white;
+            margin:0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        h2{
+            font-size: 36px;
+            font-weight: 300;
+        }
+        h4{
+            font-size: 22px;
+            font-weight: 200;
+        }
+        #main{
+            background-color: #f1f1f1;
+            flex-wrap: nowrap;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+        }
+        .info{
+            background-color: white;
+            display: flex;
+            margin:3px 22px;
+            border-radius: 10px;
+            color: red;
+        }
+        img{
+            height: 32px;
+            margin: 15px;
+        }
+        .content{
+            display: inline-block;
+        }
+        .naming{
+            margin: 15px 0 0 0;
+            padding: 0;
+            font-weight: 600;
+        }
+        .value{
+            margin: 0;
+            padding: 0;
+            color: rgb(52, 52, 52);
+            font-size: 18px;
+        }
+        .bottom{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            margin: 3px 19px;
+            padding-bottom: 8px;
+        }
+        .bottomBtn{
+            margin: 3px;
+            background-color: red;
+            width: 85px;
+            border-radius: 10px;
+        }
+        .bottomBtn img{
+            margin-top: 18px;
+        }
+        
+        form label{
+            margin : 8px 15px 0;
+        }
+        form input{
+            margin : 2px 15px;
+            padding : 3px;
+            color: rgb(118, 118, 118);
+            box-shadow: 0 0 3px rgb(149, 0, 0);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task for 20<sup>th</sup> of December 2022</h1>
+        <h3>DOM manipulation</h3>
+    </header>
+
+    <main style="display:flex">      
+      
+        <div style="margin : 0 auto">
+            <h3>1 užduotis</h3>
+            <div>Sąlyga: Pagal pateiktą maketą sukonstruokite WEB vizitinę kortelę. Informaciją paimkite iš savo pačių aprašyto Javascript objekto, kurią panaudokite įkeliant reikšmes į maketo pozicijas.
+            </div>
+            <button type="button" onclick="createID()">Suformuoti kortelę</button>
+            <div id="idCard">
+                <div id="head">
+                    <div id="photo"></div>
+                    <h2>Name</h2>
+                    <h4>Profession</h4>
+                </div>
+            
+                <div id="main">
+                    <div class="info">
+                        <img src="img/phone-solid.svg" alt="phone" />
+                        <div class="contetn">
+                            <p class="naming">Phone</p>
+                            <p class="value" id="phone">+00-000-000</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="img/envelope-solid.svg" alt="e-mail" />
+                        <div class="contetn">
+                            <p class="naming">Email Address</p>
+                            <p class="value" id="email">email@email.com</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="img/link-solid.svg" alt="website" />
+                        <div class="contetn">
+                            <p class="naming">Website</p>
+                            <p class="value" id="website">www.website.com</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <img src="img/location-dot-solid.svg" alt="location" />
+                        <div class="contetn">
+                            <p class="naming">City</p>
+                            <p class="value" id="city">City, Country</p>
+                        </div>
+                    </div>
+                        <div class="bottom">
+                            <a href="###">
+                                <div class="bottomBtn">
+                                
+                                    <img src="img/square-facebook.svg" alt=""facebook" />
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="bottomBtn">
+                                    <img src="img/skype.svg" alt=""facebook" />
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="bottomBtn">
+                                    <img src="img/codepen.svg" alt=""facebook" />
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="bottomBtn">                                
+                                    <img src="img/instagram.svg" alt=""facebook" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form>
+            <label for="foto">Nuotraukos nuoroda</label>
+            <input id="foto" name="foto" type="text">
+            <label for="name">Vardas</label>
+            <input id="name" name="name" type="text">
+            <label for="surname">Pavarė</label>
+            <input id="surname" name="surname" type="text">
+            <label for="prof">Profesija</label>
+            <input id="prof" name="prof" type="text">
+            <label for="ph">Telefonas</label>
+            <input id="ph" name="ph" type="text">
+            <label for="mail">El.Paštas</label>
+            <input id="mail" name="mail" type="email">
+            <label for="web">Interneto Svetainė</label>
+            <input id="web" name="web"  type="text">
+            <label for="cit">Miestas</label>
+            <input id="cit" name="cit" type="text">
+            <label for="country">Valstybė</label>
+            <input id="country" name="country" type="text">
+            <label for="faceb">Facebook</label>
+            <input id="faceb" name="faceb" type="text">
+            <label for="skype">Skype</label>
+            <input id="skype" name="skype" type="text">
+            <label for="codeop">CodeOpen</label>
+            <input id="codeop" name="codeop" type="text">
+            <label for="insta">Instagram</label>
+            <input id="insta" name="insta" type="text">
+            <button type="button" onclick="change()">Pateikti duomenis kortelės formavimui</button>
+        </form>
+
+    </main>
+
+    <footer>
+        <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
+    </footer>
+    <script src="js.js">
+    </script>
+</body>
+</html>
