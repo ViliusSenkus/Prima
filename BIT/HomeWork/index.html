@@ -163,6 +163,18 @@
                                 Daugiamačiai masyvai
                             </li>
                         </a>
+                        <a href="JS/2022-12-20 DOM manipulation/index.html">
+                            <li>
+                                2022-12-20<br />
+                                Vizitinė koretelė
+                            </li>
+                        </a>
+                        <a href="JS/2022-12-20 DOM manipulation/allHW.html">
+                            <li>
+                                2022-12-20<br />
+                                Visų namų darbų santrauka
+                            </li>
+                        </a>
                 </ul>
         </div>
         </section>
@@ -174,8 +186,8 @@
     </footer>
     <script>
     number=document.getElementsByTagName('ul').length-1;
-    first=document.getElementsByTagName('ul')[number].lastElementChild.innerHTML;
-    second=document.getElementsByTagName('ul')[number].lastElementChild.previousElementSibling.innerHTML;
+    first=document.getElementsByTagName('ul')[number].lastElementChild.outerHTML;
+    second=document.getElementsByTagName('ul')[number].lastElementChild.previousElementSibling.outerHTML;
     document.getElementById('lastAdds').innerHTML=first+second;
     
 

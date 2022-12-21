@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #iframe,
+        #rezult{            
+            margin: 10px auto;
+            display: none;
+            font-size: 18px;
+        }
+
+        iframe{
+            display:block;
+            width: 90vw;
+            height:100vw;
+            border: none;
+            margin: 10px auto;
+        }
+        
+        button{
+            margin:5px 0;
+            padding:5px;
+            width:200px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: rgb(5, 158, 200);
+            color: white;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 2px 2px 5px grey;
+        }
+        button:hover{
+            background-color: white;
+            color: rgb(5, 158, 200);
+        }
+        button:active{
+            background-color: white;
+            color: rgb(5, 158, 200);
+            box-shadow: -2px -2px 2px grey;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Summary of all course HomeWorks till Christmas 2022</h1>
+    </header>
+
+    <main>
+        <section id="html">
+            <h2>HTML and CSS HomeWork</h2>
+
+            <button onclick="showHTML('2022-11-08/black.html', event)"
+                    text="<br />1. Sukurkite du failus: red.html ir black.html. Failuose priskirkite atitinkamas fono spalvas ir įdėkite nuorodas iš vieno failo į kitą, kad atsidarius red.html išeitų patekti į black.html ir atvirkščiai. Nuorodoms priskirkite spalvą to failo į kurį jos turi keliauti.">
+                2022-11-08 -1-
+            </button>
+            <button onclick="showHTML('2022-11-08/periodical_table.html', event)"
+                    text="<br />2. Sukurkite periodinę lentelę pagal pateiktą maketą.">
+                2022-11-08 -2-
+            </button> HTML basics
+            <br />
+            <button onclick="showHTML('2022-11-09/2022-11-09HW_JustPhoto.html', event)"
+                    text="<br />3. Sukurkite nuotraukų galeriją iš dešimties pasirinktų nuotraukų, kiekvienos nuotraukos plotis: 150px.<br />
+                    4.	Patalpinkite prieš tai įdėtas nuotraukas tarp <a> elemento žymų. Priskirkite šiam elementui href atributą, kurio adresas būtų nuotraukos adresas.<br />
+                    5.	Sukurkite tris nuotraukas. Pasinaudodami kitais HTML elementais arba CSS žiniomis išrikiuokite jas visas vieną šalia kitos. Pabandykite pasinaudoti kitu matavimo vienetu priskiriant plotį. Pvz. 33%."
+                    >
+                2022-11-09 3-5
+            </button>
+            <button onclick="showHTML('2022-11-09/2022-11-09HW.html', event)"
+                    text="<br />6. Aprašykite tekstą su 6 headingais (h1, h2 ir t.t.). Kiekviename paragrafe įkelkite po pasirinktą nuotrauką, o jos dydį nustatykite pagal pasirinktus išmatavimus, tačiau plotis negali būti didesnis nei 250px. Priskirkite float savybę nuotraukoms, o reikšmes pasirinkite pagal paragrafo heading’ą. Jeigu headingo skaičius yra lyginis float reikšmė turėtų būti “right”, o jei atvirkščiai “left”. Paragrafe, už nuotraukos taip pat įdėkite 500 žodžių tekstą.<br />
+                    7.	Devintos užduoties tekste priskirkite klases pastraipoms. Kiekvieno paragrafo klasės turi skirtis. Stilizuokite tekstą pasirinktomis spalvomis (color) kiekviename paragrafe.<br />
+                    8.	Sukurkite keturių paragrafų tekstą ir kiekvieną iš jų išlygiuokite keturiomis pozicijomis: left, right, center, justify."
+                    >
+                2022-11-09 6-8
+            </button> HTML img and text positioning and formating
+            <br />
+            <button onclick="showHTML('2022-11-10/2022-11-10HW(Task_9-10).html', event)"
+                    text="<br />9.	Sukurkite aštuonių sekcijų html puslapį ir navigaciją jam. Kiekviena sekcija turi turėti skirtingas fono spalvas. Kiekvienoje sekcijoje pridėkite h2 elementą, teksto ir nuotrauką. Išrykiuokite duomenis estetiškai sekcijos viduje ir pritaikykite prieš tai naudotus stilizavimo metodus kiekvienai sekcijai individualiai.<br />
+                    10.	Pirmose trijose sekcijose patalpinkite po sąrašą sudarytą iš dešimties elementų. Kiekvienam iš jų priskirkite skirtingą stilizavimo būdą. Sąrašus pozicionuokite vis skirtingose vietose pasinaudojant css savybėmis. Stilizuokite teksto šriftą, dydį ir spalvą.">
+                2022-11-10 9-10
+            </button>
+            <button onclick="showHTML('2022-11-10/2022-11-10HW(Task_11).html', event)"
+                    text="<br /><a href='../../2022-11-10/example.jpg'><img src='../../2022-11-10/example.jpg' alt='example' style='height:100px; float:right;'/></a>11.	Suformatuokite tekstą pagal pateiktą pavyzdį: ">
+                2022-11-08 -11-
+            </button> HTML img and text positioning and formating
+            <br />
+            <button onclick="showHTML('2022-11-11/fidayTask.html', event)"
+                    text="<br /> <a href='../../2022-11-11/2022-metu-kalendorius.jpg'><img src='../../2022-11-11/2022-metu-kalendorius.jpg' alt='example' style='width:100px; float:right;' /></a>Sukurkite kalendorių pagal pavyzdį ">
+                2022-11-11
+            </button> HTML tables
+            <br />
+            <button onclick="showHTML('2022-11-14/2022-11-14HW.html', event)"
+                    text="<br /> <a href='img/tasks/11-14.png'><img src='img/tasks/11-14.png' alt='example' style='width:100px; float:right;' /></a>Pasinaudodami CSS ir HTML žiniomis pabandykite sukurti ir stilizuoti užsakymo formą pagal pateiktą maketą.">
+                2022-11-14 (1)
+            </button>
+            <button onclick="showHTML('2022-11-14/2022-11-14HW copy.html', event)"
+                    text="<br /> <a href='img/tasks/11-14.png'><img src='img/tasks/11-14.png' alt='example' style='width:100px; float: right;' /></a>Pasinaudodami CSS ir HTML žiniomis pabandykite sukurti ir stilizuoti užsakymo formą pagal pateiktą maketą.">
+                2022-11-14 (2)
+            </button> CSS styling
+            <br />
+            <button onclick="showHTML('2022-11-16/index.html', event)"
+                    text="<br /> <a href='../../2022-11-16/pavyzdys.png'><img src='../../2022-11-16/pavyzdys.png' alt='example' style='width:100px; float: right;' /></a>Atsisiųskite failų paketą <...> Pasinaudodami pavyzdys.png failu, html dokumente išrikiuokite planetas pagal pavyzdį. Kiekvienam elementui panaudokite absoliučią poziciją. Fono nuotrauką rasite backround.png faile.
+                    ">
+                2022-11-16
+            </button> Positioning
+            <br />
+            <button onclick="showHTML('2022-11-22_Bootstrap/index-flex.html', event)"
+                    text="<br /> <a href='img/tasks/11-22.png'><img src='img/tasks/11-22.png' alt='example' style='width:100px; float: right;' /></a>Pasinaudodami bootstrap karkasu sumodeliuokite aplikaciją pagal pateiktą maketą:
+                    ">
+                2022-11-22
+            </button> Bootstrap
+            <br />
+            <button onclick="showHTML('2022-11-24_ Shopping-cart/Shoping-cart.html', event)"
+                    text="<br /> <a href='img/tasks/11-24.png'><img src='img/tasks/11-24.png' alt='example' style='width:100px; float: right;' /></a>Pasinaudodami Bootstrap karkasu pagaminkite prekių krepšelį pagal pateiktą maketą:
+                    ">
+                2022-11-24
+            </button> Bootstrap (ilgai krauna)
+            <br />
+            <button onclick="showHTML('2022-11-25 friday task', event)"
+                    text="Pasinaudodami Bootstrap karkasu pagaminkite prekių krepšelį pagal pateiktą maketą: (pavyzdys nerastas)">
+                2022-11-25
+            </button> Bootstrap
+
+
+
+
+            <div id="iframe"></div>
+        </section>
+
+        <section id="js">
+            <h2>JavaScript HomeWork</h2>
+            <button onclick="showJS(f2022_11_30_1, event)"
+                    text="1. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus (Jonas Jonaitis). Atspausdinti trumpesnį stringą.">
+                2022-11-30 -1-
+            </button>
+            <button onclick="showJS(f2022_11_30_2, event)"
+                    text='2. Sukurkite 4 kintamuosius, kurie saugotų jūsų vardą, pavardę, gimimo metus ir šiuos metus (nebūtinai tikrus). Parašykite kodą, kuris pagal gimimo metus paskaičiuotų jūsų amžių ir naudodamas vardo ir pavardės kintamuosius atspausdintų tokį sakinį :
+                    "Aš esu Vardenis Pavardenis. Man yra XX metai(ų)".'>
+                2022-11-30 -2-
+            </button>
+            <button onclick="showJS(f2022_11_30_3, event)"
+                    text='3. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš trijų paskutinių vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.'>
+                2022-11-30 -3-
+            </button>
+            <button onclick="showJS(f2022_11_30_4, event)"
+                    text='4. Sukurti kintamąjį su stringu: “Once upon a time in hollywood”. Jame visas “o” (didžiąsias ir mažąsias) pakeisti žvaigždutėm “*”.  Rezultatą atspausdinti.'>
+                2022-11-30 -4-
+            </button>
+            <button onclick="showJS(f2022_11_30_5, event)"
+                    text='5. Sukurkite keturis kintamuosius kuriems sugeneruokite atsitiktines reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. 
+                    '>
+                2022-11-30 -5-
+            </button> Primitive variables (String, number)
+            <br />
+            <button onclick="showJS(f2022_12_01_1, event)"
+                    text='1. Pasinaudokite atsitiktinio skaičiaus generavimo funkcija. Sukurkite du kintamuosius ir naudodamiesi funkcija jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš mažesnės. Atspausdinkite rezultatą jį suapvalinę iki 2 skaičių po kablelio.'>
+                2022-12-01 -1-
+            </button> 
+            <button onclick="showJS(f2022_12_01_2, event)"
+                    text='2. Naudokite funkciją ir sukurkite tris kintamuosius kuriems priskirkite atsitiktines reikšmes nuo 0 iki 25. Raskite ir atspausdinkite vidurinę reikšmę.'>
+                2022-12-01 -2-
+            </button> 
+            <button onclick="showJS(f2022_12_01_3, event)"
+                    text='3.  Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš pirmų vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+                    <br /> <span style="font-weight:bold; background:rgb(5, 158, 200); border-left-radius:4px; border:1px solid rgb(5, 158, 200); color:white"> Modifikuota sąlyga:</span> Paduoti reikšmes per input elementą ir parodyti inicialus.'>
+                2022-12-01 -3-
+            </button> 
+            <button onclick="showJS(f2022_12_01_4, event)"
+                    text='4. Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.'>
+                2022-12-01 -4-
+            </button> Primitive variables (String, number) methods
+            <br />
+            <button onclick="showJS(f2022_12_02_1, event)"
+                    text='1.   Įmonė parduoda žvakes po 1 EUR. Perkant daugiau kaip už 1000 EUR taikoma 3 % nuolaida, daugiau kaip už 2000 EUR - 4 % nuolaida. Parašykite programą, kuri skaičiuos žvakių kainą ir atspausdintų atsakymą kiek žvakių ir kokia kaina perkama. Žvakių kiekį generuokite rand() funkcija nuo 5 iki 3000.
+                    <br /> <span style="font-weight:bold; background:rgb(5, 158, 200); border-left-radius:4px; border:1px solid rgb(5, 158, 200); color:white"> Modifikuota sąlyga:</span> Reikiamą keikį pateikti per input elementą'>
+                2022-12-02 -1-
+            </button> 
+            <button onclick="showJS(f2022_12_02_2, event)"
+                    text='2. Naudokite funkcija rand(). Sukurkite tris kintamuosius su atsitiktinėmis reikšmėmis nuo 0 iki 100. Suskaičiuokite jų aritmetinį vidurkį. Ir aritmetinį vidurkį atmetus tas reikšmes, kurios yra mažesnės nei 10 arba didesnės nei 90. Abu vidurkius atspausdinkite. Rezultatus apvalinkite iki sveiko skaičiaus.
+                    <br /> <span style="font-weight:bold; background:rgb(5, 158, 200); border-left-radius:4px; border:1px solid rgb(5, 158, 200); color:white"> Modifikuota sąlyga:</span> Skaičius pateikti per input elementą'>
+                2022-12-02 -2-
+            </button> 
+            <button onclick="showJS(f2022_12_02_3, event)"
+                    text='3. Padarykite skaitmeninį laikrodį, rodantį valandas, minutes ir sekundes. Valandom, minutėm ir sekundėm sugeneruoti panaudokite funkciją rand(). Sugeneruokite skaičių nuo 0 iki 300. Tai papildomos sekundės. Skaičių pridėkite prie jau sugeneruoto laiko. Atspausdinkite laikrodį prieš ir po sekundžių pridėjimo ir pridedamų sekundžių skaičių.
+                    <br /> <span style="font-weight:bold; background:rgb(5, 158, 200); border-left-radius:4px; border:1px solid rgb(5, 158, 200); color:white"> Modifikuota sąlyga:</span> Laiką pateikti per input elementą'>
+                2022-12-02 -3-
+            </button> If statement
+            <br />
+            <button onclick="showJS(f2022_12_05_0, event)"
+                    text='0. Naršyklėje nupieškite linija iš 400 “*”. 
+                    Naudodami css stilių “suskaldykite” liniją taip, kad visos žvaigždutės matytųsi ekrane;
+                    Programiškai “suskaldykite” žvaigždutes taip, kad vienoje eilutėje nebūtų daugiau nei 50 “*”;
+                    <br /> <span style="font-weight:bold; background:rgb(5, 158, 200); border-left-radius:4px; border:1px solid rgb(5, 158, 200); color:white"> Modifikuota sąlyga:</span>darbą su css žiūrėti <a href="../2022-12-05 while loop/index.html">čia</a>
+                    '>
+                2022-12-05 -0-
+            </button> 
+            <button onclick="showJS(f2022_12_05_1, event)"
+                    text='1. Naudokite funkcija rand(). Sugeneruokite atsitiktinį skaičių nuo 1 iki 6 ir jį atspausdinkite atitinkame h tage. Pvz skaičius 3- rezultatas: <h3>3</h3>'>
+                2022-12-05 -1-
+            </button> 
+            <button onclick="showJS(f2022_12_05_2, event)"
+                    text='2. Naudokite funkcija rand(). Atspausdinkite 3 skaičius nuo -10 iki 10. Skaičiai mažesni už 0 turi būti žali, 0 - raudonas, didesni už 0 mėlyni.'>
+                2022-12-05 -2-
+            </button> 
+            <button onclick="showJS(f2022_12_05_3, event)"
+                    text='3. Sukurkite kintamąjį su stringu: “An American in Paris”. Jame ištrinti visas balses. Rezultatą atspausdinti. Kodą pakartoti su stringais: “Breakfast at Tiffany`s”, “2001: A Space Odyssey” ir “It`s a Wonderful Life”.'>
+                2022-12-05 -3-
+            </button> 
+            <button onclick="showJS(f2022_12_05_4, event)"
+                    text='4. Sugeneruokite 300 atsitiktinių skaičių nuo 0 iki 300, atspausdinkite juos atskirtus tarpais ir suskaičiuokite kiek tarp jų yra didesnių už 150.  Skaičiai didesni nei 275 turi būti raudonos spalvos.'>
+                2022-12-05 -4-
+            </button> 
+            <button onclick="showJS(f2022_12_05_5, event)"
+                    text='5. Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos. Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi ekrane.'>
+                2022-12-05 -5-
+            </button>All up
+            <br />
+            <button onclick="showJS(f2022_12_06_1, event)"
+                    text='1. Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos. Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi ekrane.'>
+                2022-12-05 1-2
+            </button>
+            <button onclick="showJS(f2022_12_06_3, event)"
+                    text='3.Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija, kur 0 yra herbas, o 1 - skaičius. Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas. Suprogramuokite tris skirtingus scenarijus kai monetos metimą stabdome:<br />
+                    a. Iškritus herbui;<br />
+                    b. Tris kartus iškritus herbui;<br />
+                    c. Tris kartus iš eilės iškritus herbui;'>
+                2022-12-05 -3-
+            </button>
+            <button onclick="showJS(f2022_12_06_4, event)"
+                    text='4. Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.<br />
+                    5. Naudodamiesi 4 uždavinio masyvu:<br />
+                    a.Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;<br />
+                    b.Raskite didžiausią masyvo reikšmę ir jos indeksą arba indeksus jeigu yra keli;<br />
+                    c. Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;<br />
+                    d. Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;<br />
+                    e. Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;<br />
+                    f. Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indeksų reikšmių, o kitas iš porinių;<br />
+                    g. Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;<br />
+                    h. Iš masyvo ištrinkite visus elementus, kurių reikšmė didesnė už 10;'>
+                2022-12-05 4-5
+            </button>For while
+            <br />
+            
+            
+            
+            
+            If statement
+
+            
+
+
+    
+            
+
+
+    
+    <div id="rezult"></div>
+        </section>
+
+    </main>
+    
+    <footer>
+
+    </footer>
+    <script src="tasks.js" type="text/javascript"></script>
+</body>
+</html>
