@@ -691,3 +691,659 @@ function f2022_12_06_4(){
    line += `masyvas be didelių skaičių: `+ masyvas;
         return line;
     }
+
+function f2022_12_08_1(){
+    let name1=" Petras - ";
+    let name2=" Kazys - ";
+    let tskPetro=0;
+    let tskKazio=0;
+    let winPoints=0;
+    let name="";
+    let line="";
+
+
+    while(winPoints<222){
+        res1=rand(10,20);
+        res2=rand(5, 25);
+        tskPetro=tskPetro+res1;
+        tskKazio=tskKazio+res2;
+
+        winPoints=(tskPetro>=tskKazio) ? tskPetro : tskKazio;
+        name=(tskPetro>=tskKazio) ? name1 : name2;
+
+        line +=name1 + " " + tskPetro + " " + name2 + " " + tskKazio +"<br />";
+    }
+        line +="<p>" + name1 + " " + tskPetro + " " +  name2+ " " + tskKazio + " Partiją laimėjo:"+ name + " " + winPoints +"</p>";
+        return line;
+}
+
+function f2022_12_08_2(){
+    let nailLength=8.5; 
+    let strikes=0;
+    let smallStrike=0;
+    let bigStrike=0;
+    let miss=0;
+
+    //-------------maža vinis-------------//
+    for (i=0; i<5; i++){
+        while (nailLength>0){
+            smallStrike = rand(0.5, 2);
+            nailLength = nailLength - smallStrike;
+            strikes++;
+        }
+        nailLength=8.5;
+    }
+    line="2.a. - 5 vinims įkalti reikės "+ strikes + " mažų smūgių <br />";
+
+
+
+    //-------------didele vinis-------------//
+    strikes=0;
+    nailLenghth=8.5;
+    
+    for (i=0; i<5; i++){
+        while (nailLength>0){
+            missProbability = rand(0,1);
+            if (missProbability == 1){
+            bigStrike = rand(2, 3);
+            nailLength = nailLength - bigStrike;
+            strikes++;
+            } else {
+                miss++;
+                strikes++;
+            }
+        }
+        nailLength=8.5;
+    }
+    line += "2.b. - 5 vinims įkalti reikės" + strikes + "DIDELIŲ smūgių, įskaitant ir nepataikytus" + miss +" kartus <br />";
+    return line;
+}
+
+function f2022_12_08_3(){
+    let numArray=[];
+    for(i=0; i<50; i++){
+        numArray[i]=rand(1,200);
+        for (x=0; x<numArray.length-1; x++){
+            if (numArray[i]==numArray[x]){
+                numArray.splice(i, 1);
+                i--;
+            }
+        }
+    }
+    numString=numArray.join(` `);
+    line = "<p>Atsitiktinių nesikartojančių skaičių eilutė: " + numString + "</p>";
+
+    let sortedString=(numArray.sort());
+    line +="<p>Surūšiuotų nesikartojančių skaičių eilutė: " + sortedString.join(' ') +"`</p>";
+
+    let primeNumbers=[];
+    let z;
+    let counter;
+
+    for (i=0; i<numArray.length; i++){
+        z=Math.sqrt(numArray[i]);
+        if (z - Math.floor(z) !== 0){
+            for (x=2; x<=z; x++){
+                if (numArray[i]%x == 0){
+                    counter++;
+                }
+            }
+            if (counter == 0)
+            primeNumbers.push(numArray[i]);
+            counter = 0;
+        }
+    }
+    
+    let result=(primeNumbers.length>0)? primeNumbers.join(` `) : `nėra pirminių skaičių`;
+    line += "<p>pirminių skaičių masyvas sudarytas iš nesikartojančių skaičių masyvo: " +  result + "</p>";
+    return line;
+}
+
+function f2022_12_09_1(){
+    function rand(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    let letters="ABCD";
+    let lettersArray=[];
+    let rnd=0;
+    let a=0;
+    let b=0;
+    let c=0;
+    let d=0;
+
+    for (i=0; i<200; i++){
+        rnd=rand(0,3);
+        lettersArray.push(letters[rnd]);
+        switch (rnd){
+            case 0: a++;
+                break;
+            case 1: b++;
+                break;
+            case 2: c++;
+                break;
+            default: d++;
+        }
+    }
+    return lettersArray.join(` `)+`<br />pagal abecėle išrūšiuotas masyvas: `+ lettersArray.sort();
+}
+
+function f2022_12_09_3(){
+    let letters="ABCD";
+    let lettersArray1=[];
+    let lettersArray2=[];
+    let lettersArray3=[];
+    let jointArray=[];
+    let rnd1=0;
+    let rnd2=0;
+    let rnd3=0;
+
+    for (i=0; i<200; i++){                           
+        lettersArray1.push(letters[rand(0,3)]);
+        lettersArray2.push(letters[rand(0,3)]);
+        lettersArray3.push(letters[rand(0,3)]);
+        jointArray.push(lettersArray1[i]+lettersArray2[i]+lettersArray3[i]);
+    }
+    line="Apjungtas masyvas: "+ jointArray.join(' ');
+
+        let unicCombination=[];
+        let unicValue=[];
+        let counter = 0;
+        let value="";
+        
+    for (i=0; i<jointArray.length; i++){
+        for (z=0; z<jointArray.length; z++){
+            if (i!==z && jointArray[i]==jointArray[z]){
+            counter++;
+            }
+        }
+
+        if (counter == 0){
+            unicCombination.push(jointArray[i]);
+        }
+        
+        counter=0;
+        
+        value=jointArray[i];
+        if (value[0]!==value[1] && value[0]!==value[2] && value[1]!==value[2])
+        unicValue.push(value);
+    }
+
+
+    line+="<p>Rastos " + unicCombination.length + " unikalios kombinacijos: " + unicCombination + "</p>";
+    line+="<p>Rastos " +unicValue.length + " pasikartojančios unikalios reikšmės";
+   
+    let compare="";
+    for (i=0; i<unicValue.length; i++){
+        compare=unicValue[i];
+        unicValue.splice[i,1];
+        if (unicValue.includes(compare)){  
+            for (z=0; z<unicValue.length; z++){
+                if (unicValue[z]==compare){
+                    unicValue.splice(z,1);
+                    z--;
+                }
+            }
+        }else{
+            unicValue.push(compare);
+        }
+  
+    } 
+
+    line+=` tarp jų ${unicValue.length} skirtingų ${unicValue}</p>`;
+    return line;
+}
+
+function f2022_12_09_4(){
+    let x=rand(100, 299);
+    let y=rand(100, 299);
+    let xArray=[];
+    let yArray=[];
+
+    for (i=0; i<100; i++){
+        while (xArray.includes(x))
+            x=rand(100, 219);
+            xArray.push(x);
+        while (yArray.includes(y))
+            y=rand(100, 219);
+            yArray.push(y);
+    }
+    line=`<p> ${xArray}</p><p> ${yArray}</p>`;
+
+    let includeArray=[];
+
+    for (i=0; i<xArray.length; i++){
+        includeArray.push(xArray[i]);
+        
+        if (yArray.includes(xArray[i]))
+        includeArray.pop();
+    }
+    line += `<p>pirmo masyvo skaičiai, kurie nesikartoja antrame yra: ${includeArray.join(' ')}</p>`;
+
+    let repeatArray=[];
+                        
+    for (i=0; i<xArray.length; i++){
+        if (yArray.includes(xArray[i]))
+        
+        repeatArray.push(xArray[i]);
+    }
+    
+    line += `<p>pirmam ir antram masyve kartojasi skaičiai: ${repeatArray.join(' ')} </p>`;
+    return line;
+}
+
+function f2022_12_13_1(){
+    document.querySelector("#rezult").lastElementChild.innerHTML +=('<div id="final"></div>');
+    document.getElementById("final").innerHTML=`
+        <div>    
+        <label for="text">įrašykite vardą</label><br />
+        <input type="text" id="text" name="text"/><br />
+        <button type="button" onclick="hiName(document.getElementById('text').value)">Pasisveikink</button>
+        </ div>
+        <div id="result1"></div>`
+}
+function hiName(name){  //prie 2022-12-13 -1-
+    document.getElementById("result1").innerHTML="Labas " + name;
+    } 
+
+function f2022_12_13_2(){
+    document.querySelector("#rezult").lastElementChild.innerHTML +=('<div id="final"></div>');
+    document.getElementById("final").innerHTML=`
+    <div>
+        <label for="text2">įrašykite tekstą</label><br /> 
+        <textarea id="text2" name="text2" rows="4" cols="100">Tekstą rašyti čia...</textarea><br />
+        <button type="button" onclick="stringLength(document.getElementById('text2').value)">Skaičiuoti ilgį</button>
+        <div id="result2"></div>
+    </div>`;
+}
+function stringLength(text){ //prie 2022-12-13 -2-
+    let len=text.length;
+    document.getElementById("result2").innerHTML='Duoto teksto ilgis - ' + len + ' simboliai';
+};
+
+function f2022_12_13_3(){
+    document.querySelector("#rezult").lastElementChild.innerHTML +=('<div id="final"></div>');
+    document.getElementById("final").innerHTML=`
+        <div>
+            <label for="vards">Vardas</label><br />
+            <input type="text" id="vards" name="vards"/><br />
+            <label for="pavards">Pavardė</label><br />
+            <input type="text" id="pavards" name="pavards" /><br />
+            <button type="button" onclick="fullName(document.getElementById('vards').value, document.getElementById('pavards').value)">Suliek</button>
+            <div id="result3"></div>
+        </div>`;
+}
+function replace(string){ //prie 2022-12-13 -3-
+    before=string[0];
+    string=string.slice(1);
+    after=before.toUpperCase();
+    string=after.concat(string);
+    return string;
+}
+function fullName(name, last_name){ //prie 2022-12-13 -3-
+    name=replace(name);
+    last_name=replace(last_name);
+    let fullname=name+" "+last_name;
+    document.getElementById("result3").innerHTML=fullname;
+}
+
+function f2022_12_13_4(){
+        let x=rand(0,5);
+        let y=rand(0,5);
+        let z=rand(0,5);
+        return x+"," + y + ","+ z;
+}
+
+function f2022_12_13_5(){
+    document.querySelector("#rezult").lastElementChild.innerHTML +=('<div id="final"></div>');
+    document.getElementById("final").innerHTML=`
+    <div>
+        <label for="nuo">Mažiausias masyvo skaitmuo</label><br />
+        <input type="text" id="nuo" name="nuo" /><br />
+        <label for="iki">Didžiausias masyvo skaitmuo</label><br />
+        <input type="number" id="iki" name="iki" /><br />
+        <label for="kiekis">Masyvo ilgis</label><br />
+        <input type="number" id="kiekis" name="kiekis" /><br />
+        <button class="button" onclick="formArray(document.getElementById('nuo').value, document.getElementById('iki').value, document.getElementById('kiekis').value)">
+                Sudaryti masyvą
+        </button><br />
+        <div id="result5"></div>
+    </div>
+    `;
+}
+function toNumber(value){ //prie 2022-12-13 -5-
+    if (isNaN(value))
+        return `reikšmė nėra skaičius`;
+        
+        value=parseInt(value);
+        return value
+}
+function formArray(from, to, limit){ //prie 2022-12-13 -5-
+    from=toNumber(from);
+    to=toNumber(to);
+    limit=toNumber(limit);
+    if (typeof from !== "number" || typeof to !== "number" || typeof limit !== "number")
+      return document.getElementById("result5").innerHTML="paduotos reikšmės nėra skaičiai";
+
+    
+    let fixedArray=[];
+
+    for (i=0; i<limit; i++)
+        fixedArray.push(rand(from, to));                  
+
+   document.getElementById("result5").innerHTML=`masyvas: `+ fixedArray;
+}
+
+function f2022_12_14_a1(){
+    let x=rand(5,25);
+    let y=rand(5,25);
+    let array=[x, y];
+    for(let i=2; i<10; i++)
+        array[i]=(array[i-1]+array[i-2]);
+
+    return array;
+}
+
+function f2022_12_14_a2(){
+    let string="abcdefghijklmnopqrstuvwxyz"
+    let outterArray=[];
+    
+    for (i=0; i<10; i++){
+        length=rand(2,20);
+        let innerArray=[];
+        for (let z=0; z<length; z++){
+            innerArray[z]=string[rand(0,string.length-1)];
+        }
+        outterArray.push(innerArray.sort());
+    }
+    return outterArray;
+}
+
+function f2022_12_14_1(){
+    document.querySelector("#rezult").lastElementChild.innerHTML +=('<div id="final"></div>');
+    document.getElementById("final").innerHTML=`
+    <div>
+        <label for="number">Skaičius</label><br />
+        <input type="number" id="number" name="number"/><br />
+
+        <label for="exp">kokiu laipnsiu pakelti</label><br />
+        <input type="number" id="exp" name="exp" /><br />
+
+        <button type="button" onclick="exp(document.getElementById('number').value, document.getElementById('exp').value)">Pakelk laipsniu</button>
+
+        <div id="result"></div>
+    </div>`;
+}
+function exp(number, exp){ // prie 2022-12-14 -1-
+    result=Math.pow(number, exp);
+     document.getElementById("result").innerHTML=number + ` pakėlus ` + exp +
+     ` laipsniu, gausis ` + result;
+     return result;
+ }
+
+ function f2022_12_14_2(){
+    document.querySelector("#rezult").lastElementChild.innerHTML +=('<div id="final"></div>');
+    document.getElementById("final").innerHTML=`
+        <div>
+            <label for="heading">įveskite antraštės tekstą</label><br />
+            <input type="text" id="heading" name="heading"/><br />
+            
+            <button type="button" onclick='hh1(document.getElementById("heading").value)''>
+                Suformuok antraštę    
+            </button>
+            <div id="header"></div>
+        </div>`;
+ }
+ const hh1 = (heading) => {string= "<h1>"+heading+"</h1>";  // prie 2022-12-14 -2-
+                document.getElementById("header").innerHTML=string + "<br />" + otherHeading(heading, rand(1,6));
+ }
+ function otherHeading(heading,headSize){  // prie 2022-12-14 -2-
+    heading=heading.replaceAll(1, headSize);
+    result = `<h`+headSize+`>`+heading+`</h`+headSize+`>`;
+    return result;
+}
+
+function f2022_12_14_4(){
+    function isPrimary(number){
+        let result=false;
+        let x=0;
+        if (number == 1 || number == 2){
+            result=true;
+            return result;
+        }
+
+        let i=2;
+        while (i<number){
+            x=number%i;
+            if (x==0){
+                result=false;
+                return result;
+            }else{
+                result=true;
+            }
+            i++;
+        }
+        
+        return result;
+    }
+
+    function isNotPrimary(number){
+        let result=true;
+        let x=0;
+        
+        if (number == 1 || number == 2){
+            let result=false;
+            return result;
+        }
+        let i=2;
+        while (i<number){
+            x=number%i;
+            if (x>0){
+                result=false
+            }else{
+                result=true;
+                return result;
+            }
+            i++
+        }
+        return result;
+    }
+    return isPrimary(10)+isNotPrimary(10);
+}
+
+function f2022_12_14_5(){
+    let lastArray=[]
+        for(let i=0; i<100; i++)
+            lastArray.push(rand(997, 15991));
+        
+        for(i=0; i<lastArray.length; i++){
+            if  (!isPrimary(lastArray[i]) || lastArray[i]<5000){
+            lastArray.splice(i,1);
+            i--;
+            }
+        }
+    return lastArray;
+
+    function isPrimary(number){
+        let result=false;
+        let x=0;
+        if (number == 1 || number == 2){
+            result=true;
+            return result;
+        }
+
+        let i=2;
+        while (i<number){
+            x=number%i;
+            if (x==0){
+                result=false;
+                return result;
+            }else{
+                result=true;
+            }
+            i++;
+        }   
+        return result;
+    }
+}
+
+function f2022_12_16_1(){
+    let arr=[]
+    for (i=0; i<10; i++){
+        let innerArray=[];
+
+        for (z=0; z<5; z++){
+            let number=rand(5,25);
+            innerArray.push(number);
+        }
+        arr.push(innerArray);
+    }
+    
+    line=arr.toString();
+    console.log(arr);
+
+    let count=0;
+    for (x in arr){
+        for (z of arr[x]){
+            if (z>10){
+                count++;
+            }
+        
+        }
+    }        
+    line += `<br />masyve yra ${count} elementai didesni už 10`;
+
+    let maxIn=0;
+    for (x in arr){
+        let z=Math.max(...arr[x])
+        if (maxIn <= z)
+            maxIn = z;
+        }        
+    line += `<br />didžiausia masyvo reikšmė ${maxIn}`;
+
+    let noOfIndexes=0
+    for (x in arr){
+        for (y in arr[x]){
+            if (noOfIndexes< y) {
+            noOfIndexes=y;
+            }
+        }
+    }
+    
+    
+    let elements="";
+    for (y=0; y<=noOfIndexes; y++){
+        sum = 0;
+        elements="";
+        for (i=0; i<arr.length; i++){
+            if (arr[i][y] == undefined)
+            arr[i][y]=0;
+
+            sum = sum + arr[i][y];
+            elements = elements + ' ' + arr[i][y];
+        }
+        line += '<br />' + y + ' indekse esnačių skaitmenų '+ elements + ` suma lygi ` + sum ;
+    }
+
+    for (i=0; i<10; i++){
+        for (z=5; z<7; z++){
+            let number=rand(5,25);
+            arr[i][z]=number;
+        }
+    }
+        console.log(arr);
+        line +="<br />" + arr;
+
+
+
+        let newArray=[];
+        for (y=0; y<7; y++){
+            let sum=0;
+            for (i=0; i<arr.length; i++)
+                sum = sum + arr[i][y];
+            
+        newArray.push(sum);
+        }
+        console.log(newArray);
+        line +="<br />"+ newArray;
+return line;
+}
+
+function f2022_12_16_3(){
+    let array=[];
+    let innerArray=[];
+
+    for (i=0; i<10; i++){
+        let length=rand(0,5);
+        
+        if (length==0){
+            number=rand(0,10);
+            array.push(number);
+        }else{
+            for (z=0; z<length; z++){
+                number=rand(0,10);
+                innerArray[z]=number;
+            }
+        }
+
+        if (innerArray.length>0)
+        array.push(innerArray);
+        innerArray=[];
+    }
+    line = array.toString();
+    console.log(array);
+
+
+
+    let sum=0;
+    for (i=0; i<array.length; i++){
+        if (!Array.isArray(array[i])){
+            sum = sum + array[i];
+        }else{
+            for (z=0; z<array[i].length; z++)
+            sum += array[i][z];
+        }
+    }
+    line += "<br />Masyvo elementų suma: " + sum;
+
+
+
+    array.sort((a, b)=>{  
+        if (isNaN(a)){
+        sumA=0;
+        for (i=0; i<a.length;i++)
+        sumA=sumA+a[i];
+
+        a=sumA;
+        }
+        
+        if (isNaN(b)){
+        sumB=0;
+        for (i=0; i<b.length;i++)
+        sumB=sumB+b[i];
+
+        b=sumB;
+        }
+
+        if (a<b)
+        return -1;
+
+        if (a>b)
+        return 1;
+        
+        return 0;
+    });
+    console.log(array);
+    line += "<br /> išrikiuotas masyvas: <br />"+array;
+    return line;
+}
+
+function f2022_12_20(){
+    document.getElementById('hw').innerHTML=`<a href="index.html">Nuoroda į puslapį</a>`;
+}
+
+function f2022_12_22(){
+    document.getElementById('hw').innerHTML=`<a href="../2022-12-22/index.html">Nuoroda į puslapį</a>`;
+}

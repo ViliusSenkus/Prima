@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        label{
+            width:180px;
+        }
+        #note{
+            height:150px;
+        }
+        #info{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <main class="m-1 p-1">
+        <div id="head" class="h4 pb-2 mb-4 text-dark border-bottom border-dark col-7 m-3">
+            Palikite pranešimą
+         </div>
+
+         <div id="info" class="h4 pb-2 mb-4 text-danger border-bottom border-dark col-7 m-3">
+         </div>
+        
+        <section>
+            <form class="m-3 d-flex flex-column col-7">
+                <div class="input-group m-1">
+                    <label for="name" class="input-group-text">
+                        Vardas
+                    </label>
+                    <input type="text" id="name" class="form-control" required />
+                    <!-- pattern="[A-Za-z]{1-99}/@/[A-Za-z]{1-20}/./[A-Za-z]{1-4}" -->
+                </div>
+
+                <div class="input-group m-1">
+                    <label for="surname" class="input-group-text">
+                        Pavardė
+                    </label>
+                    <input type="text" id="surname" class="form-control" required />
+                </div>
+
+                <div class="input-group m-1">
+                    <label for="email" class="input-group-text">
+                        El. pašto adresas
+                    </label>
+                    <input type="email" id="mail" class="form-control" required />
+                </div>
+                
+                <div class="input-group m-1">
+                    <label for="note" class="input-group-text">Žinutė</label>
+                    <input type="text" id="note" class="form-control" required />
+                </div>
+
+                <button onclick="contact()"  class="btn btn-secondary mt-3">Siųsti</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function contact(){
+            event.preventDefault();
+            // document.querySelector('[for="name"]').innerHTML;
+
+            if (document.querySelector("#info").innerHTML !=="")
+            document.querySelector("#info").innerHTML = "";
+
+            
+
+            //empty fields marking
+            const idArray=["#name", "#surname", "#mail", "#note"];  
+            let counter=0;
+            let validate="";
+            for (x of idArray){
+                document.querySelector(x).style.cssText="background-color:white;"
+                if (document.querySelector(x).value == ""){
+                    counter++;
+                    let y = x.slice(1);
+                    // console.log(` y reikšmė yra: ${y}`);
+                    // y = document.querySelector(`[for="${y}"]`).innerHTML;
+
+                    let fieldName = document.getElementById(y).previousElementSibling.innerHTML;
+                    validate += `<div class="h6">Neįvesta laukelio ${fieldName} reikšmė<div>`;
+                    document.querySelector(x).style.cssText="background-color:rgba(150, 0, 0, 0.1)"; //galima pridėti border: 1px solid rgb(200, 0, 0);
+                }
+            }
+
+            if (counter==0){
+                let pattern = /@/;
+                let mail = document.querySelector("#mail").value;
+                if (!pattern.test(mail) && mail !==""){
+                validate += `<div class="h6">Neteisingai įvestas el. pašto adresas</div>`;
+                }
+            }
+                
+
+            if (validate !== ""){
+                document.querySelector("#info").style.display="block";
+                document.querySelector("#info").innerHTML += `Neteisingai užpildyti duomenys: ${validate}`;
+            }else{
+                document.querySelector("#info").style.display="block";
+                document.querySelector("#info").innerHTML +=`
+                <div class="text-success">Netrukus su jumis susisieksime</div>`;
+                document.querySelector("section").style.display="none";
+                document.querySelector("#head").style.display="none";
+            }
+        }
+
+        console.log();
+        console.log(document.querySelector("section").style);
+    </script>
+</body>
+</html>
+
+<!-- Sukurkite html formą kurią sudarytų šie laukeliai:
+Vardas, Pavardė, El. pašto adresas, Žinutė.
+Sustabdykite standartinį html formos veikimą. Atlikite validaciją ir patikrinkite ar laukelių reikšmės nėra tuščios. Atkreipkite dėmesį ar el. pašto adresas yra tinkamo formato.
+Jeigu forma yra teisingai užpildyta, virš jos sugrąžinkite žinutę:
+“Netrukus su jumis susisieksime”, priešingu atveju prie kiekvieno laukelio su blogomis reikšmėmis priskirkite stilių, kuris pakeistų laukelio kraštinės spalvą į raudoną. Taip pat virš formos atspausdinkite žinutę: “Neteisingai užpildyti duomenys”. Pasinaudokite bootstrap css karkasu stilizuoti formai bei žinutėms.
+ -->
