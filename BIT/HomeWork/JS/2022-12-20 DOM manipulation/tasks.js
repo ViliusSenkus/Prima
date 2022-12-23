@@ -1347,3 +1347,7 @@ function f2022_12_20(){
 function f2022_12_22(){
     document.getElementById('hw').innerHTML=`<a href="../2022-12-22/index.html">Nuoroda į puslapį</a>`;
 }
+
+function f2022_12_23(){
+    document.getElementById('hw').innerHTML=`<a href="../2022-12-23/index.html">Nuoroda į puslapį</a>`;
+}
