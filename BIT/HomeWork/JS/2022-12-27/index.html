@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <style>
+        body{
+            background:lightgray;
+            box-sizing: border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        header{
+            margin: 1rem;
+            font-size: 2vw;
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            display:flex;
+            margin: 0 auto;
+            width: 90vw;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 5vw;
+        }
+        .watch{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 0 10px grey;
+            border-radius: 15px;
+            height: 20vw;
+            width: 40vw;
+            align-items:center;
+        }
+        #watch{
+            display:flex;
+            align-items: baseline;
+        }
+        button{
+            padding: 0.5vw;
+            background-color: deepskyblue;
+            border-radius: 5px;
+            border: 2px solid rgb(2, 123, 203);
+            width: 10vw;
+            font-size: 2vw;
+            color:  rgb(1, 91, 151);
+            box-shadow: 2px 2px 5px grey;
+        }
+        button:hover{
+            background-color: rgb(2, 123, 203);
+            border-radius: 5px;
+            color:  white;
+        }
+        button:active{
+            background-color: rgb(2, 123, 203);
+            border-radius: 5px;
+            color:  white;
+            box-shadow: 0 0 5px grey;
+        }
+        #watch div{
+            width:6.5vw;
+            border: 1px, solid, black;
+            text-align: right;
+            padding:2px;
+        }
+        #watch div:last-child{
+            text-align: left;
+            font-size: 3.5vw;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stop Watch</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="watch">
+              <div id="watch">
+              </div>
+            </div>
+            <div>
+                <button id="start-pause">Start</button>
+                <button onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        let x = 0;
+        let h=0;
+        let min=0;
+        let sec=0;
+        let btn = document.querySelector("#start-pause");
+        let display = document.getElementById('watch');
+        let tab = document.querySelector("#watch").children;
+        let ttl=`<div></div><div></div><div>${sec}.</div><div>00</div>`;
+            display.innerHTML=ttl;
+        
+        let run;
+
+        btn.addEventListener("click", pauseStop);
+
+        function pauseStop(){   
+            
+            if (btn.innerHTML == "Start"){
+                btn.innerHTML="Pause";
+                run = setInterval(timer, 10); 
+                
+            }else{
+                btn.innerHTML="Start";
+                clearInterval(run);
+            }
+        }
+
+        function timer(){    
+                display.innerHTML=x++;
+                if (x==100){
+                    x=0;
+                    sec++;
+                }
+
+                if (sec==60){
+                    sec=0;
+                    min++;
+                }
+
+                if (min==60){
+                    min=0;
+                    h++;
+                }
+                formatTime(h, min, sec, x);
+            }
+
+        function formatTime(val, mnt, sc, msc){
+            let total=`<div>${val}:</div><div>${mnt}:</div><div>${sc}.</div><div>${msc}</div>`;
+            display.innerHTML=total;
+            if(val <= 0){
+                tab[0].style.visibility="hidden";
+            }
+            if(sc <= 55 && mnt <= 0 && val <= 0){
+                tab[1].style.visibility="hidden";
+
+            }
+            if (sc>54 && sc<60){
+                tab[2].style.color='red';
+            }
+        }
+            
+        function reset(){
+            clearInterval(run);
+            btn.innerHTML="Start"
+            h=0;
+            min=0;
+            sec=0;
+            x=0;
+            let total=`<div></div><div></div><div>${sec}.</div><div>00</div>`;
+            display.innerHTML=total;
+        }
+    </script>
+</body>
+</html>
