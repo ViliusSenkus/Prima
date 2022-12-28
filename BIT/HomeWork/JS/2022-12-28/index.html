@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <script src="js.js" defer></script>
+    <title>Whac-A-Mole</title>
+</head>
+<body>
+    <header>
+        <h1>Whack-A-Mole</h1>
+        <h3>Game prototype</h3>
+        <h2>Game options</h2>
+        <!-- <form>
+            <label>How should I call you?</label>
+            <input id="name" /><br />
+            <label>spead:</label>
+            <select id="spead">
+                <option value="slow">Slow</option>
+                <option value="nlow">Normal</option>
+                <option value="flow">Fast</option>
+            </select>
+            <label>Mole size:</label>
+            <select>
+                <option value="big">Big</option>
+                <option value="normal">Normal</option>
+                <option value="small">Small</option>
+            </select>
+            <br />
+            <button type="button" onclick="setParameters(event)">Confirm</button>
+        </form> -->
+    </header>
+    <main>
+        <aside>
+            <div id="control">
+                <button id="start" onclick="startRound()">START</button>
+                <button id="new" onclick="newGame()">NEW GAME</button>
+                <div id="timer">30</div>
+            </div>
+            <div id="result">REUSLTS:</div>
+        </aside>
+        <div id="field">
+            <div id="mole" onclick="countClick()"></div>
+            <div id="endResult"></div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

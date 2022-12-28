@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StopWatch</title>
     <style>
+        :root{
+            --color: rgb(179, 220, 234);
+            --glow-px: 5px;
+        }
         body{
             background:lightgray;
             box-sizing: border-box;
@@ -32,7 +36,7 @@
             align-items: center;
             justify-content: center;
             background-color: white;
-            box-shadow: 0 0 10px grey;
+            box-shadow: 0 0 var(--glow-px) var(--color);
             border-radius: 15px;
             height: 20vw;
             width: 40vw;
@@ -142,10 +146,13 @@
 
         function formatTime(val, mnt, sc, msc){
             let total=`<div>${val}:</div><div>${mnt}:</div><div>${sc}.</div><div>${msc}</div>`;
+            
             display.innerHTML=total;
+            
             if(val <= 0){
                 tab[0].style.visibility="hidden";
             }
+            
             if(sc <= 55 && mnt <= 0 && val <= 0){
                 tab[1].style.visibility="hidden";
 
@@ -153,8 +160,39 @@
             if (sc>54 && sc<60){
                 tab[2].style.color='red';
             }
+            glow(msc);
+            changeColor(sc);
         }
             
+        function changeColor(s){
+            let r=130;
+            let g=200;
+            let b=150;
+            if (s<20){
+                r+=6;
+                g-=3;
+                b-=3;
+            }
+            if (s>=20 && s<40){
+                r-=3;
+                g+=6;
+                b-=3;
+            }
+            if (s>40){
+                r-=3;
+                g-=2;
+                b+=6;
+            }
+            document.documentElement.style.setProperty('--color', `rgb(${r}, ${g}, ${b})`);
+        }
+
+        function glow(msc){
+                let d=5+msc;
+                // document.documentElement.style.setProperty('--glow-px', `${d}px`);
+                document.documentElement.style.setProperty('--glow-px', `${d}px`);
+                document.getElementsByClassName('watch')[0].style.boxShadow=`inset 0 0 ${d}px var(--color)`;
+        }
+
         function reset(){
             clearInterval(run);
             btn.innerHTML="Start"

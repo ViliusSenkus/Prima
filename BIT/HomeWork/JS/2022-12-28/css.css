@@ -1,0 +1,79 @@
+:root{
+    scroll-behavior: smooth;
+}
+body{
+    box-sizing: border-box;
+    text-align: center;
+}
+
+main{
+    display:flex;
+    justify-content:center;
+}
+
+#field{
+    display:inline-block;
+    vertical-align: top;
+    width: 500px;
+    height: 500px;
+    box-shadow: 0 0 5px grey;
+}
+aside{
+    display:inline-block;
+    vertical-align: top;
+}
+
+#control,
+#result{
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    word-wrap: break-word;
+}
+
+#mole{
+    position: relative;
+    top: 225px;
+    left: 225px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+#mole:active{
+    box-shadow: 0 0 5px grey;
+}
+
+h5,
+h4{
+margin:0;
+padding:0;
+}
+h3{
+    margin-top: 0;
+}
+h1{
+    margin-bottom: 2px;
+}
+
+button,
+select,
+label{
+    padding:5px;
+    margin: 5px;
+    font-weight: bold;
+    width:100px;
+}
+#new{
+    display:none;
+}
+#timer{
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+    margin:5px;
+}
+#endResult{
+    display:none;
+    color: red;
+    text-decoration: wavy;
+}
