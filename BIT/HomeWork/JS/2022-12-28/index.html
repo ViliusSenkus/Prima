@@ -13,7 +13,7 @@
         <h1>Whack-A-Mole</h1>
         <h3>Game prototype</h3>
         <h2>Game options</h2>
-        <!-- <form>
+        <form onsubmit=setParameters(event)> <!--toliau kode reikės naudoti preventdefault ir event.target-->
             <label>How should I call you?</label>
             <input id="name" /><br />
             <label>spead:</label>
@@ -29,8 +29,8 @@
                 <option value="small">Small</option>
             </select>
             <br />
-            <button type="button" onclick="setParameters(event)">Confirm</button>
-        </form> -->
+            <button>Confirm</button>
+        </form>
     </header>
     <main>
         <aside>

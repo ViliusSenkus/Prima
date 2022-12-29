@@ -6,11 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #dogPhoto img{
+        max-width:300px;
+        max-height: 300px;
+    }
+</style>
 <body>
     <button onclick="paleidziam(pirmaf_ja,event)">Pirma</button>
     <button onclick="paleidziam(antraf_ja,event)">Antra</button>
     <div id="rezultatas"></div>
 
+    <div id="dogPhoto"></div>
+    <div id="wiki"></div>
+
+    <form onsubmit="searchwiki(event)">
+        <input type="text" id="wikiSearch" />
+        <button>ieskoti</button>
+    </form>
+    <div id="wikiresult"></div>
+
+
+
+
     <script src="js.js"></script>
+    <script>
+        // let promisas=new Promise(
+        //     function (resolve, reject) {
+        //         console.log('tekstas')
+        //     });
+        //     console.log(promisas());
+
+
+
+        //let promise = () => new Promise(....)
+
+        let promise = new Promise(function(resolve, reject) {
+            x=('laukiam atsakymo iš serverio arba šios funkcijos įvykdymo '); //pirmiausiai norima įvykdyti funkcija
+            
+            if (x!==''){                       //rezultatų formavimas priklausomai nuo funkcijos atsakymo.
+                resolve(x+"gauta");
+            } else {
+                reject(x+"negauta");
+            }
+        });
+
+        promise.then(
+        function(value) {showResult(value);},
+        function(error) {showResult(error);}
+        );  
+
+        function showResult(result) { //promiso rezultato (reject arba resolve parodymui
+             console.log (result);
+        }
+       
+
+
+        async function alternatyva(x){                    
+            setTimeout(console.log('laukiam kol ivyks x'), 2000);
+            let laukimaGautiInfo=x;
+            tikrinam(laukimaGautiInfo);
+        }
+        function tikrinam(value){
+            if (value==true){                       
+                console.log(value+" gauta");
+            } else {
+                console.log(value+" negauta");
+            }
+        }
+        alternatyva();
+
+
+
+        fetch('https://dog.ceo/api/breeds/image/random')
+            .then((response) => response.json())
+            .then((data) => document.getElementById('dogPhoto').innerHTML=`<img src="${data.message}" alt="doggy" />`)
+        
+        
+        
+            fetch("https://lt.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=10&gsrsearch='barsukas'")
+            .then((response) => response.json())
+            .then((data) => {
+                let objectsArray=data.query.pages;
+                let objectNumbers=[];
+                let number=0;
+                let list="";
+                for (x in objectsArray){
+                    objectNumbers[number]=x
+                    number++;
+                }
+                for (z of objectNumbers){
+                list=list+objectsArray[z].title+"<br/>"
+                 }
+                document.getElementById('wiki').innerHTML=list;
+            })
+           
+            function searchwiki(event){
+                event.preventDefault();
+                let search=document.querySelector("#wikiSearch").value;
+                search="https://lt.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&formatversion=2&titles="+search;
+            
+            fetch(search)
+            .then((response) => response.json())
+            .then((data) => document.getElementById('wikiresult').innerHTML=(data.query.pages[0].extract))
+            .catch((res) => console.log(res + "nėra tokio daikto"))
+            }
+
+            
+    
+        
+    </script>
+
 </body>
 </html>
