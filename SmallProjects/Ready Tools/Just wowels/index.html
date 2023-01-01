@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Countdown timer</title>
+    <title>Teksto keityklė</title>
 </head>
 <style>
     :root{
@@ -23,34 +23,25 @@
 <body>
     <header class="container">
         <h1>
-            Countdown timer <br />
+            Tekstas be priebalsių<br />
             <span class="fs-4">
-                count to any date in the future
+                Pakeisk tekstą į sudayratą tik iš balsių (su praleistom priebalsėm)<br/>
             </span>
         </h1>
+        <p>Pritaikyta lietuvių kalbai. Naudojant su kitomis kalbomis rezultatas gali būti neteisingas.</p>
     </header>
 
     <main class="container">
-        <section id="counter" class="container">
-            <form onsubmit="getTime(event)" class="m-5">
-                <div  class="input-group input-group-lg">
-                    <input type="date" name="day" value="2024-01-01" class="form-control" />
-                    <input type="time" name="time" value="00:00" class="form-control"/>
-                    <button class="input-group-append btn btn-secondary">Spausk</button>
-                </div>
-            </form>
-            <div id="laikas"></div>
-        </section>
-
         <section id="control">
-            <button type="button" onclick="selectEil()" class="btn btn-danger">Noriu eilėraščio :)</button>
+            <button type="button" onclick="selectEil()" class="btn btn-danger">Noriu pakeisto kalėdinio eilėraščio :)</button>
         </section>
-        <section id="smth">
+        <section id="display">
+            <div>įvesti savo teksto kol kas negalima. Tekstas imamas iš paruoštos domenų bazės atsitiktine tvarka. Bazėje apie 10 eilėraščių arba jų ištraukų. Galite pabandyti atspėti :).</div>
         </section>
     </main>
 
     <footer class="container">
     </footer>
-    <script src="for2023.js"></script>
+    <script src="justvowels.js"></script>
 </body>
 </html>
