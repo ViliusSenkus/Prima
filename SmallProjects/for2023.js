@@ -1,35 +1,58 @@
+let d;
+let t;
+let startCaunt = false;
 
-function timeNow(){
-    let startDate=new Date();
-    let y=startDate.getFullYear();
-    let m=startDate.getMonth()+1;
-    let d=startDate.getDate();
-    let h=startDate.getHours();
-    let mnt=startDate.getMinutes();
-    let s=startDate.getSeconds();
-
-    let currentTime=""+y+"-"+m+"-"+d+" "+h+":"+mnt+":"+s;
-    let liko="iki naujų 2023m liko:";
-    
-    let ny=2022;
-    let nm=12;
-    let nd=31
-    let nh=24
-    let nmnt=ns=60;
-    
-    let likoArray=[ny-y, nm-m, nd-d, nh-h, nmnt-mnt, ns-s]
-
-    for (i=0; i<likoArray.length; i++){
-        if (likoArray[i]==0)
-            likoArray[i]="";
-        liko+=likoArray[i]+" ";
-    }
-
-    document.querySelector("#laikas").innerHTML=`<p class="center text-primary fs-4">${currentTime}</p><br />
-                                                <p class="center text-danger fs-2 fw-bold">${liko}</p>`;
+function getTime(event){
+    clearInterval(startCaunt);
+    event.preventDefault();
+    d=document.querySelector("[name='day']").value;
+    t=document.querySelector("[name='time']").value;
+    arg=`${d} , ${t}`;
+    timeBackCount(arg);
 }
-    setInterval(() => timeNow(), 1000);
 
+function timeBackCount(date="2024-01-01, 0:0:0"){
+    startCaunt = setInterval(()=>{
+        let startDate=new Date();
+        let stopDate = new Date(date);
+        let secGap = Math.round((stopDate-startDate)/1000);
+        let minGap = Math.floor(secGap/60);
+        let hGap = Math.floor(minGap/60);
+        let dayGap = Math.floor(hGap/24);
+
+        let restH=hGap-(dayGap*24);
+        let restM=minGap-(hGap*60);
+        let restS=secGap-(minGap*60);
+
+        let gap= "It's Current Time"; //may change value to any text to be showen when neaded time is reached
+
+        if (secGap==0){
+            myEvent();
+            return
+        }
+
+        if ((stopDate-startDate)<-1000*60)
+            gap='Your time has allready passed'; 
+
+        if (secGap >= 1 && gap!='Desired time has passed more than a minute ago'){
+            gap = `${restS} sek.`;
+            if (minGap >=1)
+                gap=`${restM} min. ${gap}`;
+                if (hGap >=1)
+                    gap=`${restH} val. ${gap}`;
+                    if (dayGap >=1)
+                        gap=`${dayGap} d. ${gap}`;    
+        }
+        document.querySelector("#laikas").innerHTML=`<p class="center text-danger fs-2 fw-bold">${gap}</p>`;
+    }, 1000);
+}
+
+function myEvent(){
+    clearInterval(startCaunt);
+    //below any code you want to execute on neaded time is reached
+    document.querySelector("#laikas").innerHTML="<p class='center text-danger fs-2 fw-bold'>It's PARTY time</p>";
+
+}
 
 let eil=[
     "Prie upelio stačiau senį,*Sniego senį – besmegenį.*Kur reikėjo smegenų,*Dėjau gabalus ledų.**Ant galvos užmoviau puodą*Ir įspaudžiau rankon šluotą,*Nosies vieton – morką ilgą*Ir buvau labai laiminga.",
