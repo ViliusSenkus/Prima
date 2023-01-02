@@ -19,6 +19,25 @@
         display:inline-block;
         width:15px;
     }
+
+    @media screen and (max-width: 560px){
+        .input-group{
+            display:flex;
+            flex-direction: column;
+        }
+        .input-group>.form-control{
+            width: 80vw;
+            border-radius: 0.5rem;
+        } 
+        .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+            margin-left: 0px;
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+        }
+        button{
+            margin:5px;
+        }
+    }
 </style>
 <body>
     <header class="container">
