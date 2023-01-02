@@ -8,6 +8,11 @@ let tabloWord=[];
 //     getWord(document.getElementById("word").value);
 // })
 
+function inputWord(){
+    let word = prompt("įveskite norimą paslėpti žodį");
+    getWord(word);
+}
+
 const hideInput = () => document.getElementById("word_input").style.display = `none`;
 
 function getWord (word){
@@ -123,3 +128,4 @@ function abcs(){
 // }
 
 // document.write(check(`b`), `po funkcjos`);
+inputWord();
