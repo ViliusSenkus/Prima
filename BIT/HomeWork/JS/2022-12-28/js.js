@@ -19,23 +19,15 @@ let computerPoints = 0;
 let timer=31;
 let moleColor="red";
 
-//tikrinam lango dydi ir gražinam aukštį ir plotį iš setSize()
+//tikrinam lango dydi ir gražinam aukštį ir plotį iš checkSize()
 
-window.addEventListener('resize', setSize)
 
-function setSize(){
-    let screenWidth = window.innerWidth;
-    let screenHeight = window.innerHeight;
-    
-    if (screenHeight<550 || screenWidth<550){
-        warnSize(screenWidth, screenHeight);
-        return;
-    }else{
-        resultDiv.style.visibility="visible";
-        controlDiv.style.visibility="visible";
-    }
-    return [screenHeight, screenWidth];
-    
+checkScreen();
+
+
+function checkScreen(){
+    if (screen.availWidth<650 || screen.availHeight<650)
+        document.querySelector('body').innerHTML="your screen is too small for this game";
 }
 
 //setting parameters
@@ -48,8 +40,8 @@ function setSize(){
 //     console.log(player);
 // }
 
-function warnSize(w, h){
-    if (w<550 || h<550){
+function warnSize(h, w){
+    if (h<550 || w<550){
         window.alert("Naršyklės langas per mažas");
         resultDiv.style.visibility="hidden";
         controlDiv.style.visibility="hidden";
@@ -64,6 +56,7 @@ function rand(min, max) {
 }
 
 function positionMole(){
+    mole.addEventListener("click", countClick);
     let x = rand(1, 450);
     let y = rand(1, 450);
     mole.style.top=y+'px';
@@ -98,6 +91,7 @@ function startRound(){
 
 function countClick(){
     clicksCounter++
+    mole.removeEventListener("click", countClick);
 }
 
 function setWinner(){
@@ -144,7 +138,6 @@ function showResult(){
         btnStart.style.display="none";
         timerDiv.style.display="none";
     }
-    
     
     clicksCounter=0;
     timer=31;
