@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../img/js-icon.png" />
+    <link rel="stylesheet" href="assets/css.css" />
+    <title>Random User Generator</title>
+
+</head>
+<body>
+    <header>
+        <h1>RANDOM USER GENERATOR</h1>
+        <button onclick="generateUserData()">Generate random user</button>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="top">
+                    <img id="photo" src="" alt="" />
+                </div>
+                <div class="bottom">
+                    <div id="data-name"></div>
+                    <div id="data-value"></div>
+                    <ul class="buttons">
+                        <li id="person" onmouseenter="showName()" status="active"></li>
+                        <li id="mail" onmouseenter="showMail()" status="inactive"></li>
+                        <li id="birth" onmouseenter="showBirth()" status="inactive"></li>
+                        <li id="address" onmouseenter="showAddr()" status="inactive"></li>
+                        <li id="phone" onmouseenter="showPhone()" status="inactive"></li>
+                        <li id="psw" onmouseenter="showPsw()" status="inactive"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="js.js"></script>
+
+</body>
+</html>

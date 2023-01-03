@@ -203,15 +203,31 @@
                         </a>
                 </ul>
         </div>
+
+        <div class="shadow-box">
+            <h4>
+                STARTING FROM 2023-01-01
+            </h4>
+            <ul id="js">
+                <h4>Link to new all projects page</h4>
+                    <a href="../../index.html">
+                        <li>2023-01-01<br />
+                        2023 works and projects
+                        </li>
+                    </a>
+            </ul>
+        </div>
+
         </section>
     </main>
 
     <footer>
         <p>NOTE: Page intended for personal use in order to navigate throug different projects during study and practice period, so it is not colorfull, playfull and super-interactive, it is just to navigate and keap order.</p>
+        <p style="color:rgb(201, 17, 17);">PAGE IS CLOSED AND WILL NOT BE RENEWED ANYMORE</p>
         <p>created by Vilius Senkus &#169; &#174; &#8482;</p>
     </footer>
     <script>
-    number=document.getElementsByTagName('ul').length-1;
+    number=document.getElementsByTagName('ul').length-2;
     first=document.getElementsByTagName('ul')[number].lastElementChild.outerHTML;
     second=document.getElementsByTagName('ul')[number].lastElementChild.previousElementSibling.outerHTML;
     document.getElementById('lastAdds').innerHTML=first+second;
