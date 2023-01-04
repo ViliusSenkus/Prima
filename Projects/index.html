@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darb7 eiga</title>
+</head>
+<body>
+    <!-- <iframe width="90%" height="1000px" src="https://miro.com/app/live-embed/uXjVP18hpKE=/?moveToViewport=-1068,-839,2923,2224&embedId=300615982558" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe> -->
+    
+    <form onsubmit="store(event)">
+        <input name="pavadinimas"/>
+        <button >store</button>
+    </form>
+    
+    <button onclick="del()">delte</button>
+    <button onclick="retrieve()">retrieve</button>
+    <div id="saugykla"></div>
+    <div>
+        Tu esi čia:
+        <div id="mapholder" style="width:170px; height:170px;"></div>
+    </div>
+    <script>
+
+        // Nežaisti su kodu žemiau, bo prikurs daug nematomų duomenų kompiuteryje ir jis pakibos.
+        // function store(e){
+        //     e.preventDefault();
+        //     name=e.target.pavadinimas.value;
+        //     localStorage.setItem(name, "hjkhjk");
+        //     console.log('stored as ' + name);
+        // }
+
+        // function retrieve(){
+        //     let text="Atmintyje saugomi elementai:<br /><table><tr><th>Eil. Nr.</th><th>Pavadinimas</th><th>Vertė</th></tr>";
+        //     console.log('ištraukta '+ localStorage.getItem('vardas'));
+        //     for (i=0; i<localStorage.length; i++){
+        //         let name=localStorage.key(i);
+        //         let value=localStorage.getItem(name);
+        //         text += `<tr><td>${i}</td><td>${name}</td><td>${value}</td>`
+        //     }
+        //     document.querySelector("#saugykla").innerHTML=text
+        //     console.log('atmintje saugomas ')
+        // }
+
+
+        // function del(){
+        //     localStorage.removeItem("hjkhygk")
+        // }
+
+        // function delAll(){
+        //     localStorage.clear();
+        // }
+
+
+        function showPosition(position) {
+  let latlon = position.coords.latitude + "," + position.coords.longitude;
+
+  let img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=150x150&sensor=false&key=YOUR_KEY";
+
+  document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+        
+showPosition();
+
+    </script>
+</body>
+</html>
