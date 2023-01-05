@@ -1,0 +1,26 @@
+<form onsubmit="setTask()">
+    <label>Task title</label>
+    <input type="text" name="title" required/>
+    <div id="form-group-line">
+        <div class="group-field">
+            <label>Acomplishment Date</label>
+            <input type="date" name="date" required />
+        </div>
+        <div class="group-field">
+            <label>Type of Task</label>
+            <select id="types" name="types">
+                <option value="bithw">BIT Home Works</option>
+                <option value="bitfr">BIT Friday Tasks</option>
+                <option value="bitpr">BIT Projects</option>
+                <option value="bitoth">BIT Others</option>
+                <option value="self">Self-imposed</option>
+                <option value="ador">Additional orders</option>
+            </select>
+        </div>
+    </div>
+    <label>Task description</label>
+    <textarea type="text" name="text" rows="10">Enter description here (tasks numbers and requirements)</textarea>
+    <label>HTML file location</label>
+    <input type="text" name="url"  />
+    <button>Save</button>
+</form>

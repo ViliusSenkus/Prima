@@ -1,0 +1,14 @@
+<div id="calendar-legend">
+    <ul>
+        <li>BIT Given Tasks:
+            <ul id="bit">
+                <li id="bit-hw">BIT Home Works</li>
+                <li id="bit-frt">BIT Friday Tasks</li>
+                <li id="bit-project">BIT Projects</li>
+                <li id="bit-other">BIT Others</li>
+            </ul>
+        </li>
+        <li id="self">Self-imposed Tasks</li>
+        <li id="orders">Additional Orders</li>
+    </ul>
+</div>

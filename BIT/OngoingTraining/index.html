@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,900;1,100;1,300;1,500;1,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="assets/js/js.js" defer></script>
+    <link rel="stylesheet" href="assets/style/css.css" />
+    <link src="../js.js" type="icon" />
+    <title>Ongoing Training</title>
+</head>
+<body>
+    <header class="container">
+        <div>My Tasks and Projects</div>
+        <h1>
+            Tasks and projects I have acomplished during <br />
+            <a href="http://www.bit.lt">BIT</a>
+            <span style="font-weight: 300; color:rgb(116, 116, 116)">Full Stack (PHP) course </span>(NOV 2022 - APR 2023) <br />
+            during period starting from JAN 2023 till now
+
+            <!--Text should be changed on completion at end of APR 2023-->
+
+        </h1> 
+        <nav>
+            <button>Legend of the Calendar</button>
+            <button>Choose Task by Date</button>
+            <button>Choose Task by Name</button>
+            <button onclick="newTask()">Add new Acomplishment</button>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="container">
+            <div id="calendar-container">
+                <div id="left"></div>
+                <div id="center"></div>
+                <div id="right"></div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div id="page">
+                Choosen Task result will be showen here
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div>
+            Page started after HTML, CSS, BootStrap, JS completion, just before starting React.js.<br />
+            This page is Single Page application used to collect all completed assignments and projects (given by instructors and self-imposed) in one place with sufficient quality of UI and UX. Tasks results showen on page are made as responsive as time and requirements had allowed.
+        </div>
+    </footer>
+</body>
+</html>
