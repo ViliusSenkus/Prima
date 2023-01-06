@@ -1,0 +1,51 @@
+:root{
+    scroll-behavior: smooth;
+}
+body{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+button{
+    width:150px;
+    padding: 2px;
+    background-color: rgba(224, 39, 39, 0.842);
+    border-radius: 10px;
+    border: 2px solid rgb(163 71 36);
+    color: rgb(118, 53, 27);
+    font-weight: 600;
+    box-shadow: 2px 2px 3px grey;
+}
+main div{
+    width:40%;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+img{
+    display:block;
+    width:100px;
+    margin: 5px auto;
+}
+table{
+    margin: 5px 20px;
+    width: 80%
+}
+th{
+    border-bottom: 2px solid rgb(163 71 36);
+}
+td:first-of-type{
+   text-align: right;
+}
+
+td{
+    background-color:rgba(249, 222, 222, 0.192);
+}
+
+footer{
+    margin:20px;
+    text-align: left;
+}
