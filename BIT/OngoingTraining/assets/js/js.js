@@ -19,14 +19,16 @@ class Task{
     setDate(x){
         return this.date=x;
     }
-    getUrl(x){
+    setUrl(x){
         return this.url=x;
     }
-    getDescription(x){
+    setDescription(x){
         return this.description = x;
     }
 }
 
+
+// Žemiau esančios kelios funkcijos ir kintamieji - abstrakcijos, reikia juos suformuoti.
 function newTask(){
     createTaskForm();
     let description=5;
@@ -41,6 +43,8 @@ function setTask (){} //Galbūt reikia įdėti į Task klasę
 
 const taskas= new Task('data', 'aprašymas', 'adresas');
 
+
+// duomenų apie užduotį paėmimas iš txt formato failo. Kol nemoku susidėti, reikia susivedinėti pačiam ir sužymėti, kad nuskaitant būtų galima susidėti masyvą.
 function form(){ 
         //Paima atliktos užduoties įvedimo formą. Atlieka senoviškai tą patį, ką ir:
         //let form = fetch("assets/htmls/form.txt").then(res => res.text()).then(res => console.log(res));
@@ -66,43 +70,53 @@ function setas(){
 
 const monthsEN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-class Month{
+class Calendar{
     constructor(nowdate){
         this.nowdate = new Date(nowdate); //reikia keisti į paduodamą reikšmę
-        this.month = nowdate.getMonth();
-        this.year = nowdate.getFullYear();
-        this.monthDay = nowdate.getDate();
     };
 
-    findLastMonthDay(){
-        let nextMonthDays=[29, 30, 31, 32];
-        let result=0;
-        nextMonthDays.map((i)=>{
-            let lastDay = new Date(this.nowdate).setDate(i);
-            lastDay=new Date(lastDay);
-            let nextMonth=lastDay.getMonth();
-            if(nextMonth!=this.nowdate.getMonth()){
-            console.log(typeof i-1);
-            return i-1;
-            }
-        });
-    };
+    getYear(){
+        this.year = this.nowdate.getFullYear();
+        return this.year;
+    }
+    getMonth(){
+        this.month = this.nowdate.getMonth();
+        return this.month;
+    }
+    getMonthDay(){
+        this.monthDay = this.nowdate.getDate();
+        return this.monthDay;
+    }
 
-    findFirstDay(){
+    setYear(x){
+        this.year = x;
+    }
+    setMonth(x){
+        this.month = x;
+    }
+    setMonthDay(x){
+        this.monthDay = x;
+    }
+    
+    getLastMonthDay(){
+        let m = this.month+1
+        let d = new Date(this.year, m, 0);
+        this.lastMonthDay=d.getDate();
+        return this.lastMonthDay;
+    }
+ 
+    #getFirstDay(){
         const firstDay=new Date(this.year, this.month, 1, 12);
         let firstDayOfWeek=firstDay.getDay();
         if (firstDayOfWeek==0)
             firstDayOfWeek=7;
-        return firstDayOfWeek;
+        return firstDayOfWeek;  //gaunama pirmos mėnesio dienos savaitės diena (pirm, ... sek)
     }
     
-    findNumberOfWeeks(){
-        const numberOf1WeekDays=this.findFirstDay()-6;
-        console.log(this.findLastMonthDay());
-        const lastMonthDay=this.findLastMonthDay();
-        let weeks=Math.ceil(lastMonthDay-numberOf1WeekDays)/7;
-        
-        return weeks++;
+    #findNumberOfWeeks(){
+        const numberOf1WeekDays=8-this.#getFirstDay();
+        let weeks = Math.ceil((this.lastMonthDay-numberOf1WeekDays)/7)+1;
+        return weeks;
     };
 
     constructMonth(){
@@ -113,9 +127,8 @@ class Month{
             m="kažkas";
         }
     
-        let dayOfWeek=this.findFirstDay()
-        let numberOfWeeks=this.findNumberOfWeeks();
-        let lastMonthDay=this.findLastMonthDay();
+        let dayOfWeek=this.#getFirstDay()
+        let numberOfWeeks=this.#findNumberOfWeeks();
         let dayCounter = 1;
         
         let monthName=monthsEN[this.month];
@@ -131,7 +144,7 @@ class Month{
                         <th>St</th>
                         <th>Sn</th>                            
                     </tr>`;
-        console.log(dayOfWeek, this.findNumberOfWeeks(), lastMonthDay, dayCounter, monthName, html);
+        // console.log(dayOfWeek, this.findNumberOfWeeks(), lastMonthDay, dayCounter, monthName, html);
         for (let i=1; i<=numberOfWeeks; i++){
             html=html+'<tr>';
             if (i==1){
@@ -140,15 +153,15 @@ class Month{
                 
                 for (let z=dayOfWeek; z<=7; z++){
                     html=html+`<td>${dayCounter}</td>`;
-                    counter++;
+                    dayCounter++;
                 }
             }else{
                 for (let i=1; i<=7; i++){
-                    if(counter>=lastMonthDay+1){
+                    if(dayCounter>=this.getLastMonthDay()+1){
                         html=html+'<td></td>'
                     }else{
                         html=html+`<td>${dayCounter}</td>`;
-                        counter++;
+                        dayCounter++;
                     }
                 }
             }
@@ -160,5 +173,13 @@ class Month{
 }
 
 const now=new Date();
-const currentMonth = new Month(now);
+const currentMonth = new Calendar(now);
+console.log ('pagauti metai-',currentMonth.getYear(),' mėnuo-',currentMonth.getMonth(),' mėnesio diena-',currentMonth.getMonthDay());
+currentMonth.setYear(2024);
+currentMonth.setMonth(5);
+currentMonth.setMonthDay(4);
+console.log ('pakeistas data, metai -',currentMonth.year,' mėnuo-',currentMonth.month,' mėnesio diena-',currentMonth.monthDay);
+console.log(currentMonth.getLastMonthDay());
+// console.log(currentMonth.getFirstDay());
+// console.log(currentMonth.findNumberOfWeeks());
 currentMonth.constructMonth();
