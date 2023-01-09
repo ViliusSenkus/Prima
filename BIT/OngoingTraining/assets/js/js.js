@@ -104,6 +104,11 @@ class Calendar{
         this.lastMonthDay=d.getDate();
         return this.lastMonthDay;
     }
+
+    testFunction() {
+        console.log(this.year, this.getYear());
+        console.log(this.lastMonthDay, this.getLastMonthDay());
+    }
  
     #getFirstDay(){
         const firstDay=new Date(this.year, this.month, 1, 12);
@@ -119,6 +124,7 @@ class Calendar{
         return weeks;
     };
 
+    
     constructMonth(){
         let y=2023;
         let m=0;
@@ -183,3 +189,5 @@ console.log(currentMonth.getLastMonthDay());
 // console.log(currentMonth.getFirstDay());
 // console.log(currentMonth.findNumberOfWeeks());
 currentMonth.constructMonth();
+
+console.log(currentMonth.testFunction())

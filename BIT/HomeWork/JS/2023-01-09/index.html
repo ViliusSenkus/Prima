@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+    <title>Modules practice</title>
+    <style>
+        :root{
+            scroll-behavior: smooth;
+        }
+        body{
+            box-sizing: border-box;
+            margin:0;
+            padding:0;
+        }
+        #logo{
+            width:150px;
+            height: 150px;
+            box-shadow: 1px 1px 5px grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: grey;
+        }
+        ul{
+            color:grey;
+        }
+        li{
+            list-style-type: none;
+            color: black;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+
+</head>
+<body class="container">
+    <header class="d-flex flex-row flex-nowrap mt-2 mb-4 align-items-end justify-content-between">
+        <div id="logo" class="col-2">
+            <div>Click to add logo</div>
+        </div>
+        
+        <div class="col-6 text-center d-flex flex-column justify-content-between">
+            <h1 class="mt-auto">Create your web site</h1>
+            <div> Click "+" to add menu button</div>
+            <nav>
+                <ul class="d-flex flex-row m-0 p-0">
+                    <li id="addNav" class="m-0 p-0">
+                        <i class="bi bi-plus-square-fill fs-3 p-0"></i>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="search" class="col-3"></div>
+    </header>
+
+    <main class="flex">
+    </main>
+    
+    <footer class="mt-5 pt-4">
+        <div class="d-flex align-items-start">    
+            <i class="me-3 ps-2 pe-2 bi bi-x-square-fill text-danger fs-6 bg-danger bg-opacity-10 border border-danger border-end-0 rounded-start"></i>
+            <div id="links" class="d-flex flex-column">
+                <div  class="ps-2 pe-2 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">Click here to add link</div>
+            </div>
+        </div>
+        <div class="d-flex align-items-start">    
+            <i class="me-3 ps-2 pe-2 bi bi-x-square-fill text-danger fs-6 bg-danger bg-opacity-10 border border-danger border-end-0 rounded-start"></i>
+            <div id="copyright" class="d-flex flex-column">
+                <div  class="ps-2 pe-2 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">Click here to add copyright info</div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
