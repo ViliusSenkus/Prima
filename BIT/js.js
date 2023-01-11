@@ -12,4 +12,3 @@ function antraf_ja(){
     const text="2-a funkcija testą praėjo"
     return text;
 }
-

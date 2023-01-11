@@ -110,10 +110,7 @@
             .then((response) => response.json())
             .then((data) => document.getElementById('wikiresult').innerHTML=(data.query.pages[0].extract))
             .catch((res) => console.log(res + "nėra tokio daikto"))
-            }
-
-            
-    
+            }    
         
     </script>
 
