@@ -22,9 +22,7 @@ const Main = () =>{
     }
 
     const handleChange = (e, index) => {
-        let taskName=task[index].name;
-        e.target.previousElementSibling.outerHTML=`
-            <input type='text' value=${taskName} onChange=${setFormValue} />`;
+        return "";
     }
 
     const handleDelete = (index) => {
@@ -32,6 +30,8 @@ const Main = () =>{
         console.log(task)
         setTask([...task]);
     }
+
+
 
 
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    tekstas
+    <script>
+        const array= ['pirmas', 'antras', 'trečias', {name: 'ketvirtas', value:4}, false, [61, 62]];
+        const [a, b, c, d] = array;
+     
+        const objektai= {pirmi: 'antras, trečias',
+                         antri: {name: "ketvirtas", value:47546},
+                         treti: [61, 62]};
+        const {antri} = objektai;
+
+        console.log(d.name);
+        console.log(antri.value);
+    </script>
+</body>
+</html>
