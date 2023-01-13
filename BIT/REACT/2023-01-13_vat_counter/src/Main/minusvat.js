@@ -9,9 +9,11 @@ const MinusVAT = (props) => {
 
     const DeductedVAT = () => {
         return(
-            <div>
-                <div>Išskaičiuotas PVM:</div>
-                <div>
+            <div className='row'>
+                <div className="label">
+                    Išskaičiuotas PVM:
+                </div>
+                <div className='box'>
                     {(price*vat)/100}
                 </div>
             </div>
@@ -20,18 +22,20 @@ const MinusVAT = (props) => {
 
     const LeftPrice =() => {
         return (
-            <div>
-            <div>Kaina be PVM:</div>
-            <div>
-                {price-((price*vat)/100)}
+            <div className='row'>
+                <div className="label">
+                    Kaina be PVM:
+                </div>
+                <div className='box'>
+                    {price-((price*vat)/100)}
+                </div>
             </div>
-        </div>
         )
     }
 
     const Results =() =>{
         return (
-            <div>
+            <div className="result">
                 <DeductedVAT />
                 <LeftPrice />
             </div>
@@ -40,12 +44,18 @@ const MinusVAT = (props) => {
     }
  
     return (
-        <div>
+        <div className="vat">
             <form>
-                <input type="number" onChange={(e)=>setPrice(Number(e.target.value))} />
-                <select onChange={(e)=> setVAT(Number(e.target.value))}>
-                    {options}
-                </select>
+                <div className='row'>
+                    <div className="label">Kaina su PVM:</div>
+                    <input type="number" onChange={(e)=>setPrice(Number(e.target.value))} value='100' />
+                </div>
+                <div className='row'>
+                    <div className="label">PVM tarifas:</div>
+                    <select onChange={(e)=> setVAT(Number(e.target.value))}>
+                        {options}
+                    </select>
+                </div>
             </form>
             <Results />
         </div>

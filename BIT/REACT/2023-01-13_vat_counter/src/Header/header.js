@@ -1,8 +1,18 @@
 const Header = () => {
+
+    const colors=['yellow','green', 'red'];
+
+    const logo = colors.map((value, index) => <div key={index} id={value}></div>)
+
+   
     return (
-        <div>
-            Header goes here
-        </div>
+        <header>
+            <div className="flexRow">
+                {logo}
+            </div>
+            <h1>PVM skaičiuoklė</h1>
+
+        </header>
     )
 }
 
