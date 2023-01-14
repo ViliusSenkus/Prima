@@ -9,7 +9,6 @@ const Main = () =>{
     const handleForm = (e) => {
         e.preventDefault();
         setTask([...task, {name: formValue, status: false}]);
-
     }
 
     const handleDone = (e, index) => {

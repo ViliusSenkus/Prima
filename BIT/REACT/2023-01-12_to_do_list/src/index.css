@@ -47,3 +47,7 @@ li span{
   text-align: left;
   width:40vw;
 }
+
+article{
+  display: flex;
+}
