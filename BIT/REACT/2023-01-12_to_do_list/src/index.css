@@ -13,41 +13,38 @@ code {
 }
 
 .container{
-  width:95vw;
-  margin: 10px 0;
   display: flex;
   flex-flow: column;
   align-items: center;
 }
 
-form{
-  align-items: center;
-  width: 60vw;
+
+
+.list{
+  width: 100%;
 }
 
 ul{
   text-align: center;
   list-style: none;
+  padding-inline-start:0;
 }
 
 li{
   display:flex;
-  width: 60vw;
+  flex-direction: row;
   justify-content: space-between;
-  margin:5px 0;
+  margin:10px 0;
   padding: 5px;
   font-size:x-large;
+  align-items: center;
 }
 li i{
-  margin: 0 5px;
-  padding: 3px;
-  width:5vw;
+  padding: 5px;
+  
 }
 li span{
   text-align: left;
-  width:40vw;
-}
-
-article{
-  display: flex;
+  width:100vw;
+  
 }
