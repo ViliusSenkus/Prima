@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Prima/BIT/REACT/2023-01-11/mini_blog/static/css/main.68923fa8.css",
-    "main.js": "/Prima/BIT/REACT/2023-01-11/mini_blog/static/js/main.50075542.js",
-    "index.html": "/Prima/BIT/REACT/2023-01-11/mini_blog/index.html",
-    "main.68923fa8.css.map": "/Prima/BIT/REACT/2023-01-11/mini_blog/static/css/main.68923fa8.css.map",
-    "main.50075542.js.map": "/Prima/BIT/REACT/2023-01-11/mini_blog/static/js/main.50075542.js.map"
+    "main.css": "./static/css/main.68923fa8.css",
+    "main.js": "./static/js/main.50075542.js",
+    "index.html": "./index.html",
+    "main.68923fa8.css.map": "./static/css/main.68923fa8.css.map",
+    "main.50075542.js.map": "./static/js/main.50075542.js.map"
   },
   "entrypoints": [
     "static/css/main.68923fa8.css",
