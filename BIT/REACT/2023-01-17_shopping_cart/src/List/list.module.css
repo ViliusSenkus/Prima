@@ -1,0 +1,8 @@
+.container{
+    margin: 1em auto;
+    text-align: center;
+    box-shadow: 2px 2px 5px grey;
+    padding-top:0.3em;
+    padding-bottom:0.3em;
+    width:32em;
+}

@@ -1,0 +1,14 @@
+.container{
+    margin: 3em auto;
+    text-align: center;
+}
+
+.container h1{
+    font-size: 3em;
+    margin:0;
+}
+
+.container div{
+    font-size: 1.72em;
+    padding:0.1em;
+}
