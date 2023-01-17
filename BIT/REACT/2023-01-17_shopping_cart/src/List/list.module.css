@@ -6,3 +6,61 @@
     padding-bottom:0.3em;
     width:32em;
 }
+.container .item{
+    margin:0 5px;
+    display:flex;
+    font-size: 1.5em;
+    padding: 2px;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+}
+.container .item>div{
+    display: flex;
+}
+
+.container .number{
+   width:1.5em;
+   padding-right: 0.5em;
+   text-align: right;
+}
+.container .name{
+    width: 10em;
+    text-align: left;
+    overflow:hidden;;
+}
+.container .quantity{
+    text-align: right;
+}
+
+.container button{
+    font-size: 0.5em;
+    border: 1px solid rgb(0, 191, 255);
+    background-color: rgb(154, 228, 253);
+    margin: 3px;
+    height: 2.5em;
+}
+
+.container .item button:last-of-type{
+    background-color: rgb(255, 66, 66);
+    border: 1px solid rgb(162, 0, 0);
+}
+.hidden{
+    display:none;
+    background-color: blue;
+}
+.edit{
+    display: block;
+    color:rgb(255, 66, 66);
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.visible{
+    margin:0 5px;
+    display:flex;
+    font-size: 1.5em;
+    padding: 2px;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
+}
+

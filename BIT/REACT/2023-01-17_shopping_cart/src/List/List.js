@@ -1,24 +1,44 @@
 import style from './list.module.css';
-import { useId, useEffect } from "react";
+import {useEffect, useState } from "react";
+import Edit from './Edit';
 
-
-const List = () =>{
-
-    let list=localStorage.getItem('list');
-    list=JSON.parse(list);
-    console.log(list);
+const List = ({list, setList}) =>{
     
-    const unique=useId();
-    useEffect(()=>{console.log('atnaujintas listas')}, [list])
+    useEffect( () => {
+        const data = localStorage.getItem('list');
+        if(data!==null) setList(JSON.parse(data));
+    }, [])
 
+    const del = (index) =>{
+        list.splice(index, 1);
+        let data=[...list];
+        setList(data);
+        localStorage.setItem('list', JSON.stringify(data));
+    }
+    
+    const [child,setchild] = useState()
     return (
             <div className={style.container}>
-                rezultatas {list.map((value, index) => {
-
-                return(
-                    <div key={index}>
-                        {value.name}{value.quantity}
-                    </div>)})}
+                <div className={list.length >0 ? style.hidden : style.block}>Shopping cart is Empty</div>
+                {list.map((value, index) => {
+                            return  <div key={index}>
+                                    <div  className={style.item}>
+                                        <div>
+                                            <div className={style.number}>{index+1}.</div>
+                                            <div className={style.name}>{value.name}</div>
+                                        </div>
+                                        <div>
+                                            <div className={style.quantity}>{value.quantity}</div>
+                                        </div>
+                                        <div>
+                                            <button onClick={()=>{setchild(index) }}>
+                                                Change</button>
+                                            <button onClick={()=>{del(index)}}>Delete</button>
+                                        </div>
+                                    </div>
+                                    <Edit qnt={value.quantity} itm={value.name} list={list} setList={setList} index={index} child={child}/>
+                                    </div>}
+                            )}
             </div>
             )
     }

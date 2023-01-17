@@ -1,24 +1,18 @@
 import style from './input.module.css';
 import {useState, useEffect} from 'react';
 
-const Input = () => {
+const Input = ({quantity,setquantity, item, setItem, list, setList}) => {
 
-    const [quantity, setquantity] = useState(0);
-    const [item, setItem] = useState('Add Item');
-    const [list, setList] = useState([]);
 
-let data;
 
     const handleSubmit = (e) =>{
+        let data;
         e.preventDefault();
         data=[...list,{name:item, quantity:quantity}];
         setList(data);
+        localStorage.setItem('list', JSON.stringify(data));
+        e.target.reset();
     }
-
-    useEffect(()=>{ 
-        localStorage.setItem('list', JSON.stringify(list));
-    }
-    , [list]);
 
     return (
         <div className={style.container}>
