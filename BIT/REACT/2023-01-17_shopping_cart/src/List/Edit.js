@@ -1,32 +1,34 @@
 import style from './list.module.css';
 import { useState } from 'react';
 
-const Edit = ({qnt, itm, list, setList, index, child}) => {
+const Edit = ({qnt, itm, list, setList, index, setItem, setquantity,chage}) => {
 
-    const [onOff, setOnOff] = useState(false);
+    const [editItem, setEditItem] = useState();
+    const [editQnt, setEditQnt] = useState();
+
+
+    setEditItem(itm);
+    setEditQnt(qnt);
 
     const change = (e) =>{
         let data;
         e.preventDefault();
-        list[index]={name:itm, quantity:qnt};
-        data=[...list]
-        setList(data)
-        localStorage.setItem('list', JSON.stringify(data));
-        setOnOff=(false);
+        // list[index]={name:setItem(editItem), quantity:setquantity(editQnt)};
+        // data=[...list]
+        // setList(data)
+        // localStorage.setItem('list', JSON.stringify(data));
+        change=false;
     }
-    return  <div id={child} className={ !onOff ? style.edit : style.hidden} key={index}>
-                <form onSubmit={() => {
-                    setOnOff=false;
-                    change() }}
-                >
+    return  <div id={index} className={style.item}>
+                <form onSubmit={() => {change()}}>
                     <div>
                         <div className={style.editNumber}> </div>
-                        <input type="text" className={style.editInputName} value={itm}
-                                onChange={(e)=>{itm=e.target.value}} />
+                        <input type="text" className={style.editInputName} value={editItem}
+                                onChange={(e)=>{setEditItem(e.target.value)}} />
                     </div>
                     <div>
-                        <input type="number" className={style.editInputQnt} value={qnt}
-                                 onChange={(e)=>{itm=e.target.value}} />
+                        <input type="number" className={style.editInputQnt} value={editQnt}
+                                 onChange={(e)=>{setEditQnt(e.target.value)}} />
                     </div>
                     <div>
                         <button>Confirm</button>
