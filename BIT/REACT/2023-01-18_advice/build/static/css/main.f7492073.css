@@ -1,0 +1,2 @@
+:root{scroll-behavior:auto}body{box-sizing:border-box;margin:0;padding:0;text-align:center}.container{margin:0 auto;width:1000px}h1{font-size:2.4em}h1+div{color:brown;font-size:2em}h3{color:#555;margin-top:30px;text-align:center}button{box-shadow:2px 2px 5px grey;margin:20px 0;padding:3px 10px}table{border-collapse:collapse;font-size:20px;margin:0 auto}th{border-bottom:2px solid #000}tr{margin:2 px;text-align:right}td{border-bottom:1px solid grey;padding:5px 10px}tr td:nth-child(3){text-align:left}
+/*# sourceMappingURL=main.f7492073.css.map*/
