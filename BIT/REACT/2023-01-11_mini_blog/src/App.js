@@ -1,13 +1,16 @@
-// čia surenkame visą info puslapiui ir perduodame index.js
-// import logo from './logo.svg';
 import Head from './components/head/head';
-import Post from './components/post/post';
+import Blog from './components/blog/blog';
+import NewPost from './components/newpost/NewPost';
+
 
 function App() {
+
+
   return (
     <>
       <Head />
-      <Post />
+      <Blog />
+      <NewPost />
     </>
       
         // <img src={logo} className="App-logo" alt="logo" />
