@@ -1,0 +1,17 @@
+:root{
+  scroll-behavior: smooth;
+}
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:800px;
+  margin: 10px auto;
+}
