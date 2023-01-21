@@ -1,5 +1,5 @@
 import Header from "./Header/Header";
-import Input from "./Input2/Input";
+import Input from "./Input/Input";
 import List from "./List/List";
 import { useState} from "react";
 

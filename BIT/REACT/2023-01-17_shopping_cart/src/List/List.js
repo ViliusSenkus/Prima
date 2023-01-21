@@ -5,6 +5,7 @@ import Edit from './Edit';
 const List = ({list, setList, setItem, setquantity}) =>{
 
     const [change, setChange] = useState(false)
+    const [show, setShow] = useState("")
 
     useEffect( () => {
         const data = localStorage.getItem('list');
@@ -18,12 +19,15 @@ const List = ({list, setList, setItem, setquantity}) =>{
         localStorage.setItem('list', JSON.stringify(data));
     }
 
-    const edit = (inex) =>{
-        setChange(true)
+    const edit = (index) =>{
+        // for (let i=0; i<list.length; i++){
+        //     if (Edit.className===index + " "+{change}+" "+{show}) console.log(index, 'radau')
+        // }
+        // setChange(true)
     }
 
-    // useEffect (()=>{change=!change
-    //     //čia reikia perduoti eilės nr. (indeksą) į Edit.
+    // useEffect (()=>{
+    //     if (show)
     // },[change])
     
 
@@ -50,7 +54,7 @@ const List = ({list, setList, setItem, setquantity}) =>{
                                                 </button>
                                             </div>
                                         </div>
-                                        {change &&  <Edit className={{index}+" "+{change}} qnt={value.quantity} itm={value.name} list={list} setList={setList} index={index} setItem={setItem} setquantity={setquantity} change={change}/> }
+                                        {change &&  <Edit className={index} qnt={value.quantity} itm={value.name} list={list} setList={setList} index={index} setItem={setItem} setquantity={setquantity} change={change}/> }
                                     </div>}
                 )}
             </div>
