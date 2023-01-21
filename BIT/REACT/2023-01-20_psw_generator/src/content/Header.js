@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import style from './input.module.css';
 
 const Header = ({data, renew, setRenew}) => {
 
@@ -29,6 +30,7 @@ const Header = ({data, renew, setRenew}) => {
                         default:
                               setPsw('Something is wrong in data input or in generation')
                   }}
+                        // eslint-disable-next-line react-hooks/exhaustive-deps
       },[data]);
 
       useEffect (()=>{
@@ -47,6 +49,7 @@ const Header = ({data, renew, setRenew}) => {
                   localStorage.setItem('passwords', JSON.stringify(array));
             }
             setRenew(!renew);
+                  // eslint-disable-next-line react-hooks/exhaustive-deps
       },[psw])
 
       const letters = "aąbcčdeęėfghiįyjklmnoprsštuųūvzž";
@@ -181,8 +184,12 @@ const Header = ({data, renew, setRenew}) => {
 
       return(
             <div className="container">
-                  <h1>Password Generator</h1>
-                  <div>{psw}</div>     
+                  <h1 className="text-black">Password Generator</h1>
+                  <div className={style.box}>
+                        <div className={"fs-3 text-success text-wrap" + style.box}>
+                              {psw}
+                        </div>     
+                  </div>
             </div>
 
       )

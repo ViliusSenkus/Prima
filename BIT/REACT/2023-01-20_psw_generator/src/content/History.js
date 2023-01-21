@@ -6,9 +6,8 @@ const [list, setList] = useState()
 
 useEffect (()=>{
       const array=JSON.parse(localStorage.getItem('passwords'));
-      console.log(array.length);
       if (array.length > 0){
-            setList(array.map((value, index) =>{return (<li key={index}>{value}</li>)})
+            setList(array.map((value, index) =>{return (<li key={index} className="list-group-item">{value}</li>)})
                   )
       }else{
             setList(<div>There is no Generated Passwords in a memory</div>)
@@ -18,7 +17,7 @@ useEffect (()=>{
 
       return(
             <div>
-                  <ul>
+                  <ul className="list-group list-group-flush">
                   {list}
                   </ul>
             </div>
