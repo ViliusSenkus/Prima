@@ -35,18 +35,19 @@ const Header = ({data, renew, setRenew}) => {
 
       useEffect (()=>{
             let array=[]
-            
-            if (localStorage.getItem('passwords')==null){
-                  array.push=psw;
-                  localStorage.setItem('passwords', JSON.stringify(array));
-            }else{
-                  array=JSON.parse(localStorage.getItem('passwords'));
-                  array.push(psw);
-                  if (array.length > 10){
-                  
-                        array.splice(0,array.length-10)};
+            if (psw){
+                  if (localStorage.getItem('passwords')==null){
+                        array.push=psw;
+                        localStorage.setItem('passwords', JSON.stringify(array));
+                  }else{
+                        array=JSON.parse(localStorage.getItem('passwords'));
+                        array.push(psw);
+                        if (array.length > 10){
+                        
+                              array.splice(0,array.length-10)};
 
-                  localStorage.setItem('passwords', JSON.stringify(array));
+                        localStorage.setItem('passwords', JSON.stringify(array));
+                  }
             }
             setRenew(!renew);
                   // eslint-disable-next-line react-hooks/exhaustive-deps
