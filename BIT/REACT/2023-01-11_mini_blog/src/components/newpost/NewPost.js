@@ -15,6 +15,32 @@ const NewPost = () => {
         const handlePost = () => {
 
         }
+        
+//         const postsArray = JSON.parse(localStorage.getItem('posts'));
+
+//         const [deleted, setDeleted] =useState(false);
+    
+    
+//         const deletePost = (id) => {
+//             console.log('clicked')
+//             postsArray.map((value, index)=>{
+//               if (value._id === id){
+//                 postsArray.splice(index,1);
+//                 setDeleted(!deleted);
+//               }
+//             });
+    
+//           localStorage.setItem('posts', JSON.stringify(postsArray));
+//         }
+    
+//       useEffect (()=>{
+//         JSON.parse(localStorage.getItem('posts'))
+//       },[deleted])
+
+
+
+
+
 
         return(
                 <div id="new" className={style.newPost}>

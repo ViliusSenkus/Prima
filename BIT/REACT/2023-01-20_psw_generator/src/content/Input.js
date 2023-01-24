@@ -63,6 +63,7 @@ return (
           <button className="btn btn-danger m-3" onClick={()=>{
                                                   setLen(6);
                                                   setDifficulty('medium');
+                                                  //pabandyti prie inputo prideti checked={true}.
           }}>Reset to Default</button>
       </div>
   );

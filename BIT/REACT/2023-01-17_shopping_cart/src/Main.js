@@ -13,7 +13,7 @@ function Main() {
     <div>
       <Header />
       <Input quantity={quantity} setquantity={setquantity} item={item} setItem={setItem} list={list} setList={setList} />
-      <List list={list} setList={setList} />
+      <List list={list} setList={setList} setItem={setItem} setquantity={setquantity} />
     </div>
   );
 }

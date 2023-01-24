@@ -1,7 +1,7 @@
 import style from './list.module.css';
 import { useState } from 'react';
 
-const Edit = ({qnt, itm, list, setList, index, setItem, setquantity,chage}) => {
+const Edit = ({index, qnt, setquantity, itm, setItem, list, setList, chage}) => {
 
     const [editItem, setEditItem] = useState();
     const [editQnt, setEditQnt] = useState();
@@ -13,13 +13,13 @@ const Edit = ({qnt, itm, list, setList, index, setItem, setquantity,chage}) => {
     const change = (e) =>{
         let data;
         e.preventDefault();
-        // list[index]={name:setItem(editItem), quantity:setquantity(editQnt)};
-        // data=[...list]
-        // setList(data)
-        // localStorage.setItem('list', JSON.stringify(data));
+        list[index]={name:setItem(editItem), quantity:setquantity(editQnt)};
+        data=[...list]
+        setList(data)
+        localStorage.setItem('list', JSON.stringify(data));
         change=false;
     }
-    return  <div id={index} className={style.item}>
+    return  <div id={index} className={change? style.visible : style.hidden}>
                 <form onSubmit={() => {change()}}>
                     <div>
                         <div className={style.editNumber}> </div>

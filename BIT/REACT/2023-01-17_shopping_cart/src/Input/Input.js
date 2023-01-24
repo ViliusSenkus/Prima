@@ -1,7 +1,6 @@
 import style from './input.module.css';
-import {useState, useEffect} from 'react';
 
-const Input = ({quantity,setquantity, item, setItem, list, setList}) => {
+const Input = ({quantity, setquantity, item, setItem, list, setList}) => {
 
 
 

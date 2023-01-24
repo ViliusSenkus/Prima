@@ -10,7 +10,7 @@ const List = ({list, setList, setItem, setquantity}) =>{
     useEffect( () => {
         const data = localStorage.getItem('list');
         if(data!==null) setList(JSON.parse(data));
-    }, [])
+    }, [change])
 
     const del = (index) =>{
         list.splice(index, 1);
@@ -20,10 +20,10 @@ const List = ({list, setList, setItem, setquantity}) =>{
     }
 
     const edit = (index) =>{
-        // for (let i=0; i<list.length; i++){
-        //     if (Edit.className===index + " "+{change}+" "+{show}) console.log(index, 'radau')
-        // }
-        // setChange(true)
+        for (let i=0; i<list.length; i++){
+            if (Edit.className===index) console.log(index, 'radau')
+        }
+
     }
 
     // useEffect (()=>{
@@ -54,7 +54,7 @@ const List = ({list, setList, setItem, setquantity}) =>{
                                                 </button>
                                             </div>
                                         </div>
-                                        {change &&  <Edit className={index} qnt={value.quantity} itm={value.name} list={list} setList={setList} index={index} setItem={setItem} setquantity={setquantity} change={change}/> }
+                                        <Edit index={index} qnt={value.quantity} setquantity={setquantity} itm={value.name} setItem={setItem}list={list} setList={setList} change={change} />
                                     </div>}
                 )}
             </div>
