@@ -1,10 +1,11 @@
 import style from './newpost.module.css';
-import { useState } from 'react';
+import { useContext, useEffect } from 'react';
+import Context from '../../context/Context';
 
 const NewPost = () => {
 
         // const[_id, setId]=useState();
-
+        const {refresh, setRefresh} = useContext(Context)
 
         const handlePost = (e) => {
                 e.preventDefault();
@@ -25,6 +26,8 @@ const NewPost = () => {
 
                 postsArray.push(list);
                 localStorage.setItem('posts', JSON.stringify(postsArray));
+
+                setRefresh(!refresh);
         }
         
 //         const postsArray = JSON.parse(localStorage.getItem('posts'));
