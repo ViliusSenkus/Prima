@@ -126,3 +126,9 @@ section{
     width: 80vw;
   }
 }
+
+footer{
+  margin: 25px auto 5px;
+  text-align: center;
+  color:rgb(84, 84, 84);
+}

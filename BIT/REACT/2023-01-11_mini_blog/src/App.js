@@ -4,7 +4,7 @@ import NewPost from './components/newpost/NewPost';
 import blogs from './components/resourses/initialcode.json';
 import Context from './context/Context';
 import { useState, useEffect } from 'react';
-
+import Footer from './components/blog/Footer';
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
       <Head />
       <Blog />
       <NewPost />
+      <Footer />
     </Context.Provider>  
   );
 }

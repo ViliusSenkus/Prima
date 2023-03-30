@@ -18,13 +18,14 @@ const NewPost = () => {
                 let date=new Date(Date.now());
                 date = date.toLocaleDateString();
 
-                list={...list, 'date' : date}
-
-                console.log(list);
-        
                 const postsArray = JSON.parse(localStorage.getItem('posts'));
 
+                list={...list, 'date' : date}
+                list={...list, '_id' : postsArray.length }  //reikalinga pridėti random funkciją arba kitaip sugeneruoti unikalų id, kad netrintų belenko.
+        
+                
                 postsArray.push(list);
+
                 localStorage.setItem('posts', JSON.stringify(postsArray));
 
                 setRefresh(!refresh);
