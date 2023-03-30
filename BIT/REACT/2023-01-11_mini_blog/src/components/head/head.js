@@ -3,8 +3,8 @@ import Default from '../resourses/initialcode.json';
 const Head = () => {
     return (
         <header id="top">
-            <div key="headkey01">
-                <h1 key="headheading01">
+            <div>
+                <h1>
                     "Someon's Blog"
                 </h1>
             </div>

@@ -3,17 +3,28 @@ import { useState } from 'react';
 
 const NewPost = () => {
 
-        const[_id, setId]=useState();
-        const[title, setTitle]=useState();
-        const[category, setCategory]=useState();
-        const[image, setImage]=useState();
-        const[writeDate, setWriteDate]=useState();
-        const[comments, setComments]=useState();
-        const[content, setContent]=useState();
-        const[post, setPost]=useState();
+        // const[_id, setId]=useState();
 
-        const handlePost = () => {
 
+        const handlePost = (e) => {
+                e.preventDefault();
+                const data = new FormData(e.target);
+
+                let list={}
+            for (const x of data) {
+                  list={...list, [x[0]] : x[1]};
+            }
+                let date=new Date(Date.now());
+                date = date.toLocaleDateString();
+
+                list={...list, 'date' : date}
+
+                console.log(list);
+        
+                const postsArray = JSON.parse(localStorage.getItem('posts'));
+
+                postsArray.push(list);
+                localStorage.setItem('posts', JSON.stringify(postsArray));
         }
         
 //         const postsArray = JSON.parse(localStorage.getItem('posts'));
@@ -48,19 +59,19 @@ const NewPost = () => {
                         <form onSubmit={handlePost}>
                                 <div>
                                         <label>Post title</label>
-                                        <input type="text" onChange={(e)=>e.target.value} />
+                                        <input type="text" name="title" onChange={(e)=>e.target.value} />
                                 </div>
                                 <div>
                                         <label>Post category</label>
-                                        <input type="text" onChange={(e)=>e.target.value} />
+                                        <input type="text" name="category" onChange={(e)=>e.target.value} />
                                 </div>
                                 <div>
                                         <label>Picture link</label>
-                                        <input type="web" onChange={(e)=>e.target.value} />
+                                        <input type="web" name="image" onChange={(e)=>e.target.value} />
                                 </div>
                                 <div>
                                         <label>Write post</label>
-                                        <textarea onChange={(e)=>e.target.value} rows={5}/>
+                                        <textarea name="content" onChange={(e)=>e.target.value} rows={5}/>
                                 </div>
                                 <div>
                                         <button>Post</button>

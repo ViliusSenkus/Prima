@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react";
 
 const Post = () => {
-    const postsArray = JSON.parse(localStorage.getItem('posts'));
+  
+  const postsArray = JSON.parse(localStorage.getItem('posts'));
 
-    const [deleted, setDeleted] =useState(false);
-
-
-    const deletePost = (id) => {
-        console.log('clicked')
-        postsArray.map((value, index)=>{
-          if (value._id === id){
-            postsArray.splice(index,1);
-            setDeleted(!deleted);
-          }
-        });
-
-      localStorage.setItem('posts', JSON.stringify(postsArray));
-    }
+  const [deleted, setDeleted] =useState(false);
 
   useEffect (()=>{
     JSON.parse(localStorage.getItem('posts'))
   },[deleted])
 
+  const deletePost = (id) => {
+      postsArray.map((value, index)=>{
+        if (value._id === id){
+          postsArray.splice(index,1);
+          setDeleted(!deleted);
+        }
+      });
+    localStorage.setItem('posts', JSON.stringify(postsArray));
+  }
 
+  {console.log(postsArray)}
   return postsArray.map( i => <section className="post" key={i._id}>
                         <div className="wrapper">
                             <img src={i.image} alt="" className="image"></img>
@@ -37,5 +35,6 @@ const Post = () => {
                           <div className="delete" onClick={ () => deletePost(i._id)}>X Delete post</div>
                         </div>
                     </section>)
+                      
 }
 export {Post};
