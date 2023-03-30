@@ -1,7 +1,6 @@
 const Header = () => {
 
     const colors=['yellow','green', 'red'];
-
     const logo = colors.map((value, index) => <div key={index} id={value}></div>)
 
    

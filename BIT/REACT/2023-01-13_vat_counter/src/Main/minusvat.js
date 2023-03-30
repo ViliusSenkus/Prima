@@ -48,7 +48,7 @@ const MinusVAT = (props) => {
             <form>
                 <div className='row'>
                     <div className="label">Kaina su PVM:</div>
-                    <input type="number" onChange={(e)=>setPrice(Number(e.target.value))} value='100' />
+                    <input type="number" onChange={(e)=>setPrice(Number(e.target.value))} defaultValue='100' />
                 </div>
                 <div className='row'>
                     <div className="label">PVM tarifas:</div>

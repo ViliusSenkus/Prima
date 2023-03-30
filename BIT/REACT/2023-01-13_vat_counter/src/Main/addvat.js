@@ -50,7 +50,7 @@ const AddVAT = (props) => {
                     <div className="label">
                         Kaina be PVM
                     </div>
-                    <input type="number" onChange={(e)=>setPrice(Number(e.target.value))} value='100'/>
+                    <input type="number" onChange={(e)=>setPrice(Number(e.target.value))} defaultValue='100'/>
                 </div>
                 <div className='row'>
                     <div className="label">
