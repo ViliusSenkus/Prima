@@ -4,7 +4,6 @@ import Komponentas from './Komponentas';
 
 
 function App() {
-  // setCounter(counter++);
   
   console.log("App.js-pati pradzia" )
 
@@ -12,11 +11,12 @@ function App() {
 
   useEffect(()=>{
     console.log("App.js-EFECTO pradzia - " + counter)
-    // let a=counter++;
-    // setCounter();
+    let a=counter;
+    setCounter(a++);
     setTimeout(()=>{
-      setCounter(5)
-    }, 2000);
+      setCounter(a)
+    }, 3000);
+    console.log("App.js-EFECTO galas - " + counter)
   },[]);
 
   return (  
@@ -24,8 +24,8 @@ function App() {
        {console.log("App.js-returno pradzia - " + counter )}  
       App.js
       {counter}
-      <Komponentas />
-      g
+      <Komponentas counteris={counter} setCounter={setCounter}/>
+      {console.log("App.js-returno galas - " + counter )}  
     </div>
   );
 }
