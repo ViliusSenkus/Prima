@@ -1,0 +1,35 @@
+:root{
+      scroll-behavior: auto;
+      --color: rgb(255, 251, 245); /*nenuskaityta nuo maketo tik laikinau įdėta, kad nepamiršti */
+}
+*{
+      box-sizing:border-box;
+
+}
+
+/*----------------------------------------------------------------------*/
+/*                            HEADER                                    */
+/*----------------------------------------------------------------------*/
+
+header{
+      background-color: white;
+      position:fixed;
+      top:0;
+      width: 100%;
+}
+nav{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 40px;
+      
+}
+nav > a{
+      text-decoration: none;
+      color: black
+}
+
+@media screen and (max-width:800px){
+      nav{flex-direction:column;}
+}
