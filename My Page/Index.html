@@ -13,29 +13,32 @@
       <title>Vilius Senkus</title>
 </head>
 
-<body>
+<body id="home">
       <header>
             <nav>
+<!-- -------------------------------------------------------------------------------------- -->
+<!-- nuorodos veikia neteisingai kol išskeistas meniu (tinkama nuoroda pasislepia po meniu) -->
+<!-- -------------------------------------------------------------------------------------- -->
                   <a href="#home">
                         <span>HOME</span>
                   </a>
-                  <a href="#">
+                  <a href="#about">
                         <span>ABOUT</span>
                   </a>
-                  <a href="#">
+                  <a href="#services">
                         <span>SERVICES</span>
                   </a>
-                  <a href="#">
+                  <a href="#portfoglio">
                         <span>PORTFOLIO</span>
                   </a>
-                  <a href="#">
+                  <a href="#pricing">
                         <span>PRICING</span>
                   </a>
-                  <a href="#">
+                  <a href="#testimonials">
                         <span>TESTIMONIALS</span> 
                         <!-- clients speaking -->
                   </a>
-                  <a href="#">
+                  <a href="#contacts">
                         <span>CONTACTS</span>
                         <!-- get in touch -->
                   </a>
@@ -49,28 +52,31 @@
       </header>
 
       <main>
-            <section id="home">
-                  <div>
-                        <h2>Hi! I'm Vilius - your new WEB developer</h2>      
+            <section>
+                  <div class="section-content">
+                        <h2>Hi, I'm Vilius - your new WEB developer</h2>      
                         <div>
                               <span>Web engineer</span>
                               <span>Frontend</span>
                               <span>Backend</span>
                               <span>Fullstack</span>
                         </div>
-                  </div>
-                  <img src="" alt="that's me" />
+                        <img src="" alt="that's me" />
+                  </div>                  
             </section>
 
             <section id="about">
-                  <h2>About me</h2>
-                  <p>I'm simply the best ;)</p>
-                  <h4>My tools</h4>
-                  <span>HTML CSS JS PHP Photoshop ....</span>
+                  <div class="section-content">
+                        <h2>About me</h2>
+                        <p>I'm simply the best ;)</p>
+                        <h4>My tools</h4>
+                        <span>HTML CSS JS PHP Photoshop ....</span>
+                  </div>
             </section>
             
             <section id="services">
-                  <h2>My servicess</h2>
+                  <div class="section-content">
+                        <h2>My servicess</h2>
                         <div>
                               <h4>Web pages</h4>
                               <p>Simple pages, Landing pages, SPA applications, business logic</p>
@@ -78,97 +84,108 @@
                         <div>
                               <h4>Web Apps</h4>
                         </div>
+                  </div>
             </section>
             
             <section id="portfolio">
-                  <h2>Protfoglio</h2>
-                  <nav>
-                        <ul>
-                              <li>My latest jobs</li>
-                              <li>Best evaluated</li>
-                              <li>Landing pages</li>
-                              <li>SPA applications</li>
-                        </ul>
-                  </nav>
-                  <div>Container for examples</div>
+                  <div class="section-content">
+                        <h2>Protfoglio</h2>
+                        <nav>
+                              <ul>
+                                    <li>My latest jobs</li>
+                                    <li>Best evaluated</li>
+                                    <li>Landing pages</li>
+                                    <li>SPA applications</li>
+                              </ul>
+                        </nav>
+                        <div>Container for examples</div>
+                  </div>
             </section>
             
             <section id="pricing">
-                  <h2>Pricing</h2>
-                  <div>
-                        <img src="" alt="example of ..." />
-                        <p>container to represent different types and elements of web apps/pages</p>
-                  </div>
-                  
-                  <div>
-                  <p>here is a form for aproximate calculation of your order</p>
-                  <form>
-                        <label>simple page</label>
-                        <input type="number" />
-                        <button type="submit">Calculate</button>
-                  </form>
+                  <div class="section-content">
+                        <h2>Pricing</h2>
+                        <div>
+                              <img src="" alt="example of ..." />
+                              <p>container to represent different types and elements of web apps/pages</p>
+                        </div>
+                        
+                        <div>
+                        <p>here is a form for aproximate calculation of your order</p>
+                        <form>
+                              <label>simple page</label>
+                              <input type="number" />
+                              <button type="submit">Calculate</button>
+                        </form>
+                        </div>
                   </div>
             </section>
             
             <section id="testimonials">
-                  <h2>My clients say...</h2>
-                  <div>
-                        Slider of one comment per slide. left - right. infinite.
+                  <div class="section-content">
+                        <h2>My clients say...</h2>
                         <div>
-                              <img src="" alt="Custommer face" />
-                        </div>
-                        <h4>Custommer Name</h4>
-                        <p>Custommer opinion</p>
-                  </div>
-                  <div>
-                        Slide graph
-                  </div>
-
-                  <div>
-                        <h3>My statistics</h3>
-                        <div>
+                              Slider of one comment per slide. left - right. infinite.
                               <div>
-                                    Orders made
+                                    <img src="" alt="Custommer face" />
                               </div>
+                              <h4>Custommer Name</h4>
+                              <p>Custommer opinion</p>
+                        </div>
+                        <div>
+                              Slide graph
+                        </div>
+
+                        <div>
+                              <h3>My statistics</h3>
                               <div>
-                                    Orders executed ...
+                                    <div>
+                                          Orders made
+                                    </div>
+                                    <div>
+                                          Orders executed ...
+                                    </div>
                               </div>
                         </div>
                   </div>
             </section>
             
             <section id="contacts">
-                  <h2>Contact me</h2>
-                  <p>e-mail: <a href="mailto:vilius.s@outlook.com?subject=want to contact&body=I would like to order a web page"> write me</a></p>
-                  <p>Phone: +370 671 00000</p>
+                  <div class="section-content">
+                        <h2>Contact me</h2>
+                        <p>e-mail: <a href="mailto:vilius.s@outlook.com?subject=want to contact&body=I would like to order a web page"> write me</a></p>
+                        <p>Phone: +370 671 00000</p>
+                  </div>
             </section>
 
             <section id="other">
-                  <h2>Visit my other pages</h2>
-                  <div>
-                        <div paskirtis="i6orinis gabaluko apipavidalinimas">
-                              <img src="saule.jpg" alt="blogas"/>
-                              <h4>My Blog</h4>
-                              <div>
-                                    Newest information on my developement, newly web developement issues and much more. 
-                              </div>
-                        </div>
-                  </div>
-                  <div>
+                  <div class="section-content">
+                        <h2>Visit my other pages</h2>
                         <div>
-                              <img src="saule.jpg" alt="my photos"/>
-                              <h4>My Photos page</h4>
-                              <div>
-                                    Newest information on my developement, newly web developement issues and much more. 
+                              <div paskirtis="i6orinis gabaluko apipavidalinimas">
+                                    <img src="saule.jpg" alt="blogas"/>
+                                    <h4>My Blog</h4>
+                                    <div>
+                                          Newest information on my developement, newly web developement issues and much more. 
+                                    </div>
                               </div>
                         </div>
-                  </div>
-                  <div>
-                        <div paskirtis="i6orinis gabaluko apipavidalinimas">
-                              <img src="saule.jpg" alt="programmers courses"/>
-                              <h4>Programmers courses</h4>
+                        <div>
                               <div>
-                                    Newest information on my developement, newly web developement issues and much more. 
+                                    <img src="saule.jpg" alt="my photos"/>
+                                    <h4>My Photos page</h4>
+                                    <div>
+                                          Newest information on my developement, newly web developement issues and much more. 
+                                    </div>
+                              </div>
+                        </div>
+                        <div>
+                              <div paskirtis="i6orinis gabaluko apipavidalinimas">
+                                    <img src="saule.jpg" alt="programmers courses"/>
+                                    <h4>Programmers courses</h4>
+                                    <div>
+                                          Newest information on my developement, newly web developement issues and much more. 
+                                    </div>
                               </div>
                         </div>
                   </div>
