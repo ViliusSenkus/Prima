@@ -18,11 +18,11 @@
 }
 
 :root{
-      scroll-behavior: auto;
+      scroll-behavior: smooth;
       --color: rgb(255, 251, 245); /*nenuskaityta nuo maketo tik laikinau įdėta, kad nepamiršti */
 }
 *{
-      box-sizing:border-box;
+      box-sizing :border-box;
       font-family: 'Questrial', 'OpenSans', Helvetica;
       margin: 0;
       padding: 0;
@@ -33,40 +33,48 @@
 /*                            HEADER                                    */
 /*----------------------------------------------------------------------*/
 
-header{
-      display: flex;
-      align-items: center;
-      position:fixed;
-      top:0;
+header {
+      position: fixed;
+      top: 0;
       width: 100%;
       background-color: white;
-      padding: 0 calc((100% - 1400px)/2);
+      transition: all 0.3s ease-in;
+}
+.hidden-up{
+      top: -47px;
+}
+#navigation{
+      width:100%;
+      max-width: 1200px;
+      padding: 15px 30px;
       margin: 0 auto;
 }
-header > nav{
+header div > nav{
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: space-around;
+      align-content: center;
       align-items: center;
-      height: 40px;
-      width: 95%;
-      padding: 0 100px;
+      width: 100%;
 }
 nav > a{
       color: black;
       text-decoration: none;
-      transition:all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
 }
 nav > a:hover{
       color: rgb(255, 94, 94);
-      text-decoration:underline;
+      text-decoration: underline;
 }
-header > div {
-      width: 5%;
+#navigation_show{
+      position: fixed;
+      position: fixed;
+      top: 0;
+      right: 0;
 }
 #menu-spread-arrow{
-      position: relative;
-      margin: 0 40px 0 auto;
+      background-color: white;
+      margin: 8px 8px;
       width: 30px;
       height : 30px;
       border: 1px solid rgb(191, 191, 191);
@@ -109,24 +117,16 @@ header > div {
 }
 
 @media screen and (max-width:900px){
-      header{
-            align-items: start;
+      .hidden-up{
+            top: -220px;
       }
-      header nav{
+      header div > nav{
             flex-direction:column;
-            align-items: flex-start;
-            padding: 10px;
-            height: 100%; 
-      }
-      nav > a{
-      padding: 4px 0;
-      }
-      header > div {
-            padding-top: 10px;
-            width:15%;
-      }
-      header > nav {
-            width: 85%;
+            gap: 5px;
+            align-items: center;
+            justify-content:;
+            height: 100%;
+            margin: 10px 0;
       }
 }
 
@@ -150,6 +150,12 @@ header > div {
 /*                            MAIN                                      */
 /*----------------------------------------------------------------------*/
 
+main{
+      transition: all 0.3s ease-in-out;
+}
+.down{
+      margin-top: 36px;
+}
 main > section{
       padding: 40px;
 }
@@ -163,4 +169,9 @@ main > section:nth-child(odd){
 .section-content{
       max-width: 1200px;
       margin: 0 auto;
+}
+@media screen and (max-width:900px){
+      .down{
+            margin-top: 220px;
+      }
 }
