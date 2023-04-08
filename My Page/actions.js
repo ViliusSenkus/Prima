@@ -18,3 +18,8 @@ show_hide_navigation.addEventListener("click", ()=>{
             show_menu = false;
       }
 })
+
+
+window.addEventListener("hashchange", function () {
+      window.scrollTo(window.scrollY - 180);
+  });
