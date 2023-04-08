@@ -15,11 +15,13 @@ show_hide_navigation.addEventListener("click", ()=>{
       }else{
             header.classList.add("hidden-up");
             main.classList.remove("down");
+            
             show_menu = false;
       }
 })
 
 
-window.addEventListener("hashchange", function () {
-      window.scrollTo(window.scrollY - 180);
-  });
+// window.addEventListener("hashchange",  () => {
+//       console.log("haschange")
+//       window.scrollTo(window.scrollY - 180)
+// });
