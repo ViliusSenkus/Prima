@@ -154,6 +154,7 @@ nav > a:hover{
 
 main{
       transition: all 0.3s ease-in-out;
+      font-size: 20px;
 }
 
 .down{
@@ -178,6 +179,39 @@ main > section:nth-child(odd){
 .section-content{
       max-width: 1200px;
       margin: 0 auto;
+}
+h2{
+      margin: 20px;
+      font-size: 40px;
+}
+h4{
+      margin: 20px;
+      font-size: 30px;
+}
+
+/* ----------------------- About me - My tools ----------------------- */
+.tools-container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-around;
+      align-items: baseline;
+      margin-top: 20px;
+}
+.tools{
+      width:80px;
+      height:60px;
+      text-align: center;
+      font-size: 16px;
+}
+object{
+      width: 40px;
+}
+@media screen and (max-width:1220px){
+      .section-content{
+            margin: 0 20px;
+      }
 }
 @media screen and (max-width:900px){
       .down{
