@@ -208,6 +208,25 @@ h4{
 object{
       width: 40px;
 }
+
+
+.contacts{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+}
+.contacts > div{
+      max-width: 30%;
+      font-size: 16px;
+}
+.contacts-icon{
+ height: 20px;
+}
+.contacts p{
+      padding: 5px 0;
+}
+
+
 @media screen and (max-width:1220px){
       .section-content{
             margin: 0 20px;
@@ -219,5 +238,11 @@ object{
       }
       .scroller{
             bottom: 180px
+      }
+      .contacts{
+            flex-direction: column;
+      }
+      .contacts > div{
+            max-width: 90%;
       }
 }
