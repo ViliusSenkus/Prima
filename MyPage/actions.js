@@ -4,7 +4,6 @@ const navigation = document.querySelector("nav");
 const show_hide_navigation = document.querySelector("#menu-spread-arrow");
 const hidden_up = document.querySelector(".hidden-up");
 const main = document.querySelector("main");
-console.log(main);
 let show_menu = true;
 
 show_hide_navigation.addEventListener("click", ()=>{
@@ -25,3 +24,13 @@ show_hide_navigation.addEventListener("click", ()=>{
 //       console.log("haschange")
 //       window.scrollTo(window.scrollY - 180)
 // });
+
+const profList = ["Web developer", "Frontend developer", "Backend developer", "Fullstack developer", "Web engineer",  "Frontend engineer", "Backend engineer","Fullstack engineer" ];
+
+let key = 0;
+
+setInterval(()=>{
+            document.querySelector('#prof-list').innerHTML=profList[key];
+            key++;
+            if (key >= profList.length) key=0;
+      },3000)
