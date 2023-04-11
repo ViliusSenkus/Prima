@@ -188,7 +188,14 @@ h4{
       margin: 20px;
       font-size: 30px;
 }
+h5{
+      margin: 20px;
+}
 
+
+#prof-list{
+      color:rgb(232, 110, 28);
+}
 /* ----------------------- About me - My tools ----------------------- */
 .tools-container{
       display: flex;
@@ -210,6 +217,7 @@ object{
 }
 
 
+/* ----------------------- Contacts ----------------------- */
 .contacts{
       display: flex;
       flex-direction: row;
@@ -225,7 +233,20 @@ object{
 .contacts p{
       padding: 5px 0;
 }
-
+.services-container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: start;
+      gap: 20px;
+}
+.services-container > div{
+      width: 280px;
+      border: 1px solid black;
+      box-shadow: 2px 2px 5px grey;
+      padding: 10px;
+      font-size: 16px;
+}
 
 @media screen and (max-width:1220px){
       .section-content{
