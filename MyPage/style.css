@@ -253,9 +253,20 @@ object{
       cursor: pointer;
 }
 #portfolio-container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+}
+#portfolio-container > div{
       width: 500px;
-      margin: 20px auto;
+      padding: 20px;
+      margin: 10px;
+      background-color: var(--white);
       text-align: center;
+      font-size: 16px;
+      border: 1px solid black;
+
 }
 
 /* ----------------------- Contacts ----------------------- */

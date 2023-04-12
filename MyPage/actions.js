@@ -61,25 +61,49 @@ function showJobs(e, data){
       const list=e.target.innerHTML;
       const div=document.querySelector("#portfolio-container");
       const dataValues = Object.values(data); //all primary json objects converted to arrays.
-
+      div.innerHTML="";
       dataValues.map((values) => {
 
             switch (list){
                   case 'My latest jobs' :
                         if (values.actual === "1")
-                              div.innerHTML = "aktualiausi"
+                              div.innerHTML +=
+                                    `<div>
+                                          <img src="${values.pic}" />
+                                          <h5>${values.name}</h5>
+                                          <p>${values.description}</p>
+                                          <a href="${values.url}">Visit site</a>
+                                    </div>`;
                         break;
                   case 'Best evaluated' :
                         if (values.award === "1")
-                              div.innerHTML = "geriausi"
+                              div.innerHTML += 
+                              `<div>
+                                    <img src="${values.pic}" />
+                                    <h5>${values.name}</h5>
+                                    <p>${values.description}</p>
+                                    <a href="${values.url}">Visit site</a>
+                              </div>`;
                         break;
                   case 'Landing pages' :
                         if (values.type === 'Landing pages')
-                              div.innerHTML = "Landingas"
+                              div.innerHTML += 
+                              `<div>
+                                    <img src="${values.pic}" />
+                                    <h5>${values.name}</h5>
+                                    <p>${values.description}</p>
+                                    <a href="${values.url}">Visit site</a>
+                              </div>`;
                         break;
                   case 'SPA applications' :
                         if (values.type === list)
-                              div.innerHTML = "SPA app"
+                              div.innerHTML += 
+                              `<div>
+                                    <img src="${values.pic}" />
+                                    <h5>${values.name}</h5>
+                                    <p>${values.description}</p>
+                                    <a href="${values.url}">Visit site</a>
+                              </div>`;
                         break;
                   default :
                         break;
