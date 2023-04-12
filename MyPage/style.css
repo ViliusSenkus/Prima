@@ -216,6 +216,47 @@ object{
       width: 40px;
 }
 
+/* ----------------------- My services ----------------------- */
+
+.services-container{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: start;
+      gap: 20px;
+}
+.services-container > div{
+      width: 280px;
+      border: 1px solid black;
+      box-shadow: 2px 2px 5px grey;
+      padding: 10px;
+      font-size: 16px;
+}
+
+/* ----------------------- Contacts ----------------------- */
+
+#portfolio-nav ul{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap:20px;
+      list-style: none;
+}
+#portfolio-nav li::before,
+#portfolio-nav li::after{
+      content:"-";
+
+}
+#portfolio-nav li:hover{
+      color:rgb(232, 110, 28);
+      cursor: pointer;
+}
+#portfolio-container{
+      width: 500px;
+      margin: 20px auto;
+      text-align: center;
+}
 
 /* ----------------------- Contacts ----------------------- */
 .contacts{
@@ -233,20 +274,7 @@ object{
 .contacts p{
       padding: 5px 0;
 }
-.services-container{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: start;
-      gap: 20px;
-}
-.services-container > div{
-      width: 280px;
-      border: 1px solid black;
-      box-shadow: 2px 2px 5px grey;
-      padding: 10px;
-      font-size: 16px;
-}
+
 
 @media screen and (max-width:1220px){
       .section-content{

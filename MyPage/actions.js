@@ -1,8 +1,9 @@
-const header = document.querySelector("header");
-const navigation_show = document.querySelectorAll("#navigation_show");
-const navigation = document.querySelector("nav");
+/*----------------------------------------*/                                  
+/*    Navigation showing and hiding       */
+/*----------------------------------------*/                                  
+
+const header = document.querySelector("header"); 
 const show_hide_navigation = document.querySelector("#menu-spread-arrow");
-const hidden_up = document.querySelector(".hidden-up");
 const main = document.querySelector("main");
 let show_menu = true;
 
@@ -19,11 +20,15 @@ show_hide_navigation.addEventListener("click", ()=>{
       }
 })
 
+            // window.addEventListener("hashchange",  () => {
+            //       console.log("haschange")
+            //       window.scrollTo(window.scrollY - 180)
+            // });
 
-// window.addEventListener("hashchange",  () => {
-//       console.log("haschange")
-//       window.scrollTo(window.scrollY - 180)
-// });
+
+/*-----------------------------------------*/                                  
+/*    Home - professions changing          */
+/*-----------------------------------------*/   
 
 const profList = ["Web developer", "Frontend developer", "Backend developer", "Fullstack developer", "Web engineer",  "Frontend engineer", "Backend engineer","Fullstack engineer" ];
 
@@ -33,4 +38,54 @@ setInterval(()=>{
             document.querySelector('#prof-list').innerHTML=profList[key];
             key++;
             if (key >= profList.length) key=0;
-      },3000)
+      },3000);
+
+
+/*----------------------------------------------------------*/                                  
+/*    Portfolio - response according navigation request     */
+/*----------------------------------------------------------*/
+
+const portfolioNavigation = document.querySelectorAll("#portfolio-nav li");
+
+
+portfolioNavigation.forEach ( li => {
+      li.addEventListener('click', (e)=>{
+            fetch("resourcess/portfolio.json")
+            .then(resp => resp.json())
+            .then (resp => showJobs(e, resp));
+            
+      });
+});
+
+function showJobs(e, data){
+      const list=e.target.innerHTML;
+      const div=document.querySelector("#portfolio-container");
+      const dataValues = Object.values(data); //all primary json objects converted to arrays.
+
+      dataValues.map((values) => {
+
+            switch (list){
+                  case 'My latest jobs' :
+                        if (values.actual === "1")
+                              div.innerHTML = "aktualiausi"
+                        break;
+                  case 'Best evaluated' :
+                        if (values.award === "1")
+                              div.innerHTML = "geriausi"
+                        break;
+                  case 'Landing pages' :
+                        if (values.type === 'Landing pages')
+                              div.innerHTML = "Landingas"
+                        break;
+                  case 'SPA applications' :
+                        if (values.type === list)
+                              div.innerHTML = "SPA app"
+                        break;
+                  default :
+                        break;
+            }
+
+      });
+}
+
+      
