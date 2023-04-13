@@ -183,6 +183,7 @@ main > section:nth-child(odd){
 h2{
       margin: 20px;
       font-size: 40px;
+      text-transform: uppercase;
 }
 h4{
       margin: 20px;
