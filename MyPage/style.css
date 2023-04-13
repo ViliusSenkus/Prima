@@ -233,7 +233,7 @@ object{
       font-size: 16px;
 }
 
-/* ----------------------- Contacts ----------------------- */
+/* -------------------- Portfolio & Pricing -------------------- */
 
 #portfolio-nav ul{
       display: flex;
@@ -252,13 +252,15 @@ object{
       color:rgb(232, 110, 28);
       cursor: pointer;
 }
-#portfolio-container{
+#portfolio-container,
+.pricing-container{
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: center;
 }
-#portfolio-container > div{
+#portfolio-container > div,
+.pricing-container > div{
       width: 500px;
       padding: 20px;
       margin: 10px;
@@ -267,6 +269,25 @@ object{
       font-size: 16px;
       border: 1px solid black;
 
+}
+
+/* --------------- Testimonials - My statistic -------------- */
+
+.statistic-box{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+}
+.statistic-box > div{
+      width: 200px;
+      height: 200px;
+      color: var(--white);
+      font-size: 32px;
+      font-weight: 600;
+      border: 3px solid var(--white);
+      border-radius: 15px;
+      text-align: center;
+      padding: 10px;
 }
 
 /* ----------------------- Contacts ----------------------- */

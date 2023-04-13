@@ -219,17 +219,84 @@
             <section >
                   <div class="section-content">
                         <h2>Pricing</h2>
-                        <div>
-                              <img src="" alt="example of ..." />
-                              <p>container to represent different types and elements of web apps/pages</p>
+                        <p>Below presented some pricing examples of products you can order. Final price depend on your design and materials preparation and quality, elements and interactivity to be used on web, as well the complexity of business logic to be implemented</p>
+                        <div class="pricing-container">
+                              <div>
+                                    <img src="" alt="example of ..." />
+                                    <h5>Single page</h5>
+                                    <p>Simple web page with links to externall pages, without any user forms or registration, dynamics. Pictures and videos as main object or as background accepted, but no animation avialable, and no responsiveness (will look fine just os desired resolution screens)</p>
+                                    <p>up to 3 days</p>
+                                    <p class="price">20€</p>
+                              </div>
+                              <div>
+                                    <img src="" alt="example of ..." />
+                                    <h5>Lnding page</h5>
+                                    <p>Long web page usually used for company or pruduct presentation, up to 7 sections and 3 dynamic effects such as sliding, paralax, hiding menu and similar. Responsiveness for two different size screens. No user registranion or activity avialable</p>
+                                    <p>Up to 2 weaks</p>
+                                    <p class="price">50€</p>
+                              </div>
+                              <div>
+                                    <img src="" alt="example of ..." />
+                                    <h5>Solid SPA aplication with business logic</h5>
+                                    <p>Solid web page usually used for interaction with users, social networks, blogs, etc. functionality allows users registration and 2 levels authentication, admin panel, one single registration of users activity, small business logic (counting likes, subscribing for emails, gathering user opinions, display latest adds and similar) up to 3 dynamic effects, responsiveness for two different size screens</p>
+                                    <p>Up to 1 month</p>
+                                    <p class="price">200€ and more</p>
+                              </div>
                         </div>
-                        
                         <div>
-                        <p>here is a form for aproximate calculation of your order</p>
-                        <form>
-                              <label>simple page</label>
-                              <input type="number" />
+                              <h4>Count aproximate price of your page</h4>
+                        <form method="get">
+                              <h5>Main concept</h5>
+                              <div>
+                                    <label>Type of page</label>
+                                    <select name="page-type">
+                                          <option value="simple">Single page</option>
+                                          <option value="landing">Landing page</option>
+                                          <option value="SPA">SPA app</option>
+                                    </select>
+                              </div>
+                              <div>
+                                    <label>
+                                          Total pages or sections if Landing page selected.
+                                          <span title="Counting advice: main page, page to show all products / entries, page for separate product/ entrie (count as one for same looking page) page for adminitration, page for users infromation">
+                                                Hint!
+                                          </span>
+                                    </label>
+                                    <input type="number" step="1" max="10" min="0" value="0" name="pages_qnt" >
+                              </div>
+                              <div>
+                                    <h5>Dynamic elements</h5>
+                                    <label>Sliders</label>
+                                    <input type="checkbox" name="sliders"/>
+                                    <input type="number" step="1" max="10" min="0" value="0" name="sliders_qnt" />
+                                    <label>Drop-down menu</label>
+                                    <input type="checkbox" name="menu"/>
+                                    <input type="number" step="1" max="10" min="0" value="0" name="menu_qnt" />
+                                    <label>Paralax</label>
+                                    <input type="checkbox" name="paralax"/>
+                                    <input type="number" step="1" max="10" min="0" value="0" name="paralax_qnt" />
+                                    <label>Animation</label>
+                                    <input type="checkbox" name="animation"/>
+                                    <input type="number" step="1" max="10" min="0" value="0" name="animation_qnt" />
+                              </div>
+                              <div>
+                                    <h5>Business logic</h5>
+                                    <label>User registration</label>
+                                    <input type="checkbox" name="registration"/>
+                                    <label>Admin panel</label>
+                                    <input type="checkbox" name="admin_panel"/>
+                                    <label>content editing</label>
+                                    <input type="checkbox" name="editing"/>
+                                    <label>User input form</label>
+                                    <input type="checkbox" name="data_form"/>
+                                    <input type="number" step="1" max="10" min="0" value="0" name="data_form_qnt" />
+                              </div>
                               <button type="submit">Calculate</button>
+                              <div>
+                                    <output>
+                                          Form is inactive and price calculation not avialable yet
+                                    </output>
+                              </div>
                         </form>
                         </div>
                         <div id="testimonials" class="scroller"></div> <!--Navigation to next section-->
@@ -239,13 +306,16 @@
             <section >
                   <div class="section-content">
                         <h2>My clients say...</h2>
-                        <div>
-                              Slider of one comment per slide. left - right. infinite.
+                        <div class="pricing-container">
                               <div>
                                     <img src="" alt="Custommer face" />
+                                    <h4>John Doe</h4>
+                                    <p>Easy comunication, help on making idea, quick order execution</p>
+                                    <p>2023-03-12</p>
                               </div>
-                              <h4>Custommer Name</h4>
-                              <p>Custommer opinion</p>
+                        </div>
+                        <div>
+                              Slider buttons left - right, or infinite loop with timeouts;
                         </div>
                         <div>
                               Slide graph
@@ -253,13 +323,32 @@
 
                         <div>
                               <h4>My statistics</h4>
-                              <div>
+                              <div class="statistic-box">
                                     <div>
-                                          Orders made
+                                          Orders recieved
+                                          <div>
+                                                1
+                                          </div>
                                     </div>
                                     <div>
-                                          Orders executed ...
+                                          Orders executed
+                                          <div>
+                                                1
+                                          </div>
                                     </div>
+                                    <div>
+                                          Happy clients
+                                          <div>
+                                                1
+                                          </div>
+                                    </div>
+                                    <div>
+                                          Hours spent
+                                          <div>
+                                               10
+                                          </div>
+                                    </div>
+                                    
                               </div>
                         </div>
                   </div>
