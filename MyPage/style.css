@@ -401,3 +401,16 @@ footer li{
       margin-left: 30px;
       list-style: square;
 }
+footer button{
+      all: unset;
+      padding: 2px 5px;
+      border: 1px solid black;
+      border-radius: 5px;
+      cursor: pointer;
+}
+footer button:hover{
+      box-shadow: 2px 2px 5px grey;
+}
+footer button:active{
+      box-shadow: -2px -2px 5px grey;
+}
