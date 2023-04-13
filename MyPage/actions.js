@@ -68,7 +68,7 @@ function showJobs(e, data){
                   case 'My latest jobs' :
                         if (values.actual === "1")
                               div.innerHTML +=
-                                    `<div>
+                                    `<div class="scroll-view">
                                           <img src="${values.pic}" />
                                           <h5>${values.name}</h5>
                                           <p>${values.description}</p>
@@ -78,7 +78,7 @@ function showJobs(e, data){
                   case 'Best evaluated' :
                         if (values.award === "1")
                               div.innerHTML += 
-                              `<div>
+                              `<div class="scroll-view">
                                     <img src="${values.pic}" />
                                     <h5>${values.name}</h5>
                                     <p>${values.description}</p>
@@ -88,7 +88,7 @@ function showJobs(e, data){
                   case 'Landing pages' :
                         if (values.type === 'Landing pages')
                               div.innerHTML += 
-                              `<div>
+                              `<div class="scroll-view">
                                     <img src="${values.pic}" />
                                     <h5>${values.name}</h5>
                                     <p>${values.description}</p>
@@ -98,7 +98,7 @@ function showJobs(e, data){
                   case 'SPA applications' :
                         if (values.type === list)
                               div.innerHTML += 
-                              `<div>
+                              `<div class="scroll-view">
                                     <img src="${values.pic}" />
                                     <h5>${values.name}</h5>
                                     <p>${values.description}</p>

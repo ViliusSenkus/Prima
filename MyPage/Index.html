@@ -18,9 +18,6 @@
       <header>
             <div id="navigation">
                   <nav>
-      <!-- -------------------------------------------------------------------------------------- -->
-      <!-- nuorodos veikia neteisingai kol išskeistas meniu (tinkama nuoroda pasislepia po meniu) -->
-      <!-- -------------------------------------------------------------------------------------- -->
                         <a href="#">
                               <span>HOME</span>
                         </a>
@@ -57,9 +54,12 @@
       <main class="down">            
             <section>
                   <div class="section-content">
-                        <img src="" alt="that's me" />
-                        <h2>Hi, I'm Vilius - your new <span id="prof-list">Web developer</span></h2>
-                        
+                        <div id="top">
+                              <img src="images/user.png" alt="that's me" />
+                              <h2>Hi, I'm Vilius - your new <span id="prof-list">Web developer</span></h2>
+                              
+                        </div>  
+                        <p>Need new web page? Or maybe, your page is outdated and need update? Your business has changed and apps you are using doesn't meet your needs any more? Here I am - just contact me and you will get exactly what you need.</p>
                   </div > 
                   <div id="about" class="scroller"></div> <!--Navigation to next section-->
             </section>
@@ -68,10 +68,11 @@
                   <div class="section-content">
                         <h2>About me</h2>
                         <p>I'm simply the best ;)</p>
+                        <p>Time spent in a web developent - 1 year.</p>
+
                         <h4>My tools</h4>
                         <h5>Programming tools</h5>
-                        <div class="tools-container">
-                              
+                        <div class="tools-container">      
                               <div class="tools">
                                     <object data="images/icons/html5.svg"></object>
                                     <p>HTML</p>
@@ -146,45 +147,47 @@
             <section>
                   <div class="section-content">
                         <h2>My servicess</h2>
-                       
+
+                        <h4>Why me?   ?????</h4>
+
                         <h4>Web pages</h4>
-                        <div class="services-container">
+                        <div class="services-container services">
                               <div>
-                                    <img src="" alt="simple page" />
-                                    <h5>Simpl page</h5>
+                                    <img src="images/pngegg.png" alt="simple page" />
+                                    <h5>Static page</h5>
                                     <p>Simple informational page without dynamics and interactivity, no animation</p>
                               </div>
                               <div>
-                                    <img src="" alt="Landing page" />
+                                    <img src="images/landing.png" alt="Landing page" />
                                     <h5>Landing page</h5>
                                     <p>One long page, basically used to represent company information. This page is a good Landing page example.</p>
                               </div>
                               <div>
-                                    <img src="" alt="SPA application" />
+                                    <img src="images/spa.png" alt="SPA application" />
                                     <h5>SPA application</h5>
                                     <p>SPA - single page application, used for bigger projects, with huge number of users to save server resourcess. Usually such pages are more complex, more dynamic and interactive.</p>
                               </div>
                               <div>
-                                    <img src="" alt="Business logic" />
+                                    <img src="images/pngwing.com.png" alt="Business logic" />
                                     <h5>Business logic</h5>
                                     <p>Backend part of the page, where all logic of your page or servicess are programmed. Could be done separately or togather with frontend part</p>
                               </div> 
                         </div>
 
                         <h4>Web Apps</h4>
-                        <div class="services-container">
+                        <div class="services-container services">
                               <div>
-                                    <img src="" alt="API" />
+                                    <img src="images/pngwing.com.png" alt="API" />
                                     <h5>Business systems</h5>
                                     <p>Applications to manage your business, then business processes and data is shared on internet. Examples: personnell, storage management</p>
                               </div>
                               <div>
-                                    <img src="" alt="API" />
+                                    <img src="images/api.png" alt="API" />
                                     <h5>API</h5>
                                     <p>Applications to gather and work with information from other websites and data providers</p>
                               </div>
                               <div>
-                                    <img src="" alt="gadgets" />
+                                    <img src="images/gadget.png" alt="gadgets" />
                                     <h5>Gadgets</h5>
                                     <p>Small gadgets to add to your page. (visitors counter, color changer ....) </p>
                               </div>
@@ -205,8 +208,8 @@
                               </ul>
                         </nav>
                         <div id="portfolio-container">
-                              <div>
-                                    <img src="images/saule.png" />
+                              <div class="scroll-view">
+                                    <img src="images/myPage.png" alt="my page" />
                                     <h5>This page</h5>
                                     <p>Check my jobs. Just select what you are interesting in from menu above.</p>
                               </div>      
@@ -222,24 +225,24 @@
                         <p>Below presented some pricing examples of products you can order. Final price depend on your design and materials preparation and quality, elements and interactivity to be used on web, as well the complexity of business logic to be implemented</p>
                         <div class="pricing-container">
                               <div>
-                                    <img src="" alt="example of ..." />
+                                    <img src="images/pngegg.png" alt="example of static page" />
                                     <h5>Single page</h5>
                                     <p>Simple web page with links to externall pages, without any user forms or registration, dynamics. Pictures and videos as main object or as background accepted, but no animation avialable, and no responsiveness (will look fine just os desired resolution screens)</p>
-                                    <p>up to 3 days</p>
+                                    <p class="period">up to 3 days</p>
                                     <p class="price">20€</p>
                               </div>
                               <div>
-                                    <img src="" alt="example of ..." />
+                                    <img src="images/landing.png" alt="example of landing page" />
                                     <h5>Lnding page</h5>
                                     <p>Long web page usually used for company or pruduct presentation, up to 7 sections and 3 dynamic effects such as sliding, paralax, hiding menu and similar. Responsiveness for two different size screens. No user registranion or activity avialable</p>
-                                    <p>Up to 2 weaks</p>
+                                    <p class="period">Up to 2 weeks</p>
                                     <p class="price">50€</p>
                               </div>
                               <div>
-                                    <img src="" alt="example of ..." />
+                                    <img src="images/spa.png" alt="example of SPA application" />
                                     <h5>Solid SPA aplication with business logic</h5>
                                     <p>Solid web page usually used for interaction with users, social networks, blogs, etc. functionality allows users registration and 2 levels authentication, admin panel, one single registration of users activity, small business logic (counting likes, subscribing for emails, gathering user opinions, display latest adds and similar) up to 3 dynamic effects, responsiveness for two different size screens</p>
-                                    <p>Up to 1 month</p>
+                                    <p class="period">Up to 1 month</p>
                                     <p class="price">200€ and more</p>
                               </div>
                         </div>
@@ -292,11 +295,9 @@
                                     <input type="number" step="1" max="10" min="0" value="0" name="data_form_qnt" />
                               </div>
                               <button type="submit">Calculate</button>
-                              <div>
-                                    <output>
-                                          Form is inactive and price calculation not avialable yet
-                                    </output>
-                              </div>
+                              <output>
+                                    Form is inactive and price calculation not avialable yet. Result will be shown here.
+                              </output>
                         </form>
                         </div>
                         <div id="testimonials" class="scroller"></div> <!--Navigation to next section-->
@@ -308,17 +309,14 @@
                         <h2>My clients say...</h2>
                         <div class="pricing-container">
                               <div>
-                                    <img src="" alt="Custommer face" />
+                                    <img src="images/user.png" alt="Custommer face" />
                                     <h4>John Doe</h4>
                                     <p>Easy comunication, help on making idea, quick order execution</p>
                                     <p>2023-03-12</p>
                               </div>
                         </div>
-                        <div>
-                              Slider buttons left - right, or infinite loop with timeouts;
-                        </div>
-                        <div>
-                              Slide graph
+                        <div style="text-align: center;">
+                              Slider buttons left - right, slide graph, or infinite loop with timeouts;
                         </div>
 
                         <div>
@@ -454,10 +452,23 @@
       </main>
 
       <footer>
-            <p>Fonts - google.fonts</p>
-            <p>Icons - fontawesome, wikipedia</p>
-            <p>Design idea - Žydra</p>
-            <p>Ceated by - Vilius</p>
+            <div>
+                  <span>Authors:</span>
+                  <p>Design idea - Žydra &copy &#8482 &reg </p>
+                  <p>Ceated by - Vilius &copy &#8482 &reg </p>
+            </div>
+            <div>
+                  <span>Resourcess:</span>
+                  <p>Fonts - google.fonts</p>
+                  <p>Icons - fontawesome, wikipedia</p>
+                  <p>Images:
+                        <ul>
+                              <li>personall collection</li>
+                              <li>pngwing.com</li>
+                              <li>pngegg.com</li>
+                        </ul>
+                  </p>
+            </div>
       </footer>
 </body>
 </html>

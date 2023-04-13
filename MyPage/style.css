@@ -175,8 +175,8 @@ main > section:nth-child(even){
 main > section:nth-child(odd){
       background-color: var(--white);
 }
-
 .section-content{
+
       max-width: 1200px;
       margin: 0 auto;
 }
@@ -191,7 +191,17 @@ h4{
 h5{
       margin: 20px;
 }
-
+#top{
+      display: flex;
+      align-items: center;
+}
+#top > img {
+      width: 200px;
+      height: 200px;
+}
+#top + p{
+      margin-left: 220px;
+}
 
 #prof-list{
       color:rgb(232, 110, 28);
@@ -223,6 +233,7 @@ object{
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: start;
+      align-items: stretch;
       gap: 20px;
 }
 .services-container > div{
@@ -232,7 +243,10 @@ object{
       padding: 10px;
       font-size: 16px;
 }
-
+.services img{
+      max-width:100%;
+      height: 220px;
+}
 /* -------------------- Portfolio & Pricing -------------------- */
 
 #portfolio-nav ul{
@@ -252,6 +266,11 @@ object{
       color:rgb(232, 110, 28);
       cursor: pointer;
 }
+
+.scroll-view img{
+      height: 350px;
+}
+
 #portfolio-container,
 .pricing-container{
       display: flex;
@@ -268,9 +287,46 @@ object{
       text-align: center;
       font-size: 16px;
       border: 1px solid black;
-
+}
+.pricing-container img{
+      height: 250px;
+}
+.period{
+      font-size: 20px;
+      padding:5px;
+}
+.price{
+      font-size: 26px;
+      font-weight: 600;
+      padding: 10px;
 }
 
+/* --------------- Portfolio & Pricing - count --------------- */
+
+form {
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+form > div{
+      width: 100%;
+      background-color: var(--white);
+      border: 1px solid black;
+      padding: 5px;
+}
+input,
+select{
+      font-size: 20px;
+}
+button{
+      font-size: 20px;
+      width:30%;
+      padding: 5px;
+}
+output{
+      color: red;
+}
 /* --------------- Testimonials - My statistic -------------- */
 
 .statistic-box{
@@ -326,4 +382,22 @@ object{
       .contacts > div{
             max-width: 90%;
       }
+}
+
+
+/*----------------------------------------------------------------------*/
+/*                           FOOTER                                     */
+/*----------------------------------------------------------------------*/
+
+footer{
+      display: flex;
+      margin: 40px 20px 20px;
+      gap: 60px;
+}
+footer span{
+      font-weight: 600;
+}
+footer li{
+      margin-left: 30px;
+      list-style: square;
 }
