@@ -154,7 +154,9 @@ nav > a:hover{
 
 main{
       transition: all 0.3s ease-in-out;
-      font-size: 20px;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: justify;
 }
 
 .down{
@@ -181,16 +183,20 @@ main > section:nth-child(odd){
       margin: 0 auto;
 }
 h2{
-      margin: 20px;
+      margin-top: 20px;
+      margin-bottom: 40px;
       font-size: 40px;
       text-transform: uppercase;
 }
 h4{
-      margin: 20px;
+      margin: 20px 0;
       font-size: 30px;
 }
 h5{
-      margin: 20px;
+      margin-top: 20px;
+}
+p{
+      margin-top: 20px;
 }
 #top{
       display: flex;
@@ -207,37 +213,34 @@ h5{
 #prof-list{
       color:rgb(232, 110, 28);
 }
-/* ----------------------- About me - My tools ----------------------- */
-.tools-container{
+.center{
+      text-align: center;
+}
+.container{
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: stretch;
+      margin: 20px auto;
       gap: 20px;
-      justify-content: space-around;
-      align-items: baseline;
-      margin-top: 20px;
+      row-gap: 40px;
 }
-.tools{
-      width:80px;
+/* ----------------------- About me - My tools ----------------------- */
+.icon{
+      width:60px;
       height:60px;
       text-align: center;
-      font-size: 16px;
+      font-size: 14px;
+      align-self: baseline;
 }
-object{
+.icon object{
       width: 40px;
 }
 
 /* ----------------------- My services ----------------------- */
 
-.services-container{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: start;
-      align-items: stretch;
-      gap: 20px;
-}
-.services-container > div{
+.services > div{
       width: 280px;
       border: 1px solid black;
       box-shadow: 2px 2px 5px grey;
@@ -273,14 +276,14 @@ object{
 }
 
 #portfolio-container,
-.pricing-container{
+.pricing{
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: center;
 }
 #portfolio-container > div,
-.pricing-container > div{
+.pricing > div{
       width: 500px;
       padding: 20px;
       margin: 10px;
@@ -289,7 +292,7 @@ object{
       font-size: 16px;
       border: 1px solid black;
 }
-.pricing-container img{
+.pricing img{
       height: 250px;
 }
 .period{
