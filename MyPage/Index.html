@@ -214,7 +214,7 @@
             
             <section >
                   <div class="section-content">
-                        <h2>Protfoglio</h2>
+                        <h2>Protfolio</h2>
                         <nav id="portfolio-nav">
                               <ul>
                                     <li>My latest jobs</li>
@@ -223,7 +223,7 @@
                                     <li>SPA applications</li>
                               </ul>
                         </nav>
-                        <div id="portfolio-container">
+                        <div class="container portfolio">
                               <div class="scroll-view">
                                     <img src="images/myPage.png" alt="my page" />
                                     <h5>This page</h5>
@@ -264,17 +264,14 @@
                         </div>
                         <div>
                               <h4>Count aproximate price of your page</h4>
-                        <form method="get">
-                              <h5>Main concept</h5>
-                              <div>
+                        <form method="get" class="container">
+                              <div class="column">
                                     <label>Type of page</label>
                                     <select name="page-type">
                                           <option value="simple">Single page</option>
                                           <option value="landing">Landing page</option>
                                           <option value="SPA">SPA app</option>
                                     </select>
-                              </div>
-                              <div>
                                     <label>
                                           Total pages or sections if Landing page selected.
                                           <span title="Counting advice: main page, page to show all products / entries, page for separate product/ entrie (count as one for same looking page) page for adminitration, page for users infromation">
@@ -282,38 +279,57 @@
                                           </span>
                                     </label>
                                     <input type="number" step="1" max="10" min="0" value="0" name="pages_qnt" >
-                              </div>
-                              <div>
+
                                     <h5>Dynamic elements</h5>
-                                    <label>Sliders</label>
-                                    <input type="checkbox" name="sliders"/>
-                                    <input type="number" step="1" max="10" min="0" value="0" name="sliders_qnt" />
-                                    <label>Drop-down menu</label>
-                                    <input type="checkbox" name="menu"/>
-                                    <input type="number" step="1" max="10" min="0" value="0" name="menu_qnt" />
-                                    <label>Paralax</label>
-                                    <input type="checkbox" name="paralax"/>
-                                    <input type="number" step="1" max="10" min="0" value="0" name="paralax_qnt" />
-                                    <label>Animation</label>
-                                    <input type="checkbox" name="animation"/>
-                                    <input type="number" step="1" max="10" min="0" value="0" name="animation_qnt" />
-                              </div>
-                              <div>
+                                    <div>
+                                          <input type="checkbox" name="sliders"/>
+                                          <label>Sliders</label>
+                                          <input type="number" step="1" max="10" min="0" value="0" name="sliders_qnt" />
+                                    </div>
+                                    <div>
+                                          <input type="checkbox" name="menu"/>
+                                          <label>Drop-down menu</label>
+                                          <input type="number" step="1" max="10" min="0" value="0" name="menu_qnt" />
+                                    </div>
+                                    <div>
+                                          <input type="checkbox" name="paralax"/>
+                                          <label>Paralax</label>
+                                          <input type="number" step="1" max="10" min="0" value="0" name="paralax_qnt" />
+                                    </div>
+                                    <div>
+                                          <input type="checkbox" name="animation"/>
+                                          <label>Animation</label>
+                                          <input type="number" step="1" max="10" min="0" value="0" name="animation_qnt" />
+                                    </div>
+
                                     <h5>Business logic</h5>
-                                    <label>User registration</label>
-                                    <input type="checkbox" name="registration"/>
-                                    <label>Admin panel</label>
-                                    <input type="checkbox" name="admin_panel"/>
-                                    <label>content editing</label>
-                                    <input type="checkbox" name="editing"/>
-                                    <label>User input form</label>
-                                    <input type="checkbox" name="data_form"/>
-                                    <input type="number" step="1" max="10" min="0" value="0" name="data_form_qnt" />
+                                    <div>
+                                          <input type="checkbox" name="registration"/>
+                                          <label>User registration</label>
+                                    </div>
+                                    <div>      
+                                          <input type="checkbox" name="admin_panel"/>
+                                          <label>Admin panel</label>
+                                    </div>
+                                    <div>      
+                                          <input type="checkbox" name="editing"/>
+                                          <label>content editing</label>
+                                    </div>
+                                    <div>      
+                                          <input type="checkbox" name="data_form"/>
+                                          <label>User input form</label>
+                                          <input type="number" step="1" max="10" min="0" value="0" name="data_form_qnt" />
+                                    </div>
                               </div>
-                              <button type="submit">Calculate</button>
-                              <output>
-                                    Form is inactive and price calculation not avialable yet. Result will be shown here.
-                              </output>
+                              <div class="column">
+                                    <output>
+                                          Form is inactive and price calculation not avialable yet.
+                                          <br />
+                                          <br />
+                                          When enabled Result will be shown here.
+                                    </output>
+                                    <button type="submit">Calculate</button>
+                              </div>
                         </form>
                         </div>
                         <div id="testimonials" class="scroller"></div> <!--Navigation to next section-->
@@ -323,7 +339,7 @@
             <section >
                   <div class="section-content">
                         <h2>My clients say...</h2>
-                        <div class="pricing-container">
+                        <div class="container pricing">
                               <div>
                                     <img src="images/user.png" alt="Custommer face" />
                                     <h4>John Doe</h4>
@@ -337,27 +353,27 @@
 
                         <div>
                               <h4>My statistics</h4>
-                              <div class="statistic-box">
-                                    <div>
-                                          Orders recieved
+                              <div class="container statistic">
+                                    <div class="column">
+                                          <p>Orders recieved</p>
                                           <div>
                                                 1
                                           </div>
                                     </div>
-                                    <div>
-                                          Orders executed
+                                    <div class="column">
+                                          <p>Orders executed</p>
                                           <div>
                                                 1
                                           </div>
                                     </div>
-                                    <div>
-                                          Happy clients
+                                    <div class="column">
+                                          <p>Happy clients</p>
                                           <div>
                                                 1
                                           </div>
                                     </div>
-                                    <div>
-                                          Hours spent
+                                    <div class="column">
+                                          <p>Hours spent</p>
                                           <div>
                                                10
                                           </div>
@@ -372,8 +388,8 @@
             <section>
                   <div class="section-content">
                         <h2>Contact me</h2>
-                        <div class="contacts">
-                              <div>
+                        <div class="container contacts">
+                              <div class="column">
                                     <h5>Adress and bank account</h5>
                                     <p>
                                           <img class="contacts-icon" src="images/icons/location-pin-solid.svg" alt="location pin">
@@ -381,16 +397,17 @@
                                     </p>
                                     <p>
                                           <img class="contacts-icon" src="images/icons/money-bill-1-solid.svg" alt="Money">
-                                          Donations and orders payment to: 47 1234 1000 1234 1234
+                                          Donations and orders payment to: <br />
+                                          47 1234 1000 1234 1234
                                     </p>
                               </div>
-                              <div>
+                              <div class="column">
                                     <h5>Live contacts</h5>
                                     <p>
                                           <img class="contacts-icon" src="images/icons/envelope-solid.svg" alt="envelope">
-                                          e-mail:
+                                          e-mail: vilius.s@outlook.com
                                           <a href="mailto:vilius.s@outlook.com?subject=want to contact&body=I would like to order a web page">
-                                                write me
+                                                click to write me
                                           </a>
                                     </p>
                                     <p>
@@ -410,7 +427,7 @@
                                           Not avialable
                                     </p>
                               </div>
-                              <div>
+                              <div class="column">
                                     <h5>Social networks</h5>
                                     <p>
                                           <img class="contacts-icon" src="images/icons/linkedin.svg" alt="Linkedin">
@@ -424,6 +441,13 @@
                                           <img class="contacts-icon" src="images/icons/youtube.svg" alt="Youtube">
                                           Vilius...
                                     </p>
+                                    <h5>Other links</h5>
+                                    <p>
+                                          <img class="contacts-icon" src="images/icons/square-github.svg" alt="Youtube">
+                                          <a href="https://github.com/ViliusSenkus">
+                                                Github
+                                          </a>
+                                    </p>
                               </div>
                         </div>
                        
@@ -436,26 +460,24 @@
             <section>
                   <div class="section-content">
                         <h2>Visit my other pages</h2>
-                        <div>
-                              <div paskirtis="i6orinis gabaluko apipavidalinimas">
+                        <div class="container other">
+                              <div class="column">
                                     <img src="images/saule.png" alt="blogas"/>
                                     <h4>My Blog</h4>
                                     <div>
                                           Newest information on my developement, newly web developement issues and much more. 
                                     </div>
                               </div>
-                        </div>
-                        <div>
-                              <div>
+                       
+                              <div class="column">
                                     <img src="images/saule.png" alt="my photos"/>
                                     <h4>My Photos page</h4>
                                     <div>
                                           Newest information on my developement, newly web developement issues and much more. 
                                     </div>
                               </div>
-                        </div>
-                        <div>
-                              <div paskirtis="i6orinis gabaluko apipavidalinimas">
+                        
+                              <div class="column">
                                     <img src="images/saule.png" alt="programmers courses"/>
                                     <h4>Programmers courses</h4>
                                     <div>
@@ -467,7 +489,7 @@
             </section>
       </main>
 
-      <footer>
+      <footer class="container">
             <div>
                   <span>Authors:</span>
                   <p>Design idea - Žydra &copy &#8482 &reg </p>
