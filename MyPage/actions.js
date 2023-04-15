@@ -59,51 +59,28 @@ portfolioNavigation.forEach ( li => {
 
 function showJobs(e, data){
       const list=e.target.innerHTML;
-      const div=document.querySelector("#portfolio-container");
+      const div=document.querySelector(".portfolio");
       const dataValues = Object.values(data); //all primary json objects converted to arrays.
       div.innerHTML="";
+      // json data galima perkonvertuoti į masyvą su Object.values(data)  data-objekto pavadinimas
       dataValues.map((values) => {
 
             switch (list){
                   case 'My latest jobs' :
                         if (values.actual === "1")
-                              div.innerHTML +=
-                                    `<div class="scroll-view">
-                                          <img src="${values.pic}" />
-                                          <h5>${values.name}</h5>
-                                          <p>${values.description}</p>
-                                          <a href="${values.url}">Visit site</a>
-                                    </div>`;
+                              div.innerHTML += jobs(values);
                         break;
                   case 'Best evaluated' :
                         if (values.award === "1")
-                              div.innerHTML += 
-                              `<div class="scroll-view">
-                                    <img src="${values.pic}" />
-                                    <h5>${values.name}</h5>
-                                    <p>${values.description}</p>
-                                    <a href="${values.url}">Visit site</a>
-                              </div>`;
+                              div.innerHTML += jobs(values);
                         break;
                   case 'Landing pages' :
                         if (values.type === 'Landing pages')
-                              div.innerHTML += 
-                              `<div class="scroll-view">
-                                    <img src="${values.pic}" />
-                                    <h5>${values.name}</h5>
-                                    <p>${values.description}</p>
-                                    <a href="${values.url}">Visit site</a>
-                              </div>`;
+                              div.innerHTML += jobs(values);
                         break;
                   case 'SPA applications' :
                         if (values.type === list)
-                              div.innerHTML += 
-                              `<div class="scroll-view">
-                                    <img src="${values.pic}" />
-                                    <h5>${values.name}</h5>
-                                    <p>${values.description}</p>
-                                    <a href="${values.url}">Visit site</a>
-                              </div>`;
+                              div.innerHTML += jobs(values);
                         break;
                   default :
                         break;
@@ -112,4 +89,9 @@ function showJobs(e, data){
       });
 }
 
-      
+const jobs = (values) => `<div class="scroll-view">
+                              <img src="${values.pic}" />
+                              <h5>${values.name}</h5>
+                              <p>${values.description}</p>
+                              <a href="${values.url}">Visit site</a>
+                        </div>`;
