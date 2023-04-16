@@ -20,10 +20,32 @@ show_hide_navigation.addEventListener("click", ()=>{
       }
 })
 
-            // window.addEventListener("hashchange",  () => {
-            //       console.log("haschange")
-            //       window.scrollTo(window.scrollY - 180)
-            // });
+// function scrollToPart(part){
+//       let promise = new Promise (function (){
+//             section = document.getElementById(part);
+//             section.scrollIntoView({behavior: 'smooth'}, true);
+//             })
+//       promise.then(function (value){
+//             console.log("cia")
+//                   value = window.scrollY;
+//                   value > 150 ? x = value - 150 : x = 0;
+//                   window.scroll(0, x);
+//                   })
+// }
+
+      // code works, but poore UX due to different scroll speeds. 
+            window.addEventListener("hashchange",  () => {
+                  setTimeout( ()=>{
+                        const mediaQuery = window.matchMedia('(max-width: 900px)');
+                        let x = window.scrollY;
+                        if (mediaQuery.matches && (x > 200) ){
+                              x -= 200;
+                        }else if( x > 40 ){
+                              x -= 40;
+                        }
+                        window.scroll(0, x);
+                  }, 1000);
+            });
 
 
 /*-----------------------------------------*/                                  

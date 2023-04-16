@@ -45,7 +45,7 @@ header {
       box-shadow: 0px 2px 5px var(--black);
 }
 .hidden-up{
-      top: -55px;
+      top: -47px;
 }
 #navigation{
       width:100%;
@@ -161,12 +161,6 @@ main{
 
 .down{
       margin-top: 36px;
-}
-.scroller{
-      position: relative;
-      bottom:0px;
-      height:36px;
-      z-index:-1
 }
 main > section{
       padding: 40px 0 0 0;
@@ -407,9 +401,6 @@ output{
 @media screen and (max-width:900px){
       .down{
             margin-top: 220px;
-      }
-      .scroller{
-            bottom: 180px
       }
       .contacts{
             flex-direction: column;
