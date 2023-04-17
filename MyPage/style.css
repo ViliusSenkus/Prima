@@ -180,7 +180,6 @@ main > section:nth-child(odd){
       background-color: var(--white);
 }
 .section-content{
-
       max-width: 1200px;
       margin: 0 auto;
 }
@@ -212,7 +211,7 @@ img{
       width: 200px;
       height: 200px;
 }
-#top + p{
+#top + div{
       margin-left: 200px;
       position: relative;
       top: -60px;
@@ -294,9 +293,8 @@ img{
       height: 350px;
 }
 
-/* .portfolio,
-.pricing{
-      flex-wrap: nowrap; // parametras reiklingas slidingui, kad nepersikėlinėtų į kitą eilutę
+/* .portfolio{
+      flex-wrap: nowrap; /* parametras reiklingas slidingui, kad neperkletų duomenų į kitą eilutę 
 } */
 .portfolio > div,
 .pricing > div{
@@ -430,8 +428,9 @@ output{
       .contacts > div{
             max-width: 90%;
       }
-      #top + p{
+      #top + div{
             margin-left: 30px;
+            z-index:0
       }
       #wellcome img{
             display: none;

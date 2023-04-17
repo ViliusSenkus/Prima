@@ -39,20 +39,8 @@ show_hide_navigation.addEventListener("click", ()=>{
 // }
 
       // code works, but poore UX due to different scroll speeds. 
-            // window.addEventListener("hashchange",  () => {
-            //       setTimeout( ()=>{
-            //             const mediaQuery = window.matchMedia('(max-width: 900px)');
-            //             let x = window.scrollY;
-            //             if (mediaQuery.matches && (x > 200) ){
-            //                   x -= 200;
-            //             }else if( x > 40 ){
-            //                   x -= 40;
-            //             }
-            //             window.scroll(0, x);
-            //       }, 1000);
-           
             window.addEventListener("hashchange",  () => {
-                  onscrollend = () => {
+                  setTimeout( ()=>{
                         const mediaQuery = window.matchMedia('(max-width: 900px)');
                         let x = window.scrollY;
                         if (mediaQuery.matches && (x > 200) ){
@@ -61,8 +49,21 @@ show_hide_navigation.addEventListener("click", ()=>{
                               x -= 40;
                         }
                         window.scroll(0, x);
-                  }
+                  }, 1000);
             });
+           
+            // window.addEventListener("hashchange",  () => {
+            //       onscrollend = () => {
+            //             const mediaQuery = window.matchMedia('(max-width: 900px)');
+            //             let x = window.scrollY;
+            //             if (mediaQuery.matches && (x > 200) ){
+            //                   x -= 200;
+            //             }else if( x > 40 ){
+            //                   x -= 40;
+            //             }
+            //             window.scroll(0, x);
+            //       }
+            // });
 
 
 
