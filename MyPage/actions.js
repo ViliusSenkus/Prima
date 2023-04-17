@@ -20,6 +20,11 @@ show_hide_navigation.addEventListener("click", ()=>{
       }
 })
 
+
+/*----------------------------------------*/                                  
+/*    Scrollin (from navigation menu)     */
+/*----------------------------------------*/     
+
 // function scrollToPart(part){
 //       let promise = new Promise (function (){
 //             section = document.getElementById(part);
@@ -34,8 +39,20 @@ show_hide_navigation.addEventListener("click", ()=>{
 // }
 
       // code works, but poore UX due to different scroll speeds. 
+            // window.addEventListener("hashchange",  () => {
+            //       setTimeout( ()=>{
+            //             const mediaQuery = window.matchMedia('(max-width: 900px)');
+            //             let x = window.scrollY;
+            //             if (mediaQuery.matches && (x > 200) ){
+            //                   x -= 200;
+            //             }else if( x > 40 ){
+            //                   x -= 40;
+            //             }
+            //             window.scroll(0, x);
+            //       }, 1000);
+           
             window.addEventListener("hashchange",  () => {
-                  setTimeout( ()=>{
+                  onscrollend = () => {
                         const mediaQuery = window.matchMedia('(max-width: 900px)');
                         let x = window.scrollY;
                         if (mediaQuery.matches && (x > 200) ){
@@ -44,10 +61,12 @@ show_hide_navigation.addEventListener("click", ()=>{
                               x -= 40;
                         }
                         window.scroll(0, x);
-                  }, 1000);
+                  }
             });
 
 
+
+          
 /*-----------------------------------------*/                                  
 /*    Home - professions changing          */
 /*-----------------------------------------*/   
@@ -64,24 +83,40 @@ setInterval(()=>{
 
 
 /*----------------------------------------------------------*/                                  
-/*    Portfolio - response according navigation request     */
+/*Portfolio - activate content according navigation request */
 /*----------------------------------------------------------*/
 
 const portfolioNavigation = document.querySelectorAll("#portfolio-nav li");
+const portfolioInitial = document.querySelector("[portfolio='latest']");
+const div=document.querySelector(".portfolio");
 
+// first menu item activated.
+fetch("resourcess/portfolio.json")
+      .then(resp => resp.json())
+      .then (resp => {
+            for (x in resp) {
+                  
+                  if (resp[x].actual === "1")
+                  div.innerHTML += jobs(resp[x]);
+                  }
+            });
 
+// assigning eventlistener to menu items
 portfolioNavigation.forEach ( li => {
       li.addEventListener('click', (e)=>{
             fetch("resourcess/portfolio.json")
             .then(resp => resp.json())
-            .then (resp => showJobs(e, resp));
-            
+            .then(resp => showJobs(e, resp))
+            .then(resp => {
+                  for(x in portfolioNavigation)
+                        portfolioNavigation[x].className="";
+                  menu_highlight(e.target)
+            })
       });
 });
 
 function showJobs(e, data){
       const list=e.target.innerHTML;
-      const div=document.querySelector(".portfolio");
       const dataValues = Object.values(data); //all primary json objects converted to arrays.
       div.innerHTML="";
       // json data galima perkonvertuoti į masyvą su Object.values(data)  data-objekto pavadinimas
@@ -107,7 +142,6 @@ function showJobs(e, data){
                   default :
                         break;
             }
-
       });
 }
 
@@ -117,3 +151,8 @@ const jobs = (values) => `<div class="scroll-view">
                               <p>${values.description}</p>
                               <a href="${values.url}">Visit site</a>
                         </div>`;
+
+//active menu item highligtning
+function menu_highlight(item){
+     item.className="active";
+}

@@ -131,6 +131,14 @@ nav > a:hover{
             height: 100%;
             margin: 10px 0;
       }
+      #wellcome span{
+            display: block;
+            height: 70px;
+      }
+      #wellcome h2{
+            font-size: 32px;
+            text-align: left;
+      }
 }
 
 /*----------------------------------------------------------------------*/
@@ -163,7 +171,7 @@ main{
       margin-top: 36px;
 }
 main > section{
-      padding: 40px 0 0 0;
+      padding: 40px 0;
 }
 main > section:nth-child(even){
       background-color: var(--back);
@@ -181,6 +189,7 @@ h2{
       margin-bottom: 40px;
       font-size: 40px;
       text-transform: uppercase;
+      line-height: 40px;
 }
 h4{
       margin: 20px 0;
@@ -204,7 +213,9 @@ img{
       height: 200px;
 }
 #top + p{
-      margin-left: 220px;
+      margin-left: 200px;
+      position: relative;
+      top: -60px;
 }
 
 #prof-list{
@@ -258,11 +269,22 @@ img{
       gap:20px;
       list-style: none;
 }
-#portfolio-nav li::before,
-#portfolio-nav li::after{
-      content:"-";
-
+#portfolio-nav .active{
+      color: red;
+      
 }
+#portfolio-nav .active::before,
+#portfolio-nav .active::after{
+      content:"";
+      width:10px;
+      border-top:1px solid red;
+      padding:10px;
+      margin:2px;
+      position:relative;
+      top: 20px;
+}
+
+
 #portfolio-nav li:hover{
       color:rgb(232, 110, 28);
       cursor: pointer;
@@ -408,6 +430,54 @@ output{
       .contacts > div{
             max-width: 90%;
       }
+      #top + p{
+            margin-left: 30px;
+      }
+      #wellcome img{
+            display: none;
+      }
+      .portfolio > div,
+      .pricing > div{
+      width: 300px;
+      padding: 10px;
+      margin: 10px;
+      background-color: var(--white);
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid black;
+      }
+      .portfolio img,
+      .pricing img{
+            width: 100%;
+      }
+      output{
+            font-size: 24px;
+            line-height: 24px;
+            text-align: left;
+      }
+      form {
+            gap: 2px;
+            padding: 5px;
+      }
+      .column{
+            justify-content: end;
+            max-width: 45%;
+      }
+      label{
+            display: inline-block;
+            font-size: 16px;
+            min-width: 100px;
+            padding-top:4px;
+      }
+      
+      input,
+      select{
+            font-size: 16px;
+            padding: 2px;
+            border:none;
+            box-shadow: inset 2px 2px 5px rgb(193, 193, 193);
+      }
+
 }
 
 /* ----------------------- Other ----------------------- */
