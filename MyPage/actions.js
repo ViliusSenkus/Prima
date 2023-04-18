@@ -148,7 +148,7 @@ function showJobs(e, data){
 
 const jobs = (values) => `<div class="scroll-view">
                               <img src="${values.pic}" />
-                              <h5>${values.name}</h5>
+                              <h4>${values.name}</h4>
                               <p>${values.description}</p>
                               <a href="${values.url}">Visit site</a>
                         </div>`;
