@@ -25,45 +25,40 @@ show_hide_navigation.addEventListener("click", ()=>{
 /*    Scrollin (from navigation menu)     */
 /*----------------------------------------*/     
 
-// function scrollToPart(part){
-//       let promise = new Promise (function (){
-//             section = document.getElementById(part);
-//             section.scrollIntoView({behavior: 'smooth'}, true);
-//             })
-//       promise.then(function (value){
-//             console.log("cia")
-//                   value = window.scrollY;
-//                   value > 150 ? x = value - 150 : x = 0;
-//                   window.scroll(0, x);
-//                   })
-// }
+document.querySelectorAll('header nav > a').forEach(el => 
+      el.addEventListener("click",  (e) => {
+            e.preventDefault();
+            const header_height = document.querySelector('header').offsetHeight;
+            const target = el.getAttribute('href');
+            if(target !== "#"){
+                  const target_block = document.querySelector(target);
+                  const target_Y = (target_block.offsetTop);
+                  window.scrollTo({top: target_Y - header_height});
+            } else {
+                  window.scrollTo({top:0})
+            }
+      })
+);
+      
+      
 
-      // code works, but poore UX due to different scroll speeds. 
-            window.addEventListener("hashchange",  () => {
-                  setTimeout( ()=>{
-                        const mediaQuery = window.matchMedia('(max-width: 900px)');
-                        let x = window.scrollY;
-                        if (mediaQuery.matches && (x > 200) ){
-                              x -= 200;
-                        }else if( x > 40 ){
-                              x -= 40;
-                        }
-                        window.scroll(0, x);
-                  }, 1000);
-            });
-           
-            // window.addEventListener("hashchange",  () => {
-            //       onscrollend = () => {
-            //             const mediaQuery = window.matchMedia('(max-width: 900px)');
-            //             let x = window.scrollY;
-            //             if (mediaQuery.matches && (x > 200) ){
-            //                   x -= 200;
-            //             }else if( x > 40 ){
-            //                   x -= 40;
-            //             }
-            //             window.scroll(0, x);
-            //       }
-            // });
+// gathering information requered for page position fix during resizing.
+      
+
+let relative_position = 0;
+
+window.addEventListener('scroll', () => {
+      const document_height = document.querySelector('body').offsetHeight;
+      const current_position = window.pageYOffset;      
+      relative_position = current_position / document_height;
+      console.log("rel " + relative_position);
+})
+window.addEventListener("resize", () => {
+            const document_height = document.querySelector('body').offsetHeight;
+            const new_position = document_height * relative_position;
+            window.scrollTo({top:new_position});
+            console.log("new " + new_position);
+})
 
 
 
