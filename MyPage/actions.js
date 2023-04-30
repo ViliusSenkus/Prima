@@ -51,7 +51,6 @@ window.addEventListener('scroll', () => {
       const document_height = document.querySelector('body').offsetHeight;
       const current_position = window.pageYOffset;      
       relative_position = current_position / document_height;
-      console.log("rel " + relative_position);
 })
 window.addEventListener("resize", () => {
             const document_height = document.querySelector('body').offsetHeight;
@@ -86,31 +85,35 @@ const portfolioNavigation = document.querySelectorAll("#portfolio-nav li");
 const portfolioInitial = document.querySelector("[portfolio='latest']");
 const div=document.querySelector(".portfolio");
 
+let collection = [];  //pack of pages to show in portfolio
+
 // first menu item activated.
 fetch("resourcess/portfolio.json")
       .then(resp => resp.json())
-      .then (resp => {
+      .then (resp => {portfolio=resp
             for (x in resp) {
-                  
+                  let i = 1;
                   if (resp[x].actual === "1")
+                  collection.push(resp[x]);
                   div.innerHTML += jobs(resp[x]);
+                  if (i >= 5) break;
+                  i++;
                   }
-            });
+});            
+
 
 // assigning eventlistener to menu items
 portfolioNavigation.forEach ( li => {
       li.addEventListener('click', (e)=>{
-            fetch("resourcess/portfolio.json")
-            .then(resp => resp.json())
-            .then(resp => showJobs(e, resp))
-            .then(resp => {
-                  for(x in portfolioNavigation)
+            console.log(e.target);
+            showJobs(e, collection);
+            for(x in portfolioNavigation){
                         portfolioNavigation[x].className="";
                   menu_highlight(e.target)
-            })
+                  }
       });
-});
-
+})
+                  
 function showJobs(e, data){
       const list=e.target.innerHTML;
       const dataValues = Object.values(data); //all primary json objects converted to arrays.
