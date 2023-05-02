@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            .container{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  flex-wrap: no-wrap;
+                  gap: 50px;
+                  width: 200px;
+                  margin: 0 auto;
+                  border: 1px solid black;
+            }
+            .bl-show{
+                  order: 2;
+            }
+            .bl-left{
+                  order: 1;
+            }
+            .bl-right{
+                  order: 3;
+            }
+      </style>
+</head>
+<body>
+      <div class="container">
+            <div class="block bl-show">Pirmas</div>
+            <div class="block bl-left">Antras</div>
+            <div class="block bl-right">Trečias</div>
+      </div>
+      <div class="container">
+            <div id="back">atgal</div>
+            <div id="viens">0</div>
+            <div id="du">0</div>
+            <div id="trys">0</div>
+            <div id="fwrd">pirmyn</div>
+      </div>
+</body>
+<script>
+      const blocks=document.querySelectorAll('.block');
+      console.log(blocks);
+      
+
+      document.querySelectorAll()
+
+      document.querySelector('#back').addEventListener('click', () => {
+            move(-1)
+      });
+      document.querySelector('#fwrd').addEventListener('click', () => {
+            move(1)
+      });
+
+      function move(x){
+            console.log(blocks, x);
+      }
+
+
+</script>
+</html>
