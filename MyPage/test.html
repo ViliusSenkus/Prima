@@ -44,34 +44,35 @@
      
       document.querySelector('#back').addEventListener('click', () => {
             const blocks=document.querySelectorAll('.block');
+            temp = getDivs(blocks);
+            back(blocks, temp);
             
-            let temp1=blocks[0].innerHTML;
-            let temp2=blocks[1].innerHTML;
-            let temp3=blocks[2].innerHTML;
-
-            blocks[0].innerHTML = temp2;
-            blocks[1].innerHTML = temp3;
-            blocks[2].innerHTML = temp1;
-
       });
       document.querySelector('#fwrd').addEventListener('click', () => {
             const blocks=document.querySelectorAll('.block');
             move(blocks, 1)
       });
 
-      function move(blocks){
-            
-            let temp1=blocks[0].innerHTML;
-            let temp2=blocks[1].innerHTML;
-            let temp3=blocks[2].innerHTML;
-
-            blocks[0].innerHTML = temp3;
-            blocks[1].innerHTML = temp1;
-            blocks[2].innerHTML = temp2;
+      function fwrd(blocks, temp){
+            blocks[0].innerHTML = temp[2];  1+1
+            blocks[1].innerHTML = temp[0];  -1+1
+            blocks[2].innerHTML = temp[1];    0+1
                         
                         
       }     
             
+      function getDivs(blocks){
+            const temp = []
+            for(x of blocks)
+                  temp.push(x.innerHTML);
+            return temp;
+      }
+
+      function back(blocks, array){
+            blocks[0].innerHTML = array[1];-1
+            blocks[1].innerHTML = array[2];+2
+            blocks[2].innerHTML = array[0];-1
+      }
 
 
 </script>
