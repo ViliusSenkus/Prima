@@ -44,14 +44,20 @@
      
       document.querySelector('#back').addEventListener('click', () => {
             const blocks=document.querySelectorAll('.block');
-            temp = getDivs(blocks);
-            back(blocks, temp);
+            bandymas(blocks);
+            // temp = getDivs(blocks);
+            // back(blocks, temp);
             
       });
       document.querySelector('#fwrd').addEventListener('click', () => {
             const blocks=document.querySelectorAll('.block');
             move(blocks, 1)
       });
+
+      function bandymas(b){
+            first=b.splice(0, 1);
+            console.log(first);
+            }
 
       function fwrd(blocks, temp){
             blocks[0].innerHTML = temp[2];  1+1
