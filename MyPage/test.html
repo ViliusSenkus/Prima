@@ -14,13 +14,12 @@
                   gap: 50px;
                   width: 200px;
                   margin: 0 auto;
-                  border: 1px solid black;
             }
             .bl1{
-                  order: 2;
+                  order: 1;
             }
             .bl2{
-                  order: 1;
+                  order: 2;
             }
             .bl3{
                   order: 3;
@@ -28,49 +27,51 @@
       </style>
 </head>
 <body>
-      <div class="container">
-            <div class="block bl1">Pirmas</div>
-            <div class="block bl2">Antras</div>
-            <div class="block bl3">Trečias</div>
-      </div>
-      <div class="container">
-            <div id="back">atgal</div>
-            <div id="viens">0</div>
-            <div id="du">0</div>
-            <div id="trys">0</div>
-            <div id="fwrd">pirmyn</div>
-      </div>
+      
+            <div class="container">
+                  <div id="back">atgal</div>
+                  <div class="container">
+                        <div class="block bl1">*</div>
+                        <div class="block bl2">**</div>
+                        <div class="block bl3">***</div>
+                  </div>
+                  <div id="fwrd">pirmyn</div>
+            </div>
+      
+      
 </body>
 <script>
      
       document.querySelector('#back').addEventListener('click', () => {
             const blocks=document.querySelectorAll('.block');
-            move(blocks, -1)
+            
+            let temp1=blocks[0].innerHTML;
+            let temp2=blocks[1].innerHTML;
+            let temp3=blocks[2].innerHTML;
+
+            blocks[0].innerHTML = temp2;
+            blocks[1].innerHTML = temp3;
+            blocks[2].innerHTML = temp1;
+
       });
       document.querySelector('#fwrd').addEventListener('click', () => {
             const blocks=document.querySelectorAll('.block');
             move(blocks, 1)
       });
 
-      function move(blocks, x){
-                        for (x of blocks){
-                              x.classList = x.classList+x
-                        //       if(x.classList = "bl-left"){
-                        //       x.classList.remove("bl-left");
-                        //       x.classList.add("bl-right");
-                        //       };
-                        //       if(x.classList = "bl-show"){
-                        //       x.classList.remove("bl-show");
-                        //       x.classList.add("bl-left");
-                        //       };
-                        //       if(x.classList = "bl-right"){
-                        //       x.classList.remove("bl-rigt");
-                        //       x.classList.add("bl-show");
-                        //       };
-                        // }  
+      function move(blocks){
+            
+            let temp1=blocks[0].innerHTML;
+            let temp2=blocks[1].innerHTML;
+            let temp3=blocks[2].innerHTML;
+
+            blocks[0].innerHTML = temp3;
+            blocks[1].innerHTML = temp1;
+            blocks[2].innerHTML = temp2;
                         
-                        }     
-            }
+                        
+      }     
+            
 
 
 </script>
