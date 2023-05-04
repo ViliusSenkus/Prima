@@ -144,7 +144,7 @@ function showJobs(e, data){
       });
 }
 
-const jobs = (values) => `<div class="scroll-view">
+const jobs = (values) => `<div class="scroll-view block">
                               <img src="${values.pic}" />
                               <h4>${values.name}</h4>
                               <p>${values.description}</p>
@@ -154,4 +154,38 @@ const jobs = (values) => `<div class="scroll-view">
 //active menu item highligtning
 function menu_highlight(item){
      item.className="active";
+}
+
+// Portfolio carousell
+
+document.querySelector('#back').addEventListener('click', () => {
+      const data = getData();
+      let blocks = data[0];
+      let array = data[1];
+      const taken = array.splice(0, 1)
+      array.push(taken[0]);
+      for(x in blocks){
+            blocks[x].innerHTML=array[x];
+      }
+      
+});
+
+document.querySelector('#fwrd').addEventListener('click', () => {
+      const data = getData();
+      let blocks = data[0];
+      let array = data[1];
+      const taken = array.splice(-1, 1)
+      array.unshift(taken[0]);
+      for(x in blocks){
+            blocks[x].innerHTML=array[x];
+      }
+});
+
+function getData(){
+      const blocks=document.querySelectorAll('.block');
+      const array = Array.from(blocks);
+      for(x in array){
+            array[x]=array[x].innerHTML;
+      }
+      return [blocks, array]
 }
