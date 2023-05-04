@@ -189,3 +189,22 @@ function getData(){
       }
       return [blocks, array]
 }
+
+//Price calculation
+function calculate(){
+      const addr=document.location.href;
+      let payload = addr.split("?");
+      payload = payload[1].split("&");
+      const request = {};
+      payload.forEach(element => {
+            console.log(element);
+            el = element.split("=");
+            let prop = el[0]
+            let value = el[1]
+            console.log(el);
+            request[prop] = value;
+      });
+      console.log(request)
+
+
+}
