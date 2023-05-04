@@ -11,7 +11,7 @@
                   flex-direction: row;
                   justify-content: center;
                   flex-wrap: no-wrap;
-                  gap: 50px;
+                  gap: 20px;
                   width: 200px;
                   margin: 0 auto;
             }
@@ -31,9 +31,19 @@
             <div class="container">
                   <div id="back">atgal</div>
                   <div class="container">
-                        <div class="block bl1">*</div>
-                        <div class="block bl2">**</div>
-                        <div class="block bl3">***</div>
+                        <div class="block">
+                              <div>A<span>-</span></div>
+                              <div>Kaka</div>
+                        </div>
+                        <div class="block">
+                              <div>B</div>
+                        </div>
+                        <div class="block">
+                              <div>C</div>
+                        </div>
+                        <div class="block">
+                              <div>D</div>
+                        </div>
                   </div>
                   <div id="fwrd">pirmyn</div>
             </div>
@@ -43,41 +53,35 @@
 <script>
      
       document.querySelector('#back').addEventListener('click', () => {
-            const blocks=document.querySelectorAll('.block');
-            bandymas(blocks);
-            // temp = getDivs(blocks);
-            // back(blocks, temp);
-            
-      });
-      document.querySelector('#fwrd').addEventListener('click', () => {
-            const blocks=document.querySelectorAll('.block');
-            move(blocks, 1)
-      });
-
-      function bandymas(b){
-            first=b.splice(0, 1);
-            console.log(first);
+            const data = getData();
+            let blocks = data[0];
+            let array = data[1];
+            const taken = array.splice(0, 1)
+            array.push(taken[0]);
+            for(x in blocks){
+                  blocks[x].innerHTML=array[x];
             }
-
-      function fwrd(blocks, temp){
-            blocks[0].innerHTML = temp[2];  1+1
-            blocks[1].innerHTML = temp[0];  -1+1
-            blocks[2].innerHTML = temp[1];    0+1
-                        
-                        
-      }     
             
-      function getDivs(blocks){
-            const temp = []
-            for(x of blocks)
-                  temp.push(x.innerHTML);
-            return temp;
-      }
+      });
+   
+      document.querySelector('#fwrd').addEventListener('click', () => {
+            const data = getData();
+            let blocks = data[0];
+            let array = data[1];
+            const taken = array.splice(-1, 1)
+            array.unshift(taken[0]);
+            for(x in blocks){
+                  blocks[x].innerHTML=array[x];
+            }
+      });
 
-      function back(blocks, array){
-            blocks[0].innerHTML = array[1];-1
-            blocks[1].innerHTML = array[2];+2
-            blocks[2].innerHTML = array[0];-1
+      function getData(){
+            const blocks=document.querySelectorAll('.block');
+            const array = Array.from(blocks);
+            for(x in array){
+                  array[x]=array[x].innerHTML;
+            }
+            return [blocks, array]
       }
 
 
