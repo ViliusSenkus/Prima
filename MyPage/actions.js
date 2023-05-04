@@ -194,7 +194,8 @@ function getData(){
 function calculate(){
       const addr=document.location.href;
       let payload = addr.split("?");
-      payload = payload[1].split("&");
+      payload=payload[1].split("#")
+      payload = payload[0].split("&");
       const request = {};
       payload.forEach(element => {
             console.log(element);
@@ -204,7 +205,25 @@ function calculate(){
             console.log(el);
             request[prop] = value;
       });
-      console.log(request)
+      
+      console.log(request);
+      
+      let sum = 0;
+      if (request["page-type"] === "simple") sum = sum +20;
+      if (request["page-type"] === "landing") sum = sum +50;
+      if (request["page-type"] === "SPA") sum = sum +200;
+      
+      if(request["pages_qnt"] > 0) sum = sum*request["pages_qnt"];
 
+      if (request["admin_panel"] === "on") sum = sum + 50;
+      if (request["animation"] === "on") sum = sum + ( 5 * request["animation_qnt"]);
+      if (request["data_form"] === "on") sum = sum + ( 30 * request["data_form_qnt"]);
+      if (request["editing"] === "on") sum = sum + 50;
+      if (request["menu"] === "on") sum = sum + ( 10 * request["menu_qnt"]);
+      if (request["paralax"] === "on") sum = sum + ( 5 * request["paralax_qnt"]);
+      if (request["registration"] === "on") sum = sum + ( 50 * request["sliders_qnt"]);
+      if (request["sliders"] === "on") sum = sum + ( 5 * request["sliders_qnt"]);
 
+      let output = document.getElementsByTagName("output");
+      output[0].innerHTML=`According your request price could be about ${sum} EUR`;
 }
