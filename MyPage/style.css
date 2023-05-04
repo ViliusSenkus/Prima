@@ -228,7 +228,7 @@ img{
 .container{
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-evenly;
       align-items: stretch;
       margin: 20px auto;
@@ -301,13 +301,32 @@ img{
 }
 
 .scroll-view img{
-      height: 350px;
+      max-height: 350px;
 }
-
-/* .portfolio{
-      flex-wrap: nowrap; /* parametras reiklingas slidingui, kad neperkletų duomenų į kitą eilutę 
-} */
-.portfolio > div,
+.portfolio{
+      width: 100%;
+      overflow: hidden;
+      text-align: center;
+}
+.portfolio > div{
+      display:inline-block;
+      width:400px;
+      padding: 20px;
+      background-color: var(--white);
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid black;
+}
+.portfolio > div:nth-child(1){
+      position: relative;
+      left: -100px;
+      opacity: 0.2;
+}
+.portfolio > div:nth-child(3){
+      position: relative;
+      right: -100px;
+      opacity: 0.2;
+}
 #clients > div{
       width: 500px;
       padding: 20px;
