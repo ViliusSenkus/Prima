@@ -210,8 +210,8 @@ function calculate(){
       
       let sum = 0;
       if (request["page-type"] === "simple") sum = sum +20;
-      if (request["page-type"] === "landing") sum = sum +50;
-      if (request["page-type"] === "SPA") sum = sum +200;
+      if (request["page-type"] === "landing") sum = sum +30;
+      if (request["page-type"] === "SPA") sum = sum +50;
       
       if(request["pages_qnt"] > 0) sum = sum*request["pages_qnt"];
 
@@ -221,7 +221,7 @@ function calculate(){
       if (request["editing"] === "on") sum = sum + 50;
       if (request["menu"] === "on") sum = sum + ( 10 * request["menu_qnt"]);
       if (request["paralax"] === "on") sum = sum + ( 5 * request["paralax_qnt"]);
-      if (request["registration"] === "on") sum = sum + ( 50 * request["sliders_qnt"]);
+      if (request["registration"] === "on") sum = sum + ( 30 * request["sliders_qnt"]);
       if (request["sliders"] === "on") sum = sum + ( 5 * request["sliders_qnt"]);
 
       let output = document.getElementsByTagName("output");
