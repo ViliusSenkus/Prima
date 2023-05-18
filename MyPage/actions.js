@@ -190,8 +190,14 @@ function getData(){
       return [blocks, array]
 }
 
-//Price calculation
-function calculate(){
+/*----------------------------------------------------------*/                                  
+/*                    Price calculation                     */
+/*----------------------------------------------------------*/
+
+document.querySelector('form').addEventListener('submit', calculate)
+
+function calculate(e){
+      e.preventDefault();
       const addr=document.location.href;
       let payload = addr.split("?");
       payload=payload[1].split("#")
