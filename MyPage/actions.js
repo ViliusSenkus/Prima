@@ -198,7 +198,7 @@ document.querySelector('form').addEventListener('submit', calculate)
 
 function calculate(e){
       e.preventDefault();
-      const addr=document.location.href;
+      const addr=document.location.href; //as event listener added no data transfer through address bar possible, have to collect data in form different way.
       let payload = addr.split("?");
       payload=payload[1].split("#")
       payload = payload[0].split("&");
