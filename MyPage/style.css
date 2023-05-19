@@ -403,7 +403,7 @@ button:active{
       box-shadow: inset 2px 2px 5px grey, 2px 2px 5px rgb(214, 214, 214) ;
 }
 output{
-      color: red;
+      color: rgb(141, 8, 8);
       font-size: 900;
       font-size: 36px;
       line-height: 40px;

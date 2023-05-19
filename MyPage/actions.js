@@ -196,40 +196,67 @@ function getData(){
 
 document.querySelector('form').addEventListener('submit', calculate)
 
+
+// shortcuts to form fields data
+     
+
 function calculate(e){
       e.preventDefault();
-      const addr=document.location.href; //as event listener added no data transfer through address bar possible, have to collect data in form different way.
-      let payload = addr.split("?");
-      payload=payload[1].split("#")
-      payload = payload[0].split("&");
-      const request = {};
-      payload.forEach(element => {
-            console.log(element);
-            el = element.split("=");
-            let prop = el[0]
-            let value = el[1]
-            console.log(el);
-            request[prop] = value;
-      });
       
-      console.log(request);
+      // this code was used when data from form was taken out of address bar:
+      // 
+      // const addr=document.location.href; 
+      // let payload = addr.split("?");
+      // payload=payload[1].split("#")
+      // payload = payload[0].split("&");
+      // const request = {};
+      // payload.forEach(element => {
+      //       console.log(element);
+      //       el = element.split("=");
+      //       let prop = el[0]
+      //       let value = el[1]
+      //       console.log(el);
+      //       request[prop] = value;
+      // });
+
+      const pageType = document.querySelector("[name=page-type]").value;
+      const pageQnt = document.querySelector("[name=pages_qnt]").value;
+      
+      const sliders = document.querySelector("[name=sliders]").checked;
+      const slidersQnt = document.querySelector("[name=sliders_qnt]").value;
+      const adminPanel = document.querySelector("[name=admin_panel]").checked;
+      const animation = document.querySelector("[name=animation]").checked;
+      const animationQnt = document.querySelector("[name=animation_qnt]").value;
+      const dataForm = document.querySelector("[name=data_form]").checked;
+      const data_formQnt = document.querySelector("[name=data_form_qnt]").value;
+      const editing = document.querySelector("[name=editing]").checked;
+      const menu = document.querySelector("[name=menu]").checked;
+      const menuQnt = document.querySelector("[name=menu_qnt]").value;
+      const paralax = document.querySelector("[name=paralax]").checked;
+      const paralaxQnt = document.querySelector("[name=paralax_qnt]").value;
+      const registration = document.querySelector("[name=registration]").checked;
+      
+
       
       let sum = 0;
-      if (request["page-type"] === "simple") sum = sum +20;
-      if (request["page-type"] === "landing") sum = sum +30;
-      if (request["page-type"] === "SPA") sum = sum +50;
+      if (pageType === "simple") sum = 20;
+      if (pageType === "landing") sum = 30;
+      if (pageType === "SPA") sum = 50;
       
-      if(request["pages_qnt"] > 0) sum = sum*request["pages_qnt"];
+      if(pageQnt > 0) sum = sum*pageQnt;
+      if (sliders == true) sum += (slidersQnt * 5);
 
-      if (request["admin_panel"] === "on") sum = sum + 50;
-      if (request["animation"] === "on") sum = sum + ( 5 * request["animation_qnt"]);
-      if (request["data_form"] === "on") sum = sum + ( 30 * request["data_form_qnt"]);
-      if (request["editing"] === "on") sum = sum + 50;
-      if (request["menu"] === "on") sum = sum + ( 10 * request["menu_qnt"]);
-      if (request["paralax"] === "on") sum = sum + ( 5 * request["paralax_qnt"]);
-      if (request["registration"] === "on") sum = sum + ( 30 * request["sliders_qnt"]);
-      if (request["sliders"] === "on") sum = sum + ( 5 * request["sliders_qnt"]);
+      if (adminPanel === true) sum = sum + 50;
+      if (animation) sum = sum + ( 5 * animationQnt);
+
+      if (dataForm === true) sum = sum + ( 30 * data_formQnt);
+      if (editing === true) sum = sum + 50;
+      if (menu === true) sum = sum + ( 10 * menuQnt);
+      if (paralax === true) sum = sum + ( 5 * paralaxQnt);
+      if (registration === true) sum = sum + ( 30 * slidersQnt);
+      
 
       let output = document.getElementsByTagName("output");
-      output[0].innerHTML=`According your request price could be about ${sum} EUR`;
+      output[0].innerHTML=`Approximate price is <br/><span style="color:red">${sum} EUR</span> <br /><br />Note, that the more complex request gives the more inaccurate calcultation.<br/><br/>For accurate price please constact directly.` ;
+      
 }
