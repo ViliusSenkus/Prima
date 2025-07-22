@@ -2,11 +2,11 @@
 # Prima
 My main repository for study and self intended projects. 
 
-At a moment it is just an ideas and scratches for bigger projects plus files gathering for portfolio.
+Now it's mostly an ideas and scratches for bigger projects.
 
 My info
-- 👋 Hi, I’m @Vil-ux
-- 👀 I’m interested in programming, photo and football (i.e. soccer)
-- 🌱 I’m currently looking forward to change my carrier to programmer (fullstack preferable)
-- 💞️ I’m looking to collaborate on any software projects.
+- 👋 Hi, I’m full stack developer with most experience in js, notheless I worked with c#, java, php, python projects and have used different frameworks of these languages.
+- 🌱 Currently I'm working on ServiceNow platform.
+- 👀 I’m interested in programming, traveling and photography.
+- 💞️ I’m looking to collaborate with you on any software projects.
 - 📫 
