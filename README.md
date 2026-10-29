@@ -2,7 +2,7 @@
 # Prima
 My main repository for study and self intended projects. 
 
-At a moment it is just an ideas and scratches for bigger projects plus files gathering for portfolio.
+At a moment it is just an old ideas and scratches for bigger projects plus files gathering for portfolio.
 
 My info
 - 👋 Hi, I’m @Vil-ux
