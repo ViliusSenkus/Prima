@@ -1,1 +1,6 @@
 .env
+
+# Claude Code (tik lokaliai)
+CLAUDE.md
+CLAUDE.local.md
+.claude/
