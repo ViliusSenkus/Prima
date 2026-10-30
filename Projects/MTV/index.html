@@ -1,381 +1,125 @@
 <!doctype html>
 <html lang="lt">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MTV Top 20 naršyklė</title>
-<style>
-:root{--bg:#1c110a;--panel:#2b1a0f;--panel2:#3a2414;--line:#6b4424;--text:#f7e9cf;--muted:#c4a27a;--accent:#ff5a00;--accent2:#ffe600;--pink:#ff2e93;--cyan:#19e0e0;
---impact:Impact,'Arial Narrow Bold','Haettenschweiler',sans-serif;}
-*{box-sizing:border-box}
-body{margin:0;background-color:var(--bg);color:var(--text);font:14px/1.4 'Trebuchet MS',Verdana,system-ui,sans-serif;
-background-image:radial-gradient(rgba(255,140,40,.10) 1.2px,transparent 1.6px),radial-gradient(rgba(0,0,0,.25) 1px,transparent 1.5px);background-size:9px 9px,9px 9px;background-position:0 0,4px 4px}
-header{padding:10px 20px;border-bottom:5px solid var(--accent2);display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:sticky;top:0;background:#000;z-index:5;box-shadow:0 5px 0 var(--pink)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo .m{font:900 38px/1 var(--impact);background:var(--accent2);color:#000;padding:2px 10px 0;transform:rotate(-4deg);border:3px solid #000;box-shadow:4px 4px 0 var(--pink);letter-spacing:1px}
-.logo .t{font:400 34px/1 var(--impact);color:var(--accent);text-transform:uppercase;letter-spacing:2px;text-shadow:3px 3px 0 #000,4px 4px 0 var(--accent2);transform:rotate(1.5deg)}
-.logo .t small{font:700 12px var(--impact);color:var(--cyan);letter-spacing:3px;display:block;text-shadow:none;margin-top:3px}
-h1{margin:0}
-.tabs button{background:#000;color:var(--accent2);border:2px solid var(--accent2);padding:6px 14px;cursor:pointer;font:400 16px var(--impact);text-transform:uppercase;letter-spacing:1px}
-.tabs button:last-child{border-left:0}
-.tabs button.on{background:var(--accent2);color:#000}
-#stats{color:var(--cyan);margin-left:auto;font:400 16px var(--impact);letter-spacing:1px;text-transform:uppercase}
-.wrap{display:grid;grid-template-columns:290px 1fr;gap:0;min-height:calc(100vh - 100px)}
-aside{padding:16px;border-right:4px solid var(--accent);background:linear-gradient(var(--panel),#1a0e06);overflow:auto}
-aside h3{margin:18px 0 6px;font:400 17px var(--impact);text-transform:uppercase;letter-spacing:1.5px;color:#000;background:var(--accent2);display:inline-block;padding:1px 8px;transform:rotate(-1.5deg)}
-aside h3:first-child{margin-top:0}
-aside h3:nth-of-type(even){background:var(--pink);color:#fff}
-label{display:block;margin:6px 0 2px;color:var(--muted);font-size:12px}
-input[type=text],input[type=date],input[type=number],select{width:100%;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:0;padding:6px 8px;font:inherit}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.chk{display:flex;gap:8px;align-items:center;margin:6px 0;color:var(--text)}
-.btn{background:var(--panel2);color:var(--text);border:2px solid var(--line);border-radius:0;padding:6px 10px;cursor:pointer;font:inherit}
-.btn:hover{border-color:var(--accent2);color:var(--accent2)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn.sm{padding:2px 7px;font-size:12px}
-.btn.danger:hover{border-color:#ff5555;color:#ff7777}
-main{padding:16px 20px;min-width:0}
-.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
-.bar select{width:auto}
-.pager{margin-left:auto;display:flex;gap:6px;align-items:center;color:var(--muted)}
-table{width:100%;border-collapse:collapse}
-th{position:sticky;top:70px;background:#000;text-align:left;font:400 15px var(--impact);text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);padding:8px;border-bottom:3px solid var(--accent2);cursor:pointer;user-select:none;white-space:nowrap;z-index:3}
-th.on{color:var(--accent2)}
-th:hover{color:var(--cyan)}
-td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
-tr:hover td{background:rgba(255,230,0,.07)}
-tr.dh td{background:var(--accent);color:#000;font:400 22px var(--impact);letter-spacing:2px;padding:6px 12px;border:0;text-transform:uppercase;text-shadow:2px 2px 0 var(--accent2)}
-tr.dh td small{font:700 12px var(--impact);letter-spacing:2px;color:#000;margin-left:12px;text-shadow:none}
-.rank{font:400 26px var(--impact);width:62px;text-align:center;color:var(--text)}
-.rank.r1{color:#000;background:var(--accent2);text-shadow:none;clip-path:polygon(50% 0,61% 20%,85% 15%,80% 38%,100% 50%,80% 62%,85% 85%,61% 80%,50% 100%,39% 80%,15% 85%,20% 62%,0 50%,20% 38%,15% 15%,39% 20%)}
-.rank.r3{color:var(--pink)}
-tr:hover td.rank.r1{background:var(--accent2)}
-.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.title{font:400 20px var(--impact);letter-spacing:.8px;text-transform:uppercase;color:var(--text)}.artist{color:var(--cyan);font:400 22px var(--impact);text-transform:uppercase;letter-spacing:1.2px;text-shadow:2px 2px 0 #000}
-.dt{display:inline-block;white-space:nowrap;background:#000;color:var(--accent2);border:2px solid var(--accent2);padding:2px 9px;font:400 17px var(--impact);letter-spacing:1.5px;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--pink)}
-.dt i{font-style:normal;color:var(--pink);margin:0 1px}
-.thumbs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-width:130px}
-.th{position:relative;width:120px;height:68px;border-radius:0;overflow:hidden;background:#000;border:3px solid var(--accent2);box-shadow:3px 3px 0 var(--pink);flex:none}
-.th a{display:block;width:100%;height:100%}
-.th img{width:100%;height:100%;object-fit:cover;display:block}
-.th .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;text-shadow:0 0 6px #000;opacity:.85;pointer-events:none}
-.th .x{position:absolute;top:2px;right:2px;background:rgba(0,0,0,.75);color:#fff;border:0;border-radius:50%;width:20px;height:20px;line-height:18px;cursor:pointer;font-size:13px;padding:0;display:none}
-.th:hover .x{display:block}
-.th .x:hover{background:#d33}
-.none{color:var(--muted);font-size:12px}
-.add{display:flex;gap:4px;margin-top:2px}
-.add input{width:150px;padding:3px 6px;font-size:12px}
-.hide{display:none}
-.chips{display:flex;gap:4px;flex-wrap:wrap}
-.chip{background:#000;border:2px solid var(--cyan);color:var(--cyan);padding:1px 9px;font:400 14px var(--impact);letter-spacing:1px;cursor:pointer}
-.chip:hover{background:var(--cyan);color:#000}
-.mini{font-size:11px;color:var(--muted)}
-details{margin-top:6px}
-summary{cursor:pointer;color:var(--muted);font-size:12px}
-.empty{padding:40px;text-align:center;color:var(--muted)}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker{background:var(--accent2);color:#000;overflow:hidden;white-space:nowrap;border-bottom:3px solid #000;font:400 15px var(--impact);letter-spacing:2px;text-transform:uppercase}
-.ticker div{display:inline-block;padding:3px 0;animation:mq 40s linear infinite}
-.ticker span{margin:0 18px}.ticker b{color:var(--pink)}
-@media(max-width:860px){.wrap{grid-template-columns:1fr}aside{border-right:0;border-bottom:4px solid var(--accent)}th{top:0}.logo .t{font-size:24px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MTV Top 20 naršyklė</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
-  <h1 class="logo"><span class="m">MTV</span><span class="t">Brown Top 20<small>★ 1989 – 2009 ★ geriausi klipai ★</small></span></h1>
-  <div class="tabs">
-    <button id="tabWeeks" class="on">Savaitės</button><button id="tabSongs">Dainos</button>
-  </div>
-  <div id="stats"></div>
-</header>
-<div class="ticker"><div id="tick"></div></div>
-<div class="wrap">
-<aside>
-  <h3>Paieška</h3>
-  <input type="text" id="q" placeholder="Atlikėjas arba daina…">
-
-  <h3>Vieta (reitingas)</h3>
-  <div class="row2">
-    <div><label>Nuo</label><input type="number" id="rMin" min="1" max="20" value="1"></div>
-    <div><label>Iki</label><input type="number" id="rMax" min="1" max="20" value="20"></div>
-  </div>
-  <div class="chips" style="margin-top:6px">
-    <span class="chip" data-r="1,1">#1</span><span class="chip" data-r="1,3">Top 3</span><span class="chip" data-r="1,5">Top 5</span><span class="chip" data-r="1,10">Top 10</span><span class="chip" data-r="1,20">Visi</span>
-  </div>
-  <div class="mini" id="rankHint" style="margin-top:4px"></div>
-
-  <h3>Laikotarpis</h3>
-  <div class="row2">
-    <div><label>Nuo</label><input type="date" id="dMin"></div>
-    <div><label>Iki</label><input type="date" id="dMax"></div>
-  </div>
-  <label>Metai</label>
-  <select id="year"><option value="">Visi</option></select>
-  <label>Dešimtmetis</label>
-  <select id="decade"><option value="">Visi</option></select>
-  <label>Mėnuo</label>
-  <select id="month"><option value="">Visi</option></select>
-
-  <h3>Atlikėjas</h3>
-  <select id="artist"><option value="">Visi</option></select>
-
-  <h3>Dainos rodikliai</h3>
-  <div class="row2">
-    <div><label>Savaičių nuo</label><input type="number" id="wMin" min="1" placeholder="1"></div>
-    <div><label>Savaičių iki</label><input type="number" id="wMax" min="1"></div>
-  </div>
-  <div class="mini">Taikoma „Dainos“ rodiniui (skaičiuojama pagal pasirinktus filtrus).</div>
-
-  <h3>Nuorodos</h3>
-  <select id="linkF">
-    <option value="">Visos dainos</option>
-    <option value="has">Tik su YouTube nuoroda</option>
-    <option value="no">Tik be nuorodos</option>
-  </select>
-
-  <h3>Rodymas</h3>
-  <div class="chk"><input type="checkbox" id="showThumbs" checked><label style="margin:0;color:var(--text)" for="showThumbs">Rodyti miniatiūras</label></div>
-
-  <h3>Veiksmai</h3>
-  <div style="display:flex;gap:6px;flex-wrap:wrap">
-    <button class="btn" id="reset">Išvalyti filtrus</button>
-  </div>
-  <details>
-    <summary>Mano nuorodos: eksportas / importas</summary>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
-      <button class="btn sm" id="exp">Eksportuoti JSON</button>
-      <button class="btn sm" id="imp">Importuoti JSON</button>
-      <button class="btn sm danger" id="clearLinks">Atstatyti nuorodas</button>
+  <header>
+    <h1 class="logo"><img class="logo-img" id="logoImg" src="img/logo-all.png" alt="MTV"><img class="braun" src="img/braun.png" alt="Braun"><span class="t">European Top 20<small>★ BEST 1989 – 2009 MUSIC ★</small></span></h1>
+    <div class="tabs">
+      <button id="tabWeeks" class="on">Topai</button><button id="tabSongs">Dainos</button>
     </div>
-    <input type="file" id="impFile" accept=".json" class="hide">
-    <div class="mini" style="margin-top:6px">Nuorodos saugomos šioje naršyklėje (localStorage). Originalūs duomenys (data.js) nekeičiami.</div>
-  </details>
-</aside>
-
-<main>
-  <div class="bar">
-    <label style="margin:0">Rūšiuoti:</label>
-    <select id="sortBy"></select>
-    <select id="sortDir"><option value="asc">↑ didėjančiai</option><option value="desc">↓ mažėjančiai</option></select>
-    <select id="pageSize"><option>50</option><option selected>100</option><option>250</option><option>500</option></select>
-    <div class="pager">
-      <button class="btn sm" id="prev">‹</button><span id="pinfo"></span><button class="btn sm" id="next">›</button>
+    <div class="themebox">
+      <label for="theme">Stilius</label>
+      <select id="theme">
+        <option value="">Visas laikotarpis (1989–2009)</option>
+        <option value="classic">Braun Top 20 Classic (1990–1994)</option>
+        <option value="grunge">90s Grunge &amp; Cable TV (1995–1999)</option>
+        <option value="y2k">Y2K Futuristic Top 20 (2000–2004)</option>
+        <option value="pop">Late 00s Pop Gloss (2005–2009)</option>
+      </select>
     </div>
+  </header>
+  <div class="ticker">
+    <div id="tick"></div>
   </div>
-  <div id="out"></div>
-</main>
-</div>
+  <div class="wrap">
+    <aside>
+      <h3>Vieta (reitingas)</h3>
+      <div class="row2">
+        <div><label>Nuo</label><input type="number" id="rMin" min="1" max="20" value="1"></div>
+        <div><label>Iki</label><input type="number" id="rMax" min="1" max="20" value="20"></div>
+      </div>
+      <div class="chips">
+        <span class="chip" data-r="1,1">#1</span><span class="chip" data-r="1,3">Top 3</span><span class="chip"
+          data-r="1,5">Top 5</span><span class="chip" data-r="1,10">Top 10</span><span class="chip"
+          data-r="1,20">Visi</span>
+      </div>
+      <div class="mini" id="rankHint"></div>
 
-<script src="data.js"></script>
-<script>
-(function(){
-const D=window.MTV_DATA, SONGS=D.songs, ENT=D.entries;
-const $=id=>document.getElementById(id);
-const MONTHS=['Sausis','Vasaris','Kovas','Balandis','Gegužė','Birželis','Liepa','Rugpjūtis','Rugsėjis','Spalis','Lapkritis','Gruodis'];
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      <h3>Laikotarpis</h3>
+      <div class="row2">
+        <div><label>Nuo</label><input type="date" id="dMin"></div>
+        <div><label>Iki</label><input type="date" id="dMax"></div>
+      </div>
+      <label>Metai</label>
+      <select id="year">
+        <option value="">Visi</option>
+      </select>
+      <label>Dešimtmetis</label>
+      <select id="decade">
+        <option value="">Visi</option>
+      </select>
+      <label>Mėnuo</label>
+      <select id="month">
+        <option value="">Visi</option>
+      </select>
 
-/* ---------- nuorodos (CSV + vartotojo) ---------- */
-const LS='mtv_links_v1';
-let U={added:{},removed:{}}; // added[songIdx]=[url...], removed[songIdx]=[url...] (paslėptos CSV nuorodos)
-try{const s=JSON.parse(localStorage.getItem(LS));if(s&&s.added&&s.removed)U=s;}catch(e){}
-function save(){try{localStorage.setItem(LS,JSON.stringify(U));}catch(e){alert('Nepavyko išsaugoti nuorodų naršyklėje.');}}
-function ytId(u){const m=String(u).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:null;}
-function linksOf(i){
-  const out=[]; const rem=U.removed[i]||[];
-  const b=SONGS[i][2];
-  if(b&&!rem.includes(b))out.push({url:b,base:true});
-  (U.added[i]||[]).forEach(u=>out.push({url:u,base:false}));
-  return out;
-}
-function hasLink(i){return linksOf(i).length>0;}
-function addLink(i,url){
-  url=url.trim(); if(!url)return;
-  if(!/^https?:\/\//i.test(url)){if(ytId(url)&&url.length===11)url='https://www.youtube.com/watch?v='+url;else url='https://'+url;}
-  if(!ytId(url)){if(!confirm('Nuoroda neatrodo kaip YouTube video – vis tiek pridėti?'))return;}
-  if(linksOf(i).some(l=>l.url===url))return;
-  const rem=U.removed[i]; if(rem&&rem.includes(url)){U.removed[i]=rem.filter(x=>x!==url);}
-  else{(U.added[i]=U.added[i]||[]).push(url);}
-  save();
-}
-function removeLink(i,url){
-  if(!confirm('Ištrinti šią nuorodą?'))return;
-  if(U.added[i]&&U.added[i].includes(url)){U.added[i]=U.added[i].filter(x=>x!==url);if(!U.added[i].length)delete U.added[i];}
-  else{(U.removed[i]=U.removed[i]||[]).push(url);}
-  save();
-}
+      <h3>Dainos rodikliai</h3>
+      <div class="row2">
+        <div><label>Savaičių nuo</label><input type="number" id="wMin" min="1" placeholder="1"></div>
+        <div><label>Savaičių iki</label><input type="number" id="wMax" min="1"></div>
+      </div>
+      <div class="mini">Taikoma „Dainos“ rodiniui (skaičiuojama pagal pasirinktus filtrus).</div>
 
-/* ---------- pagalbiniai duomenys ---------- */
-const years=[...new Set(ENT.map(e=>e[0].slice(0,4)))].sort();
-const decades=[...new Set(years.map(y=>y.slice(0,3)+'0'))];
-const artists=[...new Set(SONGS.map(s=>s[0]))].sort((a,b)=>a.localeCompare(b,'en',{sensitivity:'base'}));
-const minDate=ENT.reduce((a,e)=>e[0]<a?e[0]:a,'9'),maxDate=ENT.reduce((a,e)=>e[0]>a?e[0]:a,'0');
-years.forEach(y=>$('year').add(new Option(y,y)));
-decades.forEach(d=>$('decade').add(new Option(d+'-ieji',d)));
-MONTHS.forEach((m,i)=>$('month').add(new Option(m,String(i+1).padStart(2,'0'))));
-artists.forEach(a=>$('artist').add(new Option(a,a)));
-$('dMin').min=$('dMax').min=minDate;$('dMin').max=$('dMax').max=maxDate;
+      <h3>Nuorodos</h3>
+      <select id="linkF">
+        <option value="">Visos dainos</option>
+        <option value="has">Tik su YouTube nuoroda</option>
+        <option value="no">Tik be nuorodos</option>
+      </select>
 
-/* ---------- būsena ---------- */
-let view='weeks',page=0,sortBy='date',sortDir='desc';
-const COLS={
-  songs:[['rankBest','Geriausia vieta','asc'],['title','Daina','asc'],['artist','Atlikėjas','asc'],['weeks','Savaičių','desc'],['avg','Vid. vieta','asc'],['wk1','Savaičių #1','desc'],['first','Pirmą kartą','asc'],['last','Paskutinį kartą','asc'],['peakDate','Geriausios vietos data','asc'],['links','Video','desc']],
-  weeks:[['date','Data','desc'],['rank','Vieta','asc'],['title','Daina','asc'],['artist','Atlikėjas','asc'],['links','Video','desc']]
-};
-function fillSort(){
-  const s=$('sortBy');s.innerHTML='';COLS[view].forEach(c=>s.add(new Option(c[1],c[0])));
-  if(!COLS[view].some(c=>c[0]===sortBy)){sortBy=view==='songs'?'weeks':'date';sortDir='desc';}
-  s.value=sortBy;$('sortDir').value=sortDir;
-}
+      <h3>Veiksmai</h3>
+      <div class="actions">
+        <button class="btn" id="reset">Išvalyti filtrus</button>
+      </div>
 
-/* ---------- filtravimas ---------- */
-function filtered(){
-  const q=$('q').value.trim().toLowerCase();
-  const rMin=+$('rMin').value||1,rMax=+$('rMax').value||20;
-  const dMin=$('dMin').value,dMax=$('dMax').value,y=$('year').value,dec=$('decade').value,mo=$('month').value,ar=$('artist').value;
-  const terms=q?q.split(/\s+/):[];
-  const hay=SONGS.map(s=>(s[0]+' '+s[1]).toLowerCase());
-  return ENT.filter(e=>{
-    if(e[1]<rMin||e[1]>rMax)return false;
-    const d=e[0];
-    if(dMin&&d<dMin)return false; if(dMax&&d>dMax)return false;
-    if(y&&d.slice(0,4)!==y)return false;
-    if(dec&&d.slice(0,3)+'0'!==dec)return false;
-    if(mo&&d.slice(5,7)!==mo)return false;
-    const s=SONGS[e[2]];
-    if(ar&&s[0]!==ar)return false;
-    for(const t of terms)if(!hay[e[2]].includes(t))return false;
-    return true;
-  });
-}
-function cmp(a,b){return typeof a==='string'?a.localeCompare(b,'en',{sensitivity:'base'}):a-b;}
-function render(){
-  const rows=filtered();
-  const linkF=$('linkF').value;
-  let data;
-  if(view==='weeks'){
-    data=rows.filter(e=>linkF===''||(linkF==='has')===hasLink(e[2])).map(e=>({date:e[0],rank:e[1],idx:e[2],title:SONGS[e[2]][1],artist:SONGS[e[2]][0],links:linksOf(e[2]).length}));
-  }else{
-    const m=new Map();
-    for(const e of rows){
-      let o=m.get(e[2]);
-      if(!o){o={idx:e[2],title:SONGS[e[2]][1],artist:SONGS[e[2]][0],weeks:0,sum:0,rankBest:99,wk1:0,first:e[0],last:e[0],peakDate:e[0]};m.set(e[2],o);}
-      o.weeks++;o.sum+=e[1];if(e[1]===1)o.wk1++;
-      if(e[0]<o.first)o.first=e[0];if(e[0]>o.last)o.last=e[0];
-      if(e[1]<o.rankBest||(e[1]===o.rankBest&&e[0]<o.peakDate)){o.rankBest=e[1];o.peakDate=e[0];}
-    }
-    data=[...m.values()];
-    const wMin=+$('wMin').value||0,wMax=+$('wMax').value||1e9;
-    data=data.filter(o=>o.weeks>=wMin&&o.weeks<=wMax&&(linkF===''||(linkF==='has')===hasLink(o.idx)));
-    data.forEach(o=>{o.avg=o.sum/o.weeks;o.links=linksOf(o.idx).length;});
-  }
-  const dir=sortDir==='asc'?1:-1;
-  data.sort((a,b)=>{let c=cmp(a[sortBy],b[sortBy]);if(c!==0)return c*dir;
-    if(view==='weeks')return (sortBy==='date'?(a.rank-b.rank)*-dir:cmp(b.date,a.date)||a.rank-b.rank)||cmp(a.artist,b.artist);
-    return cmp(a.artist,b.artist)||cmp(a.title,b.title);});
-  const ps=+$('pageSize').value,pages=Math.max(1,Math.ceil(data.length/ps));
-  if(page>=pages)page=pages-1;
-  const slice=data.slice(page*ps,page*ps+ps);
-  $('pinfo').textContent=`${page+1} / ${pages}`;
-  $('prev').disabled=page===0;$('next').disabled=page>=pages-1;
-  $('stats').textContent=view==='songs'?`${data.length} dainų · ${rows.length} įrašų`:`${data.length} įrašų`;
-  $('rankHint').textContent=`Vietos ${$('rMin').value||1}–${$('rMax').value||20}`;
-  draw(slice);
-}
-function thumbsHtml(i){
-  const L=linksOf(i);const show=$('showThumbs').checked;
-  let h='<div class="thumbs">';
-  L.forEach(l=>{
-    const id=ytId(l.url);
-    const inner=(show&&id)?`<img loading="lazy" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt=""><span class="play">▶</span>`:`<span style="display:flex;height:100%;align-items:center;justify-content:center;font-size:12px;padding:4px;text-align:center">▶ ${id?'YouTube':'nuoroda'}</span>`;
-    h+=`<div class="th${l.base?' base':''}"><a href="${esc(l.url)}" target="_blank" rel="noopener" title="${esc(l.url)}">${inner}</a><button class="x" data-del="${i}" data-url="${esc(l.url)}" title="Ištrinti nuorodą">×</button></div>`;
-  });
-  if(!L.length)h+='<span class="none">nėra</span>';
-  h+=`</div><div class="add"><input type="text" placeholder="+ YouTube nuoroda" data-add="${i}"><button class="btn sm" data-addbtn="${i}">+</button><a class="btn sm" style="text-decoration:none;color:inherit" target="_blank" rel="noopener" title="Ieškoti YouTube" href="https://www.youtube.com/results?search_query=${encodeURIComponent(SONGS[i][0]+' '+SONGS[i][1])}">🔍</a></div>`;
-  return h;
-}
-function dfmt(d){const p=d.split('-');return `<span class="dt">${p[0]}<i>·</i>${p[1]}<i>·</i>${p[2]}</span>`;}
-function draw(rows){
-  if(!rows.length){$('out').innerHTML='<div class="empty">Pagal šiuos filtrus nieko nerasta.</div>';return;}
-  const cols=COLS[view];
-  let h='<table><thead><tr>';
-  cols.forEach(c=>{h+=`<th data-k="${c[0]}" class="${c[0]===sortBy?'on':''}">${c[1]}${c[0]===sortBy?(sortDir==='asc'?' ↑':' ↓'):''}</th>`;});
-  h+='</tr></thead><tbody>';
-  let lastD=null;
-  for(const o of rows){
-    if(view==='weeks'&&sortBy==='date'&&o.date!==lastD){lastD=o.date;h+=`<tr class="dh"><td colspan="${cols.length}">★ ${o.date}<small>MTV TOP 20 SAVAITĖ</small></td></tr>`;}
-    h+='<tr>';
-    if(view==='songs'){
-      h+=`<td class="rank ${o.rankBest===1?'r1':o.rankBest<=3?'r3':''}">${o.rankBest}</td><td class="title">${esc(o.title)}</td><td class="artist">${esc(o.artist)}</td><td class="num">${o.weeks}</td><td class="num">${o.avg.toFixed(1)}</td><td class="num">${o.wk1||'–'}</td><td>${dfmt(o.first)}</td><td>${dfmt(o.last)}</td><td>${dfmt(o.peakDate)}</td><td>${thumbsHtml(o.idx)}</td>`;
-    }else{
-      h+=`<td>${dfmt(o.date)}</td><td class="rank ${o.rank===1?'r1':o.rank<=3?'r3':''}">${o.rank}</td><td class="title">${esc(o.title)}</td><td class="artist">${esc(o.artist)}</td><td>${thumbsHtml(o.idx)}</td>`;
-    }
-    h+='</tr>';
-  }
-  $('out').innerHTML=h+'</tbody></table>';
-}
+      <h3>Mano nuorodos</h3>
+      <div class="actions">
+        <button class="btn" id="saveLinks">Išsaugoti nuorodas</button>
+      </div>
+      <div class="mini" id="saveHint">Pridėtos YouTube nuorodos saugomos faile links.js. Paspaudus mygtuką failas parsiunčiamas – įdėkite jį į MTV aplanką (pakeiskite esamą) ir perkraukite puslapį. Originalūs duomenys (data.js) nekeičiami.</div>
+    </aside>
 
-/* ---------- įvykiai ---------- */
-function go(){page=0;render();}
-['q','rMin','rMax','dMin','dMax','year','decade','month','artist','wMin','wMax','linkF','showThumbs'].forEach(id=>{
-  $(id).addEventListener(id==='q'||id.endsWith('Min')||id.endsWith('Max')?'input':'change',go);
-});
-// metai/dešimtmetis/mėnuo ir tikslus datų intervalas nesikerta – kai pasirenkami metai, išvalom datų lauką
-['year','decade'].forEach(id=>$(id).addEventListener('change',()=>{$('dMin').value='';$('dMax').value='';}));
-['dMin','dMax'].forEach(id=>$(id).addEventListener('input',()=>{$('year').value='';$('decade').value='';}));
-document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
-  const [a,b]=c.dataset.r.split(',');$('rMin').value=a;$('rMax').value=b;go();
-}));
-$('sortBy').addEventListener('change',e=>{sortBy=e.target.value;sortDir=(COLS[view].find(c=>c[0]===sortBy)||[])[2]||'asc';$('sortDir').value=sortDir;go();});
-$('sortDir').addEventListener('change',e=>{sortDir=e.target.value;go();});
-$('pageSize').addEventListener('change',go);
-$('prev').onclick=()=>{page--;render();window.scrollTo(0,0);};
-$('next').onclick=()=>{page++;render();window.scrollTo(0,0);};
-function setView(v){view=v;$('tabSongs').classList.toggle('on',v==='songs');$('tabWeeks').classList.toggle('on',v==='weeks');
-  sortBy=v==='songs'?'weeks':'date';sortDir='desc';fillSort();page=0;render();}
-$('tabSongs').onclick=()=>setView('songs');$('tabWeeks').onclick=()=>setView('weeks');
-$('reset').onclick=()=>{
-  ['q','dMin','dMax','year','decade','month','artist','wMin','wMax','linkF'].forEach(id=>$(id).value='');
-  $('rMin').value=1;$('rMax').value=20;go();
-};
-$('out').addEventListener('click',e=>{
-  const t=e.target.closest('th');
-  if(t){const k=t.dataset.k;if(sortBy===k)sortDir=sortDir==='asc'?'desc':'asc';else{sortBy=k;sortDir=COLS[view].find(c=>c[0]===k)[2];}
-    $('sortBy').value=sortBy;$('sortDir').value=sortDir;page=0;render();return;}
-  const d=e.target.closest('[data-del]');
-  if(d){removeLink(+d.dataset.del,d.dataset.url);render();return;}
-  const a=e.target.closest('[data-addbtn]');
-  if(a){const i=+a.dataset.addbtn;const inp=document.querySelector(`input[data-add="${i}"]`);addLink(i,inp.value);render();}
-});
-$('out').addEventListener('keydown',e=>{
-  if(e.key==='Enter'&&e.target.dataset.add!==undefined){addLink(+e.target.dataset.add,e.target.value);render();}
-});
-$('exp').onclick=()=>{
-  const out={};const idx=new Set([...Object.keys(U.added),...Object.keys(U.removed)]);
-  idx.forEach(i=>{out[i]={artist:SONGS[i][0],title:SONGS[i][1],added:U.added[i]||[],removed:U.removed[i]||[]};});
-  const b=new Blob([JSON.stringify({version:1,links:out},null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mtv-nuorodos.json';a.click();
-};
-$('imp').onclick=()=>$('impFile').click();
-$('impFile').addEventListener('change',e=>{
-  const f=e.target.files[0];if(!f)return;
-  f.text().then(t=>{
-    try{
-      const j=JSON.parse(t);const key=new Map(SONGS.map((s,i)=>[s[0]+'\u0000'+s[1],i]));let n=0;
-      Object.values(j.links||{}).forEach(o=>{
-        const i=key.get(o.artist+'\u0000'+o.title);if(i===undefined)return;
-        (o.added||[]).forEach(u=>{if(!(U.added[i]||[]).includes(u)){(U.added[i]=U.added[i]||[]).push(u);n++;}});
-        (o.removed||[]).forEach(u=>{if(!(U.removed[i]||[]).includes(u)){(U.removed[i]=U.removed[i]||[]).push(u);}});
-      });
-      save();render();alert('Importuota nuorodų: '+n);
-    }catch(err){alert('Nepavyko nuskaityti failo.');}
-  });e.target.value='';
-});
-$('clearLinks').onclick=()=>{if(confirm('Atstatyti nuorodas į pradinę būseną (iš CSV)? Jūsų pridėtos nuorodos bus pašalintos.')){U={added:{},removed:{}};save();render();}};
+    <main>
+      <div class="bar">
+        <label>Rūšiuoti:</label>
+        <select id="sortBy"></select>
+        <select id="sortDir">
+          <option value="asc">↑ didėjančiai</option>
+          <option value="desc">↓ mažėjančiai</option>
+        </select>
+        <select id="pageSize">
+          <option>50</option>
+          <option selected>100</option>
+          <option>250</option>
+          <option>500</option>
+        </select>
+        <div class="pager">
+          <button class="btn sm" id="prev">‹</button><span id="pinfo"></span><button class="btn sm" id="next">›</button>
+        </div>
+      </div>
+      <div id="out">
+        <table>
+          <thead>
+            <tr id="hrow"></tr>
+            <tr id="frow"></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty hide" id="empty">Pagal šiuos filtrus nieko nerasta.</div>
+      </div>
+    </main>
+  </div>
 
-(function(){const t=['Visos laikų 90-ųjų hitai','Top 20 savaitė po savaitės','Spausk ant antraštės – rūšiuok','Pridėk savo YouTube klipą','Naujausia #1 viršuje'];
-  const s=t.map(x=>'<span>'+x+'</span><b>★</b>').join('');$('tick').innerHTML=s+s+s+s;})();
-fillSort();render();
-})();
-</script>
+  <script src="data.js"></script>
+  <script src="links.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>

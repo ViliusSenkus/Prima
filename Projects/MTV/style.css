@@ -1,0 +1,785 @@
+:root {
+  --bg: #1c110a;
+  --panel: #2b1a0f;
+  --panel2: #3a2414;
+  --line: #6b4424;
+  --text: #f7e9cf;
+  --muted: #c4a27a;
+  --accent: #ff5a00;
+  --accent2: #ffe600;
+  --pink: #ff2e93;
+  --cyan: #19e0e0;
+  --ink: #000;
+  --artist: #19e0e0;
+  --songc: #f7e9cf;
+  --dt: #ffe600;
+  --impact: Impact, 'Arial Narrow Bold', 'Haettenschweiler', sans-serif;
+}
+
+/* ---------- stiliai pagal laikotarpį (JS nustato body[data-theme]) ---------- */
+
+/* 1990–1994: Braun Top 20 Classic */
+body[data-theme="classic"] {
+  --bg: #4a3b32;
+  --panel: #3b2f28;
+  --panel2: #5a493f;
+  --line: #7d6a5e;
+  --text: #c0c0c0;
+  --muted: #a89f98;
+  --accent: #c0c0c0;
+  --accent2: #ffe600;
+  --pink: #ff2a2a;
+  --cyan: #ffe600;
+  --ink: #1a1a1a;
+  --artist: #ffe600;
+  --songc: #c0c0c0;
+  --dt: #ffe600;
+}
+
+/* 1995–1999: 90s Grunge & Cable TV */
+body[data-theme="grunge"] {
+  --bg: #3d2a1d;
+  --panel: #54276f;
+  --panel2: #2e1f15;
+  --line: #6b4a35;
+  --text: #eaeaea;
+  --muted: #b9a79a;
+  --accent: #e65100;
+  --accent2: #82c91e;
+  --pink: #9a4fc4;
+  --cyan: #eaeaea;
+  --ink: #1f140d;
+  --artist: #eaeaea;
+  --songc: #82c91e;
+  --dt: #82c91e;
+}
+
+/* 2000–2004: Y2K Futuristic Top 20 */
+body[data-theme="y2k"] {
+  --bg: #0b132b;
+  --panel: #101b3d;
+  --panel2: #17285a;
+  --line: #2c418a;
+  --text: #ffffff;
+  --muted: #9fb0e0;
+  --accent: #c29b38;
+  --accent2: #00f0ff;
+  --pink: #d800a6;
+  --cyan: #00f0ff;
+  --ink: #060b1a;
+  --artist: #00f0ff;
+  --songc: #ffffff;
+  --dt: #00f0ff;
+  background-image: linear-gradient(180deg, #0b132b, #1a2a66 55%, #0b132b);
+  background-size: auto;
+  background-attachment: fixed;
+}
+
+/* 2005–2009: Late 00s Pop Gloss */
+body[data-theme="pop"] {
+  --bg: #2b1e1a;
+  --panel: #241915;
+  --panel2: #3a2a24;
+  --line: #5e463c;
+  --text: #f0f4f8;
+  --muted: #bfa89e;
+  --accent: #ff1493;
+  --accent2: #ffc700;
+  --pink: #ff1493;
+  --cyan: #00d2d3;
+  --ink: #1a110e;
+  --artist: #ff1493;
+  --songc: #f0f4f8;
+  --dt: #00d2d3;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 'Trebuchet MS', Verdana, system-ui, sans-serif;
+  background-image: radial-gradient(rgba(255, 140, 40, .10) 1.2px, transparent 1.6px), radial-gradient(rgba(0, 0, 0, .25) 1px, transparent 1.5px);
+  background-size: 9px 9px, 9px 9px;
+  background-position: 0 0, 4px 4px
+}
+
+header {
+  padding: 10px 20px;
+  border-bottom: 5px solid var(--accent2);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--ink);
+  z-index: 5;
+  box-shadow: 0 5px 0 var(--pink)
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.logo .t {
+  font: 400 34px/1 var(--impact);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0 var(--ink), 4px 4px 0 var(--accent2);
+  transform: rotate(1.5deg)
+}
+
+.logo .t small {
+  font: 700 12px var(--impact);
+  color: var(--cyan);
+  letter-spacing: 3px;
+  display: block;
+  text-shadow: none;
+  margin-top: 3px
+}
+
+/* MTV logotipas (keičiasi pagal pasirinktą stilių) */
+.logo-img {
+  display: block;
+  height: 64px;
+  width: auto
+}
+
+/* Braun užrašas: juodas PNG paverčiamas baltu tamsiame antraštės fone */
+.braun {
+  height: 34px;
+  width: auto;
+  filter: invert(1)
+}
+
+h1 {
+  margin: 0
+}
+
+.tabs button {
+  background: var(--ink);
+  color: var(--accent2);
+  border: 2px solid var(--accent2);
+  padding: 6px 14px;
+  cursor: pointer;
+  font: 400 16px var(--impact);
+  text-transform: uppercase;
+  letter-spacing: 1px
+}
+
+.tabs button:last-child {
+  border-left: 0
+}
+
+.tabs button.on {
+  background: var(--accent2);
+  color: var(--ink)
+}
+
+.themebox {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.themebox label {
+  margin: 0;
+  color: var(--cyan);
+  font: 400 16px var(--impact);
+  letter-spacing: 1px;
+  text-transform: uppercase
+}
+
+.themebox select {
+  width: auto;
+  max-width: 320px
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 100px)
+}
+
+aside {
+  padding: 16px;
+  border-right: 4px solid var(--accent);
+  background: linear-gradient(var(--panel), var(--ink));
+  overflow: auto
+}
+
+aside h3 {
+  margin: 18px 0 6px;
+  font: 400 17px var(--impact);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--ink);
+  background: var(--accent2);
+  display: inline-block;
+  padding: 1px 8px;
+  transform: rotate(-1.5deg)
+}
+
+aside h3:first-child {
+  margin-top: 0
+}
+
+aside h3:nth-of-type(even) {
+  background: var(--pink);
+  color: #fff
+}
+
+label {
+  display: block;
+  margin: 6px 0 2px;
+  color: var(--muted);
+  font-size: 12px
+}
+
+input[type=text],
+input[type=date],
+input[type=number],
+select {
+  width: 100%;
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 6px 8px;
+  font: inherit
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap
+}
+
+details .actions,
+details .mini {
+  margin-top: 6px
+}
+
+#rankHint {
+  margin-top: 4px
+}
+
+.btn {
+  background: var(--panel2);
+  color: var(--text);
+  border: 2px solid var(--line);
+  border-radius: 0;
+  padding: 6px 10px;
+  cursor: pointer;
+  font: inherit
+}
+
+.btn:hover {
+  border-color: var(--accent2);
+  color: var(--accent2)
+}
+
+.btn:disabled {
+  opacity: .4;
+  cursor: default
+}
+
+.btn:disabled:hover {
+  border-color: var(--line);
+  color: var(--text)
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff
+}
+
+.btn.sm {
+  padding: 2px 7px;
+  font-size: 12px
+}
+
+.btn.dirty {
+  border-color: var(--pink);
+  color: var(--accent2)
+}
+
+main {
+  padding: 16px 20px;
+  min-width: 0
+}
+
+.bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px
+}
+
+.bar label {
+  margin: 0
+}
+
+.bar select {
+  width: auto
+}
+
+.pager {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted)
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse
+}
+
+thead {
+  position: sticky;
+  top: 70px;
+  z-index: 3
+}
+
+th {
+  background: var(--ink);
+  text-align: left;
+  font: 400 15px var(--impact);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--accent);
+  padding: 8px 8px 2px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap
+}
+
+th.on {
+  color: var(--accent2)
+}
+
+th:hover {
+  color: var(--cyan)
+}
+
+/* filtrų eilutė iš karto po stulpelių pavadinimais */
+td.f {
+  background: var(--ink);
+  padding: 2px 8px 8px;
+  border-bottom: 3px solid var(--accent2)
+}
+
+td.f input,
+td.f select {
+  padding: 4px 6px;
+  font-size: 13px;
+  min-width: 90px
+}
+
+td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle
+}
+
+tbody tr:hover td {
+  background: rgba(255, 230, 0, .07)
+}
+
+tr.dh td {
+  background: var(--accent);
+  color: var(--ink);
+  font: 400 22px var(--impact);
+  letter-spacing: 2px;
+  padding: 6px 12px;
+  border: 0;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--accent2)
+}
+
+tr.dh td small {
+  font: 700 12px var(--impact);
+  letter-spacing: 2px;
+  color: var(--ink);
+  margin-left: 12px;
+  text-shadow: none
+}
+
+.rank {
+  font: 400 26px var(--impact);
+  width: 62px;
+  text-align: center;
+  color: var(--text)
+}
+
+.rank.r1 {
+  color: var(--ink);
+  background: var(--accent2);
+  text-shadow: none;
+  clip-path: polygon(50% 0, 61% 20%, 85% 15%, 80% 38%, 100% 50%, 80% 62%, 85% 85%, 61% 80%, 50% 100%, 39% 80%, 15% 85%, 20% 62%, 0 50%, 20% 38%, 15% 15%, 39% 20%)
+}
+
+.rank.r3 {
+  color: var(--pink)
+}
+
+tbody tr:hover td.rank.r1 {
+  background: var(--accent2)
+}
+
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap
+}
+
+.title {
+  font: 400 20px var(--impact);
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--songc)
+}
+
+.artist {
+  color: var(--artist);
+  font: 400 22px var(--impact);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-shadow: 2px 2px 0 var(--ink)
+}
+
+.dt {
+  display: inline-block;
+  white-space: nowrap;
+  background: var(--ink);
+  color: var(--dt);
+  border: 2px solid var(--dt);
+  padding: 2px 9px;
+  font: 400 17px var(--impact);
+  letter-spacing: 1.5px;
+  transform: rotate(-2deg);
+  box-shadow: 3px 3px 0 var(--pink)
+}
+
+.dt i {
+  font-style: normal;
+  color: var(--pink);
+  margin: 0 1px
+}
+
+.thumbs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 130px
+}
+
+.th {
+  position: relative;
+  width: 120px;
+  height: 68px;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--ink);
+  border: 3px solid var(--accent2);
+  box-shadow: 3px 3px 0 var(--pink);
+  flex: none
+}
+
+.th a {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+.th img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block
+}
+
+.th .play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0 0 6px #000;
+  opacity: .85;
+  pointer-events: none
+}
+
+.th .lnk {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 4px;
+  text-align: center
+}
+
+.th .x {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(0, 0, 0, .75);
+  color: #fff;
+  border: 0;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+  display: none
+}
+
+.th:hover .x {
+  display: block
+}
+
+.th .x:hover {
+  background: #d33
+}
+
+/* TV grotuvas */
+.tv-back {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(0, 0, 0, .78);
+  opacity: 0;
+  transition: opacity .45s ease
+}
+
+.tv-back.open {
+  opacity: 1
+}
+
+.tv {
+  position: fixed;
+  z-index: 91;
+  box-sizing: border-box;
+  padding: 0;
+  background: linear-gradient(145deg, var(--panel2), var(--ink));
+  border: 3px solid var(--accent2);
+  border-radius: 0;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: left .45s cubic-bezier(.2, .8, .2, 1), top .45s cubic-bezier(.2, .8, .2, 1), width .45s cubic-bezier(.2, .8, .2, 1), height .45s cubic-bezier(.2, .8, .2, 1), padding .45s ease, border-radius .45s ease, box-shadow .45s ease
+}
+
+.tv.open {
+  padding: 12px 12px 40px;
+  border-radius: 18px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, .8), 6px 6px 0 var(--pink)
+}
+
+.tv-screen {
+  width: 100%;
+  height: 100%;
+  background: #000 center / cover;
+  border-radius: 6px;
+  overflow: hidden
+}
+
+.tv-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity .3s
+}
+
+.tv.ready .tv-screen iframe {
+  opacity: 1
+}
+
+.tv-bar {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity .3s
+}
+
+.tv.open .tv-bar {
+  opacity: 1
+}
+
+.tv-bar a {
+  margin-left: auto;
+  color: var(--accent2);
+  font-size: 13px
+}
+
+.tv-led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 8px var(--pink)
+}
+
+.tv-x {
+  background: var(--accent);
+  color: var(--ink);
+  border: 0;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 14px
+}
+
+.tv-x:hover {
+  background: #d33;
+  color: #fff
+}
+
+.none {
+  color: var(--muted);
+  font-size: 12px
+}
+
+.add {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px
+}
+
+.add input {
+  width: 150px;
+  padding: 3px 6px;
+  font-size: 12px
+}
+
+.add a.btn {
+  text-decoration: none;
+  color: inherit
+}
+
+.hide {
+  display: none
+}
+
+.chips {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 6px
+}
+
+.chip {
+  background: var(--ink);
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  padding: 1px 9px;
+  font: 400 14px var(--impact);
+  letter-spacing: 1px;
+  cursor: pointer
+}
+
+.chip:hover {
+  background: var(--cyan);
+  color: var(--ink)
+}
+
+.mini {
+  font-size: 11px;
+  color: var(--muted)
+}
+
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--muted)
+}
+
+@keyframes mq {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(-50%)
+  }
+}
+
+.ticker {
+  background: var(--accent2);
+  color: var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 3px solid var(--ink);
+  font: 400 15px var(--impact);
+  letter-spacing: 2px;
+  text-transform: uppercase
+}
+
+.ticker div {
+  display: inline-block;
+  padding: 3px 0;
+  animation: mq 40s linear infinite
+}
+
+.ticker span {
+  margin: 0 18px
+}
+
+.ticker b {
+  color: var(--pink)
+}
+
+@media(max-width:860px) {
+  .wrap {
+    grid-template-columns: 1fr
+  }
+
+  aside {
+    border-right: 0;
+    border-bottom: 4px solid var(--accent)
+  }
+
+  thead {
+    top: 0
+  }
+
+  .logo .t {
+    font-size: 24px
+  }
+
+  .themebox {
+    margin-left: 0
+  }
+}
